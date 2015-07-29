@@ -14,10 +14,10 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome back, <?php echo $_SESSION['user_name']; ?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="index.php">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
+                <li><a href="index.php"><i class="fa fa-television"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="index.php?logout">Logout</a></li>
+                <li><a href="index.php?logout"><i class="fa fa-sign-out"></i> Logout</a></li>
               </ul>
             </li>
             <li><a></a></li>
