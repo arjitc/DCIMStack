@@ -10,7 +10,7 @@ function rackspace_available() {
 	} else {
 	    $rack_size_sum = "0";
 	}
-	$conn->close();
+
 	$sql = "SELECT SUM(rack_used) AS rack_used_sum FROM `rackspace`";
 	$result = $conn->query($sql);
 
@@ -21,7 +21,7 @@ function rackspace_available() {
 	} else {
 	    $rack_used_sum = "0";
 	}
-	$conn->close();
+
 	$rackspace_available = $rack_size_sum - $rack_used_sum;
 	return $rackspace_available;
 } 
