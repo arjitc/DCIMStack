@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DCIMStack</title>
-    <?php include 'libraries/css.php'; ?>
+    <?php 
+	    include 'libraries/css.php'; 
+	    include_once 'libraries/dashboard_stats.php';
+    ?>
   </head>
 
   <body>
@@ -20,24 +23,24 @@
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h3><?php echo rackspace_available(); ?>U</h3>
               <h4>Rackspace available</h4>
-              <span class="text-muted">Individual U's of rackspace free</span>
+              <span class="text-muted">Individual U's of rackspace not in-use</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h3><?php echo rackspace_used(); ?>U</h3>
               <h4>Rackspace used</h4>
               <span class="text-muted">Individual U's of rackspace in-used</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Hardware available</h4>
-              <span class="text-muted">Individual pieces of hardware free</span>
+              <span class="text-muted">Individual hardware not in-use</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Hardware used</h4>
-              <span class="text-muted">Individual pieces of hardware in-use</span>
+              <span class="text-muted">Individual hardware in-use</span>
             </div>
           </div>
 
