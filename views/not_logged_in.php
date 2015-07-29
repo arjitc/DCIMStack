@@ -41,9 +41,9 @@
                         ?>
                         <!-- login form box -->
                         <form method="post" action="index.php" id="loginform">
-                            <input id="login_input_username" class="form-control" type="text" name="user_name" required>
+                            <input id="login_input_username" class="form-control" type="text" name="user_name" placeholder="Username" required>
                             <div style='padding-bottom:5px;'></div>
-                            <input id="login_input_password" class="form-control" type="password" name="user_password" autocomplete="off" required>
+                            <input id="login_input_password" class="form-control" type="password" name="user_password" autocomplete="off" placeholder="Password" required>
                         </form>
                     </div>
                     <div class="panel-footer">
