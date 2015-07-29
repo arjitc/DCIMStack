@@ -12,7 +12,7 @@
   <ul class="nav nav-sidebar">
     <li class="dropdown-header">Rackspace</li>
     <?php 
-    if(get_filename_from_url()=="manage_rackspace.php") {
+    if(get_filename_from_url()=="manage_rackspace.php" OR get_filename_from_url()=="rackspace.php") {
       echo "<li class='active'><a href='manage_rackspace.php'>Manage Rackspace</a></li>";
     } else {
       echo "<li><a href='manage_rackspace.php'>Manage Rackspace</a></li>";
