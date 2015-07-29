@@ -21,25 +21,7 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li class="dropdown-header">Rackspace</li>
-            <li><a href="">Manage Rackspace</a></li>
-            <li><a href="">Add Rackspace</a></li>
-            <hr>
-            <li class="dropdown-header">Hardware</li>
-            <li><a href="">Manage Hardware</a></li>
-            <li><a href="">Add Hardware</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul>
-        </div>
+        <?php include 'libraries/sidebar.php'; ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Dashboard</h1>
 
