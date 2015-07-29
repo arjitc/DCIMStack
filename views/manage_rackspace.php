@@ -25,7 +25,8 @@
           if ($result->num_rows > 0) {
               echo "<table class='table table-striped'><tr><th>Rack Name</th><th>Rack Size</th><th>Rack Location</th><th>Manage</th></tr>";
               while($row = $result->fetch_assoc()) {
-                echo "<tr><td>".$row["rack_name"]."</td><td>".$row["rack_size"]."U</td><td>".$row["rack_city"] .", ". $row["rack_country"]."</td><td>Manage</td></tr>";
+                $id = $row["id"];
+                echo "<tr><td>".$row["rack_name"]."</td><td>".$row["rack_size"]."U</td><td>".$row["rack_city"] .", ". $row["rack_country"]."</td><td><a href='rackspace.php?id=$id'>Manage</a></td></tr>";
               }
           } else {
               echo "No Rackspace found. You may need to <a href='add_rackspace.php'>add it into DCIMStack first</a>.";
