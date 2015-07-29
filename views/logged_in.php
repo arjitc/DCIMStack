@@ -30,7 +30,7 @@
             <div class="col-xs-6 col-sm-3 placeholder">
               <h3><?php echo rackspace_used(); ?>U</h3>
               <h4>Rackspace used</h4>
-              <span class="text-muted">Individual U's of rackspace in-used</span>
+              <span class="text-muted">Individual U's of rackspace in-use</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
