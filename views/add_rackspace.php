@@ -18,6 +18,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Add Rackspace</h1>
           <span class="text-muted">New Rackspace can be added into DCIMStack using the form below.</span>
+          <?php include 'libraries/alerts.php'; ?>
           <hr>
           <form method="post" action="add_rackspace_db.php" class="form-horizontal">
             <div class="form-group">
