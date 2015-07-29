@@ -24,6 +24,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <center><h1><i class="fa fa-database"></i> StackDCIM</h1></center>
+                        <hr>
                         <?php
                         // show potential errors / feedback (from login object)
                         if (isset($login)) {
