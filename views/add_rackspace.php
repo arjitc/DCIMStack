@@ -21,13 +21,13 @@
           <hr>
           <form method="post" action="add_rackspace_db.php" class="form-horizontal">
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+              <label for="rack_name" class="col-sm-2 control-label">Name</label>
               <div class="col-sm-10">
                 <input type="text" name="rack_name" class="form-control" placeholder="Let's name your rack" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">Rack Size</label>
+              <label for="rack_size" class="col-sm-2 control-label">Rack Size</label>
               <div class="col-sm-10">
                 <select class="form-control" name="rack_size">
                   <?php
@@ -39,13 +39,13 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">City</label>
+              <label for="rack_city" class="col-sm-2 control-label">City</label>
               <div class="col-sm-10">
                 <input type="text" name="rack_city" class="form-control" placeholder="Which City is your rack in?" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">Country</label>
+              <label for="rack_country" class="col-sm-2 control-label">Country</label>
               <div class="col-sm-10">
                 <input type="text" name="rack_country" class="form-control" placeholder="Which Country is your rack in?" required>
               </div>
