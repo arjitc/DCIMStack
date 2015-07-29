@@ -34,7 +34,7 @@
                                     echo "<div class='alert alert-success alert-dismissible' role='alert'>";
                                         echo "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
                                         echo "<center>$message</center>";
-                                    echo "</div>";;
+                                    echo "</div>";
                                 }
                             }
                         }
