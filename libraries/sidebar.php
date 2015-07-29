@@ -25,8 +25,18 @@
     ?>
     <hr>
     <li class="dropdown-header">Hardware</li>
-    <li><a href="">Manage Hardware</a></li>
-    <li><a href="">Add Hardware</a></li>
+    <?php 
+    if(get_filename_from_url()=="manage_hardware.php") {
+      echo "<li class='active'><a href='manage_hardware.php'>Manage Hardware</a></li>";
+    } else {
+      echo "<li><a href='manage_hardware.php'>Manage Hardware</a></li>";
+    }
+    if(get_filename_from_url()=="add_hardware.php") {
+      echo "<li class='active'><a href='add_hardware.php'>Add Hardware</a></li>";
+    } else {
+      echo "<li><a href='add_hardware.php'>Add Hardware</a></li>";
+    }
+    ?>
   </ul>
   <ul class="nav nav-sidebar">
     <li><a href="">Nav item again</a></li>
