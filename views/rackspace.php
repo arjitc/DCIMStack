@@ -76,6 +76,39 @@ check_if_rack_exists($_GET['id']);
             </div>
           </div>
           <hr>
+          <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active"><a href="#overview" data-toggle="tab"><i class="fa fa-television"></i> Overview</a></li>
+            <li><a href="#servers" data-toggle="tab"><i class="fa fa-server"></i> Servers</a></li>
+            <li><a href="#network" data-toggle="tab"><i class="fa fa-exchange"></i> Network</a></li>
+            <li><a href="#power_management" data-toggle="tab"><i class="fa fa-battery-full"></i> Power Management</a></li>
+            <li><a href="#inventory" data-toggle="tab"><i class="fa fa-archive"></i> Inventory</a></li>
+          </ul>
+          <div id="my-tab-content" class="tab-content">
+              <div class="tab-pane active" id="overview">
+                  <h1>Overview</h1>
+                  <hr>
+              </div>
+              <div class="tab-pane" id="servers">
+                  <h1>Servers</h1>
+                  <hr>
+                  <p>orange orange orange orange orange</p>
+              </div>
+              <div class="tab-pane" id="network">
+                  <h1>Network</h1>
+                  <hr>
+                  <p>yellow yellow yellow yellow yellow</p>
+              </div>
+              <div class="tab-pane" id="power_management">
+                  <h1>Power Management</h1>
+                  <hr>
+                  <p>green green green green green</p>
+              </div>
+              <div class="tab-pane" id="inventory">
+                  <h1>Inventory</h1>
+                  <hr>
+                  <p>blue blue blue blue blue</p>
+              </div>
+          </div>
         </div>
       </div>
     </div>
