@@ -26,7 +26,20 @@
               echo "<table class='table table-striped'><tr><th>Rack Name</th><th>Rack Size</th><th>Rack Location</th><th>Manage</th></tr>";
               while($row = $result->fetch_assoc()) {
                 $id = $row["id"];
-                echo "<tr><td>".$row["rack_name"]."</td><td>".$row["rack_size"]."U</td><td>".$row["rack_city"] .", ". $row["rack_country"]."</td><td><a href='rackspace.php?id=$id'>Manage</a></td></tr>";
+                echo "<tr><td>".$row["rack_name"]."</td><td>".$row["rack_size"]."U</td><td>".$row["rack_city"] .", ". $row["rack_country"]."</td><td>
+                <div class='btn-group'>
+                  <a href='rackspace.php?id=$id' class='btn btn-primary' role='button'>Manage</a>
+                  <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                    <span class='caret'></span>
+                    <span class='sr-only'>Toggle Dropdown</span>
+                  </button>
+                  <ul class='dropdown-menu'>
+                    <li><a href='#'><i class='fa fa-wrench'></i> Modify</a></li>
+                    <li role='separator' class='divider'></li>
+                    <li><a href='#'><i class='fa fa-trash-o'></i> Delete</a></li>
+                  </ul>
+                </div>
+              </td></tr>";
               }
           } else {
               echo "No Rackspace found. You may need to <a href='add_rackspace.php'>add it into DCIMStack first</a>.";
