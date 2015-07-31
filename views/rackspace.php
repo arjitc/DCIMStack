@@ -85,29 +85,68 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
           </ul>
           <div id="my-tab-content" class="tab-content">
               <div class="tab-pane active" id="overview">
-                  <h1>Overview</h1>
+                  <h3>Overview</h3>
                   <hr>
 
               </div>
               <div class="tab-pane" id="servers">
-                  <h1>Servers</h1>
+                  <h3>Servers</h3>
                   <hr>
                   
               </div>
               <div class="tab-pane" id="network">
-                  <h1>Network</h1>
+                  <h3>Network</h3>
                   <hr>
                   
               </div>
               <div class="tab-pane" id="power_management">
-                  <h1>Power Management</h1>
+                  <h3>Power Management</h3>
                   <hr>
                   
               </div>
               <div class="tab-pane" id="inventory">
-                  <h1>Inventory</h1>
+                  <h3>Inventory</h3>
                   <hr>
-                  
+                  <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                    <li class="active"><a href="#hdd" data-toggle="tab"><i class="fa fa-hdd-o"></i> HDDs</a></li>
+                    <li><a href="#raid_cards" data-toggle="tab"><i class="fa fa-keyboard-o"></i> RAID Cards</a></li>
+                    <li><a href="#cables" data-toggle="tab"><i class="fa fa-random"></i> Cables</a></li>
+                    <li><a href="#networking_gear" data-toggle="tab"><i class="fa fa-arrows"></i> Networking Gear</a></li>
+                    <li><a href="#pdu" data-toggle="tab"><i class="fa fa-plug"></i> PDUs</a></li>
+                    <li><a href="#other" data-toggle="tab"><i class="fa fa-question"></i> Other</a></li>
+                  </ul>
+                  <div id="my-tab-content" class="tab-content">
+                      <div class="tab-pane active" id="hdd">
+                          <h3>HDDs</h3>
+                          <hr>
+
+                      </div>
+                      <div class="tab-pane" id="raid_cards">
+                          <h3>RAID Cards</h3>
+                          <hr>
+                          
+                      </div>
+                      <div class="tab-pane" id="cables">
+                          <h3>Cables</h3>
+                          <hr>
+                          
+                      </div>
+                      <div class="tab-pane" id="networking_gear">
+                          <h3>Networking Gear</h3>
+                          <hr>
+                          
+                      </div>
+                      <div class="tab-pane" id="pdu">
+                          <h3>PDUs</h3>
+                          <hr>
+                          
+                      </div>
+                      <div class="tab-pane" id="other">
+                          <h1>Other</h1>
+                          <hr>
+                          
+                      </div>
+                  </div>
               </div>
           </div>
         </div>
