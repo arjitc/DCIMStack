@@ -1,7 +1,7 @@
 <?php
 include 'libraries/general.php';
 include 'config/db.php';
-check_if_rack_exists($_GET['id']);
+check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack does not exist it redirects the user back to index.php
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,26 +87,27 @@ check_if_rack_exists($_GET['id']);
               <div class="tab-pane active" id="overview">
                   <h1>Overview</h1>
                   <hr>
+
               </div>
               <div class="tab-pane" id="servers">
                   <h1>Servers</h1>
                   <hr>
-                  <p>orange orange orange orange orange</p>
+                  
               </div>
               <div class="tab-pane" id="network">
                   <h1>Network</h1>
                   <hr>
-                  <p>yellow yellow yellow yellow yellow</p>
+                  
               </div>
               <div class="tab-pane" id="power_management">
                   <h1>Power Management</h1>
                   <hr>
-                  <p>green green green green green</p>
+                  
               </div>
               <div class="tab-pane" id="inventory">
                   <h1>Inventory</h1>
                   <hr>
-                  <p>blue blue blue blue blue</p>
+                  
               </div>
           </div>
         </div>
