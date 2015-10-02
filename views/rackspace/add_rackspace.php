@@ -32,10 +32,31 @@
               <div class="col-sm-10">
                 <select class="form-control" name="rack_size">
                   <?php
-                  for($i=1;$i<=42;$i++) {
+                  for($i=1;$i<=48;$i++) {
                     echo "<option value='$i'>".$i."U</option>";
                   }
                   ?>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="rack_size" class="col-sm-2 control-label">Power</label>
+              <div class="col-sm-10">
+                <select class="form-control" name="rack_power">
+                  <?php
+                  for($i=1;$i<=80;$i++) {
+                    echo "<option value='$i'>".$i."A</option>";
+                  }
+                  ?>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="rack_size" class="col-sm-2 control-label">Voltage</label>
+              <div class="col-sm-10">
+                <select class="form-control" name="rack_voltage">
+                  <option value="120V">120V</option>
+                  <option value="208V">208V</option>
                 </select>
               </div>
             </div>
