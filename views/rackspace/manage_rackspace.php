@@ -21,18 +21,18 @@
           <?php
           $sql = "SELECT * FROM `rackspace`";
           $result = $conn->query($sql);
-
           if ($result->num_rows > 0) {
-              echo "<table class='table table-striped'><tr><th>Rack Name</th><th>Rack Size</th><th>Rack Location</th><th>Power/Voltage</th><th>Manage</th></tr>";
+              echo "<table class='table table-striped'><tr><th>Rack Name</th><th>Used / Available</th><th><i class='fa fa-map-marker'></i></th><th><i class='fa fa-battery-full'></i></th><th>Manage</th></tr>";
               while($row = $result->fetch_assoc()) {
-                $id           = $row["id"];
-                $rack_name    = $row["rack_name"];
-                $rack_size    = $row["rack_size"]."U";
-                $rack_city    = $row["rack_city"];
-                $rack_country = $row["rack_country"];
-                $rack_voltage = $row["rack_voltage"]."V";
-                $rack_power   = $row["rack_power"]==0?"0A":$row['rack_power']."A";
-                echo "<tr><td>$rack_name</td><td>$rack_size</td><td>$rack_city,$rack_country</td><td>$rack_power/$rack_voltage</td><td>
+                $id             = $row["id"];
+                $rack_name      = $row["rack_name"];
+                $rack_size      = $row["rack_size"]."U";
+                $rack_size_used = $row["rack_size_used"]."U";
+                $rack_city      = $row["rack_city"];
+                $rack_country   = $row["rack_country"];
+                $rack_voltage   = $row["rack_voltage"]."V";
+                $rack_power     = $row["rack_power"]==0?"0A":$row['rack_power']."A";
+                echo "<tr><td>$rack_name</td><td>$rack_size_used / $rack_size</td><td>$rack_city,$rack_country</td><td>$rack_power/$rack_voltage</td><td>
                 <div class='btn-group'>
                   <a href='rackspace.php?id=$id' class='btn btn-primary' role='button'>Manage</a>
                   <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>

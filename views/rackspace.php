@@ -48,7 +48,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
               if ($result->num_rows > 0) {
                   // output data of each row
                   while($row = $result->fetch_assoc()) {
-                      echo "<center><h2>".$row["rack_used"]."U</h2></center>";
+                      echo "<center><h2>".$row["rack_size_used"]."U</h2></center>";
                   }
               } else {
                   echo "<center><h2>0U</h2></center>";
