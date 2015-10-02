@@ -86,27 +86,23 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
           <div id="my-tab-content" class="tab-content">
               <div class="tab-pane active" id="overview">
                   <h3>Overview</h3>
-                  <hr>
 
               </div>
               <div class="tab-pane" id="servers">
                   <h3>Servers</h3>
-                  <hr>
                   
               </div>
               <div class="tab-pane" id="network">
                   <h3>Network</h3>
-                  <hr>
                   
               </div>
               <div class="tab-pane" id="power_management">
                   <h3>Power Management</h3>
-                  <hr>
+
                   
               </div>
               <div class="tab-pane" id="inventory">
                   <h3>Inventory</h3>
-                  <hr>
                   <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
                     <li class="active"><a href="#hdd" data-toggle="tab"><i class="fa fa-hdd-o"></i> HDDs</a></li>
                     <li><a href="#raid_cards" data-toggle="tab"><i class="fa fa-keyboard-o"></i> RAID Cards</a></li>
