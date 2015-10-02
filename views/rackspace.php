@@ -25,7 +25,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
           <div class="row">
             <div class="col-md-4">
               <?php
-              $id = (int)$_GET['id'];
+              $id  = mysqli_real_escape_string($conn, (int)$_GET['id']);
               $sql = "SELECT * FROM `rackspace` WHERE `id`='$id'";
               $result = $conn->query($sql);
               if ($result->num_rows > 0) {
@@ -42,7 +42,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
             </div>
             <div class="col-md-4">
               <?php
-              $id = (int)$_GET['id'];
+              $id  = mysqli_real_escape_string($conn, (int)$_GET['id']);
               $sql = "SELECT * FROM `rackspace` WHERE `id`='$id'";
               $result = $conn->query($sql);
               if ($result->num_rows > 0) {
@@ -59,7 +59,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
             </div>
             <div class="col-md-4">
               <?php
-              $id = (int)$_GET['id'];
+              $id  = mysqli_real_escape_string($conn, (int)$_GET['id']);
               $sql = "SELECT * FROM `servers` WHERE `server_rackid`='$id'";
               $result = $conn->query($sql);
               if ($result->num_rows > 0) {
