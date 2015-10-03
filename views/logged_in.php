@@ -46,23 +46,7 @@
           </div>
 
           <h2 class="sub-header">Events</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Type</th>
-                  <th>Message</th>
-                  <th>Status</th>
-                  <th>Timestamp</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php list_events_table(); //from libraries/events.php ?>
-              </tbody>
-            </table>
-          </div>
+            <?php list_events_table(); //from libraries/events.php ?>
         </div>
       </div>
     </div>

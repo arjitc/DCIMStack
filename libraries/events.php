@@ -15,6 +15,19 @@ function list_events_table() {
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 	    // output data of each row
+	    echo "<div class='table-responsive'>
+            <table class='table table-striped'>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Type</th>
+                  <th>Message</th>
+                  <th>Status</th>
+                  <th>Timestamp</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>";
 	    while($row = $result->fetch_assoc()) {
 	    	$id = $row["id"];
 	    	echo "<tr>";
@@ -26,16 +39,11 @@ function list_events_table() {
 	            echo "<td><a href='delete_event.php?id=$id&token=$token' class='confirmation'><i class='fa fa-times'></i></a></td>";
             echo "</tr>";
 	    }
+	    echo "</tbody>
+            </table>
+          </div>";
 	} else {
-	    echo "<tr>";
-	        echo "<td></td>";
-	        echo "<td></td>";
-	        echo "<td>No events found</td>";
-	        echo "<td></td>";
-        	echo "<td></td>";
-        echo "</tr>";
-	}
-                
+	    echo "<center>No events found</center>";
+	}     
 }
 ?>
-
