@@ -11,7 +11,7 @@ function rackspace_available() {
 	    $rack_size_sum = "0";
 	}
 
-	$sql = "SELECT SUM(rack_used) AS rack_used_sum FROM `rackspace`";
+	$sql = "SELECT SUM(rack_size_used) AS rack_used_sum FROM `rackspace`";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -28,7 +28,7 @@ function rackspace_available() {
 
 function rackspace_used() {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
-	$sql = "SELECT SUM(rack_used) AS rack_used_sum FROM `rackspace`";
+	$sql = "SELECT SUM(rack_size_used) AS rack_used_sum FROM `rackspace`";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
