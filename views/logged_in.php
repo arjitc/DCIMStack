@@ -55,6 +55,7 @@
                   <th>Message</th>
                   <th>Status</th>
                   <th>Timestamp</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
