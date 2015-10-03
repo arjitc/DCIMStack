@@ -8,7 +8,7 @@ $rack_country = mysqli_real_escape_string($conn, $_POST['rack_country']);
 $rack_power   = mysqli_real_escape_string($conn, $_POST['rack_power']);
 $rack_voltage = mysqli_real_escape_string($conn, $_POST['rack_voltage']);
 if(isset($rack_name, $rack_size, $rack_city, $rack_country, $rack_power, $rack_voltage)) {
-	$sql = "INSERT INTO `dcimstack`.`rackspace` (`id`, `rack_name`, `rack_size`, `rack_used`, `rack_power`, `rack_voltage`, `rack_city`, `rack_country`) 
+	$sql = "INSERT INTO `dcimstack`.`rackspace` (`id`, `rack_name`, `rack_size`, `rack_size_used`, `rack_power`, `rack_voltage`, `rack_city`, `rack_country`) 
 			VALUES (NULL, '$rack_name', '$rack_size', '$rack_used', '$rack_power', '$rack_voltage', '$rack_city', '$rack_country');";
 	if ($conn->query($sql) === TRUE) {
 		$event_type = "New Rackspace";
