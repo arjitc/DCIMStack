@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DCIMStack</title>
-    <?php include 'libraries/css.php'; ?>
+    <?php 
+    include 'libraries/css.php'; 
+    $token = md5(uniqid(rand(), TRUE));
+    $_SESSION['token'] = $token;
+    ?>
   </head>
 
   <body>
@@ -17,7 +21,7 @@
         <?php include 'libraries/sidebar.php'; ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Manage Rackspace</h1>
-
+          <?php include 'libraries/alerts.php'; ?>
           <?php
           $sql = "SELECT * FROM `rackspace`";
           $result = $conn->query($sql);
@@ -42,7 +46,7 @@
                   <ul class='dropdown-menu'>
                     <li><a href='#'><i class='fa fa-wrench'></i> Modify</a></li>
                     <li role='separator' class='divider'></li>
-                    <li><a href='#'><i class='fa fa-trash-o'></i> Delete</a></li>
+                    <li><a href='delete_rackspace.php?id=$id&token=$token' class='confirmation'><i class='fa fa-trash-o'></i> Delete</a></li>
                   </ul>
                 </div>
               </td></tr>";
