@@ -1,7 +1,7 @@
 <?php
 include 'config/db.php';
 include 'libraries/events.php';
-$user_name = $_SESSION['user_name'];
+$user_name    = mysqli_real_escape_string($conn, $_SESSION['user_name']);
 $password1    = mysqli_real_escape_string($conn, $_POST['password1']);
 $password2    = mysqli_real_escape_string($conn, $_POST['password2']);
 if(isset($password1, $password2) && $password1 == $password2) {
