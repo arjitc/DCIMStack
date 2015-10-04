@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DCIMStack</title>
-    <?php include 'libraries/css.php'; ?>
+    <?php 
+    include 'libraries/css.php'; 
+    $token = md5(uniqid(rand(), TRUE));
+    $_SESSION['token'] = $token;
+    ?>
   </head>
 
   <body>
@@ -24,6 +28,7 @@
             </div>
             <div class="panel-body">
               <form action="change_password_db.php" method="post">
+                <input type="hidden" name="token" value="<?php echo $token; ?>">
                 <input type="text" name="password1" placeholder="New password" class="form-control" required>
                 <div style="padding-bottom: 5px;"></div>
                 <input type="text" name="password2" placeholder="New password once again"  class="form-control" required>
