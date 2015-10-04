@@ -104,7 +104,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
               </div>
               <div class="tab-pane" id="inventory">
                   <ul id="tabs" class="nav nav-pills nav-justified" data-tabs="tabs">
-                    <li class="active"><a href="#hdd" data-toggle="tab"><i class="fa fa-hdd-o"></i> HDDs</a></li>
+                    <li><a href="#hdd" data-toggle="tab"><i class="fa fa-hdd-o"></i> HDDs</a></li>
                     <li><a href="#raid_cards" data-toggle="tab"><i class="fa fa-keyboard-o"></i> RAID Cards</a></li>
                     <li><a href="#cables" data-toggle="tab"><i class="fa fa-random"></i> Cables</a></li>
                     <li><a href="#networking_gear" data-toggle="tab"><i class="fa fa-arrows"></i> Networking Gear</a></li>
@@ -113,7 +113,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
                   </ul>
                   <hr>
                   <div id="my-tab-content" class="tab-content">
-                      <div class="tab-pane active" id="hdd">
+                      <div class="tab-pane" id="hdd">
                           <h3>HDDs</h3>
                           <hr>
 
