@@ -76,13 +76,14 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
             </div>
           </div>
           <hr>
-          <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+          <ul id="tabs" class="nav nav-pills nav-justified" data-tabs="tabs">
             <li class="active"><a href="#overview" data-toggle="tab"><i class="fa fa-television"></i> Overview</a></li>
             <li><a href="#servers" data-toggle="tab"><i class="fa fa-server"></i> Servers</a></li>
             <li><a href="#network" data-toggle="tab"><i class="fa fa-exchange"></i> Network</a></li>
             <li><a href="#power_management" data-toggle="tab"><i class="fa fa-battery-full"></i> Power Management</a></li>
             <li><a href="#inventory" data-toggle="tab"><i class="fa fa-archive"></i> Inventory</a></li>
           </ul>
+          <hr>
           <div id="my-tab-content" class="tab-content">
               <div class="tab-pane active" id="overview">
                   <h3>Overview</h3>
@@ -102,8 +103,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
                   
               </div>
               <div class="tab-pane" id="inventory">
-                  <h3>Inventory</h3>
-                  <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                  <ul id="tabs" class="nav nav-pills nav-justified" data-tabs="tabs">
                     <li class="active"><a href="#hdd" data-toggle="tab"><i class="fa fa-hdd-o"></i> HDDs</a></li>
                     <li><a href="#raid_cards" data-toggle="tab"><i class="fa fa-keyboard-o"></i> RAID Cards</a></li>
                     <li><a href="#cables" data-toggle="tab"><i class="fa fa-random"></i> Cables</a></li>
@@ -111,6 +111,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
                     <li><a href="#pdu" data-toggle="tab"><i class="fa fa-plug"></i> PDUs</a></li>
                     <li><a href="#other" data-toggle="tab"><i class="fa fa-question"></i> Other</a></li>
                   </ul>
+                  <hr>
                   <div id="my-tab-content" class="tab-content">
                       <div class="tab-pane active" id="hdd">
                           <h3>HDDs</h3>
@@ -138,7 +139,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
                           
                       </div>
                       <div class="tab-pane" id="other">
-                          <h1>Other</h1>
+                          <h3>Other</h3>
                           <hr>
                           
                       </div>
