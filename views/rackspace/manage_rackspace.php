@@ -44,7 +44,7 @@
                     <span class='sr-only'>Toggle Dropdown</span>
                   </button>
                   <ul class='dropdown-menu'>
-                    <li><a href='edit_rackspace.php?id=$id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><i class='fa fa-wrench'></i> Modify</a></li>
+                    <li><a href='modify_rackspace.php?id=$id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><i class='fa fa-wrench'></i> Modify</a></li>
                     <li role='separator' class='divider'></li>
                     <li><a href='delete_rackspace.php?id=$id&token=$token' class='confirmation'><i class='fa fa-trash-o'></i> Delete</a></li>
                   </ul>

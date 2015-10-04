@@ -1,8 +1,13 @@
+<?php
+include 'libraries/general.php';
+$id = $_GET['id'];
+check_if_rack_exists($id);
+?>
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title"><?php echo $_GET['id']; ?></h4>
+            <h4 class="modal-title">Edit <?php echo get_rack_name($id); ?></h4>
         </div>
         <div class="modal-body">
         </div>
