@@ -44,7 +44,7 @@
                     <span class='sr-only'>Toggle Dropdown</span>
                   </button>
                   <ul class='dropdown-menu'>
-                    <li><a href='#'><i class='fa fa-wrench'></i> Modify</a></li>
+                    <li><a href='edit_rackspace.php?id=$id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><i class='fa fa-wrench'></i> Modify</a></li>
                     <li role='separator' class='divider'></li>
                     <li><a href='delete_rackspace.php?id=$id&token=$token' class='confirmation'><i class='fa fa-trash-o'></i> Delete</a></li>
                   </ul>
@@ -63,5 +63,19 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <?php include 'libraries/js.php'; ?>
+    <script type="text/javascript">
+    $('[data-toggle="ajaxModal"]').on('click',
+              function(e) {
+                $('#ajaxModal').remove();
+                e.preventDefault();
+                var $this = $(this)
+                  , $remote = $this.data('remote') || $this.attr('href')
+                  , $modal = $('<div class="modal" id="ajaxModal"><div class="modal-body"></div></div>');
+                $('body').append($modal);
+                $modal.modal({backdrop: 'static', keyboard: false});
+                $modal.load($remote);
+              }
+            );
+    </script>
   </body>
 </html>
