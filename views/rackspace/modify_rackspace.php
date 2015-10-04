@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
             <h4 class="modal-title">Edit <?php echo get_rack_name($id); ?></h4>
         </div>
         <div class="modal-body">
-            <form method="post" id="modify_rack_form" action="add_rackspace_db.php" class="form-horizontal">
+            <form method="post" id="modify_rack_form" action="modify_rackspace_db.php" class="form-horizontal">
             <div class="form-group">
                 <label for="rack_name" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
@@ -86,7 +86,7 @@ if ($result->num_rows > 0) {
         </div>
         <div class="modal-footer">
             <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-            <button type="submit" form="modify_rack_form" class="btn btn-primary">Add Rack</button>
+            <button type="submit" form="modify_rack_form" class="btn btn-primary">Modify Rack</button>
         </form>
         </div>
     </div><!-- /.modal-content -->
