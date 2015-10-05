@@ -28,7 +28,16 @@
           $sql = "SELECT * FROM `rackspace`";
           $result = $conn->query($sql);
           if ($result->num_rows > 0) {
-              echo "<table class='table table-striped'><tr><th>Rack Name</th><th>Used / Available</th><th>Location</th><th><i class='fa fa-battery-full'></i></th><th>Manage</th></tr>";
+              echo "<table class='table table-striped'>
+              <thead>
+                <tr>
+                  <th>Rack Name</th>
+                  <th>Used / Available</th>
+                  <th>Location</th>
+                  <th><i class='fa fa-battery-full'></i></th>
+                  <th>Manage</th>
+                </tr>
+              </thead>";
               while($row = $result->fetch_assoc()) {
                 $id             = $row["id"];
                 $rack_name      = $row["rack_name"];

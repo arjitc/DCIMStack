@@ -1,5 +1,6 @@
 <?php
 include 'libraries/general.php';
+include 'libraries/dashboard_stats.php';
 include 'config/db.php';
 check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack does not exist it redirects the user back to index.php
 ?>
@@ -26,16 +27,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
             <div class="col-md-4">
               <?php
               $id  = mysqli_real_escape_string($conn, (int)$_GET['id']);
-              $sql = "SELECT * FROM `rackspace` WHERE `id`='$id'";
-              $result = $conn->query($sql);
-              if ($result->num_rows > 0) {
-                  // output data of each row
-                  while($row = $result->fetch_assoc()) {
-                      echo "<center><h2>".$row["rack_size"]."U</h2></center>";
-                  }
-              } else {
-                  echo "<center><h2>0U</h2></center>";
-              }
+              echo "<center><h2>".rackspace_available_rack($id)."U</h2></center>";
               echo "<center><h4>Rackspace available</h4></center>";
               echo "<center><span class='text-muted'>Individual U's of rackspace not in-use</span></center>";
               ?>
@@ -43,16 +35,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
             <div class="col-md-4">
               <?php
               $id  = mysqli_real_escape_string($conn, (int)$_GET['id']);
-              $sql = "SELECT * FROM `rackspace` WHERE `id`='$id'";
-              $result = $conn->query($sql);
-              if ($result->num_rows > 0) {
-                  // output data of each row
-                  while($row = $result->fetch_assoc()) {
-                      echo "<center><h2>".$row["rack_size_used"]."U</h2></center>";
-                  }
-              } else {
-                  echo "<center><h2>0U</h2></center>";
-              }
+              echo "<center><h2>".rackspace_used_rack($id)."U</h2></center>";
               echo "<center><h4>Rackspace used</h4></center>";
               echo "<center><span class='text-muted'>Individual U's of rackspace in-use</span></center>";
               ?>
@@ -60,16 +43,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
             <div class="col-md-4">
               <?php
               $id  = mysqli_real_escape_string($conn, (int)$_GET['id']);
-              $sql = "SELECT * FROM `servers` WHERE `server_rackid`='$id'";
-              $result = $conn->query($sql);
-              if ($result->num_rows > 0) {
-                  // output data of each row
-                  while($row = $result->fetch_assoc()) {
-                      echo "<center><h2>".$result->num_rows."</h2></center>";
-                  }
-              } else {
-                  echo "<center><h2>0</h2></center>";
-              }
+              echo "<center><h2>".rackspace_server_count($id)."</h2></center>";
               echo "<center><h4>Server count</h4></center>";
               echo "<center><span class='text-muted'>Individual number of servers in this rack</span></center>";
               ?>
@@ -99,7 +73,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
               </div>
               <div class="tab-pane" id="power_management">
                   <h3>Power Management</h3>
-
+                  <?php include 'power_management.php'; ?>
                   
               </div>
               <div class="tab-pane" id="inventory">
