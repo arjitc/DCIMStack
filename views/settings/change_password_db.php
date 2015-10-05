@@ -10,11 +10,11 @@ if(isset($password1, $password2) && $password1 == $password2 && $_SESSION['token
 	if ($conn->query($sql) === TRUE) {
 		unset($_SESSION['token']);
     	$_SESSION['success'] = "Success, Password updated";
-    	header('Location: add_rackspace.php');
+    	header('Location: account.php');
 	} else {
 		unset($_SESSION['token']);
-		$_SESSION['error'] = "Error, Password not updated. Perhaps both the passwords entered did not match?";
-		header('Location: add_rackspace.php');
+		$_SESSION['error'] = "Error, Password not updated. Perhaps the passwords entered did not match?";
+		header('Location: account.php');
 	}
 	$conn->close();
 }
