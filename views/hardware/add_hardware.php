@@ -16,7 +16,7 @@
       <div class="row">
         <?php include 'libraries/sidebar.php'; ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Manage Rackspace</h1>
+          <h1 class="page-header">Add Hardware</h1>
         </div>
       </div>
     </div>
