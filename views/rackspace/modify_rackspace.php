@@ -1,13 +1,13 @@
 <?php
 include 'libraries/general.php';
 include 'config/db.php';
-$id = mysqli_real_escape_string($conn, $_GET['id']);
-check_if_rack_exists($id);
-$sql = "SELECT * FROM `rackspace` WHERE `id`='$id'";
+$rackid = mysqli_real_escape_string($conn, $_GET['rackid']);
+check_if_rack_exists($rackid);
+$sql = "SELECT * FROM `rackspace` WHERE `rackid`='$rackid'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $id             = $row["id"];
+        $rackid         = $row["rackid"];
         $rack_name      = $row["rack_name"];
         $rack_size      = $row["rack_size"];
         $rack_size_used = $row["rack_size_used"]."U";
@@ -22,11 +22,11 @@ if ($result->num_rows > 0) {
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Edit <?php echo get_rack_name($id); ?></h4>
+            <h4 class="modal-title">Edit <?php echo get_rack_name($rackid); ?></h4>
         </div>
         <div class="modal-body">
             <form method="post" id="modify_rack_form" action="modify_rackspace_db.php" class="form-horizontal">
-            <input type="hidden" name="rack_id" value='<?php echo $id; ?>'>
+            <input type="hidden" name="rack_id" value='<?php echo $rackid; ?>'>
             <div class="form-group">
                 <label for="rack_name" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">

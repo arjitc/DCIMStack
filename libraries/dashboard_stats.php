@@ -42,10 +42,10 @@ function rackspace_used() {
 	return $rack_used_sum;
 } 
 
-function rackspace_used_rack($rack_id) { //for grabbing stats of each individual rack
+function rackspace_used_rack($rackid) { //for grabbing stats of each individual rack
 	include realpath(dirname(__FILE__)).'/../config/db.php';
 	//escape $rack_id
-	$sql = "SELECT SUM(rack_size_used) AS rack_used_sum FROM `rackspace` WHERE `id`='$rack_id'";
+	$sql = "SELECT SUM(rack_size_used) AS rack_used_sum FROM `rackspace` WHERE `rackid`='$rackid'";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -59,10 +59,10 @@ function rackspace_used_rack($rack_id) { //for grabbing stats of each individual
 	return $rack_used_sum;
 }
 
-function rackspace_available_rack($rack_id) { //for grabbing stats of each individual rack
+function rackspace_available_rack($rackid) { //for grabbing stats of each individual rack
 	include realpath(dirname(__FILE__)).'/../config/db.php';
 	//escape $rack_id
-	$sql = "SELECT SUM(rack_size) AS rack_size_sum FROM `rackspace` WHERE `id`='$rack_id'";
+	$sql = "SELECT SUM(rack_size) AS rack_size_sum FROM `rackspace` WHERE `rackid`='$rackid'";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 	    while($row = $result->fetch_assoc()) {
@@ -72,7 +72,7 @@ function rackspace_available_rack($rack_id) { //for grabbing stats of each indiv
 	    $rack_size_sum = "0";
 	}
 
-	$sql = "SELECT SUM(rack_size_used) AS rack_used_sum FROM `rackspace` WHERE `id`='$rack_id'";
+	$sql = "SELECT SUM(rack_size_used) AS rack_used_sum FROM `rackspace` WHERE `rackid`='$rackid'";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -87,10 +87,10 @@ function rackspace_available_rack($rack_id) { //for grabbing stats of each indiv
 	return $rackspace_available;
 } 
 
-function rackspace_server_count($rack_id) { //for grabbing stats of each individual rack
+function rackspace_server_count($rackid) { //for grabbing stats of each individual rack
 	include realpath(dirname(__FILE__)).'/../config/db.php';
 	//escape $rack_id
-	$sql = "SELECT * FROM `servers` WHERE `rackid`='$rack_id'";
+	$sql = "SELECT * FROM `servers` WHERE `rackid`='$rackid'";
 	$result = $conn->query($sql);
 	
 	if ($result->num_rows > 0) {

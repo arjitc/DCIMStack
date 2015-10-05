@@ -2,7 +2,8 @@
 include 'libraries/general.php';
 include 'libraries/dashboard_stats.php';
 include 'config/db.php';
-check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack does not exist it redirects the user back to index.php
+check_if_rack_exists($_GET['rackid']); //this checks if the rack exists, if the rack does not exist it redirects the user back to index.php
+$rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,28 +23,25 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
       <div class="row">
         <?php include 'libraries/sidebar.php'; ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Manage Rackspace (<?php echo get_rack_name($_GET['id']); ?>)</h1>
+          <h1 class="page-header">Manage Rackspace (<?php echo get_rack_name($_GET['rackid']); ?>)</h1>
           <div class="row">
             <div class="col-md-4">
               <?php
-              $id  = mysqli_real_escape_string($conn, (int)$_GET['id']);
-              echo "<center><h2>".rackspace_available_rack($id)."U</h2></center>";
+              echo "<center><h2>".rackspace_available_rack($rackid)."U</h2></center>";
               echo "<center><h4>Rackspace available</h4></center>";
               echo "<center><span class='text-muted'>Individual U's of rackspace not in-use</span></center>";
               ?>
             </div>
             <div class="col-md-4">
               <?php
-              $id  = mysqli_real_escape_string($conn, (int)$_GET['id']);
-              echo "<center><h2>".rackspace_used_rack($id)."U</h2></center>";
+              echo "<center><h2>".rackspace_used_rack($rackid)."U</h2></center>";
               echo "<center><h4>Rackspace used</h4></center>";
               echo "<center><span class='text-muted'>Individual U's of rackspace in-use</span></center>";
               ?>
             </div>
             <div class="col-md-4">
               <?php
-              $id  = mysqli_real_escape_string($conn, (int)$_GET['id']);
-              echo "<center><h2>".rackspace_server_count($id)."</h2></center>";
+              echo "<center><h2>".rackspace_server_count($rackid)."</h2></center>";
               echo "<center><h4>Server count</h4></center>";
               echo "<center><span class='text-muted'>Individual number of servers in this rack</span></center>";
               ?>
@@ -65,7 +63,7 @@ check_if_rack_exists($_GET['id']); //this checks if the rack exists, if the rack
               </div>
               <div class="tab-pane" id="servers">
                   <h3>Servers</h3>
-                  
+                  <?php include 'servers.php'; ?>
               </div>
               <div class="tab-pane" id="network">
                   <h3>Network</h3>
