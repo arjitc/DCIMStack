@@ -1,6 +1,8 @@
 # dcimstack
 Datacenter inventory management system
 
+* Code is currently in initial stages of getting together, once I have a solid idea of the base SQL schema I'll upload the DB and a installer/more information on getting started.
+
 ## Screenshots
 ![Login Page](http://i.imgur.com/o10eDgc.png)
 
