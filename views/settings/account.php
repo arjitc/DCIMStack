@@ -27,15 +27,16 @@
               <h3 class="panel-title"><i class="fa fa-key"></i> Change Password</h3>
             </div>
             <div class="panel-body">
-              <form action="change_password_db.php" method="post">
+              <form action="change_password_db.php" id="change_password" method="post">
                 <input type="hidden" name="token" value="<?php echo $token; ?>">
                 <input type="text" name="password1" placeholder="New password" class="form-control" required>
                 <div style="padding-bottom: 5px;"></div>
                 <input type="text" name="password2" placeholder="New password once again"  class="form-control" required>
-                <hr>
-                <center><input type="submit" class="btn btn-primary"></center>
-              </form>
             </div>
+            <div class="panel-footer">
+              <center><input type="submit" form="change_password" class="btn btn-primary"></center>
+            </div>
+            </form>
           </div>
         </div>
       </div>
