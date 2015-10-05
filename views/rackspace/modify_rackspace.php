@@ -26,6 +26,7 @@ if ($result->num_rows > 0) {
         </div>
         <div class="modal-body">
             <form method="post" id="modify_rack_form" action="modify_rackspace_db.php" class="form-horizontal">
+            <input type="hidden" name="rack_id" value='<?php echo $id; ?>'>
             <div class="form-group">
                 <label for="rack_name" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
