@@ -7,11 +7,11 @@ function add_event($event_type, $event_message, $event_status) {
 	$sql = "INSERT INTO `events` (`id`, `event_type`, `event_message`, `event_status`, `event_timestamp`) VALUES (NULL, '$event_type', '$event_message', '$event_status', CURRENT_TIMESTAMP);";
 	$conn->query($sql);
 }
-function list_events_table() {
+function list_events_table($limit) {
 	$token = md5(uniqid(rand(), TRUE));
     $_SESSION['token'] = $token;
 	include realpath(dirname(__FILE__)).'/../config/db.php';
-	$sql = "SELECT * FROM `events`";
+	$sql = "SELECT * FROM `events` LIMIT $limit";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 	    // output data of each row
