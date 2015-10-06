@@ -46,7 +46,7 @@
           </div>
 
           <h2 class="sub-header">Events</h2>
-            <?php list_events_table(); //from libraries/events.php ?>
+            <?php list_events_table(20); //from libraries/events.php ?>
         </div>
       </div>
     </div>
