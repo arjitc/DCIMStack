@@ -89,4 +89,34 @@ function server_power_usage($server_id) {
 	    $server_power_usage;
 	}     
 }
+function power_usage_A() { 
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$server_power_usage_sum_A = 0;
+	$sql = "SELECT SUM(server_power_usage) AS `server_power_usage_sum_A` FROM `servers` WHERE `server_power_feed1`!=''";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+	    // output data of each row
+	    while($row = $result->fetch_assoc()) {
+	            $server_power_usage_sum_A = $row["server_power_usage_sum_A"];
+	    }
+	    return $server_power_usage_sum_A;
+	} else {
+	    return server_power_usage_sum_A;
+	}     
+}
+function power_usage_B() { 
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$server_power_usage_sum_B = 0;
+	$sql = "SELECT SUM(server_power_usage) AS `server_power_usage_sum_B` FROM `servers` WHERE `server_power_feed2`!=''";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+	    // output data of each row
+	    while($row = $result->fetch_assoc()) {
+	            $server_power_usage_sum_B = $row["server_power_usage_sum_B"];
+	    }
+	    return $server_power_usage_sum_B;
+	} else {
+	    return server_power_usage_sum_B;
+	}     
+}
 ?>
