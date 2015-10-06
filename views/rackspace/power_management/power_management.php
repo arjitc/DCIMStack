@@ -18,15 +18,16 @@ check_if_rack_exists($_GET['rackid']); //this checks if the rack exists, if the 
 		if ($result->num_rows > 0) {
 		  // output data of each row
 		  	    while($row = $result->fetch_assoc()) {
-		  	    	echo "<div class='well'>";
-		  	    	$id = $row["server_id"];
-		  	    	echo "<tr>";
-		                echo "<center><h4>".$row["feed_type"]."</h4></center>";
-		  	            echo "<center><p>Power ".$row["feed_power"]."A</center></p>";
-		  	            echo "<center><p>Voltage ".$row["feed_voltage"]."V</center></p>";
-		             echo "</div>";
+		  	    	echo "<div class='panel panel-default'>";
+		  	    		echo "<div class='panel-heading'>";
+		            		echo "<center><h4>".$row["feed_type"]."</h4></center>";
+		            	echo "</div>";
+		            	echo "<div class='panel-body'>";
+				  	        echo "<center><p>Power ".$row["feed_power"]."A</center></p>";
+				  	        echo "<center><p>Voltage ".$row["feed_voltage"]."V</center></p>";
+				  	    echo "</div>";
+				  	echo "</div>";
 		  	    }
-		  	    
 		  	} else {
 		  	    echo "<center>No servers found</center>";
 		  	}     
