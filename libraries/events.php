@@ -11,6 +11,7 @@ function list_events_table($limit) {
 	$token = md5(uniqid(rand(), TRUE));
     $_SESSION['token'] = $token;
 	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$limit    = mysqli_real_escape_string($conn, $limit);
 	$sql = "SELECT * FROM `events` LIMIT $limit";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
