@@ -34,12 +34,12 @@
                   <th>Rack Name</th>
                   <th>Used / Available</th>
                   <th>Location</th>
-                  <th><i class='fa fa-battery-full'></i></th>
+                  <th>Power</th>
                   <th>Manage</th>
                 </tr>
               </thead>";
               while($row = $result->fetch_assoc()) {
-                $id             = $row["id"];
+                $rackid         = $row["rackid"];
                 $rack_name      = $row["rack_name"];
                 $rack_size      = $row["rack_size"]."U";
                 $rack_size_used = $row["rack_size_used"]."U";
@@ -49,15 +49,15 @@
                 $rack_power     = $row["rack_power"]==0?"0A":$row['rack_power']."A";
                 echo "<tr><td>$rack_name</td><td>$rack_size_used / $rack_size</td><td>$rack_city,$rack_country</td><td>$rack_power/$rack_voltage</td><td>
                 <div class='btn-group'>
-                  <a href='rackspace.php?id=$id' class='btn btn-primary' role='button'>Manage</a>
+                  <a href='rackspace.php?rackid=$rackid' class='btn btn-primary' role='button'>Manage</a>
                   <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                     <span class='caret'></span>
                     <span class='sr-only'>Toggle Dropdown</span>
                   </button>
                   <ul class='dropdown-menu'>
-                    <li><a href='modify_rackspace.php?id=$id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><i class='fa fa-wrench'></i> Modify</a></li>
+                    <li><a href='modify_rackspace.php?rackid=$rackid' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><i class='fa fa-wrench'></i> Modify</a></li>
                     <li role='separator' class='divider'></li>
-                    <li><a href='delete_rackspace.php?id=$id&token=$token' class='confirmation'><i class='fa fa-trash-o'></i> Delete</a></li>
+                    <li><a href='delete_rackspace.php?rackid=$rackid&token=$token' class='confirmation'><i class='fa fa-trash-o'></i> Delete</a></li>
                   </ul>
                 </div>
               </td></tr>";
