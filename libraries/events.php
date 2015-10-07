@@ -43,6 +43,7 @@ function list_events_table($limit) {
 	    echo "</tbody>
             </table>
           </div>";
+        echo "<i>Showing last $limit events</i>";
 	} else {
 	    echo "<center>No events found</center>";
 	}     
