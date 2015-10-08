@@ -44,7 +44,7 @@ function rackspace_used() {
 
 function rackspace_used_rack($rackid) { //for grabbing stats of each individual rack
 	include realpath(dirname(__FILE__)).'/../config/db.php';
-	//escape $rack_id
+	$rackid    = mysqli_real_escape_string($conn, $rackid);
 	$sql = "SELECT SUM(rack_size_used) AS rack_used_sum FROM `rackspace` WHERE `rackid`='$rackid'";
 	$result = $conn->query($sql);
 
@@ -61,7 +61,7 @@ function rackspace_used_rack($rackid) { //for grabbing stats of each individual 
 
 function rackspace_available_rack($rackid) { //for grabbing stats of each individual rack
 	include realpath(dirname(__FILE__)).'/../config/db.php';
-	//escape $rack_id
+	$rackid    = mysqli_real_escape_string($conn, $rackid);
 	$sql = "SELECT SUM(rack_size) AS rack_size_sum FROM `rackspace` WHERE `rackid`='$rackid'";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
@@ -89,7 +89,7 @@ function rackspace_available_rack($rackid) { //for grabbing stats of each indivi
 
 function rackspace_server_count($rackid) { //for grabbing stats of each individual rack
 	include realpath(dirname(__FILE__)).'/../config/db.php';
-	//escape $rack_id
+	$rackid    = mysqli_real_escape_string($conn, $rackid);
 	$sql = "SELECT * FROM `servers` WHERE `rackid`='$rackid'";
 	$result = $conn->query($sql);
 	
