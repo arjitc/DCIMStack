@@ -5,8 +5,8 @@ function get_filename_from_url() {
 }
 function get_rack_name($id) {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
-	$id = mysqli_real_escape_string($conn, $id);
-	$sql = "SELECT * FROM `rackspace` WHERE `id`=$id";
+	$id  = mysqli_real_escape_string($conn, $id);
+	$sql = "SELECT * FROM `rackspace` WHERE `rackid`='$id'";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 	    while($row = $result->fetch_assoc()) {
@@ -19,8 +19,8 @@ function get_rack_name($id) {
 }
 function check_if_rack_exists($id) {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
-	$id = mysqli_real_escape_string($conn, $id);
-	$sql = "SELECT * FROM `rackspace` WHERE `id`=$id";
+	$id  = mysqli_real_escape_string($conn, $id);
+	$sql = "SELECT * FROM `rackspace` WHERE `rackid`='$id'";
 	$result = $conn->query($sql);
 	if ($result->num_rows == 0) {
 		header('Location: index.php');
