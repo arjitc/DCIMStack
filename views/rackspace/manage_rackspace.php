@@ -7,7 +7,7 @@
     <title>DCIMStack</title>
     <?php 
     include 'libraries/css.php';
-    include 'libraries/power_usage.php';
+    include 'libraries/power.php';
     $token = md5(uniqid(rand(), TRUE));
     $_SESSION['token'] = $token;
     ?>
@@ -46,7 +46,7 @@
                 $rack_size_used = $row["rack_size_used"]."U";
                 $rack_city      = $row["rack_city"];
                 $rack_country   = $row["rack_country"];
-                $rack_voltage   = $row["rack_voltage"]."V";
+                $rack_voltage   = rack_voltage($rackid)==0?"0V":rack_voltage($rackid)."V";
                 $rack_power     = rack_power_total($rackid)==0?"0A":rack_power_total($rackid)."A";
                 echo "<tr><td>$rack_name</td><td>$rack_size_used / $rack_size</td><td>$rack_city,$rack_country</td><td>$rack_power/$rack_voltage</td><td>
                 <div class='btn-group'>
