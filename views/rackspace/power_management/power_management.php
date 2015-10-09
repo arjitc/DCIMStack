@@ -1,9 +1,7 @@
 <?php
 include_once 'libraries/general.php';
 include_once 'config/db.php';
-include_once 'libraries/power_usage.php';
-//error_reporting(-1);
-//ini_set('display_errors', 'On');
+include_once 'libraries/power.php';
 check_if_rack_exists($_GET['rackid']); //this checks if the rack exists, if the rack does not exist it redirects the user back to index.php
 ?>
 
@@ -51,10 +49,8 @@ check_if_rack_exists($_GET['rackid']); //this checks if the rack exists, if the 
 		            echo "</div>";
 		            echo "<div class='panel-body'>";
 		            	if($row["feed_type"]=="A") {
-		            		//$power_usage_A = $row["feed_power"]-power_usage_A();
 		            		echo "<center><p>Power ".power_usage_A()."A</center></p>";
 		            	} else {
-		            		//$power_usage_B = $row["feed_power"]-power_usage_B();
 		            		echo "<center><p>Power ".power_usage_B()."A</center></p>";
 		            	}
 				  	    echo "<center><p>Voltage ".$row["feed_voltage"]."V</center></p>";
