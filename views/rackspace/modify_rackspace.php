@@ -13,8 +13,6 @@ if ($result->num_rows > 0) {
         $rack_size_used = $row["rack_size_used"]."U";
         $rack_city      = $row["rack_city"];
         $rack_country   = $row["rack_country"];
-        $rack_voltage   = $row["rack_voltage"]."V";
-        $rack_power     = $row["rack_power"];
     }
 }
 ?>
@@ -45,30 +43,6 @@ if ($result->num_rows > 0) {
                             }
                         }
                         ?>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="rack_size" class="col-sm-2 control-label">Power</label>
-                <div class="col-sm-10">
-                    <select class="form-control" name="rack_power">
-                        <?php
-                            echo "<option value='$rack_power'>".$rack_power."A</option>";
-                                for($i=1;$i<=80;$i++) {
-                                    if($rack_power!=$i) {
-                                        echo "<option value='$i'>".$i."A</option>";
-                                    }
-                                }
-                        ?>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="rack_size" class="col-sm-2 control-label">Voltage</label>
-                <div class="col-sm-10">
-                    <select class="form-control" name="rack_voltage">
-                      <option value="120V">120V</option>
-                      <option value="208V">208V</option>
                     </select>
                 </div>
             </div>
