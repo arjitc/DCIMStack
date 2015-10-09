@@ -119,4 +119,19 @@ function power_usage_B() {
 	    return server_power_usage_sum_B;
 	}     
 }
+function rack_power_total($rackid) {
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$rackid = mysqli_real_escape_string($conn, $rackid);
+	$sql = "SELECT SUM(feed_power) AS `feed_power_sum` FROM `power_feeds` WHERE `rackid`='$rackid'";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+	    // output data of each row
+	    while($row = $result->fetch_assoc()) {
+	            $feed_power_sum = $row["feed_power_sum"];
+	    }
+	    return $feed_power_sum;
+	} else {
+	    return 0;
+	}
+}
 ?>
