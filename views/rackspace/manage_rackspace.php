@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DCIMStack</title>
     <?php 
-    include 'libraries/css.php'; 
+    include 'libraries/css.php';
+    include 'libraries/power_usage.php';
     $token = md5(uniqid(rand(), TRUE));
     $_SESSION['token'] = $token;
     ?>
@@ -46,7 +47,7 @@
                 $rack_city      = $row["rack_city"];
                 $rack_country   = $row["rack_country"];
                 $rack_voltage   = $row["rack_voltage"]."V";
-                $rack_power     = $row["rack_power"]==0?"0A":$row['rack_power']."A";
+                $rack_power     = rack_power_total($rackid)==0?"0A":rack_power_total($rackid)."A";
                 echo "<tr><td>$rack_name</td><td>$rack_size_used / $rack_size</td><td>$rack_city,$rack_country</td><td>$rack_power/$rack_voltage</td><td>
                 <div class='btn-group'>
                   <a href='rackspace.php?rackid=$rackid' class='btn btn-primary' role='button'>Manage</a>
