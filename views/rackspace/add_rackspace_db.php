@@ -5,11 +5,9 @@ $rack_name    = mysqli_real_escape_string($conn, $_POST['rack_name']);
 $rack_size    = mysqli_real_escape_string($conn, $_POST['rack_size']);
 $rack_city    = mysqli_real_escape_string($conn, $_POST['rack_city']);
 $rack_country = mysqli_real_escape_string($conn, $_POST['rack_country']);
-$rack_power   = mysqli_real_escape_string($conn, $_POST['rack_power']);
-$rack_voltage = mysqli_real_escape_string($conn, $_POST['rack_voltage']);
-if(isset($rack_name, $rack_size, $rack_city, $rack_country, $rack_power, $rack_voltage)) {
-	$sql = "INSERT INTO `dcimstack`.`rackspace` (`rackid`, `rack_name`, `rack_size`, `rack_size_used`, `rack_power`, `rack_voltage`, `rack_city`, `rack_country`) 
-			VALUES (NULL, '$rack_name', '$rack_size', '$rack_used', '$rack_power', '$rack_voltage', '$rack_city', '$rack_country');";
+if(isset($rack_name, $rack_size, $rack_city, $rack_country)) {
+	$sql = "INSERT INTO `dcimstack`.`rackspace` (`rackid`, `rack_name`, `rack_size`, `rack_size_used`, `rack_city`, `rack_country`) 
+			VALUES (NULL, '$rack_name', '$rack_size', '$rack_used', '$rack_city', '$rack_country');";
 	if ($conn->query($sql) === TRUE) {
 		$event_type = "New Rackspace";
 		$event_message = "New rackspace $rack_name added";
@@ -37,14 +35,6 @@ if(empty($rack_city)) {
 }
 if(empty($rack_country)) {
 	$_SESSION['error'] = "Error, Rack Country not set.";
-	header('Location: add_rackspace.php');
-}
-if(empty($rack_power)) {
-	$_SESSION['error'] = "Error, Rack Power not set.";
-	header('Location: add_rackspace.php');
-}
-if(empty($rack_voltage)) {
-	$_SESSION['error'] = "Error, Rack Voltage not set.";
 	header('Location: add_rackspace.php');
 }
 ?>
