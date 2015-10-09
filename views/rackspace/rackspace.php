@@ -63,6 +63,7 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
               </div>
               <div class="tab-pane" id="servers">
                   <h3>Servers</h3>
+                  <hr>
                   <?php include 'servers.php'; ?>
               </div>
               <div class="tab-pane" id="network">
@@ -70,7 +71,14 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
                   
               </div>
               <div class="tab-pane" id="power_management">
-                  <h3>Power Management</h3>
+                  <h3>
+                    Power Management 
+                    <div class="pull-right">
+                      <button class="btn btn-default"><i class="fa fa-plug"></i> Add Feed</button>
+                      <button class="btn btn-default"><i class="fa fa-plug"></i> Manage Feeds</button>
+                    </div>
+                  </h3>
+                  <hr>
                   <?php include 'power_management.php'; ?>
                   
               </div>
