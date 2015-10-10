@@ -8,6 +8,7 @@
     <?php 
     include 'libraries/css.php';
     include 'libraries/power.php';
+    include_once 'libraries/rackspace.php';
     $token = md5(uniqid(rand(), TRUE));
     $_SESSION['token'] = $token;
     ?>
@@ -43,7 +44,7 @@
                 $rackid         = $row["rackid"];
                 $rack_name      = $row["rack_name"];
                 $rack_size      = $row["rack_size"]."U";
-                $rack_size_used = $row["rack_size_used"]."U";
+                $rack_size_used = rackspace_used_rack($rackid)."U";
                 $rack_city      = $row["rack_city"];
                 $rack_country   = $row["rack_country"];
                 $rack_voltage   = rack_voltage($rackid)==0?"0V":rack_voltage($rackid)."V";

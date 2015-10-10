@@ -1,6 +1,6 @@
 <?php
 include 'libraries/general.php';
-include 'libraries/dashboard_stats.php';
+include 'libraries/rackspace.php';
 include 'config/db.php';
 check_if_rack_exists($_GET['rackid']); //this checks if the rack exists, if the rack does not exist it redirects the user back to index.php
 $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
@@ -41,7 +41,7 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
             </div>
             <div class="col-md-4">
               <?php
-              echo "<center><h2>".rackspace_server_count($rackid)."</h2></center>";
+              echo "<center><h2>".rackspace_server_count_rack($rackid)."</h2></center>";
               echo "<center><h4>Server count</h4></center>";
               echo "<center><span class='text-muted'>Individual number of servers in this rack</span></center>";
               ?>
