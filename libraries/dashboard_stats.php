@@ -11,16 +11,9 @@ function rackspace_available() {
 	    $rack_size_sum = "0";
 	}
 
-	$sql = "SELECT SUM(rack_size_used) AS rack_used_sum FROM `rackspace`";
+	$sql = "SELECT * FROM `servers`";
 	$result = $conn->query($sql);
-
-	if ($result->num_rows > 0) {
-	    while($row = $result->fetch_assoc()) {
-	        $rack_used_sum = $row["rack_used_sum"];
-	    }
-	} else {
-	    $rack_used_sum = "0";
-	}
+	$rack_used_sum = $result->num_rows;
 
 	$rackspace_available = $rack_size_sum - $rack_used_sum;
 	return $rackspace_available;
@@ -28,18 +21,10 @@ function rackspace_available() {
 
 function rackspace_used() {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
-	$sql = "SELECT SUM(rack_size_used) AS rack_used_sum FROM `rackspace`";
+	$sql = "SELECT * FROM `servers`";
 	$result = $conn->query($sql);
-
-	if ($result->num_rows > 0) {
-	    while($row = $result->fetch_assoc()) {
-	        $rack_used_sum = $row["rack_used_sum"];
-	    }
-	} else {
-	    $rack_used_sum = "0";
-	}
+	return $result->num_rows;
 	$conn->close();
-	return $rack_used_sum;
 } 
 
 function hardware_used() {
