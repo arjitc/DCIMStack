@@ -5,12 +5,13 @@ if($_SESSION['token']==$_GET['token']) {
 	$sql = "DELETE FROM `rackspace` WHERE `rackid`='$rackid'";
 	if ($conn->query($sql) === TRUE) {
     	$_SESSION['success'] = "Success, Rackspace deleted.";
+    	unset($_SESSION['token']);
     	header('Location: manage_rackspace.php');
 	} else {
 		$_SESSION['error'] = "Error, Rackspace not deleted.";
+		unset($_SESSION['token']);
 	    header('Location: manage_rackspace.php');
 	}
-	unset($_SESSION['token']);
 } else {
 	echo "Token mismatch";
 	unset($_SESSION['token']);
