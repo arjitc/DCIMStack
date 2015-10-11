@@ -43,9 +43,9 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
             </div>
             <div class="col-md-4">
               <?php
-              echo "<center><h2>".rackspace_server_count_rack($rackid)."</h2></center>";
-              echo "<center><h4>Server count</h4></center>";
-              echo "<center><span class='text-muted'>Individual number of servers in this rack</span></center>";
+              echo "<center><h2>".rackspace_device_count_rack($rackid)."</h2></center>";
+              echo "<center><h4>Device count</h4></center>";
+              echo "<center><span class='text-muted'>Individual number of devices in this rack</span></center>";
               ?>
             </div>
           </div>
