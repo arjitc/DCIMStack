@@ -33,11 +33,11 @@
               echo "<table class='table table-striped'>
               <thead>
                 <tr>
-                  <th>Rack Name</th>
-                  <th>Used / Size</th>
-                  <th>Location</th>
-                  <th>Power</th>
-                  <th>Manage</th>
+                  <th><center><img src='assets/img/tag_blue.png' data-toggle='tooltip' data-placement='top' title='Rack Name'></center></th>
+                  <th><center><img src='assets/img/shape_align_bottom.png' data-toggle='tooltip' data-placement='top' title='Used/Available'></center></th>
+                  <th><center><img src='assets/img/world.png' data-toggle='tooltip' data-placement='top' title='Location'></center></th>
+                  <th><center><img src='assets/img/lightning.png' data-toggle='tooltip' data-placement='top' title='Power/Voltage'></center></th>
+                  <th><center><img src='assets/img/table_go.png' data-toggle='tooltip' data-placement='top' title='Manage'></center></th>
                 </tr>
               </thead>";
               while($row = $result->fetch_assoc()) {
@@ -49,7 +49,12 @@
                 $rack_country   = $row["rack_country"];
                 $rack_voltage   = rack_voltage($rackid)==0?"0V":rack_voltage($rackid)."V";
                 $rack_power     = rack_power_total($rackid)==0?"0A":rack_power_total($rackid)."A";
-                echo "<tr><td>$rack_name</td><td>$rack_size_used / $rack_size</td><td>$rack_city,$rack_country</td><td>$rack_power/$rack_voltage</td><td>
+                echo "<tr>
+                <td><center>$rack_name</center></td>
+                <td><center>$rack_size_used / $rack_size</center></td>
+                <td><center>$rack_city, $rack_country</center></td>
+                <td><center>$rack_power / $rack_voltage</center></td>
+                <td><center>
                 <div class='btn-group'>
                   <a href='rackspace.php?rackid=$rackid' class='btn btn-primary' role='button'>Manage</a>
                   <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
@@ -62,6 +67,7 @@
                     <li><a href='delete_rackspace.php?rackid=$rackid&token=$token' class='confirmation'><i class='fa fa-trash-o'></i> Delete</a></li>
                   </ul>
                 </div>
+                </center>
               </td></tr>";
               }
           } else {
@@ -76,5 +82,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <?php include 'libraries/js.php'; ?>
+    <script type="text/javascript">
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+    </script>
   </body>
 </html>
