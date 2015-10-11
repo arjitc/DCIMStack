@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DCIMStack</title>
+    <?php 
+        include      'libraries/css.php'; 
+    ?>
+  </head>
+
+  <body>
+
+    <?php include 'libraries/header.php'; ?>
+
+    <div class="container-fluid">
+      <div class="row">
+        <?php include 'libraries/sidebar.php'; ?>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">About</h1>
+          <p>DCIMStack is a open source "Data Center Inventory Management" web-based application/tool</p>
+
+          <h3>Technologies used</h3>
+          <p>DCIMStack is made possible with the help of the following opensource projects, </p>
+            <ul>
+                <li> Bootstrap 3 
+                <li> Fontawesome
+                <li> PHP (Version on this machine <?php echo phpversion(); ?>)
+                <li> MySQL
+                <li> <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">Silk Iconset</a> by Mark James
+            </ul>
+          
+
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <?php include 'libraries/js.php'; ?>
+  </body>
+</html>
