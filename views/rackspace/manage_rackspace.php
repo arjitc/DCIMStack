@@ -34,7 +34,7 @@
               <thead>
                 <tr>
                   <th><center><img src='assets/img/tag_blue.png' data-toggle='tooltip' data-placement='top' title='Rack Name'></center></th>
-                  <th><center><img src='assets/img/shape_align_bottom.png' data-toggle='tooltip' data-placement='top' title='Used/Available'></center></th>
+                  <th><center><img src='assets/img/shape_align_bottom.png' data-toggle='tooltip' data-placement='top' title='Used/Size'></center></th>
                   <th><center><img src='assets/img/world.png' data-toggle='tooltip' data-placement='top' title='Location'></center></th>
                   <th><center><img src='assets/img/lightning.png' data-toggle='tooltip' data-placement='top' title='Power/Voltage'></center></th>
                   <th><center><img src='assets/img/table_go.png' data-toggle='tooltip' data-placement='top' title='Manage'></center></th>
