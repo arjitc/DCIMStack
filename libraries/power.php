@@ -134,6 +134,7 @@ function rack_power_total($rackid) {
 	    return 0;
 	}
 }
+
 function rack_voltage($rackid) {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
 	$rackid = mysqli_real_escape_string($conn, $rackid);
@@ -148,5 +149,13 @@ function rack_voltage($rackid) {
 	} else {
 	    return 0;
 	}
+}
+
+function rack_feed_count($rackid) {
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$rackid = mysqli_real_escape_string($conn, $rackid);
+	$sql = "SELECT * FROM `power_feeds` WHERE `rackid`='$rackid'";
+	$result = $conn->query($sql);
+	return $result->num_rows;
 }
 ?>

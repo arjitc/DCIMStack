@@ -1,5 +1,6 @@
 <?php
 include 'libraries/general.php';
+include 'libraries/power.php';
 include 'config/db.php';
 $rackid = mysqli_real_escape_string($conn, $_GET['rackid']);
 check_if_rack_exists($rackid);
@@ -23,6 +24,9 @@ if ($result->num_rows > 0) {
             <h4 class="modal-title"><i class="fa fa-plug"></i> Add Power Feed - <?php echo get_rack_name($rackid); ?></h4>
         </div>
         <div class="modal-body">
+            <?php 
+            if(rack_feed_count($rackid)!=2) {
+            ?>
             <form method="post" id="modify_rack_form" action="modify_rackspace_db.php" class="form-horizontal">
             <input type="hidden" name="rackid" value='<?php echo $rackid; ?>'>
             <div class="form-group">
@@ -55,10 +59,19 @@ if ($result->num_rows > 0) {
                     </select>
                 </div>
             </div>
+            <?php 
+            } else {
+                echo "<center>Maximum number of allowed feeds reached.</center>";
+            }
+            ?>
         </div>
         <div class="modal-footer">
             <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-            <button type="submit" form="modify_rack_form" class="btn btn-primary">Modify Rack</button>
+            <?php 
+            if(rack_feed_count($rackid)!=2) {
+                echo "<button type='submit' form='modify_rack_form' class='btn btn-primary'>Modify Rack</button>";
+            }
+            ?>
         </form>
         </div>
     </div><!-- /.modal-content -->
