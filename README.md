@@ -7,8 +7,7 @@ Note:
 * Code is currently in initial stages of getting together, once I have a solid idea of the base SQL schema I'll upload the DB and a installer/more information on getting started.
 * Screenshots shown below were taken at different stages of development so might show different numbers in the display bar at the top of the page
 
-
-[[Install|INSTALL.md]]
+Read: https://github.com/arjitc/dcimstack/blob/master/INSTALL.md for install instructions
 
 ## Screenshots
 ![Login Page](http://i.imgur.com/o10eDgc.png)
