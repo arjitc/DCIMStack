@@ -1,9 +1,9 @@
 <?php
-function server_cpu_count($server_cpu, $server_cpu_count) {
-	if($server_cpu_count>1) {
-		return $server_cpu_count."x".$server_cpu;
+function device_cpu_count($device_cpu, $device_cpu_count) {
+	if($device_cpu_count>1) {
+		return $device_cpu_count."x".$device_cpu;
 	} else {
-		return $server_cpu;
+		return $device_cpu;
 	}
 }
 ?>
