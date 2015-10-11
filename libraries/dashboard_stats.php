@@ -11,7 +11,7 @@ function rackspace_available() {
 	    $rack_size_sum = "0";
 	}
 
-	$sql = "SELECT * FROM `servers`";
+	$sql = "SELECT * FROM `devices`";
 	$result = $conn->query($sql);
 	$rack_used_sum = $result->num_rows;
 
@@ -21,7 +21,7 @@ function rackspace_available() {
 
 function rackspace_used() {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
-	$sql = "SELECT * FROM `servers`";
+	$sql = "SELECT * FROM `devices`";
 	$result = $conn->query($sql);
 	return $result->num_rows;
 	$conn->close();
