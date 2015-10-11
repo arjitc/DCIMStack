@@ -6,12 +6,14 @@ Datacenter inventory management system
 ## Screenshots
 ![Login Page](http://i.imgur.com/o10eDgc.png)
 
-![Add Rackspace](http://i.imgur.com/TAhQJNz.png)
+![Add Rackspace](http://i.imgur.com/szt21JQ.png)
 
-![Manage Rackspace](http://i.imgur.com/l80gnhy.png)
+![Manage Rackspace](http://i.imgur.com/1sdc2Rz.png)
 
-![Modify Rackspace](http://i.imgur.com/2wTTk86.png)
+![Modify Rackspace](http://i.imgur.com/gZDQDyo.png)
 
-![Manage rack](http://i.imgur.com/AnCA9gq.png)
+![Manage rack](http://i.imgur.com/ISdue3m.png)
 
 ![Inventory in rack](http://i.imgur.com/gOTjbt7.png)
+
+![Power Feeds](http://i.imgur.com/4J7V9Vd.png)
