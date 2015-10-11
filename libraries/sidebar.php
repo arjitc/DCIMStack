@@ -3,7 +3,7 @@
   <ul class="nav nav-sidebar">
     <?php 
     if(get_filename_from_url()=="index.php") {
-      echo "<li class='active'><a href='#'>Overview</a></li>";
+      echo "<li class='active'><a href='index.php'>Overview</a></li>";
     } else {
       echo "<li><a href='index.php'>Overview</a></li>";
     }
