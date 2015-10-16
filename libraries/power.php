@@ -22,6 +22,14 @@ function device_power_feed_count($server_id) {
 	    return $feed_count;
 	}     
 }
+function rack_power_feed_count($rackid) {
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$feed_count = 0;
+	$rackid    = mysqli_real_escape_string($conn, $rackid);
+	$sql = "SELECT * FROM `power_feeds` WHERE `rackid`='$rackid'";
+	$result = $conn->query($sql);
+	return $result->num_rows;
+}
 function device_power_feed_check_A($server_id) { //check if server has power feed A
 	include realpath(dirname(__FILE__)).'/../config/db.php';
 	$server_id    = mysqli_real_escape_string($conn, $server_id);
