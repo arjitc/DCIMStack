@@ -3,9 +3,9 @@
   <ul class="nav nav-sidebar">
     <?php 
     if(get_filename_from_url()=="index.php") {
-      echo "<li class='active'><a href='index.php'>Overview</a></li>";
+      echo "<li class='active'><a href='index.php'><img src='assets/img/application_view_columns.png'> Overview</a></li>";
     } else {
-      echo "<li><a href='index.php'>Overview</a></li>";
+      echo "<li><a href='index.php'><img src='assets/img/application_view_columns.png'> Overview</a></li>";
     }
     ?>
   </ul>
@@ -13,28 +13,28 @@
     <li class="dropdown-header">Rackspace</li>
     <?php 
     if(get_filename_from_url()=="manage_rackspace.php" OR get_filename_from_url()=="rackspace.php") {
-      echo "<li class='active'><a href='manage_rackspace.php'>Manage Rackspace</a></li>";
+      echo "<li class='active'><a href='manage_rackspace.php'><img src='assets/img/building_go.png'> Manage Rackspace</a></li>";
     } else {
-      echo "<li><a href='manage_rackspace.php'>Manage Rackspace</a></li>";
+      echo "<li><a href='manage_rackspace.php'><img src='assets/img/building_go.png'> Manage Rackspace</a></li>";
     }
     if(get_filename_from_url()=="add_rackspace.php") {
-      echo "<li class='active'><a href='add_rackspace.php'>Add Rackspace</a></li>";
+      echo "<li class='active'><a href='add_rackspace.php'><img src='assets/img/building_add.png'> Add Rackspace</a></li>";
     } else {
-      echo "<li><a href='add_rackspace.php'>Add Rackspace</a></li>";
+      echo "<li><a href='add_rackspace.php'><img src='assets/img/building_add.png'> Add Rackspace</a></li>";
     }
     ?>
     <hr>
     <li class="dropdown-header">Hardware</li>
     <?php 
     if(get_filename_from_url()=="manage_hardware.php") {
-      echo "<li class='active'><a href='manage_hardware.php'>Manage Hardware</a></li>";
+      echo "<li class='active'><a href='manage_hardware.php'><img src='assets/img/cart_go.png'> Manage Hardware</a></li>";
     } else {
-      echo "<li><a href='manage_hardware.php'>Manage Hardware</a></li>";
+      echo "<li><a href='manage_hardware.php'><img src='assets/img/cart_go.png'> Manage Hardware</a></li>";
     }
     if(get_filename_from_url()=="add_hardware.php") {
-      echo "<li class='active'><a href='add_hardware.php'>Add Hardware</a></li>";
+      echo "<li class='active'><a href='add_hardware.php'><img src='assets/img/cart_add.png'> Add Hardware</a></li>";
     } else {
-      echo "<li><a href='add_hardware.php'>Add Hardware</a></li>";
+      echo "<li><a href='add_hardware.php'><img src='assets/img/cart_add.png'> Add Hardware</a></li>";
     }
     ?>
   </ul>
