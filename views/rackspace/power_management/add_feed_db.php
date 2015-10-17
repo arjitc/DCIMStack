@@ -1,47 +1,45 @@
 <?php
 include 'config/db.php';
 include 'libraries/events.php';
+include 'libraries/general.php';
 $rackid       = mysqli_real_escape_string($conn, $_POST['rackid']);
-$rack_name    = mysqli_real_escape_string($conn, $_POST['rack_name']);
-$rack_size    = mysqli_real_escape_string($conn, $_POST['rack_size']);
-$rack_city    = mysqli_real_escape_string($conn, $_POST['rack_city']);
-$rack_country = mysqli_real_escape_string($conn, $_POST['rack_country']);
-if(isset($rackid, $rack_name, $rack_size, $rack_city, $rack_country)) {
-	$sql = "UPDATE `rackspace` SET `rack_name`='$rack_name' WHERE `rackid`='$rackid'";
-	$conn->query($sql);
-	
-	$sql = "UPDATE `rackspace` SET `rack_size`='$rack_size' WHERE `rackid`='$rackid'";
-	$conn->query($sql);
-	
-	$sql = "UPDATE `rackspace` SET `rack_city`='$rack_city' WHERE `rackid`='$rackid'";
-	echo $conn->query($sql);
-	
-	$sql = "UPDATE `rackspace` SET `rack_country`='$rack_country' WHERE `rackid`='$rackid'";
-	$conn->query($sql);
-	
-	$event_type = "Rackspace Modified";
-	$event_message = "Rackspace $rack_name was updated";
-	$event_status = "Complete";
-	add_event($event_type, $event_message, $event_status);
+$feed_type    = mysqli_real_escape_string($conn, $_POST['feed_type']);
+$feed_power   = mysqli_real_escape_string($conn, $_POST['feed_power']);
+$feed_voltage = mysqli_real_escape_string($conn, $_POST['feed_voltage']);
 
-    $_SESSION['success'] = "Success, Rackspace modified.";
-    header('Location: manage_rackspace.php');
+if(empty($rackid)) {
+	$_SESSION['error'] = "Error, RackID missing.";
+	header('Location: rackspace.php?rackid='.$rackid);
+}
+if(empty($feed_type)) {
+	$_SESSION['error'] = "Error, Feed Type not set.";
+	header('Location: rackspace.php?rackid='.$rackid);
+}
+if(empty($feed_voltage)) {
+	$_SESSION['error'] = "Error, Feed Voltage not set.";
+	header('Location: rackspace.php?rackid='.$rackid);
+}
+if(empty($feed_power)) {
+	$_SESSION['error'] = "Error, Feed Power not set.";
+	header('Location: rackspace.php?rackid='.$rackid);
+}
+
+if(isset($rackid, $feed_type, $feed_voltage, $feed_power)) {
+	$sql = "INSERT INTO `dcimstack`.`power_feeds` (`rackid`, `feed_id`, `feed_type`, `feed_power`, `feed_voltage`) 
+			VALUES ('$rackid', NULL, '$feed_type', '$feed_power', '$feed_voltage');";
+	if ($conn->query($sql) === TRUE) {
+    	$rack_name = get_rack_name($rackid);
+		$event_type = "Power Feed Added";
+		$event_message = "A power feed was added to $rack_name was updated";
+		$event_status = "Complete";
+		add_event($event_type, $event_message, $event_status);
+
+	    $_SESSION['success'] = "Success, Power feed $feed_type added.";
+	    header('Location: rackspace.php?rackid='.$rackid);
+	} else {
+	    $_SESSION['error'] = "Error, Power feed $feed_type not added.";
+	    header('Location: rackspace.php?rackid='.$rackid);
+	}
 	$conn->close();
 } 
-if(empty($rack_name)) {
-	$_SESSION['error'] = "Error, Rack Name not set.";
-	header('Location: manage_rackspace.php');
-}
-if(empty($rack_size)) {
-	$_SESSION['error'] = "Error, Rack Size not set.";
-	header('Location: manage_rackspace.php');
-}
-if(empty($rack_city)) {
-	$_SESSION['error'] = "Error, Rack City not set.";
-	header('Location: manage_rackspace.php');
-}
-if(empty($rack_country)) {
-	$_SESSION['error'] = "Error, Rack Country not set.";
-	header('Location: manage_rackspace.php');
-}
 ?>

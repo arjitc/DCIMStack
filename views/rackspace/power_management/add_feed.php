@@ -27,30 +27,30 @@ if ($result->num_rows > 0) {
             <?php 
             if(rack_feed_count($rackid)!=2) {
             ?>
-            <form method="post" id="modify_rack_form" action="modify_rackspace_db.php" class="form-horizontal">
+            <form method="post" id="add_feed_form" action="add_feed_db.php" class="form-horizontal">
             <input type="hidden" name="rackid" value='<?php echo $rackid; ?>'>
             <div class="form-group">
                 <label for="rack_name" class="col-sm-2 control-label">Type</label>
                 <div class="col-sm-10">
-                    <select class="form-control" name="rack_size">                                
+                    <select class="form-control" name="feed_type">                                
                         <option value='A'>A</option>
                         <option value='B'>B</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="rack_size" class="col-sm-2 control-label">Voltage</label>
+                <label for="feed_voltage" class="col-sm-2 control-label">Voltage</label>
                 <div class="col-sm-10">
-                    <select class="form-control" name="rack_size">                                
+                    <select class="form-control" name="feed_voltage">                                
                         <option value='120'>120V</option>
                         <option value='240'>240V</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="rack_city" class="col-sm-2 control-label">Power</label>
+                <label for="feed_power" class="col-sm-2 control-label">Power</label>
                 <div class="col-sm-10">
-                    <select class="form-control" name="rack_size">     
+                    <select class="form-control" name="feed_power">     
                         <?php
                         for($i=1; $i<=40; $i++) {
                             echo "<option value='$i'>".$i."A</option>";
@@ -69,7 +69,7 @@ if ($result->num_rows > 0) {
             <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
             <?php 
             if(rack_feed_count($rackid)!=2) {
-                echo "<button type='submit' form='modify_rack_form' class='btn btn-primary'>Modify Rack</button>";
+                echo "<button type='submit' form='add_feed_form' class='btn btn-primary'>Add Feed</button>";
             }
             ?>
         </form>
