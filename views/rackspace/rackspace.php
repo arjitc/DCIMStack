@@ -84,7 +84,7 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
                     Power Management 
                     <div class="pull-right">
                       <button class="btn btn-default" href='add_feed.php?rackid=<?php echo $rackid; ?>' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><i class="fa fa-plug"></i> Add Feed</button>
-                      <button class="btn btn-default"><i class="fa fa-plug"></i> Manage Feeds</button>
+                      <button class="btn btn-default" href='manage_feeds.php?rackid=<?php echo $rackid; ?>' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><i class="fa fa-plug"></i> Manage Feeds</button>
                     </div>
                   </h3>
                   <hr>
