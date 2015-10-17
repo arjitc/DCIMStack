@@ -4,6 +4,7 @@ include 'libraries/rackspace.php';
 include 'libraries/vendor_logo.php';
 include 'libraries/cpu_count.php';
 include 'libraries/power.php';
+include 'libraries/alerts.php';
 include 'config/db.php';
 check_if_rack_exists($_GET['rackid']); //this checks if the rack exists, if the rack does not exist it redirects the user back to index.php
 $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
@@ -64,7 +65,7 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
                   <h3>Overview</h3>
                   <?php 
                   if(rack_power_feed_count($rackid)==0) {
-                    echo "No power feeds found, You'll need to add in a power feed first from the <b>Power Management</b> tab.";
+                    alert_warning("No power feeds found, You'll need to add in a power feed first from the <b>Power Management</b> tab.");
                   } 
                   ?>
               </div>
