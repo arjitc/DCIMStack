@@ -26,4 +26,13 @@ function check_if_rack_exists($id) {
 		header('Location: index.php');
 	}
 }
+function check_if_feed_exists($feedid) {
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$feedid  = mysqli_real_escape_string($conn, $feedid);
+	$sql = "SELECT * FROM `power_feeds` WHERE `feed_id`='$feedid'";
+	$result = $conn->query($sql);
+	if ($result->num_rows == 0) {
+		header('Location: index.php');
+	}
+}
 ?>
