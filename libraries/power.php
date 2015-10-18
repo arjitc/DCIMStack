@@ -166,4 +166,20 @@ function rack_feed_count($rackid) {
 	$result = $conn->query($sql);
 	return $result->num_rows;
 }
+
+function power_feed_name($feedid) { //gets power feed name ie, A or B when the $feedid is passed on
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$feedid = mysqli_real_escape_string($conn, $feedid);
+	$sql = "SELECT * FROM `power_feeds` WHERE `feed_id`='$feedid'";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+	    // output data of each row
+	    while($row = $result->fetch_assoc()) {
+	            $feed_type = $row["feed_type"];
+	    }
+	    return $feed_type;
+	} else {
+	    return 0;
+	}
+}
 ?>
