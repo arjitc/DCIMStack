@@ -3,7 +3,9 @@ include 'libraries/general.php';
 include 'libraries/power.php';
 include 'config/db.php';
 $rackid = mysqli_real_escape_string($conn, $_GET['rackid']);
+$feedid = mysqli_real_escape_string($conn, $_GET['feedid']);
 check_if_rack_exists($rackid);
+check_if_feed_exists($feedid);
 $sql = "SELECT * FROM `rackspace` WHERE `rackid`='$rackid'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -21,13 +23,16 @@ if ($result->num_rows > 0) {
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title"><i class="fa fa-plug"></i> Manage power feeds - <?php echo get_rack_name($rackid); ?></h4>
+            <h4 class="modal-title">
+                <i class="fa fa-plug"></i> Manage power feed - <?php echo power_feed_name($feedid); ?> - <?php echo get_rack_name($rackid); ?>
+            </h4>
         </div>
         <div class="modal-body">
             <?php 
             if(rack_feed_count($rackid)!=0) {
             ?>
-            <form method="post" id="add_feed_form" action="add_feed_db.php" class="form-horizontal">
+            <form method="post" id="add_feed_form" action="manage_feeds_db.php" class="form-horizontal">
+            <input type="hidden" name="feedid" value='<?php echo $feedid; ?>'>
             <input type="hidden" name="rackid" value='<?php echo $rackid; ?>'>
             <div class="form-group">
                 <label for="rack_name" class="col-sm-2 control-label">Type</label>
@@ -68,7 +73,7 @@ if ($result->num_rows > 0) {
         <div class="modal-footer">
             <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
             <?php 
-            if(rack_feed_count($rackid)!=2) {
+            if(rack_feed_count($rackid)!=0) {
                 echo "<button type='submit' form='add_feed_form' class='btn btn-primary'>Add Feed</button>";
             }
             ?>
