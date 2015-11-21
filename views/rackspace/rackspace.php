@@ -25,9 +25,9 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
     <div class="container-fluid">
       <div class="row">
         <?php include 'libraries/sidebar.php'; ?>
-        <center><?php include 'libraries/alerts.php'; ?></center>
+        
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
+          <center><?php include 'libraries/alerts.php'; ?></center>
           <h1 class="page-header">Manage Rackspace (<?php echo get_rack_name($_GET['rackid']); ?>)</h1>
           <div class="row">
             <div class="col-md-4">
@@ -83,8 +83,9 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
                   <h3>
                     Power Management 
                     <div class="pull-right">
-                      <button class="btn btn-default" href='add_feed.php?rackid=<?php echo $rackid; ?>' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><i class="fa fa-plug"></i> Add Feed</button>
-                      <button class="btn btn-default" href='manage_feeds.php?rackid=<?php echo $rackid; ?>' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><i class="fa fa-plug"></i> Manage Feeds</button>
+                      <button class="btn btn-default" href='add_feed.php?rackid=<?php echo $rackid; ?>' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>
+                        <img src='assets/img/lightning_add.png'> Add Feed
+                      </button>
                     </div>
                   </h3>
                   <hr>

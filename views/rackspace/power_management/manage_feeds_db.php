@@ -26,7 +26,7 @@ if(empty($feed_power)) {
 }
 if(empty($feedid)) {
 	$_SESSION['error'] = "Error, FeedID missing.";
-	header('feedid: rackspace.php?rackid='.$rackid);
+	header('Location: rackspace.php?rackid='.$rackid);
 }
 
 if(isset($rackid, $feed_type, $feed_voltage, $feed_power, $feedid)) {

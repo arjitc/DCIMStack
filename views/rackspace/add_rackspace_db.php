@@ -13,7 +13,8 @@ if(isset($rack_name, $rack_size, $rack_city, $rack_country)) {
 		$event_message = "New rackspace $rack_name added";
 		$event_status = "Complete";
 		add_event($event_type, $event_message, $event_status);
-    	$_SESSION['success'] = "Success, Rackspace added into DCIMStack";
+		$rack_id = $conn->insert_id;
+    	$_SESSION['success'] = "Success, Rackspace added into DCIMStack. <a href='rackspace.php?rackid=$rack_id'>Manage</a>";
     	header('Location: add_rackspace.php');
 	} else {
 		$_SESSION['error'] = "Error, Rackspace not added into DCIMStack";
