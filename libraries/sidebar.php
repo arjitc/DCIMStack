@@ -26,11 +26,6 @@
     <hr>
     <li class="dropdown-header">Manage Hardware</li>
     <?php 
-    if(get_filename_from_url()=="manage_hardware.php") {
-      echo "<li class='active'><a href='manage_hardware.php'><img src='assets/img/cart_go.png'> Manage Hardware</a></li>";
-    } else {
-      echo "<li><a href='manage_hardware.php'><img src='assets/img/cart_go.png'> Manage Hardware</a></li>";
-    }
     if(get_filename_from_url()=="hdds.php") {
       echo "<li class='active'><a href='hdds.php'><img src='assets/img/drive_go.png'> HDDs</a></li>";
     } else {
@@ -46,15 +41,20 @@
     } else {
       echo "<li><a href='network.php'><img src='assets/img/chart_curve_go.png'> Network</a></li>";
     }
-    if(get_filename_from_url()=="ram.php") {
-      echo "<li class='active'><a href='ram.php'><img src='assets/img/tab_go.png'> RAM</a></li>";
+    if(get_filename_from_url()=="pdus.php") {
+      echo "<li class='active'><a href='ram.php'><img src='assets/img/lightning_go.png'> PDUs</a></li>";
     } else {
-      echo "<li><a href='ram.php'><img src='assets/img/tab_go.png'> RAM</a></li>";
+      echo "<li><a href='ram.php'><img src='assets/img/lightning_go.png'> PDUs</a></li>";
     }
     if(get_filename_from_url()=="add_hardware.php") {
-      echo "<li class='active'><a href='add_hardware.php'><img src='assets/img/cart_add.png'> Add Hardware</a></li>";
+      echo "<li class='active'><a href='add_hardware.php'><img src='assets/img/computer_go.png'> CPUs</a></li>";
     } else {
-      echo "<li><a href='add_hardware.php'><img src='assets/img/cart_add.png'> Add Hardware</a></li>";
+      echo "<li><a href='add_hardware.php'><img src='assets/img/computer_go.png'> CPUs</a></li>";
+    }
+     if(get_filename_from_url()=="add_hardware.php") {
+      echo "<li class='active'><a href='add_hardware.php'><img src='assets/img/package_go.png'> Other</a></li>";
+    } else {
+      echo "<li><a href='add_hardware.php'><img src='assets/img/package_go.png'> Other</a></li>";
     }
     ?>
   </ul>
