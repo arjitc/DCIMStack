@@ -100,7 +100,7 @@ function device_power_usage($server_id) {
 function power_usage_A() { 
 	include realpath(dirname(__FILE__)).'/../config/db.php';
 	$device_power_usage_sum_A = 0;
-	$sql = "SELECT SUM(device_power_usage) AS `device_power_usage_sum_A` FROM `devices` WHERE `device_power_feed1`!=''";
+	$sql = "SELECT SUM(device_power_usage) AS `device_power_usage_sum_A` FROM `devices` WHERE `device_power_feed1`!='' AND `device_type`='server'";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 	    // output data of each row
@@ -115,7 +115,7 @@ function power_usage_A() {
 function power_usage_B() { 
 	include realpath(dirname(__FILE__)).'/../config/db.php';
 	$device_power_usage_sum_B = 0;
-	$sql = "SELECT SUM(device_power_usage) AS `device_power_usage_sum_B` FROM `devices` WHERE `device_power_feed2`!=''";
+	$sql = "SELECT SUM(device_power_usage) AS `device_power_usage_sum_B` FROM `devices` WHERE `device_power_feed2`!='' AND `device_type`='server'";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 	    // output data of each row
