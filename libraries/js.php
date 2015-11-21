@@ -1,6 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">
     $('.confirmation').on('click', function () {
         return confirm('Are you sure?');
@@ -20,4 +21,10 @@
                 $modal.load($remote);
               }
             );
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#search_table').DataTable();
+} );
 </script>
