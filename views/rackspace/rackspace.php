@@ -83,8 +83,8 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
                   <h3>
                     Power Management 
                     <div class="pull-right">
-                      <button class="btn btn-default" href='add_feed.php?rackid=<?php echo $rackid; ?>' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>
-                        <img src='assets/img/lightning_add.png'> Add Feed
+                      <button class="btn btn-primary" href='add_feed.php?rackid=<?php echo $rackid; ?>' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>
+                        <img src='assets/img/add.png'> Add Feed
                       </button>
                     </div>
                   </h3>
