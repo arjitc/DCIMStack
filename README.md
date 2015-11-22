@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # dcimstack
 Datacenter inventory management system
 
@@ -27,4 +26,3 @@ Read: https://github.com/arjitc/dcimstack/blob/master/INSTALL.md for install ins
 =======
 # DCIMStack
 Datacenter Inventory Management System
->>>>>>> origin/master
