@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.12deb2
+-- version 4.2.12deb2+deb8u1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 17, 2015 at 05:23 PM
--- Server version: 5.5.44-0+deb8u1
--- PHP Version: 5.6.13-0+deb8u1
+-- Generation Time: Nov 22, 2015 at 12:53 PM
+-- Server version: 5.5.46-0+deb8u1
+-- PHP Version: 5.6.14-0+deb8u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,23 +27,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `devices` (
-  `rackid` int(11) NOT NULL,
 `device_id` int(11) NOT NULL,
+  `rackid` int(11) NOT NULL,
   `device_type` varchar(255) NOT NULL,
   `device_label` varchar(255) NOT NULL,
   `device_brand` varchar(255) NOT NULL,
   `device_serial` varchar(255) NOT NULL COMMENT 'Serial Number',
   `device_mac` varchar(255) NOT NULL,
   `device_ram_total` varchar(255) NOT NULL,
+  `device_capacity` varchar(255) NOT NULL,
   `device_cpu_count` varchar(255) NOT NULL,
   `device_power_usage` varchar(255) NOT NULL COMMENT 'in Amps',
   `device_power_feed1` varchar(255) NOT NULL,
   `device_power_feed2` varchar(255) NOT NULL,
   `device_cpu` varchar(255) NOT NULL,
-  `device_rack_position` int(2) NOT NULL,
+  `device_rack_position` varchar(255) NOT NULL,
   `device_size` int(11) NOT NULL COMMENT 'in U',
   `device_notes` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -57,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `event_message` varchar(255) NOT NULL,
   `event_status` varchar(255) NOT NULL,
   `event_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -88,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `power_feeds` (
   `feed_type` varchar(255) NOT NULL COMMENT 'A or B',
   `feed_power` int(11) NOT NULL COMMENT 'in Amps',
   `feed_voltage` int(11) NOT NULL COMMENT 'in Volts'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `rackspace` (
   `rack_size` varchar(255) NOT NULL COMMENT 'in U''s',
   `rack_city` varchar(255) NOT NULL,
   `rack_country` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -116,13 +117,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'user''s password in salted and hashed format',
   `user_email` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT 'user''s email, unique'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='user data';
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `user_email`) VALUES
-(1, 'admin', '$1$sMwLR2cB$V/2igCcG.IFrasNvn/L591', 'user@user.com');
 
 --
 -- Indexes for dumped tables
@@ -172,12 +166,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `devices`
 --
 ALTER TABLE `devices`
-MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `hdd`
 --
@@ -187,12 +181,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `power_feeds`
 --
 ALTER TABLE `power_feeds`
-MODIFY `feed_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `feed_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `rackspace`
 --
 ALTER TABLE `rackspace`
-MODIFY `rackid` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `rackid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
