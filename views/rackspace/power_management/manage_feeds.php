@@ -71,10 +71,10 @@ if ($result->num_rows > 0) {
             ?>
         </div>
         <div class="modal-footer">
-            <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+            <a href="#" class="btn btn-danger" data-dismiss="modal">Close</a>
             <?php 
             if(rack_feed_count($rackid)!=0) {
-                echo "<button type='submit' form='add_feed_form' class='btn btn-primary'>Add Feed</button>";
+                echo "<button type='submit' form='add_feed_form' class='btn btn-primary'>Update Feed</button>";
             }
             ?>
         </form>
