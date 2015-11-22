@@ -29,9 +29,9 @@
             <div class="panel-body">
               <form action="change_password_db.php" id="change_password" method="post">
                 <input type="hidden" name="token" value="<?php echo $token; ?>">
-                <input type="text" name="password1" placeholder="New password" class="form-control" required>
+                <input type="password" name="password1" placeholder="New password" class="form-control" required>
                 <div style="padding-bottom: 5px;"></div>
-                <input type="text" name="password2" placeholder="New password once again"  class="form-control" required>
+                <input type="password" name="password2" placeholder="New password once again"  class="form-control" required>
             </div>
             <div class="panel-footer">
               <center><input type="submit" form="change_password" class="btn btn-primary"></center>
