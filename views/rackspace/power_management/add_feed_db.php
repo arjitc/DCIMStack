@@ -30,7 +30,7 @@ if(isset($rackid, $feed_type, $feed_voltage, $feed_power)) {
 	if ($conn->query($sql) === TRUE) {
     	$rack_name = get_rack_name($rackid);
 		$event_type = "Power Feed Added";
-		$event_message = "A power feed was added to $rack_name was updated";
+		$event_message = "A power feed was added to $rack_name";
 		$event_status = "Complete";
 		add_event($event_type, $event_message, $event_status);
 
