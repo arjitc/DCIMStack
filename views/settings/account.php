@@ -34,7 +34,7 @@
                 <input type="password" name="password2" placeholder="New password once again"  class="form-control" required>
             </div>
             <div class="panel-footer">
-              <center><input type="submit" form="change_password" class="btn btn-primary"></center>
+              <center><input type="submit" form="change_password" value="Update" class="btn btn-primary"></center>
             </div>
             </form>
           </div>
@@ -50,7 +50,7 @@
                 <input type="password" name="password2" placeholder="New password once again"  class="form-control" required>
             </div>
             <div class="panel-footer">
-              <center><input type="submit" form="change_password" class="btn btn-primary"></center>
+              <center><input type="submit" form="change_password" value="Update" class="btn btn-primary"></center>
             </div>
             </form>
           </div>
