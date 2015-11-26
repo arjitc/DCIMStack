@@ -94,7 +94,7 @@ function device_power_usage($server_id) {
 	    	return $device_power_usage;
 	    }
 	} else {
-	    $device_power_usage;
+	    return $device_power_usage;
 	}     
 }
 function power_usage_A() { 
@@ -106,10 +106,11 @@ function power_usage_A() {
 	    // output data of each row
 	    while($row = $result->fetch_assoc()) {
 	            $device_power_usage_sum_A = $row["device_power_usage_sum_A"];
+	            if(empty($row["device_power_usage_sum_A"])) $device_power_usage_sum_A=0;
 	    }
 	    return $device_power_usage_sum_A;
 	} else {
-	    return device_power_usage_sum_A;
+	    return 0;
 	}     
 }
 function power_usage_B() { 
@@ -121,10 +122,11 @@ function power_usage_B() {
 	    // output data of each row
 	    while($row = $result->fetch_assoc()) {
 	            $device_power_usage_sum_B = $row["device_power_usage_sum_B"];
+	            if(empty($row["device_power_usage_sum_B"])) $device_power_usage_sum_B=0;
 	    }
 	    return $device_power_usage_sum_B;
 	} else {
-	    return device_power_usage_sum_B;
+	    return 0;
 	}     
 }
 function rack_power_total($rackid) {
