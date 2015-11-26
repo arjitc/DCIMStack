@@ -91,11 +91,11 @@
 					    	$rackid = $row["rackid"];
 					        echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
 					    }
+					    echo "</select>";
 					} else {
 					    echo "0 results";
 					}
 					?>
-					<br>
 					<label>Device Label</label>
 					<input type="text" class="form-control" name="device_label">
 					<label>Device Serial</label>

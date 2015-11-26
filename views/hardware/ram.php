@@ -76,30 +76,30 @@
 		    		<input type="hidden" name="page_referrer" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
 		    		<label>Device Type</label>
 		    		<input type="text" class="form-control" name="device_type" value="RAM" readonly>
-					<label>Device Vendor</label>
-		    		<select class="form-control" name="device_brand">
+					<label for="device_brand">Device Vendor</label>
+		    		<select class="form-control" id="device_brand" name="device_brand">
 					  <option value="Samsung">Samsung</option>
 					  <option value="Transcend">Transcend</option>
 					</select>
-					<label>Device Location</label>
+					<label for="device_location">Device Location</label>
 					<?php
 					include 'config/db.php';
 					$sql = "SELECT * FROM `rackspace`";
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0) {
-						echo "<select class='form-control' name='device_location'>";
+						echo "<select class='form-control' id='device_location' name='device_location'>";
 					    // output data of each row
 					    while($row = $result->fetch_assoc()) {
 					    	$rackid = $row["rackid"];
 					        echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
 					    }
+					    echo "</select>";
 					} else {
 					    echo "0 results";
 					}
 					?>
-					<br>
-					<label>Device Label</label>
-					<input type="text" class="form-control" name="device_label">
+					<label for="device_label">Device Label</label>
+					<input type="text" class="form-control" id="device_label" name="device_label">
 					<label>Device Serial</label>
 					<input type="text" class="form-control" name="device_serial">
 					<label>Device Capacity</label>
