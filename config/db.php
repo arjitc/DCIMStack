@@ -11,6 +11,9 @@
  * DB_USER: user for your database. the user needs to have rights for SELECT, UPDATE, DELETE and INSERT.
  * DB_PASS: the password of the above user
  */
+
+set_include_path("SET PATH TO YOUR INSTALL HERE");
+
 define("DB_HOST", "127.0.0.1");
 define("DB_NAME", "dbname");
 define("DB_USER", "root");
