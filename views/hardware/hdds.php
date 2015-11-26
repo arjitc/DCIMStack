@@ -72,13 +72,39 @@
 	    		<h4 class="modal-title">Add HDDs</h4>
 	    	</div>
 		    <div class="modal-body">
-		    	<form action="welcome.php" id="add_hdds" method="post">
+		    	<form action="add_device_db.php" id="add_hdds" method="post">
+		    		<input type="hidden" name="page_referrer" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
 		    		<label>Device Type</label>
 		    		<select class="form-control" name="device_type">
 					  <option value="SSD">SSD</option>
 					  <option value="HDD">HDD</option>
 					  <option value="SAS">SAS</option>
 					</select>
+					<label>Device Vendor</label>
+		    		<select class="form-control" name="device_brand">
+					  <option value="Hitachi">Hitachi</option>
+					  <option value="Seagate">Seagate</option>
+					  <option value="WD">WD</option>
+					  <option value="Samsung">Samsung</option>
+					  <option value="Toshiba">Toshiba</option>
+					</select>
+					<label>Device Location</label>
+					<?php
+					include 'config/db.php';
+					$sql = "SELECT * FROM `rackspace`";
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) {
+						echo "<select class='form-control' name='device_location'>";
+					    // output data of each row
+					    while($row = $result->fetch_assoc()) {
+					    	$rackid = $row["rackid"];
+					        echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
+					    }
+					} else {
+					    echo "0 results";
+					}
+					?>
+					<br>
 					<label>Device Label</label>
 					<input type="text" class="form-control" name="device_label">
 					<label>Device Serial</label>
