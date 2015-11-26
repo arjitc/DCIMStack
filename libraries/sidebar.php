@@ -46,10 +46,10 @@
     } else {
       echo "<li><a href='ram.php'><img src='assets/img/lightning_go.png'> PDUs</a></li>";
     }
-    if(get_filename_from_url()=="add_hardware.php") {
-      echo "<li class='active'><a href='add_hardware.php'><img src='assets/img/computer_go.png'> CPUs</a></li>";
+    if(get_filename_from_url()=="cpus.php") {
+      echo "<li class='active'><a href='cpus.php'><img src='assets/img/computer_go.png'> CPUs</a></li>";
     } else {
-      echo "<li><a href='add_hardware.php'><img src='assets/img/computer_go.png'> CPUs</a></li>";
+      echo "<li><a href='cpus.php'><img src='assets/img/computer_go.png'> CPUs</a></li>";
     }
      if(get_filename_from_url()=="add_hardware.php") {
       echo "<li class='active'><a href='add_hardware.php'><img src='assets/img/package_go.png'> Other</a></li>";
