@@ -21,7 +21,7 @@
       <div class="row">
         <?php include 'libraries/sidebar.php'; ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">HDDs <div class='pull-right'><button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button></div></h1>
+          <h1 class="page-header">RAM <div class='pull-right'><button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button></div></h1>
           <?php
             include 'config/db.php';
             $sql = "SELECT * FROM `devices` WHERE `device_type`='RAM'";
