@@ -2,7 +2,7 @@
 <div class="col-sm-3 col-md-2 sidebar">
   <ul class="nav nav-sidebar">
     <?php 
-    if(get_filename_from_url()=="index.php") {
+    if(get_filename_from_url()=="index.php" OR empty(get_filename_from_url())) {
       echo "<li class='active'><a href='index.php'><img src='assets/img/application_view_columns.png'> Overview</a></li>";
     } else {
       echo "<li><a href='index.php'><img src='assets/img/application_view_columns.png'> Overview</a></li>";
