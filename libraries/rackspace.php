@@ -1,10 +1,9 @@
 <?php
 function rackspace_used_rack($rackid) { //for grabbing stats of each individual rack
 	include realpath(dirname(__FILE__)).'/../config/db.php';
-	$rackid    = mysqli_real_escape_string($conn, $rackid);
-	$sql = "SELECT * FROM `devices` WHERE `rackid`='$rackid'";
+	$rackid = mysqli_real_escape_string($conn, $rackid);
+	$sql = "SELECT * FROM `devices` WHERE `rackid`='$rackid' AND `device_type`='server' OR `device_type`='router' OR `device_type`='switch' OR `device_type`='PDU'";
 	$result = $conn->query($sql);
-	$conn->close();
 	return $result->num_rows;
 }
 
@@ -33,13 +32,7 @@ function rackspace_device_count_rack($rackid) { //for grabbing stats of each ind
 	$rackid    = mysqli_real_escape_string($conn, $rackid);
 	$sql = "SELECT * FROM `devices` WHERE `rackid`='$rackid'";
 	$result = $conn->query($sql);
-	
-	if ($result->num_rows > 0) {
-	    return $result->num_rows;
-	} else {
-	    return 0;
-	}
-	$conn->close();
+    return $result->num_rows;
 }
 
 ?>
