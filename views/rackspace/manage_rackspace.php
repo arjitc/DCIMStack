@@ -30,7 +30,7 @@
           $sql = "SELECT * FROM `rackspace`";
           $result = $conn->query($sql);
           if ($result->num_rows > 0) {
-              echo "<table class='table table-striped'>
+              echo "<table class='table table-striped' id='search_table'>
               <thead>
                 <tr>
                   <th><center><img src='assets/img/tag_blue.png' data-toggle='tooltip' data-placement='top' title='Rack Name'></center></th>
