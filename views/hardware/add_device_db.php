@@ -1,5 +1,7 @@
 <?php
 include 'libraries/db.php';
+include 'libraries/events.php';
+include 'libraries/general.php';
 $page_referrer = $_POST['page_referrer'];
 $device_brand = $_POST['device_brand'];
 $device_type = $_POST['device_type'];
@@ -40,7 +42,12 @@ $sql = "INSERT INTO `dcimstack`.`devices`
 			'$device_notes');";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+	$rack_name = get_rack_name($device_location);
+    //echo "New record created successfully";
+    $event_type = "New $device_type added";
+	$event_message = "A new $device_type was added to $rack_name";
+	$event_status = "Complete";
+	add_event($event_type, $event_message, $event_status);
     $conn->close();
     header("Location: $page_referrer");
 } else {
