@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 22, 2015 at 12:53 PM
+-- Generation Time: Dec 09, 2015 at 05:32 PM
 -- Server version: 5.5.46-0+deb8u1
 -- PHP Version: 5.6.14-0+deb8u1
 
@@ -43,8 +43,10 @@ CREATE TABLE IF NOT EXISTS `devices` (
   `device_cpu` varchar(255) NOT NULL,
   `device_rack_position` varchar(255) NOT NULL,
   `device_size` int(11) NOT NULL COMMENT 'in U',
+  `device_warranty` text NOT NULL COMMENT 'day on which the warranty ends',
+  `device_dop` text NOT NULL COMMENT 'date of purchase',
   `device_notes` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -58,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `event_message` varchar(255) NOT NULL,
   `event_status` varchar(255) NOT NULL,
   `event_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -166,12 +168,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `devices`
 --
 ALTER TABLE `devices`
-MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `hdd`
 --
