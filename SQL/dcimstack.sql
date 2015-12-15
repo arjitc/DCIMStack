@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 09, 2015 at 05:32 PM
+-- Generation Time: Dec 15, 2015 at 06:50 PM
 -- Server version: 5.5.46-0+deb8u1
 -- PHP Version: 5.6.14-0+deb8u1
 
@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `devices` (
   `device_mac` varchar(255) NOT NULL,
   `device_ram_total` varchar(255) NOT NULL,
   `device_capacity` varchar(255) NOT NULL,
+  `device_port_count` int(11) NOT NULL,
   `device_cpu_count` varchar(255) NOT NULL,
   `device_power_usage` varchar(255) NOT NULL COMMENT 'in Amps',
   `device_power_feed1` varchar(255) NOT NULL,
