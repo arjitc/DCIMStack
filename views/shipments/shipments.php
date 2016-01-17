@@ -16,11 +16,11 @@
       <div class="row">
         <?php include 'libraries/sidebar.php'; ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Manage Hardware</h1>
+          <h1 class="page-header">Shipments</h1>
         </div>
       </div>
     </div>
-        
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
