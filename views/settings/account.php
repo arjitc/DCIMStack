@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DCIMStack</title>
-    <?php 
-    include 'libraries/css.php'; 
+    <?php
+    include 'libraries/css.php';
     $token = md5(uniqid(rand(), TRUE));
     $_SESSION['token'] = $token;
     ?>
@@ -43,6 +43,7 @@
               <h3 class="panel-title"><i class="fa fa-envelope-o"></i> Change EMail ID</h3>
             </div>
             <div class="panel-body">
+              <p> Current email ID: <?php echo $_SESSION['user_email']; ?> </p>
               <form action="change_password_db.php" id="change_password" method="post">
                 <input type="hidden" name="token" value="<?php echo $token; ?>">
                 <input type="password" name="password1" placeholder="New EMail ID" class="form-control" required>
@@ -58,7 +59,7 @@
       </div>
     </div>
   </div>
-        
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
