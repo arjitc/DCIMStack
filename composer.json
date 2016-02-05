@@ -1,5 +1,6 @@
 {
     "require": {
-        "hipchat/hipchat-php": "^1.4"
+        "hipchat/hipchat-php": "^1.4",
+        "maknz/slack": "^1.7"
     }
 }
