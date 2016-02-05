@@ -1,0 +1,5 @@
+{
+    "require": {
+        "hipchat/hipchat-php": "^1.4"
+    }
+}

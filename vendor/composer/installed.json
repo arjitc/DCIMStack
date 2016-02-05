@@ -1,0 +1,46 @@
+[
+    {
+        "name": "hipchat/hipchat-php",
+        "version": "v1.4",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hipchat/hipchat-php.git",
+            "reference": "5936c0a48d2d514d94bfc1d774b04c42cd3bc39e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/hipchat/hipchat-php/zipball/5936c0a48d2d514d94bfc1d774b04c42cd3bc39e",
+            "reference": "5936c0a48d2d514d94bfc1d774b04c42cd3bc39e",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2015-04-28 22:48:40",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "HipChat": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "HipChat",
+                "email": "support@hipchat.com",
+                "homepage": "https://www.hipchat.com",
+                "role": "Company"
+            }
+        ],
+        "description": "PHP library for HipChat",
+        "homepage": "http://github.com/hipchat/hipchat-php",
+        "keywords": [
+            "hipchat"
+        ]
+    }
+]
