@@ -111,15 +111,15 @@
                       }
                       ?>
                       <label>Device Date Of Purchase</label>
-                      <input type="date" class="form-control" name="device_dop">
+                      <input type="date" class="form-control" name="device_dop" required>
                       <label>Warranty valid til</label>
-                      <input type="date" class="form-control" name="device_warranty">
+                      <input type="date" class="form-control" name="device_warranty" required>
                       <label>Device Label</label>
-                      <input type="text" class="form-control" name="device_label">
+                      <input type="text" class="form-control" name="device_label" required>
                       <label>Device Serial</label>
-                      <input type="text" class="form-control" name="device_serial">
+                      <input type="text" class="form-control" name="device_serial" required>
                       <label>Device Capacity</label>
-                      <input type="text" class="form-control" name="device_capacity"><br>
+                      <input type="text" class="form-control" name="device_capacity" required><br>
                     </form>
                   </div>
                   <div class="modal-footer">
