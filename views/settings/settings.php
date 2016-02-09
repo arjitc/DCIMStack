@@ -24,17 +24,16 @@
           <?php include 'libraries/alerts.php'; ?>
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title"><i class="fa fa-key"></i> Change Password</h3>
+              <h3 class="panel-title"><img src='assets/img/lorry.png'> AfterShip API Key</h3>
             </div>
             <div class="panel-body">
-              <form action="change_password_db.php" id="change_password" method="post">
+              <form action="settings_db.php" id="aftership_api_key" method="post">
                 <input type="hidden" name="token" value="<?php echo $token; ?>">
-                <input type="password" name="password1" placeholder="New password" class="form-control" required>
-                <div style="padding-bottom: 5px;"></div>
-                <input type="password" name="password2" placeholder="New password once again"  class="form-control" required>
+                <input type="hidden" name="setting" value="aftership_api_key">
+                <input type="text" name="value" placeholder="AfterShip API Key" class="form-control" required>
             </div>
             <div class="panel-footer">
-              <center><input type="submit" form="change_password" value="Update" class="btn btn-primary"></center>
+              <center><input type="submit" form="aftership_api_key" value="Update" class="btn btn-primary"></center>
             </div>
             </form>
           </div>
