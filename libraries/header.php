@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -15,7 +15,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome back, <?php echo $_SESSION['user_name']; ?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="index.php"><img src='assets/img/application_view_columns.png'> Dashboard</a></li>
-                <li><a href="account.php"><img src='assets/img/cog.png'> Account</a></li>
+                <li><a href="settings.php"><img src='assets/img/cog.png'> DCIMStack Settings</a></li>
+                <li><a href="account.php"><img src='assets/img/user_edit.png'> Account Settings</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="about.php"><img src='assets/img/information.png'> About</a></li>
                 <li role="separator" class="divider"></li>
