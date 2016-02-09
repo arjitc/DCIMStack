@@ -96,12 +96,16 @@
 					    echo "0 results";
 					}
 					?>
+          <label>Device Date Of Purchase</label>
+          <input type="date" class="form-control" name="device_dop" required>
+          <label>Warranty valid til</label>
+          <input type="date" class="form-control" name="device_warranty" required>
 					<label>Device Label</label>
-					<input type="text" class="form-control" name="device_label">
+					<input type="text" class="form-control" name="device_label" required>
 					<label>Device Serial</label>
-					<input type="text" class="form-control" name="device_serial">
+					<input type="text" class="form-control" name="device_serial" required>
 					<label>Device Model</label>
-					<input type="text" class="form-control" name="device_cpu"><br>
+					<input type="text" class="form-control" name="device_cpu" required><br>
 				</form>
 		    </div>
 		    <div class="modal-footer">
