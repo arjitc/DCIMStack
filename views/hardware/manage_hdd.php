@@ -8,7 +8,11 @@ if(!ctype_digit($_GET['device_id'])) {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            $device_label = $row["device_label"];
+            $device_label    = $row["device_label"];
+            $device_brand    = $row["device_brand"];
+            $device_type     = $row["device_type"];
+            $device_serial   = $row["device_serial"];
+            $device_capacity = $row["device_capacity"];
         }
     }
 }
@@ -17,7 +21,7 @@ if(!ctype_digit($_GET['device_id'])) {
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title"><img src='assets/img/drive_go.png'> Manage disk <?php echo $device_label; ?></h4>
+            <h4 class="modal-title"><img src='assets/img/drive_go.png'> Manage disk - <?php echo $device_label; ?></h4>
         </div>
         <div class="modal-body">
         </div>
