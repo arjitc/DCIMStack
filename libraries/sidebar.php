@@ -51,7 +51,7 @@
     } else {
       echo "<li><a href='cpus.php'><img src='assets/img/computer_go.png'> CPUs</a></li>";
     }
-     if(get_filename_from_url()=="add_hardware.php") {
+    if(get_filename_from_url()=="add_hardware.php") {
       echo "<li class='active'><a href='add_hardware.php'><img src='assets/img/package_go.png'> Other</a></li>";
     } else {
       echo "<li><a href='add_hardware.php'><img src='assets/img/package_go.png'> Other</a></li>";
@@ -59,8 +59,12 @@
     ?>
   </ul>
   <ul class="nav nav-sidebar">
-    <li><a href="shipments.php"><img src='assets/img/lorry.png'> Shipments</a></li>
-    <li><a href="">One more nav</a></li>
-    <li><a href="">Another nav item</a></li>
+  <?php
+  if(get_filename_from_url()=="shipments.php") {
+      echo "<li class='active'><a href='shipments.php'><img src='assets/img/lorry.png'> Shipments</a></li>";
+    } else {
+      echo "<li><a href='shipments.php'><img src='assets/img/lorry.png'> Shipments</a></li>";
+    }
+  ?>
   </ul>
 </div>
