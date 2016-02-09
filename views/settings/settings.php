@@ -1,3 +1,15 @@
+<?php
+$sql = "SELECT * FROM `settings` WHERE `setting`='aftership_api_key'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $aftership_api_key = $row["value"];
+    }
+} else {
+    //echo "0 results";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,6 +39,8 @@
               <h3 class="panel-title"><img src='assets/img/lorry.png'> AfterShip API Key</h3>
             </div>
             <div class="panel-body">
+              <p>The AfterShip API is used in the "Shipping" feature of DCIMStack for listing tracking status of your shipments to your datacenter.</p>
+              <p>Current AfterShip API Key: <?php echo $aftership_api_key; ?></p>
               <form action="settings_db.php" id="aftership_api_key" method="post">
                 <input type="hidden" name="token" value="<?php echo $token; ?>">
                 <input type="hidden" name="setting" value="aftership_api_key">
