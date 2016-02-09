@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 15, 2015 at 06:50 PM
--- Server version: 5.5.46-0+deb8u1
--- PHP Version: 5.6.14-0+deb8u1
+-- Generation Time: Feb 09, 2016 at 05:29 PM
+-- Server version: 5.5.47-0+deb8u1
+-- PHP Version: 5.6.17-0+deb8u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -106,7 +106,19 @@ CREATE TABLE IF NOT EXISTS `rackspace` (
   `rack_size` varchar(255) NOT NULL COMMENT 'in U''s',
   `rack_city` varchar(255) NOT NULL,
   `rack_country` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shipments`
+--
+
+CREATE TABLE IF NOT EXISTS `shipments` (
+`id` int(11) NOT NULL,
+  `tracking_id` varchar(255) NOT NULL,
+  `shipping_courier` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -156,6 +168,12 @@ ALTER TABLE `rackspace`
  ADD PRIMARY KEY (`rackid`), ADD KEY `id` (`rackid`);
 
 --
+-- Indexes for table `shipments`
+--
+ALTER TABLE `shipments`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -189,7 +207,12 @@ MODIFY `feed_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 -- AUTO_INCREMENT for table `rackspace`
 --
 ALTER TABLE `rackspace`
-MODIFY `rackid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `rackid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `shipments`
+--
+ALTER TABLE `shipments`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --
