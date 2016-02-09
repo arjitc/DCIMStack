@@ -51,23 +51,6 @@ if ($result->num_rows > 0) {
             </div>
             </form>
           </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title"><i class="fa fa-envelope-o"></i> Change EMail ID</h3>
-            </div>
-            <div class="panel-body">
-              <p> Current email ID: <?php echo $_SESSION['user_email']; ?> </p>
-              <form action="change_password_db.php" id="change_password" method="post">
-                <input type="hidden" name="token" value="<?php echo $token; ?>">
-                <input type="password" name="password1" placeholder="New EMail ID" class="form-control" required>
-                <div style="padding-bottom: 5px;"></div>
-                <input type="password" name="password2" placeholder="New EMail ID once again"  class="form-control" required>
-            </div>
-            <div class="panel-footer">
-              <center><input type="submit" form="change_password" value="Update" class="btn btn-primary"></center>
-            </div>
-            </form>
-          </div>
         </div>
       </div>
     </div>
