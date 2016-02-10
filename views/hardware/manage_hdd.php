@@ -24,11 +24,20 @@ if(!ctype_digit($_GET['device_id'])) {
             <h4 class="modal-title"><img src='assets/img/drive_go.png'> Manage disk - <?php echo $device_label; ?></h4>
         </div>
         <div class="modal-body">
+
         </div>
         <div class="modal-footer">
-            <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-            <a href="#" class="btn btn-primary">Button</a>
-            <a href="#" class="btn btn-primary">Another button...</a>
+            <div class="pull-left">
+            <a href="delete_device.php?device_id=<?php echo $device_id; ?>" class="btn btn-danger confirmation">Delete HDD</a>
+            </div>
+            <a href="#" class="btn btn-primary" data-dismiss="modal">Cancel</a>
+            <a href="#" class="btn btn-primary">Update</a>
         </div>
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
+
+<script type="text/javascript">
+    $('.confirmation').on('click', function () {
+        return confirm('Are you sure?');
+    });
+</script>
