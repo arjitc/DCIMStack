@@ -1,8 +1,12 @@
 <?php
 include 'config/db.php';
 $setting    = mysqli_real_escape_string($conn, $_POST['setting']);
-$value    = mysqli_real_escape_string($conn, $_POST['value']);
+$value      = mysqli_real_escape_string($conn, $_POST['value']);
 if(isset($setting, $value) && $_SESSION['token']==$_POST['token']) {
+	//delete old entries for this setting.
+	$sql = "DELETE FROM `dcimstack`.`settings` WHERE `setting`='$setting'";
+	$conn->query($sql);
+	//insert new entry for this setting
 	$sql = "INSERT INTO `dcimstack`.`settings` (`id`, `setting`, `value`) VALUES (NULL, '$setting', '$value');";
 	unset($_SESSION['token']);
 	if ($conn->query($sql) === TRUE) {
