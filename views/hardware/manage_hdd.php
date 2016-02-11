@@ -2,6 +2,7 @@
 if(!ctype_digit($_GET['device_id'])) {
     header('Location: index.php');
 } else {
+    $_SESSION['referrer'] = "hdds.php"; //manually set it here.
     include 'config/db.php';
     $device_id  = mysqli_real_escape_string($conn, $_GET['device_id']);
     $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
