@@ -10,6 +10,36 @@
           <a class="navbar-brand" href="index.php"><i class="fa fa-database"></i> DCIMStack</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.php"><img src='assets/img/application_view_columns.png'> Dashboard</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <img src='assets/img/building.png'> Rackspace <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href='manage_rackspace.php'><img src='assets/img/building_go.png'> Manage Rackspace</a></li>
+                <li><a href='add_rackspace.php'><img src='assets/img/building_add.png'> Add Rackspace</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <img src='assets/img/keyboard.png'> Hardware <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href='hdds.php'><img src='assets/img/drive_go.png'> HDDs</a></li>
+                <li><a href='ram.php'><img src='assets/img/tab_go.png'> RAM</a></li>
+                <li><a href='network.php'><img src='assets/img/chart_curve_go.png'> Network</a></li>
+                <li><a href='ram.php'><img src='assets/img/lightning_go.png'> PDUs</a></li>
+                <li><a href='cpus.php'><img src='assets/img/computer_go.png'> CPUs</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <img src='assets/img/lorry.png'> Shipments <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href='shipments.php'><img src='assets/img/lorry.png'> Shipments</a></li>
+                <li><a href='shipments.php'><img src='assets/img/lorry.png'> RMA</a></li>
+              </ul>
+            </li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome back, <?php echo $_SESSION['user_name']; ?> <span class="caret"></span></a>
