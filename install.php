@@ -41,13 +41,13 @@
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
         $email    = mysqli_real_escape_string($conn, $_POST['email']);
-        if(ctype_alnum($username) && isset($password, $username) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (ctype_alnum($username) && isset($password, $username) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
           $password = crypt($password);
           $sql = "INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `user_email`) VALUES (NULL, '$username', '$password', '$email');";
           if ($conn->query($sql) === TRUE) {
             echo "New user created successfully";
           } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: ".$sql."<br>".$conn->error;
           }
         }
       ?>

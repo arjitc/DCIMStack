@@ -69,7 +69,7 @@ class Login
                 // username field)
                 $sql = "SELECT user_name, user_email, user_password_hash
                         FROM users
-                        WHERE user_name = '" . $user_name . "' OR user_email = '" . $user_name . "';";
+                        WHERE user_name = '" . $user_name."' OR user_email = '".$user_name."';";
                 $result_of_login_check = $this->db_connection->query($sql);
 
                 // if this user exists

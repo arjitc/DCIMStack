@@ -33,22 +33,22 @@
                 echo "<table class='table' id='search_table'>";
                 echo "<thead>";
                 echo "<tr>";
-                	echo "<th>Location</th>";
-                  	echo "<th>Vendor</th>";
-                  	echo "<th>Type</th>";
-                  	echo "<th>Physical Label</th>";
-                  	echo "<th>Capacity</th>";
-                  	echo "<th>Serial #</th>";
+                  echo "<th>Location</th>";
+                    echo "<th>Vendor</th>";
+                    echo "<th>Type</th>";
+                    echo "<th>Physical Label</th>";
+                    echo "<th>Capacity</th>";
+                    echo "<th>Serial #</th>";
                     echo "<th>Purchased on</th>";
                     echo "<th>Warranty till</th>";
-                  	echo "<th><center>Manage</center></th>";
+                    echo "<th><center>Manage</center></th>";
                 echo "</tr>";
                 echo "</thead>";
                 while($row = $result->fetch_assoc()) {
-                	echo "<tr>";
-                  		echo "<td>". get_rack_name($row['rackid']) ."</td>";
-                    	echo "<td>". $row["device_brand"]."</td>";
-                     	echo "<td>". $row["device_type"]."</td>";
+                  echo "<tr>";
+                      echo "<td>". get_rack_name($row['rackid']) ."</td>";
+                      echo "<td>". $row["device_brand"]."</td>";
+                        echo "<td>". $row["device_type"]."</td>";
                       echo "<td>". $row["device_label"]."</td>";
                       echo "<td>". $row["device_capacity"]."</td>";
                       echo "<td>". $row["device_serial"]."</td>";
@@ -88,21 +88,21 @@
 					</select>
 					<label for="device_location">Device Location</label>
 					<?php
-					include 'config/db.php';
-					$sql = "SELECT * FROM `rackspace`";
-					$result = $conn->query($sql);
-					if ($result->num_rows > 0) {
-						echo "<select class='form-control' id='device_location' name='device_location'>";
-					    // output data of each row
-					    while($row = $result->fetch_assoc()) {
-					    	$rackid = $row["rackid"];
-					        echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
-					    }
-					    echo "</select>";
-					} else {
-					    echo "0 results";
-					}
-					?>
+          include 'config/db.php';
+          $sql = "SELECT * FROM `rackspace`";
+          $result = $conn->query($sql);
+          if ($result->num_rows > 0) {
+            echo "<select class='form-control' id='device_location' name='device_location'>";
+              // output data of each row
+              while($row = $result->fetch_assoc()) {
+                $rackid = $row["rackid"];
+                  echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
+              }
+              echo "</select>";
+          } else {
+              echo "0 results";
+          }
+          ?>
           <label>Device Date Of Purchase</label>
           <input type="date" class="form-control" name="device_dop" required>
           <label>Warranty valid til</label>
