@@ -59,11 +59,19 @@
     ?>
   </ul>
   <ul class="nav nav-sidebar">
+  <li class="dropdown-header">Shipments/RMA</li>
   <?php
   if(get_filename_from_url()=="shipments.php") {
       echo "<li class='active'><a href='shipments.php'><img src='assets/img/lorry.png'> Shipments</a></li>";
     } else {
       echo "<li><a href='shipments.php'><img src='assets/img/lorry.png'> Shipments</a></li>";
+    }
+  ?>
+  <?php
+  if(get_filename_from_url()=="shipments.php") {
+      echo "<li class='active'><a href='shipments.php'><img src='assets/img/lorry.png'> RMA</a></li>";
+    } else {
+      echo "<li><a href='shipments.php'><img src='assets/img/lorry.png'> RMA</a></li>";
     }
   ?>
   </ul>
