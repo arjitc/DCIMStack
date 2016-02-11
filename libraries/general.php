@@ -35,4 +35,18 @@ function check_if_feed_exists($feedid) {
 		header('Location: index.php');
 	}
 }
+function get_device_label_from_id($device_id) {
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$id  = mysqli_real_escape_string($conn, $id);
+	$sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+	    while($row = $result->fetch_assoc()) {
+	        $device_label = $row["device_label"];
+	    }
+	} else {
+	    $device_label = "None";
+	}
+	return $device_label;
+}
 ?>
