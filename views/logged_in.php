@@ -13,43 +13,35 @@
   </head>
 
   <body>
-
     <?php include 'libraries/header.php'; ?>
-
-    <div class="container-fluid">
-      <div class="row">
-
-          <?php include 'libraries/sidebar.php'; ?>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-          <?php include 'libraries/alerts.php'; ?>
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <h3><?php echo rackspace_available(); ?>U</h3>
-              <h4>Rackspace available</h4>
-              <span class="text-muted">Individual U's of rackspace available</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <h3><?php echo rackspace_used(); ?>U</h3>
-              <h4>Rackspace used</h4>
-              <span class="text-muted">Individual U's of rackspace used</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <h3><?php echo hardware_used(); ?></h3>
-              <h4>Total Hardware</h4>
-              <span class="text-muted">Individual hardware in DCIMStack</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Hardware used</h4>
-              <span class="text-muted">Individual hardware in-use</span>
-            </div>
-          </div>
-
-          <h2 class="sub-header">Events</h2>
-            <?php list_events_table(20); //from libraries/events.php ?>
+    <div class="container">
+      <h1 class="page-header">Dashboard</h1>
+      <?php include 'libraries/alerts.php'; ?>
+      <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <h3><?php echo rackspace_available(); ?>U</h3>
+          <h4>Rackspace available</h4>
+          <span class="text-muted">Individual U's of rackspace available</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <h3><?php echo rackspace_used(); ?>U</h3>
+          <h4>Rackspace used</h4>
+          <span class="text-muted">Individual U's of rackspace used</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <h3><?php echo hardware_used(); ?></h3>
+          <h4>Total Hardware</h4>
+          <span class="text-muted">Individual hardware in DCIMStack</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Hardware used</h4>
+          <span class="text-muted">Individual hardware in-use</span>
         </div>
       </div>
+
+      <h2 class="sub-header">Events</h2>
+      <?php list_events_table(20); //from libraries/events.php ?>
     </div>
 
     <!-- Bootstrap core JavaScript
