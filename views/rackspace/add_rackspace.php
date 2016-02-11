@@ -32,7 +32,7 @@
               <div class="col-sm-10">
                 <select class="form-control" name="rack_size">
                   <?php
-                  for($i=1;$i<=48;$i++) {
+                  for ($i = 1; $i <= 48; $i++) {
                     echo "<option value='$i'>".$i."U</option>";
                   }
                   ?>
