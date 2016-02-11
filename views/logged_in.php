@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DCIMStack</title>
     <?php
-	    include      'libraries/css.php';
-	    include_once 'libraries/dashboard_stats.php';
-	    include_once 'libraries/events.php';
+      include      'libraries/css.php';
+      include_once 'libraries/dashboard_stats.php';
+      include_once 'libraries/events.php';
     ?>
   </head>
 
