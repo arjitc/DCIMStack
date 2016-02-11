@@ -1,11 +1,11 @@
 <?php
 /**
- * A Compatibility library with PHP 5.5's simplified password hashing API.
- *
- * @author Anthony Ferrara <ircmaxell@php.net>
- * @license http://www.opensource.org/licenses/mit-license.html MIT License
- * @copyright 2012 The Authors
- */
+   * A Compatibility library with PHP 5.5's simplified password hashing API.
+   *
+   * @author Anthony Ferrara <ircmaxell@php.net>
+   * @license http://www.opensource.org/licenses/mit-license.html MIT License
+   * @copyright 2012 The Authors
+   */
 
 if (!defined('PASSWORD_DEFAULT')) {
 
@@ -31,7 +31,7 @@ if (!defined('PASSWORD_DEFAULT')) {
             return null;
         }
         if (!is_int($algo)) {
-            trigger_error("password_hash() expects parameter 2 to be long, " . gettype($algo) . " given", E_USER_WARNING);
+            trigger_error("password_hash() expects parameter 2 to be long, ".gettype($algo)." given", E_USER_WARNING);
             return null;
         }
         switch ($algo) {
@@ -62,11 +62,11 @@ if (!defined('PASSWORD_DEFAULT')) {
                 case 'integer':
                 case 'double':
                 case 'string':
-                    $salt = (string) $options['salt'];
+                    $salt = (string)$options['salt'];
                     break;
                 case 'object':
                     if (method_exists($options['salt'], '__tostring')) {
-                        $salt = (string) $options['salt'];
+                        $salt = (string)$options['salt'];
                         break;
                     }
                 case 'array':
@@ -122,7 +122,7 @@ if (!defined('PASSWORD_DEFAULT')) {
         }
         $salt = substr($salt, 0, $required_salt_len);
 
-        $hash = $hash_format . $salt;
+        $hash = $hash_format.$salt;
 
         $ret = crypt($password, $hash);
 

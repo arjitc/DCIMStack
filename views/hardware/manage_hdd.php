@@ -1,14 +1,14 @@
 <?php
-if(!ctype_digit($_GET['device_id'])) {
+if (!ctype_digit($_GET['device_id'])) {
     header('Location: index.php');
 } else {
     $_SESSION['referrer'] = "hdds.php"; //manually set it here.
     include 'config/db.php';
-    $device_id  = mysqli_real_escape_string($conn, $_GET['device_id']);
+    $device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
     $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
             $device_label    = $row["device_label"];
             $device_brand    = $row["device_brand"];
             $device_type     = $row["device_type"];
