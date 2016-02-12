@@ -31,12 +31,12 @@
                     echo "<th><center>Manage</center></th>";
                 echo "</tr>";
                 echo "</thead>";
-                while($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
-                      echo "<td>". $row['tracking_id'] ."</td>";
-                      echo "<td>". $row["shipping_courier"]."</td>";
-                      echo "<td>". $row["delivery_eta"]."</td>";
-                      echo "<td>". $row["delivery_status"]."</td>";
+                      echo "<td>".$row['tracking_id']."</td>";
+                      echo "<td>".$row["shipping_courier"]."</td>";
+                      echo "<td>".$row["delivery_eta"]."</td>";
+                      echo "<td>".$row["delivery_status"]."</td>";
                       echo "<td><center>Manage</center></td>";
                     echo "</tr>";
                 }
