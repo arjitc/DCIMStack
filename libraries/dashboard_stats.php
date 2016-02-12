@@ -4,7 +4,7 @@ function rackspace_available() {
   $sql = "SELECT SUM(rack_size) AS rack_size_sum FROM `rackspace`";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
+      while ($row = $result->fetch_assoc()) {
           $rack_size_sum = $row["rack_size_sum"];
       }
   } else {
