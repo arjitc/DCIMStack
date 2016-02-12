@@ -17,10 +17,7 @@
 
     <?php include 'libraries/header.php'; ?>
 
-    <div class="container-fluid">
-      <div class="row">
-        <?php include 'libraries/sidebar.php'; ?>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="container">
           <h1 class="page-header">CPUs <div class='pull-right'><button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button></div></h1>
           <?php include 'libraries/alerts.php'; ?>
           <?php
@@ -33,21 +30,21 @@
                 echo "<table class='table' id='search_table'>";
                 echo "<thead>";
                 echo "<tr>";
-                  echo "<th>Location</th>";
-                    echo "<th>Vendor</th>";
-                    echo "<th>Device Model</th>";
-                    echo "<th>Physical Label</th>";
-                    echo "<th>Serial #</th>";
+                	echo "<th>Location</th>";
+                  	echo "<th>Vendor</th>";
+                  	echo "<th>Device Model</th>";
+                  	echo "<th>Physical Label</th>";
+                  	echo "<th>Serial #</th>";
                     echo "<th>Purchased on</th>";
                     echo "<th>Warranty till</th>";
-                    echo "<th><center>Manage</center></th>";
+                  	echo "<th><center>Manage</center></th>";
                 echo "</tr>";
                 echo "</thead>";
                 while($row = $result->fetch_assoc()) {
-                  echo "<tr>";
-                      echo "<td>". get_rack_name($row['rackid']) ."</td>";
-                      echo "<td>". $row["device_brand"]."</td>";
-                        echo "<td>". $row["device_cpu"]."</td>";
+                	echo "<tr>";
+                  		echo "<td>". get_rack_name($row['rackid']) ."</td>";
+                    	echo "<td>". $row["device_brand"]."</td>";
+                     	echo "<td>". $row["device_cpu"]."</td>";
                       echo "<td>". $row["device_label"]."</td>";
                       echo "<td>". $row["device_serial"]."</td>";
                       echo "<td>"; if(empty($row["device_dop"])) { echo "0000-00-00"; } else { echo $row["device_dop"]; } echo "</td>";
@@ -62,8 +59,6 @@
             $conn->close();
           ?>
         </div>
-      </div>
-    </div>
     <!-- Add HDD Modal -->
 	<div id="add_hdd" class="modal fade" role="dialog">
 	  <div class="modal-dialog">
@@ -86,21 +81,21 @@
 					</select>
 					<label>Device Location</label>
 					<?php
-          include 'config/db.php';
-          $sql = "SELECT * FROM `rackspace`";
-          $result = $conn->query($sql);
-          if ($result->num_rows > 0) {
-            echo "<select class='form-control' name='device_location'>";
-              // output data of each row
-              while($row = $result->fetch_assoc()) {
-                $rackid = $row["rackid"];
-                  echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
-              }
-              echo "</select>";
-          } else {
-              echo "0 results";
-          }
-          ?>
+					include 'config/db.php';
+					$sql = "SELECT * FROM `rackspace`";
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) {
+						echo "<select class='form-control' name='device_location'>";
+					    // output data of each row
+					    while($row = $result->fetch_assoc()) {
+					    	$rackid = $row["rackid"];
+					        echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
+					    }
+					    echo "</select>";
+					} else {
+					    echo "0 results";
+					}
+					?>
           <label>Device Date Of Purchase</label>
           <input type="date" class="form-control" name="device_dop" required>
           <label>Warranty valid til</label>
