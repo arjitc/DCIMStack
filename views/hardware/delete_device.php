@@ -3,7 +3,7 @@ include 'config/db.php';
 include 'libraries/events.php';
 include 'libraries/general.php';
 $device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
-if(ctype_digit($device_id) && !empty($device_id)) {
+if (ctype_digit($device_id) && !empty($device_id)) {
   $sql = "DELETE FROM `devices` WHERE `device_id`='$device_id'";
   if ($conn->query($sql) === TRUE) { //set success message
     $device_label = get_device_label_from_id($device_id);
