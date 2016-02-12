@@ -1,6 +1,6 @@
 <?php
 include 'config/db.php';
-if($_SESSION['token'] == $_GET['token']) {
+if ($_SESSION['token'] == $_GET['token']) {
 	$rackid = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
 	$sql = "DELETE FROM `rackspace` WHERE `rackid`='$rackid'";
 	if ($conn->query($sql) === TRUE) {
