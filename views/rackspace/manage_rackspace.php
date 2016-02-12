@@ -40,15 +40,15 @@
                   <th><center><img src='assets/img/table_go.png' data-toggle='tooltip' data-placement='top' title='Manage'></center></th>
                 </tr>
               </thead>";
-              while($row = $result->fetch_assoc()) {
+              while ($row = $result->fetch_assoc()) {
                 $rackid         = $row["rackid"];
                 $rack_name      = $row["rack_name"];
                 $rack_size      = $row["rack_size"]."U";
                 $rack_size_used = rackspace_used_rack($rackid)."U";
                 $rack_city      = $row["rack_city"];
                 $rack_country   = $row["rack_country"];
-                $rack_voltage   = rack_voltage($rackid)==0?"0V":rack_voltage($rackid)."V";
-                $rack_power     = rack_power_total($rackid)==0?"0A":rack_power_total($rackid)."A";
+                $rack_voltage   = rack_voltage($rackid) == 0 ? "0V" : rack_voltage($rackid)."V";
+                $rack_power     = rack_power_total($rackid) == 0 ? "0A" : rack_power_total($rackid)."A";
                 echo "<tr>
                 <td><center>$rack_name</center></td>
                 <td><center>$rack_size_used / $rack_size</center></td>

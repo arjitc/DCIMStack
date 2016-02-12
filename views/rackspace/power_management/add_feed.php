@@ -7,7 +7,7 @@ check_if_rack_exists($rackid);
 $sql = "SELECT * FROM `rackspace` WHERE `rackid`='$rackid'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         $rackid         = $row["rackid"];
         $rack_name      = $row["rack_name"];
         $rack_size      = $row["rack_size"];
@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
         </div>
         <div class="modal-body">
             <?php 
-            if(rack_feed_count($rackid)!=2) {
+            if (rack_feed_count($rackid) != 2) {
             ?>
             <form method="post" id="add_feed_form" action="add_feed_db.php" class="form-horizontal">
             <input type="hidden" name="rackid" value='<?php echo $rackid; ?>'>
@@ -52,7 +52,7 @@ if ($result->num_rows > 0) {
                 <div class="col-sm-10">
                     <select class="form-control" name="feed_power">     
                         <?php
-                        for($i=1; $i<=40; $i++) {
+                        for ($i = 1; $i <= 40; $i++) {
                             echo "<option value='$i'>".$i."A</option>";
                         }                          
                         ?>
@@ -68,7 +68,7 @@ if ($result->num_rows > 0) {
         <div class="modal-footer">
             <a href="#" class="btn btn-danger" data-dismiss="modal">Close</a>
             <?php 
-            if(rack_feed_count($rackid)!=2) {
+            if (rack_feed_count($rackid) != 2) {
                 echo "<button type='submit' form='add_feed_form' class='btn btn-primary'>Add Feed</button>";
             }
             ?>
