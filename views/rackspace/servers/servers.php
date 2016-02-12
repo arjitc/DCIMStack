@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
               </tr>
             </thead>
           <tbody>";
-        while($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
           $id = $row["device_id"];
           echo "<tr>";
                 echo "<td>".$row["device_rack_position"]."</td>";
