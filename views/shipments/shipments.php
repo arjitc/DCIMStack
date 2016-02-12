@@ -12,10 +12,7 @@
 
     <?php include 'libraries/header.php'; ?>
 
-    <div class="container-fluid">
-      <div class="row">
-        <?php include 'libraries/sidebar.php'; ?>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="container">
           <h1 class="page-header">Shipments <div class='pull-right'><button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_shipment"><img src='assets/img/add.png'> Add</a></button></div></h1>
           <?php
             include 'config/db.php';
@@ -50,8 +47,6 @@
             $conn->close();
           ?>
         </div>
-      </div>
-    </div>
 
     <!-- Add Shipment Modal -->
     <div id="add_shipment" class="modal fade" role="dialog">
