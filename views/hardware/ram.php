@@ -41,16 +41,16 @@
                     echo "<th><center>Manage</center></th>";
                 echo "</tr>";
                 echo "</thead>";
-                while($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
-                      echo "<td>". get_rack_name($row['rackid']) ."</td>";
-                      echo "<td>". $row["device_brand"]."</td>";
-                        echo "<td>". $row["device_type"]."</td>";
-                      echo "<td>". $row["device_label"]."</td>";
-                      echo "<td>". $row["device_capacity"]."</td>";
-                      echo "<td>". $row["device_serial"]."</td>";
-                      echo "<td>"; if(empty($row["device_dop"])) { echo "0000-00-00"; } else { echo $row["device_dop"]; } echo "</td>";
-                      echo "<td>"; if(empty($row["device_warranty"])) { echo "0000-00-00"; } else { echo $row["device_warranty"]; }  echo "</td>";
+                      echo "<td>".get_rack_name($row['rackid'])."</td>";
+                      echo "<td>".$row["device_brand"]."</td>";
+                        echo "<td>".$row["device_type"]."</td>";
+                      echo "<td>".$row["device_label"]."</td>";
+                      echo "<td>".$row["device_capacity"]."</td>";
+                      echo "<td>".$row["device_serial"]."</td>";
+                      echo "<td>"; if (empty($row["device_dop"])) { echo "0000-00-00"; } else { echo $row["device_dop"]; } echo "</td>";
+                      echo "<td>"; if (empty($row["device_warranty"])) { echo "0000-00-00"; } else { echo $row["device_warranty"]; }  echo "</td>";
                       echo "<td><center>Manage</center></td>";
                     echo "</tr>";
                 }
@@ -89,7 +89,7 @@
           if ($result->num_rows > 0) {
             echo "<select class='form-control' id='device_location' name='device_location'>";
               // output data of each row
-              while($row = $result->fetch_assoc()) {
+              while ($row = $result->fetch_assoc()) {
                 $rackid = $row["rackid"];
                   echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
               }
