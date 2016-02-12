@@ -12,7 +12,7 @@
 
     <?php include 'libraries/header.php'; ?>
 
-    <div class="container-fluid">
+    <div class="container">
           <h1 class="page-header">Add Rackspace</h1>
           <span class="text-muted">New Rackspace can be added into DCIMStack using the form below.</span>
           <?php include 'libraries/alerts.php'; ?>
