@@ -14,10 +14,7 @@
 
     <?php include 'libraries/header.php'; ?>
 
-    <div class="container-fluid">
-      <div class="row">
-        <?php include 'libraries/sidebar.php'; ?>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="container">
           <h1 class="page-header">About</h1>
           <p>DCIMStack is a open source "Data Center Inventory Management" web-based application/tool</p>
 
@@ -30,11 +27,7 @@
                 <li> MySQL
                 <li> <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">Silk Iconset</a> by Mark James
             </ul>
-          
-
-          
-        </div>
-      </div>
+        
     </div>
 
     <!-- Bootstrap core JavaScript
