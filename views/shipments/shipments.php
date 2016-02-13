@@ -31,17 +31,17 @@
                     echo "<th><center>Manage</center></th>";
                   echo "</tr>";
                 echo "</thead>";
-                while($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) {
                       $shipment_id = $row['id'];
-                      if($row["delivery_status"]=="Delivered") {
+                      if ($row["delivery_status"] == "Delivered") {
                         echo "<tr class='success'>";
                       } else {
                         echo "<tr>";
                       }
-                      echo "<td>". $row['tracking_id'] ."</td>";
-                      echo "<td>". $row["shipping_courier"]."</td>";
-                      echo "<td>". $row["delivery_eta"]."</td>";
-                      echo "<td>". $row["delivery_status"]."</td>";
+                      echo "<td>".$row['tracking_id']."</td>";
+                      echo "<td>".$row["shipping_courier"]."</td>";
+                      echo "<td>".$row["delivery_eta"]."</td>";
+                      echo "<td>".$row["delivery_status"]."</td>";
                       echo "<td><center><a href='manage_shipment.php?shipment_id=$shipment_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
                     echo "</tr>";
                 }
