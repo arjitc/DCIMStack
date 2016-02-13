@@ -23,21 +23,26 @@
                 // output data of each row
                 echo "<table class='table' id='search_table'>";
                 echo "<thead>";
-                echo "<tr>";
+                  echo "<tr>";
                     echo "<th>Tracking ID</th>";
                     echo "<th>Courier</th>";
                     echo "<th>Delivery ETA</th>";
                     echo "<th>Status</th>";
                     echo "<th><center>Manage</center></th>";
-                echo "</tr>";
+                  echo "</tr>";
                 echo "</thead>";
-                while ($row = $result->fetch_assoc()) {
-                  echo "<tr>";
-                      echo "<td>".$row['tracking_id']."</td>";
-                      echo "<td>".$row["shipping_courier"]."</td>";
-                      echo "<td>".$row["delivery_eta"]."</td>";
-                      echo "<td>".$row["delivery_status"]."</td>";
-                      echo "<td><center>Manage</center></td>";
+                while($row = $result->fetch_assoc()) {
+                      $shipment_id = $row['id'];
+                      if($row["delivery_status"]=="Delivered") {
+                        echo "<tr class='success'>";
+                      } else {
+                        echo "<tr>";
+                      }
+                      echo "<td>". $row['tracking_id'] ."</td>";
+                      echo "<td>". $row["shipping_courier"]."</td>";
+                      echo "<td>". $row["delivery_eta"]."</td>";
+                      echo "<td>". $row["delivery_status"]."</td>";
+                      echo "<td><center><a href='manage_shipment.php?shipment_id=$shipment_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
                     echo "</tr>";
                 }
                 echo "</table>";
