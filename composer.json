@@ -1,6 +1,7 @@
 {
     "require": {
         "hipchat/hipchat-php": "^1.4",
-        "maknz/slack": "^1.7"
+        "maknz/slack": "^1.7",
+        "aftership/aftership-php-sdk": "^5.0"
     }
 }
