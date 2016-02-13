@@ -3,7 +3,7 @@ $sql = "SELECT * FROM `settings` WHERE `setting`='aftership_api_key'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
-    while ($row = $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()) {
         $aftership_api_key = $row["value"];
     }
 } else {
@@ -28,10 +28,7 @@ if ($result->num_rows > 0) {
 
     <?php include 'libraries/header.php'; ?>
 
-    <div class="container-fluid">
-      <div class="row">
-        <?php include 'libraries/sidebar.php'; ?>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="container">
           <h1 class="page-header">DCIMStack Settings</h1>
           <?php include 'libraries/alerts.php'; ?>
           <div class="panel panel-default">
@@ -53,8 +50,6 @@ if ($result->num_rows > 0) {
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
