@@ -3,7 +3,7 @@ $sql = "SELECT * FROM `settings` WHERE `setting`='aftership_api_key'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         $aftership_api_key = $row["value"];
     }
 } else {
