@@ -77,7 +77,7 @@
                     <label>Device Type</label>
                     <select class="form-control" name="device_type">
                       <option value="SSD">SSD</option>
-                      <option value="HDD">HDD</option>
+                      <option value="SATA">SATA</option>
                       <option value="SAS">SAS</option>
                     </select>
                     <label>Device Vendor</label>
