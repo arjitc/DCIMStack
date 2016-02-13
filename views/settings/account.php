@@ -21,7 +21,7 @@
           <?php include 'libraries/alerts.php'; ?>
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title"><i class="fa fa-key"></i> Change Password</h3>
+              <h3 class="panel-title"><img src="assets/img/lock_edit.png"> Change Password</h3>
             </div>
             <div class="panel-body">
               <form action="change_password_db.php" id="change_password" method="post">
@@ -37,7 +37,7 @@
           </div>
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title"><i class="fa fa-envelope-o"></i> Change EMail ID</h3>
+              <h3 class="panel-title"><img src="assets/img/email_edit.png"> Change EMail ID</h3>
             </div>
             <div class="panel-body">
               <p> Current email ID: <?php echo $_SESSION['user_email']; ?> </p>
