@@ -16,10 +16,7 @@
 
     <?php include 'libraries/header.php'; ?>
 
-    <div class="container-fluid">
-      <div class="row">
-        <?php include 'libraries/sidebar.php'; ?>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="container">
           <h1 class="page-header">Account Settings</h1>
           <?php include 'libraries/alerts.php'; ?>
           <div class="panel panel-default">
@@ -44,21 +41,19 @@
             </div>
             <div class="panel-body">
               <p> Current email ID: <?php echo $_SESSION['user_email']; ?> </p>
-              <form action="change_password_db.php" id="change_password" method="post">
+              <form action="change_email_db.php" id="change_email" method="post">
                 <input type="hidden" name="token" value="<?php echo $token; ?>">
-                <input type="password" name="password1" placeholder="New EMail ID" class="form-control" required>
+                <input type="email" name="email1" placeholder="new@email.id" class="form-control" required>
                 <div style="padding-bottom: 5px;"></div>
-                <input type="password" name="password2" placeholder="New EMail ID once again"  class="form-control" required>
+                <input type="email" name="email2" placeholder="new@email.id"  class="form-control" required>
             </div>
             <div class="panel-footer">
-              <center><input type="submit" form="change_password" value="Update" class="btn btn-primary"></center>
+              <center><input type="submit" form="change_email" value="Update" class="btn btn-primary"></center>
             </div>
             </form>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
