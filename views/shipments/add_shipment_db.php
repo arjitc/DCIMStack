@@ -1,11 +1,11 @@
 <?php
 include 'config/db.php';
-include 'libraries/events.php';
+include_once 'libraries/events.php';
 if (isset($_POST['tracking_id'], $_POST['shipping_courier'], $_POST['delivery_eta'], $_POST['delivery_status'])) {
-  $tracking_id      = mysqli_real_escape_string($con, $_POST['tracking_id']);
-  $shipping_courier = mysqli_real_escape_string($con, $_POST['shipping_courier']);
-  $delivery_eta     = mysqli_real_escape_string($con, $_POST['delivery_eta']);
-  $delivery_status  = mysqli_real_escape_string($con, $_POST['delivery_status']);
+  $tracking_id      = mysqli_real_escape_string($conn, $_POST['tracking_id']);
+  $shipping_courier = mysqli_real_escape_string($conn, $_POST['shipping_courier']);
+  $delivery_eta     = mysqli_real_escape_string($conn, $_POST['delivery_eta']);
+  $delivery_status  = mysqli_real_escape_string($conn, $_POST['delivery_status']);
   $sql = "INSERT INTO `dcimstack`.`shipments` (`id`, `tracking_id`, `shipping_courier`, `delivery_eta`, `delivery_status`) 
 			   VALUES (NULL, '$tracking_id', '$shipping_courier', '$delivery_eta','$delivery_status');";
   if ($conn->query($sql) === TRUE) {
