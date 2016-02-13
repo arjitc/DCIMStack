@@ -16,6 +16,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <img src='assets/img/building.png'> Rackspace <span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li class="dropdown-header">Add/Manage Rackspace</li>
                 <li><a href='manage_rackspace.php'><img src='assets/img/building_go.png'> Manage Rackspace</a></li>
                 <li><a href='add_rackspace.php'><img src='assets/img/building_add.png'> Add Rackspace</a></li>
               </ul>
@@ -24,6 +25,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <img src='assets/img/keyboard.png'> Hardware <span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li class="dropdown-header">Add/Manage Hardware</li>
                 <li><a href='hdds.php'><img src='assets/img/drive_go.png'> HDDs</a></li>
                 <li><a href='ram.php'><img src='assets/img/tab_go.png'> RAM</a></li>
                 <li><a href='network.php'><img src='assets/img/chart_curve_go.png'> Network</a></li>
@@ -35,6 +37,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <img src='assets/img/lorry.png'> Shipments <span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li class="dropdown-header">Add/Manage Shipments</li>
                 <li><a href='shipments.php'><img src='assets/img/lorry.png'> Shipments</a></li>
                 <li><a href='shipments.php'><img src='assets/img/lorry.png'> RMA</a></li>
               </ul>
