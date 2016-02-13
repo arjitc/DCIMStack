@@ -9,7 +9,7 @@ if (!ctype_digit($_GET['shipment_id'])) {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $tracking_id    = $row["tracking_id"];
+            $tracking_id = $row["tracking_id"];
             $device_brand    = $row["device_brand"];
             $device_type     = $row["device_type"];
             $device_serial   = $row["device_serial"];
