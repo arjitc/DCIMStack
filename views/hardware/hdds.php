@@ -22,7 +22,7 @@
         <?php include 'libraries/alerts.php'; ?>
         <?php
         include 'config/db.php';
-        $sql = "SELECT * FROM `devices` WHERE `device_type`='SSD' OR `device_type`='SATA' OR `device_type`='SAS'";
+        $sql = "SELECT * FROM `devices` WHERE `device_type`='SSD' OR `device_type`='HDD' OR `device_type`='SAS'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           // output data of each row
@@ -77,7 +77,7 @@
                     <label>Device Type</label>
                     <select class="form-control" name="device_type">
                       <option value="SSD">SSD</option>
-                      <option value="SATA">SATA</option>
+                      <option value="HDD">HDD</option>
                       <option value="SAS">SAS</option>
                     </select>
                     <label>Device Vendor</label>
