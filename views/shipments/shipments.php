@@ -70,7 +70,7 @@
               <label>Shipping Courier</label>
               <input type="text" class="form-control" name="shipping_courier" placeholder="Eg, UPS, FedEX etc" required>
               <label>Delivery ETA</label>
-              <input type="text" class="form-control" name="delivery_eta" placeholder="Eg: 02/10/2016" required>
+              <input type="date" class="form-control" name="delivery_eta" placeholder="Eg: 02/10/2016" required>
               <label>Delivery Status</label>
               <select class="form-control" name="delivery_status">
                 <option value="Waiting For Dispatch">Waiting For Dispatch</option>
