@@ -10,7 +10,7 @@ Note:
 Read: https://github.com/arjitc/dcimstack/blob/master/INSTALL.md for install instructions
 
 ## Screenshots
-![Logged in view](http://i.imgur.com/ZPjcN9h.png)
+![Logged in view](http://i.imgur.com/zEB9CUQ.png)
 
 
 ## License
