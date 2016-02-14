@@ -42,8 +42,8 @@
                       }
                       echo "<td>".$row['shipment_tracking_id']."</td>";
                       echo "<td>".$row["shipment_courier"]."</td>";
-                      echo "<td>".$row["delivery_eta"]."</td>";
-                      echo "<td>".$row["delivery_status"]."</td>";
+                      echo "<td>".$row["shipment_delivery_eta"]."</td>";
+                      echo "<td>".$row["shipment_status"]."</td>";
                       if($row["delivery_status"]=="Delivered") {
                         echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=undelivered'>Mark as undelivered</a></center></td>";
                       } else {
