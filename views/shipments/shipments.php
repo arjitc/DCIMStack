@@ -14,6 +14,7 @@
 
     <div class="container">
           <h1 class="page-header">Shipments <div class='pull-right'><button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_shipment"><img src='assets/img/add.png'> Add</a></button></div></h1>
+          <?php include 'libraries/alerts.php'; ?>
           <?php
             include 'config/db.php';
             $sql = "SELECT * FROM `shipments`";
@@ -28,6 +29,7 @@
                     echo "<th>Courier</th>";
                     echo "<th>Delivery ETA</th>";
                     echo "<th>Status</th>";
+                    echo "<th></th>";
                     echo "<th><center>Manage</center></th>";
                   echo "</tr>";
                 echo "</thead>";
@@ -38,10 +40,15 @@
                       } else {
                         echo "<tr>";
                       }
-                      echo "<td>".$row['tracking_id']."</td>";
-                      echo "<td>".$row["shipping_courier"]."</td>";
+                      echo "<td>".$row['shipment_tracking_id']."</td>";
+                      echo "<td>".$row["shipment_courier"]."</td>";
                       echo "<td>".$row["delivery_eta"]."</td>";
                       echo "<td>".$row["delivery_status"]."</td>";
+                      if($row["delivery_status"]=="Delivered") {
+                        echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=undelivered'>Mark as undelivered</a></center></td>";
+                      } else {
+                        echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=delivered'>Mark as delivered</a></center></td>";
+                      }
                       echo "<td><center><a href='manage_shipment.php?shipment_id=$shipment_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
                     echo "</tr>";
                 }
