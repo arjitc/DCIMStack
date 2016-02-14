@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 09, 2016 at 05:29 PM
+-- Generation Time: Feb 14, 2016 at 02:37 PM
 -- Server version: 5.5.47-0+deb8u1
 -- PHP Version: 5.6.17-0+deb8u1
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `devices` (
   `device_warranty` text NOT NULL COMMENT 'day on which the warranty ends',
   `device_dop` text NOT NULL COMMENT 'date of purchase',
   `device_notes` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `event_message` varchar(255) NOT NULL,
   `event_status` varchar(255) NOT NULL,
   `event_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -111,14 +111,28 @@ CREATE TABLE IF NOT EXISTS `rackspace` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `settings`
+--
+
+CREATE TABLE IF NOT EXISTS `settings` (
+`id` int(11) NOT NULL,
+  `setting` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `shipments`
 --
 
 CREATE TABLE IF NOT EXISTS `shipments` (
 `id` int(11) NOT NULL,
-  `tracking_id` varchar(255) NOT NULL,
-  `shipping_courier` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `shipment_tracking_id` varchar(255) NOT NULL,
+  `shipment_courier` varchar(255) NOT NULL,
+  `shipment_delivery_eta` varchar(255) NOT NULL,
+  `shipment_status` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -168,6 +182,12 @@ ALTER TABLE `rackspace`
  ADD PRIMARY KEY (`rackid`), ADD KEY `id` (`rackid`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `shipments`
 --
 ALTER TABLE `shipments`
@@ -187,12 +207,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `devices`
 --
 ALTER TABLE `devices`
-MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `hdd`
 --
@@ -209,10 +229,15 @@ MODIFY `feed_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 ALTER TABLE `rackspace`
 MODIFY `rackid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `shipments`
 --
 ALTER TABLE `shipments`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
