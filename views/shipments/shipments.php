@@ -44,7 +44,7 @@
                       echo "<td>".$row["shipment_courier"]."</td>";
                       echo "<td>".$row["shipment_delivery_eta"]."</td>";
                       echo "<td>".$row["shipment_status"]."</td>";
-                      if($row["delivery_status"]=="Delivered") {
+                      if($row["shipment_status"]=="Delivered") {
                         echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=undelivered'>Mark as undelivered</a></center></td>";
                       } else {
                         echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=delivered'>Mark as delivered</a></center></td>";
