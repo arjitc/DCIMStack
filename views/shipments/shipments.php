@@ -35,7 +35,7 @@
                 echo "</thead>";
                 while ($row = $result->fetch_assoc()) {
                       $shipment_id = $row['id'];
-                      if ($row["delivery_status"] == "Delivered") {
+                      if ($row["shipment_status"] == "Delivered") {
                         echo "<tr class='success'>";
                       } else {
                         echo "<tr>";
