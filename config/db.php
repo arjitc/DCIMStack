@@ -12,8 +12,6 @@
  * DB_PASS: the password of the above user
  */
 
-set_include_path("SET PATH TO YOUR INSTALL HERE");
-
 define("DB_HOST", "127.0.0.1");
 define("DB_NAME", "dbname");
 define("DB_USER", "root");
