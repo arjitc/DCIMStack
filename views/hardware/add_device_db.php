@@ -10,7 +10,7 @@ $device_label = mysqli_real_escape_string($conn, $_POST['device_label']);
 $device_serial = mysqli_real_escape_string($conn, $_POST['device_serial']);
 $device_capacity = mysqli_real_escape_string($conn, $_POST['device_capacity']);
 $device_mac = mysqli_real_escape_string($conn, $_POST['device_mac']);
-$device_ram_total = mysqli_real_escape_string($conn, $_POST['device_ram_total']);
+$device_ram_total = mysqli_real_escape_string($conn, $_POST['device_ram_total'])." GB";
 $device_cpu_count = mysqli_real_escape_string($conn, $_POST['device_cpu_count']);
 $device_power_usage = mysqli_real_escape_string($conn, $_POST['device_power_usage']);
 $device_power_feed1 = mysqli_real_escape_string($conn, $_POST['device_power_feed1']);
@@ -45,18 +45,18 @@ VALUES
 	'$device_dop',
 	'$device_notes');";
 
-  if ($conn->query($sql) === TRUE) {
-    $rack_name = get_rack_name($device_location);
-    //echo "New record created successfully";
-    $event_type = "New $device_type added";
-    $event_message = "A new $device_type was added to $rack_name";
-    $event_status = "Complete";
-    add_event($event_type, $event_message, $event_status);
-    $conn->close();
-    $_SESSION['success'] = "Success, $device_type added.";
-    header("Location: $page_referrer");
-  } else {
-    $_SESSION['error'] = "Error, $device_type not added.";
-    header("Location: $page_referrer");
-  }
-  ?>
+	if ($conn->query($sql) === TRUE) {
+		$rack_name = get_rack_name($device_location);
+		//echo "New record created successfully";
+		$event_type = "New $device_type added";
+		$event_message = "A new $device_type was added to $rack_name";
+		$event_status = "Complete";
+		add_event($event_type, $event_message, $event_status);
+		$conn->close();
+		$_SESSION['success'] = "Success, $device_type added.";
+		header("Location: $page_referrer");
+	} else {
+		$_SESSION['error'] = "Error, $device_type not added.";
+		header("Location: $page_referrer");
+	}
+	?>
