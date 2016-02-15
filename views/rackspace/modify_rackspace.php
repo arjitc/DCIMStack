@@ -6,7 +6,7 @@ check_if_rack_exists($rackid);
 $sql = "SELECT * FROM `rackspace` WHERE `rackid`='$rackid'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()) {
         $rackid         = $row["rackid"];
         $rack_name      = $row["rack_name"];
         $rack_size      = $row["rack_size"];
@@ -37,8 +37,8 @@ if ($result->num_rows > 0) {
                     <select class="form-control" name="rack_size">
                         <?php
                             echo "<option value='$rack_size'>".$rack_size."U</option>";
-                            for ($i = 1; $i <= 48; $i++) {
-                            if ($rack_size != $i) {
+                            for($i=1;$i<=48;$i++) {
+                            if($rack_size!=$i) {
                                 echo "<option value='$i'>".$i."U</option>";
                             }
                         }

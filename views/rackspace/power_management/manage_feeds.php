@@ -6,10 +6,11 @@ $rackid = mysqli_real_escape_string($conn, $_GET['rackid']);
 $feedid = mysqli_real_escape_string($conn, $_GET['feedid']);
 check_if_rack_exists($rackid);
 check_if_feed_exists($feedid);
+$_SESSION['referrer'] = "rackspace.php?rackid=$rackid";
 $sql = "SELECT * FROM `rackspace` WHERE `rackid`='$rackid'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()) {
         $rackid         = $row["rackid"];
         $rack_name      = $row["rack_name"];
         $rack_size      = $row["rack_size"];
@@ -29,7 +30,7 @@ if ($result->num_rows > 0) {
         </div>
         <div class="modal-body">
             <?php 
-            if (rack_feed_count($rackid) != 0) {
+            if(rack_feed_count($rackid)!=0) {
             ?>
             <form method="post" id="add_feed_form" action="manage_feeds_db.php" class="form-horizontal">
             <input type="hidden" name="feedid" value='<?php echo $feedid; ?>'>
@@ -57,7 +58,7 @@ if ($result->num_rows > 0) {
                 <div class="col-sm-10">
                     <select class="form-control" name="feed_power">     
                         <?php
-                        for ($i = 1; $i <= 40; $i++) {
+                        for($i=1; $i<=40; $i++) {
                             echo "<option value='$i'>".$i."A</option>";
                         }                          
                         ?>
@@ -71,9 +72,12 @@ if ($result->num_rows > 0) {
             ?>
         </div>
         <div class="modal-footer">
+            <div class="pull-left">
+                <a href="remove_power_feed.php?feed_id=<?php echo $feedid; ?>" class="btn btn-danger confirmation">Remove Feed</a>
+            </div>
             <a href="#" class="btn btn-danger" data-dismiss="modal">Close</a>
             <?php 
-            if (rack_feed_count($rackid) != 0) {
+            if(rack_feed_count($rackid)!=0) {
                 echo "<button type='submit' form='add_feed_form' class='btn btn-primary'>Update Feed</button>";
             }
             ?>
@@ -81,3 +85,8 @@ if ($result->num_rows > 0) {
         </div>
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
+<script type="text/javascript">
+    $('.confirmation').on('click', function () {
+        return confirm('Are you sure?');
+    });
+</script>

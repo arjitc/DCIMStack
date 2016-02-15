@@ -23,8 +23,8 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
     <?php include 'libraries/header.php'; ?>
 
     <div class="container">
-          <center><?php include 'libraries/alerts.php'; ?></center>
           <h1 class="page-header">Manage Rackspace (<?php echo get_rack_name($_GET['rackid']); ?>)</h1>
+          <?php include 'libraries/alerts.php'; ?>
           <div class="row">
             <div class="col-md-4">
               <?php
