@@ -49,6 +49,7 @@
 		?>
       <h2 class="sub-header">Events</h2>
       <?php list_events_table(20); //from libraries/events.php ?>
+      <?php include 'libraries/footer.php'; ?>
     </div>
 
     <!-- Bootstrap core JavaScript
