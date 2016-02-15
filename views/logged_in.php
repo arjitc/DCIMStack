@@ -7,7 +7,7 @@
     <title>DCIMStack</title>
     <?php
       include      'libraries/css.php';
-      include_once 'libraries/dashboard_stats.php';
+      include_once 'libraries/general.php';
       include_once 'libraries/events.php';
     ?>
   </head>
@@ -34,12 +34,19 @@
           <span class="text-muted">Individual hardware in DCIMStack</span>
         </div>
         <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Hardware used</h4>
-          <span class="text-muted">Individual hardware in-use</span>
+          <h3><?php echo shipments_inbound(); ?></h3>
+          <h4>Shipments inbound</h4>
+          <span class="text-muted">Individual shipments inbound</span>
         </div>
       </div>
-
+    	<?php
+		if (file_exists("install.php")) {
+			echo "<div class='alert alert-danger' role='alert'>";
+		    echo "<strong>Warning!</strong>";
+		    echo " The DCIMStack installer (install.php) still exists! Anyone can overwrite your install by accessing this file! Delete this file right away!";
+		    echo "</div>";
+		}
+		?>
       <h2 class="sub-header">Events</h2>
       <?php list_events_table(20); //from libraries/events.php ?>
     </div>
