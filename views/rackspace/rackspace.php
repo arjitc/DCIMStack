@@ -1,7 +1,6 @@
 <?php
 include 'libraries/general.php';
 include 'libraries/rackspace.php';
-include 'libraries/vendor_logo.php';
 include 'libraries/cpu_count.php';
 include 'libraries/power.php';
 include 'config/db.php';
@@ -69,7 +68,7 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
               <div class="tab-pane" id="servers">
                   <h3>Servers</h3>
                   <hr>
-                  <?php include 'servers.php'; ?>
+                  <?php include 'views/rackspace/servers/servers.php'; ?>
               </div>
               <div class="tab-pane" id="network">
                   <h3>Network</h3>

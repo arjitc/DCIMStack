@@ -26,6 +26,7 @@
               <img src='assets/img/keyboard.png'> Hardware <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class="dropdown-header">Add/Manage Hardware</li>
+                <li><a href='servers.php'><img src='assets/img/computer_go.png'> Servers</a></li>
                 <li><a href='hdds.php'><img src='assets/img/drive_go.png'> HDDs</a></li>
                 <li><a href='ram.php'><img src='assets/img/tab_go.png'> RAM</a></li>
                 <li><a href='network.php'><img src='assets/img/chart_curve_go.png'> Network</a></li>
