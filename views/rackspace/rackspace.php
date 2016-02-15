@@ -6,7 +6,7 @@ include 'libraries/cpu_count.php';
 include 'libraries/power.php';
 include 'config/db.php';
 check_if_rack_exists($_GET['rackid']); //this checks if the rack exists, if the rack does not exist it redirects the user back to index.php
-$rackid = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
+$rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,11 +22,7 @@ $rackid = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
 
     <?php include 'libraries/header.php'; ?>
 
-    <div class="container-fluid">
-      <div class="row">
-        <?php include 'libraries/sidebar.php'; ?>
-        
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="container">
           <center><?php include 'libraries/alerts.php'; ?></center>
           <h1 class="page-header">Manage Rackspace (<?php echo get_rack_name($_GET['rackid']); ?>)</h1>
           <div class="row">
@@ -65,7 +61,7 @@ $rackid = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
               <div class="tab-pane active" id="overview">
                   <h3>Overview</h3>
                   <?php 
-                  if (rack_power_feed_count($rackid) == 0) {
+                  if(rack_power_feed_count($rackid)==0) {
                     alert_warning("No power feeds found, You'll need to add in a power feed first from the <b>Power Management</b> tab.");
                   } 
                   ?>
@@ -137,9 +133,7 @@ $rackid = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
               </div>
           </div>
         </div>
-      </div>
-    </div>
-        
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
