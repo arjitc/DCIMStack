@@ -6,7 +6,7 @@ if (isset($_POST['tracking_id'], $_POST['shipping_courier'], $_POST['delivery_et
   $shipping_courier = mysqli_real_escape_string($conn, $_POST['shipping_courier']);
   $delivery_eta     = mysqli_real_escape_string($conn, $_POST['delivery_eta']);
   $delivery_status  = mysqli_real_escape_string($conn, $_POST['delivery_status']);
-  $sql = "INSERT INTO `dcimstack`.`shipments` (`id`, `shipment_tracking_id`, `shipment_courier`, `shipment_delivery_eta`, `shipment_status`) 
+  $sql = "INSERT INTO `shipments` (`id`, `shipment_tracking_id`, `shipment_courier`, `shipment_delivery_eta`, `shipment_status`) 
 			   VALUES (NULL, '$tracking_id', '$shipping_courier', '$delivery_eta','$delivery_status');";
   if ($conn->query($sql) === TRUE) {
       $event_type = "New Shipment";
