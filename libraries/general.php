@@ -1,6 +1,6 @@
 <?php
 function get_filename_from_url() {
-  $filename = basename($_SERVER['REQUEST_URI'], '?'.$_SERVER['QUERY_STRING']);
+  $filename = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
   return $filename;
 }
 function get_rack_name($id) {
@@ -9,7 +9,7 @@ function get_rack_name($id) {
   $sql = "SELECT * FROM `rackspace` WHERE `rackid`='$id'";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
+      while($row = $result->fetch_assoc()) {
           $rack_name = $row["rack_name"];
       }
   } else {
@@ -28,7 +28,7 @@ function check_if_rack_exists($id) {
 }
 function check_if_feed_exists($feedid) {
   include realpath(dirname(__FILE__)).'/../config/db.php';
-  $feedid = mysqli_real_escape_string($conn, $feedid);
+  $feedid  = mysqli_real_escape_string($conn, $feedid);
   $sql = "SELECT * FROM `power_feeds` WHERE `feed_id`='$feedid'";
   $result = $conn->query($sql);
   if ($result->num_rows == 0) {
@@ -41,7 +41,7 @@ function get_device_label_from_id($device_id) {
   $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
+      while($row = $result->fetch_assoc()) {
           $device_label = $row["device_label"];
       }
   } else {
@@ -51,16 +51,60 @@ function get_device_label_from_id($device_id) {
 }
 function get_tracking_from_id($shipping_id) {
   include realpath(dirname(__FILE__)).'/../config/db.php';
-  $shipping_id = mysqli_real_escape_string($conn, $shipping_id);
+  $shipping_id  = mysqli_real_escape_string($conn, $shipping_id);
   $sql = "SELECT * FROM `shipments` WHERE `id`='$shipping_id'";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
+      while($row = $result->fetch_assoc()) {
           $tracking_id = $row["tracking_id"];
       }
   } else {
       $tracking_id = "None";
   }
   return $tracking_id;
+}
+
+function rackspace_available() {
+  include realpath(dirname(__FILE__)).'/../config/db.php';
+  $sql = "SELECT SUM(rack_size) AS rack_size_sum FROM `rackspace`";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          $rack_size_sum = $row["rack_size_sum"];
+      }
+  } else {
+      $rack_size_sum = "0";
+  }
+
+  $sql = "SELECT * FROM `devices` WHERE `device_type`='server' OR `device_type`='router' OR `device_type`='switch' OR `device_type`='PDU'";
+  $result = $conn->query($sql);
+  $rack_used_sum = $result->num_rows;
+
+  $rackspace_available = $rack_size_sum - $rack_used_sum;
+  return $rackspace_available;
+}
+
+function rackspace_used() {
+  include realpath(dirname(__FILE__)).'/../config/db.php';
+  $sql = "SELECT * FROM `devices` WHERE `device_type`='server' OR `device_type`='router' OR `device_type`='switch' OR `device_type`='PDU'";
+  $result = $conn->query($sql);
+  return $result->num_rows;
+  $conn->close();
+}
+
+function hardware_used() {
+  include realpath(dirname(__FILE__)).'/../config/db.php';
+  $sql = "SELECT * FROM `devices` WHERE `device_type`!='server' OR `device_type`!='router' OR `device_type`!='switch' OR `device_type`!='PDU'";
+  $result = $conn->query($sql);
+  return $result->num_rows;
+  $conn->close();
+}
+
+function shipments_inbound() {
+  include realpath(dirname(__FILE__)).'/../config/db.php';
+  $sql = "SELECT * FROM `shipments` WHERE `shipment_status`!='Delivered'";
+  $result = $conn->query($sql);
+  return $result->num_rows;
+  $conn->close();
 }
 ?>
