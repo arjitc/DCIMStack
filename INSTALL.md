@@ -6,13 +6,14 @@
 * Open install.php in your browser and follow the instructions from there
 
 
-> <VirtualHost *:80>
->  DocumentRoot /opt/dcimstack/
->  ServerName  domain.com
->  AllowEncodedSlashes On
->  <Directory "/opt/dcimstack/">
->    Require all granted
->    AllowOverride All
->    Options FollowSymLinks MultiViews
->  </Directory>
-> </VirtualHost>
+
+` <VirtualHost *:80>
+  DocumentRoot /opt/dcimstack/
+  ServerName  domain.com
+  AllowEncodedSlashes On
+  <Directory "/opt/dcimstack/">
+    Require all granted
+    AllowOverride All
+    Options FollowSymLinks MultiViews
+  </Directory>
+</VirtualHost> `
