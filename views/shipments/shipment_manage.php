@@ -9,7 +9,7 @@ if (!ctype_digit($_GET['shipment_id'])) {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $tracking_id     = $row["shipment_tracking_id"];
+            $shipment_tracking_id = $row["shipment_tracking_id"];
             $shipment_status = $row["shipment_status"];
             $device_type     = $row["device_type"];
             $device_serial   = $row["device_serial"];
@@ -22,10 +22,24 @@ if (!ctype_digit($_GET['shipment_id'])) {
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title"><img src='assets/img/lorry_go.png'> Manage Shipment - <?php echo $tracking_id; ?></h4>
+            <h4 class="modal-title"><img src='assets/img/lorry_go.png'> Manage Shipment - <?php echo $shipment_tracking_id; ?></h4>
         </div>
         <div class="modal-body">
-
+        <h4><img src="assets/img/keyboard.png"> Move to Hardware</h4>
+        <hr>
+        <form action="add_device_db.php" method="post">
+            <select name="device_type" class="form-control">
+              <option value="Server">Server</option>
+              <option value="HDD">HDD</option>
+              <option value="RAM">RAM</option>
+              <option value="Network">Network</option>
+              <option value="PDU">PDU</option>
+              <option value="CPU">CPU</option>
+              <option value="Other">Other</option>
+            </select>
+            <hr>
+            <center><input type="submit" value="Move" class="btn btn-primary"></center>
+        </form>
         </div>
         <div class="modal-footer">
             <div class="pull-left">
