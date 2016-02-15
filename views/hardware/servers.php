@@ -65,25 +65,39 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Add HDDs</h4>
+                  <h4 class="modal-title"><img src="assets/img/computer_add.png"> Add Server</h4>
                 </div>
                 <div class="modal-body">
                   <form action="add_device_db.php" id="add_hdds" method="post">
                     <input type="hidden" name="page_referrer" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
-                    <label>Device Type</label>
-                    <select class="form-control" name="device_type">
-                      <option value="SSD">SSD</option>
-                      <option value="HDD">HDD</option>
-                      <option value="SAS">SAS</option>
+                    <input type="hidden" class="form-control" name="device_type" value="server">
+                    <label>Server CPU</label>
+                    <input type="text" class="form-control" name="device_cpu">
+                    <label>CPU Count</label>
+                    <select class="form-control" name="device_cpu_count">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
                     </select>
-                    <label>Device Vendor</label>
+                    <label>RAM</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="device_ram_total">
+                      <div class="input-group-addon">GB</div>
+                    </div>
+                    <label>Server Size</label>
+                    <select class="form-control" name="device_size">
+                      <option value="1U">1U</option>
+                      <option value="2U">2U</option>
+                      <option value="3U">3U</option>
+                      <option value="4U">4U</option>
+                    </select>
+                    <label>Server Vendor</label>
                     <select class="form-control" name="device_brand">
-                      <option value="Hitachi">Hitachi</option>
-                      <option value="Seagate">Seagate</option>
-                      <option value="WD">WD</option>
-                      <option value="Samsung">Samsung</option>
-                      <option value="Toshiba">Toshiba</option>
                       <option value="HP">HP</option>
+                      <option value="Dell">Dell</option>
+                      <option value="Supermicro">Supermicro</option>
+                      <option value="IBM">IBM</option>
                     </select>
                     <label>Device Location</label>
                     <?php
@@ -102,16 +116,14 @@
                         echo "0 results";
                       }
                       ?>
-                      <label>Device Date Of Purchase</label>
+                      <label>Date Of Purchase</label>
                       <input type="date" class="form-control" name="device_dop" required>
                       <label>Warranty valid til</label>
                       <input type="date" class="form-control" name="device_warranty" required>
-                      <label>Device Label</label>
+                      <label>Physical Label</label>
                       <input type="text" class="form-control" name="device_label" required>
-                      <label>Device Serial</label>
+                      <label>Serial #</label>
                       <input type="text" class="form-control" name="device_serial" required>
-                      <label>Device Capacity</label>
-                      <input type="text" class="form-control" name="device_capacity" required><br>
                     </form>
                   </div>
                   <div class="modal-footer">
