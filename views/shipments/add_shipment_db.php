@@ -3,7 +3,10 @@ include 'config/db.php';
 include_once 'libraries/events.php';
 if (isset($_POST['tracking_id'], $_POST['shipping_courier'], $_POST['delivery_eta'], $_POST['delivery_status'])) {
   $tracking_id      = mysqli_real_escape_string($conn, $_POST['tracking_id']);
-  $shipping_courier = mysqli_real_escape_string($conn, $_POST['shipping_courier']);
+  $shipping_courier = mysqli_real_escape_string($conn, $_POST['shipping_courier_custom']);
+  if(empty($shipping_courier)) {
+    $shipping_courier = mysqli_real_escape_string($conn, $_POST['shipping_courier']);
+  }
   $delivery_eta     = mysqli_real_escape_string($conn, $_POST['delivery_eta']);
   $delivery_status  = mysqli_real_escape_string($conn, $_POST['delivery_status']);
   $sql = "INSERT INTO `shipments` (`id`, `shipment_tracking_id`, `shipment_courier`, `shipment_delivery_eta`, `shipment_status`) 

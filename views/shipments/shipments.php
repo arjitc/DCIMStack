@@ -75,7 +75,14 @@
               <label>Tracking ID</label>
               <input type="text" class="form-control" name="tracking_id" placeholder="Tracking ID" required>
               <label>Shipping Courier</label>
-              <input type="text" class="form-control" name="shipping_courier" placeholder="Eg, UPS, FedEX etc" required>
+              <select class="form-control" name="shipping_courier">
+                <option value="USPS">USPS</option>
+                <option value="FedEX">FedEX</option>
+                <option value="UPS">UPS</option>
+                <option value="DHL">DHL</option>
+              </select>
+              <label>Shipping Courier (Other)</label>
+              <input type="text" class="form-control" name="shipping_courier_custom" placeholder="Eg, Pickup?">
               <label>Delivery ETA</label>
               <input type="date" class="form-control" name="delivery_eta" placeholder="Eg: 02/10/2016" required>
               <label>Delivery Status</label>
