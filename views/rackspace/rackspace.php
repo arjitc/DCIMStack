@@ -75,7 +75,6 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
                   <hr>
                   <?php 
                   include 'views/rackspace/networking/networking.php'; 
-                  list_ports($rackid);
                   ?>
               </div>
               <div class="tab-pane" id="power_management">
