@@ -8,8 +8,9 @@
 	    // output data of each row
 	    while($row = $result->fetch_assoc()) {
 	        $physical_label = $row["device_label"];
+	        $device_id = $row["device_id"];
 	        $port_count = $row["device_port_count"]/4;
-	        print_ports($physical_label, $port_count);
+	        print_ports($physical_label, $port_count, $device_id);
 	    }
 	} else {
 	    echo "0 results";
