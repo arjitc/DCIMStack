@@ -21,7 +21,7 @@
           <h1 class="page-header">Network Devices <div class='pull-right'><button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button></div></h1>
           <?php
             include 'config/db.php';
-            $sql = "SELECT * FROM `devices` WHERE `device_type`='SSD' OR `device_type`='SATA' OR `device_type`='SAS'";
+            $sql = "SELECT * FROM `devices` WHERE `device_type`='switch' OR `device_type`='router'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -33,7 +33,7 @@
                   	echo "<th>Vendor</th>";
                   	echo "<th>Type</th>";
                   	echo "<th>Physical Label</th>";
-                  	echo "<th>Capacity</th>";
+                  	echo "<th>Port Count</th>";
                   	echo "<th>Serial #</th>";
                   	echo "<th><center>Manage</center></th>";
                 echo "</tr>";
@@ -42,9 +42,9 @@
                 	echo "<tr>";
                   		echo "<td>". get_rack_name($row['rackid']) ."</td>";
                     	echo "<td>". $row["device_brand"]."</td>";
-                     	echo "<td>". $row["device_type"]."</td>";
+                     	echo "<td>". ucfirst($row["device_type"])."</td>";
                       	echo "<td>". $row["device_label"]."</td>";
-                      	echo "<td>". $row["device_capacity"]."</td>";
+                      	echo "<td>". $row["device_port_count"]."</td>";
                       	echo "<td>". $row["device_serial"]."</td>";
                       	echo "<td><center>Manage</center></td>";
                     echo "</tr>";
