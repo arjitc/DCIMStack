@@ -25,33 +25,27 @@ if (!ctype_digit($_GET['shipment_id'])) {
             <h4 class="modal-title"><img src='assets/img/lorry_go.png'> Manage Shipment - <?php echo $shipment_tracking_id; ?></h4>
         </div>
         <div class="modal-body">
-        <h4><img src="assets/img/keyboard.png"> Move to Hardware</h4>
-        <hr>
-        <div class="well">
-            <form action="add_device_db.php" method="post">
-                <label>Physical Label</label>
-                <input type="text" name="device_label" class="form-control" placeholder="My New Server!" required>
-                <label>Device Type</label>
-                <select name="device_type" class="form-control">
-                  <option value="Server">Server</option>
-                  <option value="HDD">HDD</option>
-                  <option value="RAM">RAM</option>
-                  <option value="Network">Network</option>
-                  <option value="PDU">PDU</option>
-                  <option value="CPU">CPU</option>
-                  <option value="Other">Other</option>
-                </select>
-                <hr>
-                <center><input type="submit" value="Move" class="btn btn-primary"></center>
-            </form>
+            <div id="content">
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active"><a href="#red" data-toggle="tab">Edit</a></li>
+            <li><a href="#orange" data-toggle="tab"><img src="assets/img/keyboard.png"> Move to Hardware</a></li>
+        </ul>
+        <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane active" id="red">
+                <h1>Edit</h1>
+                <p>red red red red red red</p>
+            </div>
+            <div class="tab-pane" id="orange">
+                <?php include 'tabs/move_to_hardware.php'; ?>
+            </div>
         </div>
-        </div>
+    </div>
+</div>
         <div class="modal-footer">
             <div class="pull-left">
             <a href="delete_shipment.php?shipment_id=<?php echo $shipment_id; ?>" class="btn btn-danger confirmation">Delete Shipment</a>
             </div>
             <a href="#" class="btn btn-primary" data-dismiss="modal">Cancel</a>
-            <a href="#" class="btn btn-primary">Update</a>
         </div>
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
