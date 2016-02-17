@@ -1,4 +1,4 @@
-        <div class="well">
+            <br>
             <form action="add_device_db.php" id="move_to_hardware" method="post">
                 <label>Physical Label</label>
                 <input type="text" name="device_label" class="form-control" placeholder="My New Server!" required>
@@ -15,4 +15,3 @@
                 <hr>
                 <center><input type="submit" form="move_to_hardware" value="Move" class="btn btn-primary"></center>
             </form>
-        </div>
