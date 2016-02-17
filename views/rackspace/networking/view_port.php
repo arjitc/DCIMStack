@@ -1,14 +1,15 @@
 <?php
 include 'config/db.php';
+include 'views/rackspace/networking/networking_functions.php'; 
 $port_number = mysqli_real_escape_string($conn, $_GET['port_number']);
 $device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
-$_SESSION['referrer'] = "rackspace.php?rackid=$rackid";
 $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $device_label = $row["device_label"];
     }
+    $port_name = port_name($port_number, $device_id);
 }
 ?>
 <div class="modal-dialog" style="min-width:1200px;">
@@ -20,7 +21,14 @@ if ($result->num_rows > 0) {
             </h4>
         </div>
         <div class="modal-body">
-           <img src="test.php" alt="" />
+            <?php
+            if(isset($port_name) && $port_name!="undefined") {
+                echo "<img src='print_graphs.php?port_number=$port_number&device_id=$device_id'>";
+            } else {
+                echo "Port Graphs not configured";
+            }
+            ?>
+           
         </div>
         <div class="modal-footer">
             <div class="pull-left">
