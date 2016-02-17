@@ -29,7 +29,7 @@ if (!ctype_digit($_GET['device_id'])) {
         </div>
         <div class="modal-footer">
             <div class="pull-left">
-            <a href="delete_device.php?device_id=<?php echo $device_id; ?>" class="btn btn-danger confirmation">Delete HDD</a>
+            <a href="delete_device.php?device_id=<?php echo $device_id; ?>" class="btn btn-danger confirmation">Remove HDD</a>
             </div>
             <a href="#" class="btn btn-primary" data-dismiss="modal">Cancel</a>
             <a href="#" class="btn btn-primary">Update</a>
