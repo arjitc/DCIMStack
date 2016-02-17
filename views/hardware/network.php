@@ -64,24 +64,23 @@
 	    <div class="modal-content">
 	    	<div class="modal-header">
 	    		<button type="button" class="close" data-dismiss="modal">&times;</button>
-	    		<h4 class="modal-title">Add HDDs</h4>
+	    		<h4 class="modal-title">Add Network Device</h4>
 	    	</div>
 		    <div class="modal-body">
 		    	<form action="add_device_db.php" id="add_hdds" method="post">
 		    		<input type="hidden" name="page_referrer" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
 		    		<label>Device Type</label>
 		    		<select class="form-control" name="device_type">
-					  <option value="SSD">SSD</option>
-					  <option value="HDD">HDD</option>
-					  <option value="SAS">SAS</option>
+					  <option value="Switch">Switch</option>
+					  <option value="Router">Router</option>
 					</select>
 					<label>Device Vendor</label>
 		    		<select class="form-control" name="device_brand">
-					  <option value="Hitachi">Hitachi</option>
-					  <option value="Seagate">Seagate</option>
-					  <option value="WD">WD</option>
-					  <option value="Samsung">Samsung</option>
-					  <option value="Toshiba">Toshiba</option>
+					  <option value="Juniper">Juniper</option>
+					  <option value="Cisco">Cisco</option>
+					  <option value="Mikrotik/RouterBoard">Mikrotik/RouterBoard</option>
+					  <option value="HP">HP</option>
+					  <option value="Dell">Dell</option>
 					</select>
 					<label>Device Location</label>
 					<?php
@@ -99,13 +98,13 @@
 					    echo "0 results";
 					}
 					?>
-					<br>
+					</select>
 					<label>Device Label</label>
 					<input type="text" class="form-control" name="device_label">
 					<label>Device Serial</label>
 					<input type="text" class="form-control" name="device_serial">
-					<label>Device Capacity</label>
-					<input type="text" class="form-control" name="device_capacity"><br>
+					<label>Device Port Count</label>
+					<input type="number" min="1" step="1" class="form-control" name="device_port_count"><br>
 				</form>
 		    </div>
 		    <div class="modal-footer">
