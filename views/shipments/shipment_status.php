@@ -1,6 +1,4 @@
 <?php
-//error_reporting(-1);
-//ini_set('display_errors', 'On');
 include 'config/db.php';
 $shipment_id     = mysqli_real_escape_string($conn, $_GET['shipment_id']);
 $shipment_status = mysqli_real_escape_string($conn, $_GET['status']);

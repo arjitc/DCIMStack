@@ -27,16 +27,19 @@ if (!ctype_digit($_GET['shipment_id'])) {
         <div class="modal-body">
             <div id="content">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-            <li class="active"><a href="#red" data-toggle="tab">Edit</a></li>
-            <li><a href="#orange" data-toggle="tab"><img src="assets/img/keyboard.png"> Move to Hardware</a></li>
+            <li class="active"><a href="#edit" data-toggle="tab"><img src="assets/img/pencil.png"> Edit</a></li>
+            <li><a href="#move_to_hardware" data-toggle="tab"><img src="assets/img/keyboard.png"> Move to Hardware</a></li>
+            <li><a href="#notes" data-toggle="tab"><img src="assets/img/note.png"> Notes</a></li>
         </ul>
         <div id="my-tab-content" class="tab-content">
-            <div class="tab-pane active" id="red">
-                <h1>Edit</h1>
-                <p>red red red red red red</p>
+            <div class="tab-pane active" id="edit">
+                <?php include 'tabs/edit.php'; ?>
             </div>
-            <div class="tab-pane" id="orange">
+            <div class="tab-pane" id="move_to_hardware">
                 <?php include 'tabs/move_to_hardware.php'; ?>
+            </div>
+            <div class="tab-pane" id="notes">
+                <?php include 'tabs/notes.php'; ?>
             </div>
         </div>
     </div>
