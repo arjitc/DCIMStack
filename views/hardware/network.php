@@ -21,7 +21,7 @@
           <h1 class="page-header">Network Devices <div class='pull-right'><button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button></div></h1>
           <?php
             include 'config/db.php';
-            $sql = "SELECT * FROM `devices` WHERE `device_type`='switch' OR `device_type`='router' OR `device_type='SFP to Ethernet converter'";
+            $sql = "SELECT * FROM `devices` WHERE `device_type`='switch' OR `device_type`='router' OR `device_type`='SFP to Ethernet converter'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
