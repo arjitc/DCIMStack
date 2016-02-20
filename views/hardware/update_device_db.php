@@ -15,7 +15,7 @@ if(isset($_POST['device_brand'])) {
 }
 if(isset($_POST['device_location'])) {
 	$device_location = mysqli_real_escape_string($conn, $_POST['device_location']);
-	$sql = "UPDATE `devices` SET `device_location`='$device_location' WHERE `device_id`='$device_id'";
+	$sql = "UPDATE `devices` SET `rackid`='$device_location' WHERE `device_id`='$device_id'";
 	$conn->query($sql);
 }
 if(isset($_POST['device_label'])) {
