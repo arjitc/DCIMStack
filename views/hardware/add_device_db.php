@@ -52,18 +52,18 @@ VALUES
 	'$device_mgmt_mac',
 	'$device_notes');";
 
-	if ($conn->query($sql) === TRUE) {
-		$rack_name = get_rack_name($device_location);
+if ($conn->query($sql) === TRUE) {
+	$rack_name = get_rack_name($device_location);
 		//echo "New record created successfully";
-		$event_type = "New $device_type added";
-		$event_message = "A new $device_type was added to $rack_name";
-		$event_status = "Complete";
-		add_event($event_type, $event_message, $event_status);
-		$conn->close();
-		$_SESSION['success'] = "Success, $device_type added.";
-		header("Location: $page_referrer");
-	} else {
-		$_SESSION['error'] = "Error, $device_type not added.";
-		header("Location: $page_referrer");
-	}
-	?>
+	$event_type = "New $device_type added";
+	$event_message = "A new $device_type was added to $rack_name";
+	$event_status = "Complete";
+	add_event($event_type, $event_message, $event_status);
+	$conn->close();
+	$_SESSION['success'] = "Success, $device_type added.";
+	header("Location: $page_referrer");
+} else {
+	$_SESSION['error'] = "Error, $device_type not added.";
+	header("Location: $page_referrer");
+}
+?>
