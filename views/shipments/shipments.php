@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DCIMStack</title>
-    <?php include 'libraries/css.php'; ?>
+    <?php 
+    include 'libraries/css.php';
+    include 'libraries/general.php'; 
+    ?>
   </head>
 
   <body>
@@ -29,7 +32,8 @@
                     echo "<th>Courier</th>";
                     echo "<th>Delivery ETA</th>";
                     echo "<th>Status</th>";
-                    echo "<th></th>";
+                    echo "<th>Mark</th>";
+                    echo "<th>Hardware list</th>";
                     echo "<th><center>Manage</center></th>";
                   echo "</tr>";
                 echo "</thead>";
@@ -40,7 +44,7 @@
                       } else {
                         echo "<tr>";
                       }
-                      echo "<td>".$row['shipment_tracking_id']."</td>";
+                      echo "<td>".print_tracking_url($row['shipment_tracking_id'], $row["shipment_courier"])."</td>";
                       echo "<td>".$row["shipment_courier"]."</td>";
                       echo "<td>".$row["shipment_delivery_eta"]."</td>";
                       echo "<td>".$row["shipment_status"]."</td>";
@@ -48,6 +52,11 @@
                         echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=undelivered'>Mark as undelivered</a></center></td>";
                       } else {
                         echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=delivered'>Mark as delivered</a></center></td>";
+                      }
+                      if(check_if_shipment_in_db($row['shipment_tracking_id'])==1) {
+                        echo "<td><center>Added</center></td>";
+                      } else {
+                        echo "<td><center>Not yet added</center></td>";
                       }
                       echo "<td><center><a href='shipment_manage.php?shipment_id=$shipment_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
                     echo "</tr>";

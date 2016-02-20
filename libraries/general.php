@@ -107,4 +107,26 @@ function shipments_inbound() {
   return $result->num_rows;
   $conn->close();
 }
+function check_if_shipment_in_db($shipment_tracking_id) {
+  include realpath(dirname(__FILE__)).'/../config/db.php';
+  $shipment_tracking_id  = mysqli_real_escape_string($conn, $shipment_tracking_id);
+  $sql = "SELECT * FROM `devices` WHERE `device_tracking_id`='$shipment_tracking_id'";
+  $result = $conn->query($sql);
+  return $result->num_rows;
+}
+function print_tracking_url($shipment_tracking_id, $shipment_courier) {
+  switch ($shipment_courier) {
+    case 'USPS':
+      return "<a href='https://tools.usps.com/go/TrackConfirmAction.action?tLabels=$shipment_tracking_id' target='_blank'>$shipment_tracking_id</a>";
+      break;
+    
+    case 'FedEX':
+      return "<a href='http://fedex.com/apps/fedextrack/?action=track&trackingnumber=$shipment_tracking_id' target='_blank'>$shipment_tracking_id</a>";
+      break;
+
+    default:
+      return "<a href='https://track.aftership.com/$shipment_tracking_id' target='_blank'>$shipment_tracking_id</a>";
+      break;
+  }
+}
 ?>

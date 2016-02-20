@@ -1,5 +1,6 @@
 <br>
 <form action="add_device_db.php" id="move" method="post">
+    <input type="hidden" name="device_tracking_id" value="<?php echo $shipment_tracking_id; ?>">
 	<label>Physical Label</label>
 	<input type="text" name="device_label" class="form-control" placeholder="My New Server!" required>
     <label>Device Type</label>
