@@ -16,7 +16,7 @@
     </select>
     <label>RAM</label>
     <div class="input-group">
-        <input type="text" class="form-control" value="<?php echo $device_ram_total; ?>" name="device_ram_total">
+        <input type="text" class="form-control" value="<?php echo preg_replace("/[^0-9,.]/", "", $device_ram_total); ?>" name="device_ram_total">
         <div class="input-group-addon">GB</div>
     </div>
     <hr>
