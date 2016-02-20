@@ -42,8 +42,7 @@ if (!ctype_digit($_GET['device_id'])) {
                         <?php include 'manage_server/tab_cpu_ram.php'; ?>
                     </div>
                     <div class="tab-pane" id="orange">
-                        <h1>Orange</h1>
-                        <p>orange orange orange orange orange</p>
+                        <?php include 'manage_server/tab_server_information.php'; ?>
                     </div>
                     <div class="tab-pane" id="yellow">
                         <h1>Yellow</h1>
@@ -68,7 +67,6 @@ if (!ctype_digit($_GET['device_id'])) {
             <a href="delete_device.php?device_id=<?php echo $device_id; ?>" class="btn btn-danger confirmation">Remove Server</a>
         </div>
         <a href="#" class="btn btn-primary" data-dismiss="modal">Cancel</a>
-        <a href="#" class="btn btn-primary">Update</a>
     </div>
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->

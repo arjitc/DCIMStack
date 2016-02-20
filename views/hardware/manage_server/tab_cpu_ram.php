@@ -1,5 +1,5 @@
 <br>
-<form action="add_device_db.php" id="add_hdds" method="post">
+<form action="add_device_db.php" id="cpu_ram" method="post">
     <input type="hidden" class="form-control" name="device_type" value="server">
     <label>Server CPU</label>
     <input type="text" class="form-control" value="<?php echo $device_cpu; ?>" name="device_cpu">
@@ -19,4 +19,6 @@
         <input type="text" class="form-control" value="<?php echo $device_ram_total; ?>" name="device_ram_total">
         <div class="input-group-addon">GB</div>
     </div>
+    <hr>
+    <center><input type="submit" form="cpu_ram" class="btn btn-primary"></center>
 </form>
