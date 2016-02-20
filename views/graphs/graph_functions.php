@@ -27,6 +27,7 @@ function lirenms_api_endpoint() {
 }
 function port_name($port_number) {
 	include 'config/db.php';
+	$port_number  = mysqli_real_escape_string($conn, $port_number);
 	$sql = "SELECT * FROM `networking` WHERE `port_number`='$port_number'";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
