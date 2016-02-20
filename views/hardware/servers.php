@@ -116,6 +116,12 @@
                         echo "0 results";
                       }
                       ?>
+                      <label>Management/IPMI IP</label>
+                      <input type="text" class="form-control" name="device_mgmt_ip">
+                      <label>Management/IPMI MAC Address</label>
+                      <input type="text" class="form-control" name="device_mgmt_mac">
+                      <label>Date Of Purchase</label>
+                      <input type="date" class="form-control" name="device_dop" required>
                       <label>Date Of Purchase</label>
                       <input type="date" class="form-control" name="device_dop" required>
                       <label>Warranty valid til</label>
