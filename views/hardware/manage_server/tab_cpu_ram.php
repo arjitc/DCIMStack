@@ -1,6 +1,6 @@
 <br>
-<form action="add_device_db.php" id="cpu_ram" method="post">
-    <input type="hidden" class="form-control" name="device_type" value="server">
+<form action="update_device_db.php" id="cpu_ram" method="post">
+    <input type="hidden" class="form-control" name="device_id" value="<?php echo $device_id; ?>">
     <label>Server CPU</label>
     <input type="text" class="form-control" value="<?php echo $device_cpu; ?>" name="device_cpu">
     <label>CPU Count</label>

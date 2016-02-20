@@ -1,5 +1,6 @@
 <br>
-<form action="add_device_db.php" id="server_information" method="post">
+<form action="update_device_db.php" id="server_information_form" method="post">
+	<input type="hidden" class="form-control" name="device_id" value="<?php echo $device_id; ?>">
 	<label>Server Size</label>
 	<select class="form-control" name="device_size">
 		<option value="1U">1U</option>
@@ -33,5 +34,5 @@
 	}
 	?>
 	<hr>
-	<center><input type="submit" form="server_information" class="btn btn-primary"></center>
+	<center><input type="submit" form="server_information_form" class="btn btn-primary"></center>
 </form>
