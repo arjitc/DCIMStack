@@ -1,4 +1,9 @@
 <br>
+<?php
+if(check_if_shipment_in_db($shipment_tracking_id)==1) {
+    echo "<td><center><div class='alert alert-danger' role='alert'><strong>Warning</strong> This shipment already exists in the database!</div></center></td>";
+}
+?>
 <form action="add_device_db.php" id="move" method="post">
     <input type="hidden" name="device_tracking_id" value="<?php echo $shipment_tracking_id; ?>">
 	<label>Physical Label</label>
