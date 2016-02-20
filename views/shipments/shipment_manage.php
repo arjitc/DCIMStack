@@ -28,8 +28,8 @@ if (!ctype_digit($_GET['shipment_id'])) {
             <div id="content">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
             <li class="active"><a href="#edit" data-toggle="tab"><img src="assets/img/pencil.png"> Edit</a></li>
-            <li><a href="#move_to_hardware" data-toggle="tab"><img src="assets/img/keyboard.png"> Move to Hardware</a></li>
             <li><a href="#notes" data-toggle="tab"><img src="assets/img/note.png"> Notes</a></li>
+            <li><a href="#move_to_hardware" data-toggle="tab"><img src="assets/img/keyboard.png"> Move to Hardware</a></li>
         </ul>
         <div id="my-tab-content" class="tab-content">
             <div class="tab-pane active" id="edit">
