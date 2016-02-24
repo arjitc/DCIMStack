@@ -12,7 +12,11 @@ function list_events_table($limit) {
   $_SESSION['token'] = $token;
   include realpath(dirname(__FILE__)).'/../config/db.php';
   $limit    = mysqli_real_escape_string($conn, $limit);
-  $sql = "SELECT * FROM `events` ORDER BY `id` DESC LIMIT $limit";
+  if($limit == 0) {
+    $sql = "SELECT * FROM `events` ORDER BY `id` DESC";
+  } else {
+    $sql = "SELECT * FROM `events` ORDER BY `id` DESC LIMIT $limit";
+  }
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
       // output data of each row

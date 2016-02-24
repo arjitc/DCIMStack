@@ -17,7 +17,7 @@
               <ul class="dropdown-menu">
                 <li class="dropdown-header">Dashboard/Other</li>
                 <li><a href='index.php'><img src='assets/img/application_view_columns.png'> Dashboard</a></li>
-                <li><a href='events.php'><img src='assets/img/application_side_list.png'> Event list</a></li>
+                <li><a href='events.php'><img src='assets/img/application_side_list.png'> Events</a></li>
               </ul>
             </li>
             <li class="dropdown">
