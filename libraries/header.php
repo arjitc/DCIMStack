@@ -11,7 +11,15 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.php"><img src='assets/img/application_view_columns.png'> Dashboard</a></li>
+          	<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <img src='assets/img/application_view_columns.png'> Dashboard <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">Dashboard/Other</li>
+                <li><a href='index.php'><img src='assets/img/application_view_columns.png'> Dashboard</a></li>
+                <li><a href='events.php'><img src='assets/img/application_side_list.png'> Event list</a></li>
+              </ul>
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <img src='assets/img/building.png'> Rackspace <span class="caret"></span></a>
