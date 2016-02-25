@@ -28,38 +28,15 @@ if ($result->num_rows > 0) {
                 echo "Port Graphs not configured";
             }
             ?>
-            
+           
         </div>
         <div class="modal-footer">
-            <div class="pull-left">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#configure_port">Configure Port</button>
-            </div>
             <a href="#" class="btn btn-danger" data-dismiss="modal">Close</a>
-            
         </form>
-    </div>
-</div><!-- /.modal-content -->
+        </div>
+    </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
-<!-- Configure Port Modal -->
-<div id="configure_port" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Configure Port <?php echo $port_number; ?> on <?php echo $device_label; ?></h4>
-    </div>
-    <div class="modal-body">
-        <p>Some text in the modal.</p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    </div>
-</div>
-
-</div>
-</div>
 <script type="text/javascript">
     $('.confirmation').on('click', function () {
         return confirm('Are you sure?');
