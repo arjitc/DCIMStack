@@ -25,7 +25,7 @@ if(empty($feed_power)) {
 }
 
 if(isset($rackid, $feed_type, $feed_voltage, $feed_power)) {
-  $sql = "INSERT INTO `dcimstack`.`power_feeds` (`rackid`, `feed_id`, `feed_type`, `feed_power`, `feed_voltage`) 
+  $sql = "INSERT INTO `power_feeds` (`rackid`, `feed_id`, `feed_type`, `feed_power`, `feed_voltage`) 
 			VALUES ('$rackid', NULL, '$feed_type', '$feed_power', '$feed_voltage');";
   if ($conn->query($sql) === TRUE) {
       $rack_name = get_rack_name($rackid);
