@@ -15,6 +15,7 @@ if (!ctype_digit($_GET['shipment_id'])) {
             $device_type     = $row["device_type"];
             $device_serial   = $row["device_serial"];
             $device_capacity = $row["device_capacity"];
+            $shipment_notes  = $row["shipment_notes"];
         }
     }
 }
