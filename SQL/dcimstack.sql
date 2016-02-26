@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 20, 2016 at 09:11 AM
+-- Generation Time: Feb 26, 2016 at 05:24 PM
 -- Server version: 5.5.47-0+deb8u1
 -- PHP Version: 5.6.17-0+deb8u1
 
@@ -47,8 +47,10 @@ CREATE TABLE IF NOT EXISTS `devices` (
   `device_warranty` text NOT NULL COMMENT 'day on which the warranty ends',
   `device_dop` text NOT NULL COMMENT 'date of purchase',
   `device_tracking_id` varchar(255) NOT NULL,
+  `device_mgmt_ip` varchar(255) NOT NULL,
+  `device_mgmt_mac` varchar(255) NOT NULL,
   `device_notes` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -108,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `power_feeds` (
   `feed_type` varchar(255) NOT NULL COMMENT 'A or B',
   `feed_power` int(11) NOT NULL COMMENT 'in Amps',
   `feed_voltage` int(11) NOT NULL COMMENT 'in Volts'
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -147,7 +149,8 @@ CREATE TABLE IF NOT EXISTS `shipments` (
   `shipment_tracking_id` varchar(255) NOT NULL,
   `shipment_courier` varchar(255) NOT NULL,
   `shipment_delivery_eta` varchar(255) NOT NULL,
-  `shipment_status` varchar(255) NOT NULL
+  `shipment_status` varchar(255) NOT NULL,
+  `shipment_notes` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -229,7 +232,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `devices`
 --
 ALTER TABLE `devices`
-MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `events`
 --
@@ -249,7 +252,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `power_feeds`
 --
 ALTER TABLE `power_feeds`
-MODIFY `feed_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+MODIFY `feed_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `rackspace`
 --
