@@ -6,6 +6,7 @@ if(check_if_shipment_in_db($shipment_tracking_id)==1) {
 ?>
 <form action="add_device_db.php" id="move" method="post">
     <input type="hidden" name="device_tracking_id" value="<?php echo $shipment_tracking_id; ?>">
+    <input type="hidden" name="device_notes" value="<?php echo $shipment_notes; ?>">
 	<label>Physical Label</label>
 	<input type="text" name="device_label" class="form-control" placeholder="My New Server!" required>
     <label>Device Type</label>
