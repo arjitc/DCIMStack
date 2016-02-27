@@ -12,6 +12,9 @@ $device_serial = mysqli_real_escape_string($conn, $_POST['device_serial']);
 $device_capacity = mysqli_real_escape_string($conn, $_POST['device_capacity']);
 $device_mac = mysqli_real_escape_string($conn, $_POST['device_mac']);
 $device_ram_total = mysqli_real_escape_string($conn, $_POST['device_ram_total'])." GB";
+if(empty($_POST['device_ram_total'])) {
+	$device_ram_total = mysqli_real_escape_string($conn, $_POST['device_ram_total']);
+}
 $device_cpu_count = mysqli_real_escape_string($conn, $_POST['device_cpu_count']);
 $device_power_usage = mysqli_real_escape_string($conn, $_POST['device_power_usage']);
 $device_power_feed1 = mysqli_real_escape_string($conn, $_POST['device_power_feed1']);
