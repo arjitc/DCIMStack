@@ -38,6 +38,8 @@
                                 }
                             }
                         }
+                        session_start();
+                        $_SESSION['POST_login_url'] = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                         ?>
                         <!-- login form box -->
                         <form method="post" action="index.php" id="loginform">

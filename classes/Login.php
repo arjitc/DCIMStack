@@ -69,7 +69,7 @@ class Login
                 // username field)
                 $sql = "SELECT user_name, user_email, user_password_hash
                         FROM users
-                        WHERE user_name = '" . $user_name."' OR user_email = '".$user_name."';";
+                        WHERE user_name = '" . $user_name . "' OR user_email = '" . $user_name . "';";
                 $result_of_login_check = $this->db_connection->query($sql);
 
                 // if this user exists
@@ -86,7 +86,11 @@ class Login
                         $_SESSION['user_name'] = $result_row->user_name;
                         $_SESSION['user_email'] = $result_row->user_email;
                         $_SESSION['user_login_status'] = 1;
-
+                        if(substr($_SESSION['POST_login_url'], -6)=="logout") {
+                            header("Location: index.php");
+                        } else {
+                            header("Location: ". $_SESSION['POST_login_url']);
+                        }
                     } else {
                         $this->errors[] = "Wrong password. Try again.";
                     }
