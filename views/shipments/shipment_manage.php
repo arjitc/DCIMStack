@@ -12,9 +12,6 @@ if (!ctype_digit($_GET['shipment_id'])) {
         while ($row = $result->fetch_assoc()) {
             $shipment_tracking_id = $row["shipment_tracking_id"];
             $shipment_status = $row["shipment_status"];
-            $device_type     = $row["device_type"];
-            $device_serial   = $row["device_serial"];
-            $device_capacity = $row["device_capacity"];
             //http://stackoverflow.com/questions/110575/do-htmlspecialchars-and-mysql-real-escape-string-keep-my-php-code-safe-from-inje
             $shipment_notes  = mb_convert_encoding($row["shipment_notes"], 'UTF-8', 'UTF-8');
             $shipment_notes = htmlentities($shipment_notes, ENT_QUOTES, 'UTF-8');
