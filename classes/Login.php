@@ -86,6 +86,11 @@ class Login
                         $_SESSION['user_name'] = $result_row->user_name;
                         $_SESSION['user_email'] = $result_row->user_email;
                         $_SESSION['user_login_status'] = 1;
+                        /*  the line below is added as, once the user logs out the url has ?logout at the end,
+                            if the user tries to login once more from this URL, he gets logged out again as the value in
+                            $_SESSION['POST_login_url'] has the logout URL in it, so we redirect the user to the dashboard 
+                            in this case.
+                        */
                         if(substr($_SESSION['POST_login_url'], -6)=="logout") {
                             header("Location: index.php");
                         } else {
