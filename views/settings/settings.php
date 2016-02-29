@@ -53,11 +53,8 @@ if ($result->num_rows > 0) {
     <?php include 'libraries/alerts.php'; ?>
     <div id="content">
       <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-        <li class="active"><a href="#red" data-toggle="tab">Red</a></li>
+        <li class="active"><a href="#red" data-toggle="tab">Users</a></li>
         <li><a href="#librenms" data-toggle="tab">LibreNMS</a></li>
-        <li><a href="#yellow" data-toggle="tab">Yellow</a></li>
-        <li><a href="#green" data-toggle="tab">Green</a></li>
-        <li><a href="#blue" data-toggle="tab">Blue</a></li>
       </ul>
       <div id="my-tab-content" class="tab-content">
         <div class="tab-pane active" id="red">
@@ -68,18 +65,6 @@ if ($result->num_rows > 0) {
           <h1>LibreNMS</h1>
           <hr>
           <?php include 'settings/librenms_tab.php'; ?>
-        </div>
-        <div class="tab-pane" id="yellow">
-          <h1>Yellow</h1>
-          <p>yellow yellow yellow yellow yellow</p>
-        </div>
-        <div class="tab-pane" id="green">
-          <h1>Green</h1>
-          <p>green green green green green</p>
-        </div>
-        <div class="tab-pane" id="blue">
-          <h1>Blue</h1>
-          <p>blue blue blue blue blue</p>
         </div>
       </div>
     </div>
