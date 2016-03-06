@@ -13,7 +13,15 @@
 		<option value="Delivered">Delivered</option>
 	</select>
 	<label>Delivery ETA</label>
-    <input type="date" class="form-control" form="edit_shipment" value="<?php echo $shipment_delivery_eta; ?>" name="shipment_delivery_eta" required>
+	<input type="date" class="form-control" form="edit_shipment" value="<?php echo $shipment_delivery_eta; ?>" name="shipment_delivery_eta" required>
+	<label>Shipping Courier</label>
+	<select class="form-control" name="shipment_courier">
+		<option value="<?php echo $shipment_courier; ?>"><?php echo $shipment_courier; ?></option>
+		<option value="USPS">USPS</option>
+		<option value="FedEX">FedEX</option>
+		<option value="UPS">UPS</option>
+		<option value="DHL">DHL</option>
+	</select>
 	<hr>
 	<center><input type="submit" form="edit_shipment" value="Update" class="btn btn-primary"></center>
 </form>

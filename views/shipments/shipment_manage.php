@@ -17,6 +17,7 @@ if (!ctype_digit($_GET['shipment_id'])) {
             $shipment_notes = htmlentities($shipment_notes, ENT_QUOTES, 'UTF-8');
             $shipment_status = $row["shipment_status"];
             $shipment_delivery_eta = $row["shipment_delivery_eta"];
+            $shipment_courier = $row["shipment_courier"];
         }
     }
 }
