@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 26, 2016 at 05:24 PM
+-- Generation Time: Mar 06, 2016 at 11:34 AM
 -- Server version: 5.5.47-0+deb8u1
 -- PHP Version: 5.6.17-0+deb8u1
 
@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `devices` (
   `device_type` varchar(255) NOT NULL,
   `device_label` varchar(255) NOT NULL,
   `device_brand` varchar(255) NOT NULL,
+  `device_model` varchar(255) NOT NULL,
   `device_serial` varchar(255) NOT NULL COMMENT 'Serial Number',
   `device_mac` varchar(255) NOT NULL,
   `device_ram_total` varchar(255) NOT NULL,
@@ -50,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `devices` (
   `device_mgmt_ip` varchar(255) NOT NULL,
   `device_mgmt_mac` varchar(255) NOT NULL,
   `device_notes` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -64,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `event_message` varchar(255) NOT NULL,
   `event_status` varchar(255) NOT NULL,
   `event_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -151,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `shipments` (
   `shipment_delivery_eta` varchar(255) NOT NULL,
   `shipment_status` varchar(255) NOT NULL,
   `shipment_notes` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -232,12 +233,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `devices`
 --
 ALTER TABLE `devices`
-MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT for table `hdd`
 --
@@ -267,7 +268,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `shipments`
 --
 ALTER TABLE `shipments`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `users`
 --
