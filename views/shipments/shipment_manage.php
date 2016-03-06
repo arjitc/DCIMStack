@@ -16,6 +16,7 @@ if (!ctype_digit($_GET['shipment_id'])) {
             $shipment_notes  = mb_convert_encoding($row["shipment_notes"], 'UTF-8', 'UTF-8');
             $shipment_notes = htmlentities($shipment_notes, ENT_QUOTES, 'UTF-8');
             $shipment_status = $row["shipment_status"];
+            $shipment_delivery_eta = $row["shipment_delivery_eta"];
         }
     }
 }

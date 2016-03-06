@@ -12,6 +12,8 @@
 		<option value="Out For Delivery">Out For Delivery</option>
 		<option value="Delivered">Delivered</option>
 	</select>
+	<label>Delivery ETA</label>
+    <input type="date" class="form-control" form="edit_shipment" value="<?php echo $shipment_delivery_eta; ?>" name="shipment_delivery_eta" required>
 	<hr>
 	<center><input type="submit" form="edit_shipment" value="Update" class="btn btn-primary"></center>
 </form>
