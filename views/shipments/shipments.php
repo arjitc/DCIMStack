@@ -33,7 +33,6 @@
                     echo "<th>Delivery ETA</th>";
                     echo "<th>Status</th>";
                     echo "<th>Mark</th>";
-                    echo "<th>Hardware list</th>";
                     echo "<th><center>Manage</center></th>";
                   echo "</tr>";
                 echo "</thead>";
@@ -52,11 +51,6 @@
                         echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=undelivered'>Mark as undelivered</a></center></td>";
                       } else {
                         echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=delivered'>Mark as delivered</a></center></td>";
-                      }
-                      if(check_if_shipment_in_db($row['shipment_tracking_id'])==1) {
-                        echo "<td><center>Added</center></td>";
-                      } else {
-                        echo "<td><center>Not yet added</center></td>";
                       }
                       echo "<td><center><a href='shipment_manage.php?shipment_id=$shipment_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
                     echo "</tr>";

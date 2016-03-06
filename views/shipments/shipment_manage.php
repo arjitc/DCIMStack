@@ -15,6 +15,7 @@ if (!ctype_digit($_GET['shipment_id'])) {
             //http://stackoverflow.com/questions/110575/do-htmlspecialchars-and-mysql-real-escape-string-keep-my-php-code-safe-from-inje
             $shipment_notes  = mb_convert_encoding($row["shipment_notes"], 'UTF-8', 'UTF-8');
             $shipment_notes = htmlentities($shipment_notes, ENT_QUOTES, 'UTF-8');
+            $shipment_status = $row["shipment_status"];
         }
     }
 }
