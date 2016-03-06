@@ -48,7 +48,6 @@
               <ul class="dropdown-menu">
                 <li class="dropdown-header">Add/Manage Shipments</li>
                 <li><a href='shipments.php'><img src='assets/img/lorry.png'> Shipments</a></li>
-                <li><a href='shipments.php'><img src='assets/img/lorry.png'> RMA</a></li>
               </ul>
             </li>
           </ul>
