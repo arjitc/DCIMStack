@@ -35,8 +35,8 @@
         </div>
         <div class="col-xs-6 col-sm-3 placeholder">
           <h3><?php echo shipments_inbound(); ?></h3>
-          <h4>Shipments inbound</h4>
-          <span class="text-muted">Individual shipments inbound</span>
+          <h4><?php if(shipments_inbound()>1) { echo "Shipments"; } else { echo "Shipment"; } ?></h4>
+          <span class="text-muted">Individual shipments in-transit</span>
         </div>
       </div>
     	<?php
