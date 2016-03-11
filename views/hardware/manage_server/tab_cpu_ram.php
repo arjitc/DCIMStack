@@ -1,5 +1,5 @@
 <br>
-<form action="update_device_db.php" id="cpu_ram" method="post">
+<form action="update_device_db.php" id="cpu_ram_update" method="post">
     <input type="hidden" class="form-control" name="device_id" value="<?php echo $device_id; ?>">
     <label>Server CPU</label>
     <input type="text" class="form-control" value="<?php echo $device_cpu; ?>" name="device_cpu">
@@ -20,5 +20,5 @@
         <div class="input-group-addon">GB</div>
     </div>
     <hr>
-    <center><input type="submit" form="cpu_ram" class="btn btn-primary"></center>
+    <center><input type="submit" form="cpu_ram_update" class="btn btn-primary"></center>
 </form>
