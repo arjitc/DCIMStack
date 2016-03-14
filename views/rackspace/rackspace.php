@@ -104,6 +104,7 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
                       <div class="tab-pane" id="hdd">
                           <h3>HDDs</h3>
                           <hr>
+                          <?php include 'inventory/hdds.php'; ?>
 
                       </div>
                       <div class="tab-pane" id="raid_cards">
@@ -119,7 +120,7 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
                       <div class="tab-pane" id="networking_gear">
                           <h3>Networking Gear</h3>
                           <hr>
-                          
+                          <?php include 'inventory/networking.php'; ?>
                       </div>
                       <div class="tab-pane" id="pdu">
                           <h3>PDUs</h3>
