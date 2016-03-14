@@ -8,7 +8,6 @@ if ($result->num_rows > 0) {
   echo "<table class='table' id='search_table'>";
   echo "<thead>";
   echo "<tr>";
-  echo "<th>Location</th>";
   echo "<th>Vendor</th>";
   echo "<th>Type</th>";
   echo "<th>Physical Label</th>";
@@ -19,7 +18,6 @@ if ($result->num_rows > 0) {
   echo "</thead>";
   while($row = $result->fetch_assoc()) {
    echo "<tr>";
-   echo "<td>". get_rack_name($row['rackid']) ."</td>";
    echo "<td>". $row["device_brand"]."</td>";
    echo "<td>". ucfirst($row["device_type"])."</td>";
    echo "<td>". $row["device_label"]."</td>";
