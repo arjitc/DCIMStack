@@ -93,7 +93,6 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
               <div class="tab-pane" id="inventory">
                   <ul id="tabs" class="nav nav-pills nav-justified" data-tabs="tabs">
                     <li><a href="#hdd" data-toggle="tab"><i class="fa fa-hdd-o"></i> HDDs</a></li>
-                    <li><a href="#raid_cards" data-toggle="tab"><i class="fa fa-keyboard-o"></i> RAID Cards</a></li>
                     <li><a href="#cables" data-toggle="tab"><i class="fa fa-random"></i> Cables</a></li>
                     <li><a href="#networking_gear" data-toggle="tab"><i class="fa fa-arrows"></i> Networking Gear</a></li>
                     <li><a href="#pdu" data-toggle="tab"><i class="fa fa-plug"></i> PDUs</a></li>
@@ -106,11 +105,6 @@ $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
                           <hr>
                           <?php include 'inventory/hdds.php'; ?>
 
-                      </div>
-                      <div class="tab-pane" id="raid_cards">
-                          <h3>RAID Cards</h3>
-                          <hr>
-                          
                       </div>
                       <div class="tab-pane" id="cables">
                           <h3>Cables</h3>
