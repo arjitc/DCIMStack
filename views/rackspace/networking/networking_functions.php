@@ -57,8 +57,8 @@ function print_ports($physical_label, $port_count, $device_id) {
 				  </div>
 				  <div class='panel-body'>";
 				  echo "<center>";
-				  echo "<img src='assets/img/arrow_up.png'> 5 MB/s";
-				  echo "<img src='assets/img/arrow_down.png'> 4 MB/s";
+				  //echo "<img src='assets/img/arrow_up.png'> 5 MB/s";
+				  //echo "<img src='assets/img/arrow_down.png'> 4 MB/s";
 				  echo "</center>";
 				echo"</div>
 				</div>";
