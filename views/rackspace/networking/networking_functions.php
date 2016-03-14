@@ -12,6 +12,12 @@ function port_status($port_number, $device_id) {
 	    return 0;
 	}
 }
+function port_config_exists($port_number, $device_id) {
+	include 'config/db.php';
+	$sql = "SELECT * FROM `networking` WHERE `device_id`='$device_id' AND `port_number`='$port_number'";
+	$result = $conn->query($sql);
+	return $result->num_rows;
+}
 function port_label($port_number, $device_id) {
 	include 'config/db.php';
 	$sql = "SELECT * FROM `networking` WHERE `device_id`='$device_id' AND `port_number`='$port_number'";
