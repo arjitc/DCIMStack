@@ -33,6 +33,10 @@
 		echo "0 results";
 	}
 	?>
+	<label>Device Serial</label>
+    <input type="text" class="form-control" value="<?php echo $device_serial; ?>" name="device_serial">
+	<label>Device MAC Address</label>
+    <input type="text" class="form-control" value="<?php echo $device_mac; ?>" name="device_mac">
 	<hr>
 	<center><input type="submit" form="server_information_form" class="btn btn-primary"></center>
 </form>

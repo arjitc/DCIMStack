@@ -21,6 +21,7 @@ if (!ctype_digit($_GET['device_id'])) {
             $device_ram_total = $row["device_ram_total"];
             $device_mgmt_ip   = $row["device_mgmt_ip"];
             $device_mgmt_mac  = $row["device_mgmt_mac"];
+            $device_mac       = $row["device_mac"];
         }
     }
 }
