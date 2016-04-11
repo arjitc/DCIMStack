@@ -23,13 +23,15 @@
 		$sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
-      // output data of each row
+        // output data of each row
 			echo "<table class='table' id='search_table'>";
 			echo "<thead>";
 			echo "<tr>";
 			echo "<th>Location</th>";
 			echo "<th>Vendor</th>";
 			echo "<th>Physical Label</th>";
+			echo "<th>MGMT IP</th>";
+			echo "<th>MGMT MAC</th>";
 			echo "<th>Serial #</th>";
 			echo "<th>Purchased on</th>";
 			echo "<th>Warranty till</th>";
@@ -42,6 +44,8 @@
 				echo "<td>".get_rack_name($row['rackid'])."</td>";
 				echo "<td>".$row["device_brand"]."</td>";
 				echo "<td>".$row["device_label"]."</td>";
+				echo "<td>".$row["device_mgmt_ip"]."</td>";
+				echo "<td>".$row["device_mgmt_mac"]."</td>";
 				echo "<td>".$row["device_serial"]."</td>";
 				echo "<td>"; if (empty($row["device_dop"])) { echo "0000-00-00"; } else { echo $row["device_dop"]; } echo "</td>";
 				echo "<td>"; if (empty($row["device_warranty"])) { echo "0000-00-00"; } else { echo $row["device_warranty"]; }  echo "</td>";
