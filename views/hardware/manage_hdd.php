@@ -25,8 +25,7 @@ if (!ctype_digit($_GET['device_id'])) {
             <h4 class="modal-title"><img src='assets/img/drive_go.png'> Manage disk - <?php echo $device_label; ?></h4>
         </div>
         <div class="modal-body">
-
-        </div>
+            
         <div class="modal-footer">
             <div class="pull-left">
             <a href="delete_device.php?device_id=<?php echo $device_id; ?>" class="btn btn-danger confirmation">Remove HDD</a>
