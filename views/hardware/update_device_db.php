@@ -53,6 +53,16 @@ if(isset($_POST['device_size'])) {
 	$sql = "UPDATE `devices` SET `device_size`='$device_size' WHERE `device_id`='$device_id'";
 	$conn->query($sql);
 }
+if(isset($_POST['device_mac'])) {
+	$device_mac = mysqli_real_escape_string($conn, $_POST['device_mac']);
+	$sql = "UPDATE `devices` SET `device_mac`='$device_mac' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
+if(isset($_POST['device_serial'])) {
+	$device_serial = mysqli_real_escape_string($conn, $_POST['device_serial']);
+	$sql = "UPDATE `devices` SET `device_serial`='$device_serial' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
 unset($_SESSION['referrer']); //clear session var
 header("Location: $referrer"); //redirect!
 ?>
