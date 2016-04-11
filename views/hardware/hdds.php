@@ -8,8 +8,6 @@
   <?php
   include 'libraries/css.php';
   include 'libraries/general.php';
-  //error_reporting(-1);
-  //ini_set('display_errors', 'On');
   ?>
 </head>
 
@@ -22,7 +20,7 @@
         <?php include 'libraries/alerts.php'; ?>
         <?php
         include 'config/db.php';
-        $sql = "SELECT * FROM `devices` WHERE `device_type`='SSD' OR `device_type`='HDD' OR `device_type`='SAS'";
+        $sql = "SELECT * FROM `devices` WHERE `device_type` in ('SSD','HDD','SAS')";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           // output data of each row
