@@ -30,6 +30,7 @@
 			echo "<th>Location</th>";
 			echo "<th>Vendor</th>";
 			echo "<th>Physical Label</th>";
+			echo "<th>MAC Address</th>";
 			echo "<th>MGMT IP</th>";
 			echo "<th>MGMT MAC</th>";
 			echo "<th>Serial #</th>";
@@ -44,6 +45,7 @@
 				echo "<td>".get_rack_name($row['rackid'])."</td>";
 				echo "<td>".$row["device_brand"]."</td>";
 				echo "<td>".$row["device_label"]."</td>";
+				echo "<td>".$row["device_mac"]."</td>";
 				echo "<td>".$row["device_mgmt_ip"]."</td>";
 				echo "<td>".$row["device_mgmt_mac"]."</td>";
 				echo "<td>".$row["device_serial"]."</td>";
