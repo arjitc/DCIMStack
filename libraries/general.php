@@ -56,7 +56,7 @@ function get_tracking_from_id($shipping_id) {
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-			return $row["tracking_id"];
+			return $row["shipment_tracking_id"];
 		}
 	} else {
 		return "None";
