@@ -20,7 +20,7 @@
           <?php include 'libraries/alerts.php'; ?>
           <?php
             include 'config/db.php';
-            $sql = "SELECT * FROM `shipments`";
+            $sql = "SELECT * FROM `shipments` WHERE `shipment_archived`='0'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -33,6 +33,7 @@
                     echo "<th>Delivery ETA</th>";
                     echo "<th>Status</th>";
                     echo "<th>Mark</th>";
+                    echo "<th>Archive</th>";
                     echo "<th><center>Manage</center></th>";
                   echo "</tr>";
                 echo "</thead>";
@@ -51,6 +52,11 @@
                         echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=undelivered'>Mark as undelivered</a></center></td>";
                       } else {
                         echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=delivered'>Mark as delivered</a></center></td>";
+                      }
+                      if($row["shipment_archived"]=="0") {
+                        echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&archive=1'>Archive</a></center></td>";
+                      } else {
+                        echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&archive=0'>Un-Archive</a></center></td>";
                       }
                       echo "<td><center><a href='shipment_manage.php?shipment_id=$shipment_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
                     echo "</tr>";

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2016 at 04:25 PM
+-- Generation Time: Apr 12, 2016 at 04:25 PM
 -- Server version: 5.5.47-0+deb8u1
 -- PHP Version: 5.6.19-0+deb8u1
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `event_message` varchar(255) NOT NULL,
   `event_status` varchar(255) NOT NULL,
   `event_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -152,8 +152,9 @@ CREATE TABLE IF NOT EXISTS `shipments` (
   `shipment_courier` varchar(255) NOT NULL,
   `shipment_delivery_eta` varchar(255) NOT NULL,
   `shipment_status` varchar(255) NOT NULL,
-  `shipment_notes` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+  `shipment_notes` text NOT NULL,
+  `shipment_archived` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -239,7 +240,7 @@ MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=66;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT for table `hdd`
 --
@@ -269,7 +270,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `shipments`
 --
 ALTER TABLE `shipments`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `users`
 --
