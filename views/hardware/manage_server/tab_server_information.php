@@ -1,6 +1,8 @@
 <br>
 <form action="update_device_db.php" id="server_information_form" method="post">
 	<input type="hidden" class="form-control" name="device_id" value="<?php echo $device_id; ?>">
+	<label>Device Label</label>
+    <input type="text" class="form-control" value="<?php echo $device_label; ?>" name="device_label">
 	<label>Server Size</label>
 	<select class="form-control" name="device_size">
 		<option value="1U">1U</option>
