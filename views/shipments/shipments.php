@@ -29,6 +29,7 @@
                 echo "<thead>";
                   echo "<tr>";
                     echo "<th>Tracking ID</th>";
+                    echo "<th>Notes</th>";
                     echo "<th>Courier</th>";
                     echo "<th>Delivery ETA</th>";
                     echo "<th>Status</th>";
@@ -45,6 +46,7 @@
                         echo "<tr>";
                       }
                       echo "<td>".print_tracking_url($row['shipment_tracking_id'], $row["shipment_courier"])."</td>";
+                      echo "<td>".htmlspecialchars($row["shipment_notes"])."</td>";
                       echo "<td>".$row["shipment_courier"]."</td>";
                       echo "<td>".$row["shipment_delivery_eta"]."</td>";
                       echo "<td>".$row["shipment_status"]."</td>";
@@ -81,6 +83,8 @@
           </div>
           <div class="modal-body">
             <form action="add_shipment_db.php" id="add_hdds" method="post">
+              <label>Shipment notes</label>
+              <textarea class="form-control" name="shipment_notes"></textarea>
               <label>Tracking ID</label>
               <input type="text" class="form-control" name="tracking_id" placeholder="Tracking ID" required>
               <label>Shipping Courier</label>
