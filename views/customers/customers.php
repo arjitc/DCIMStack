@@ -59,7 +59,7 @@
 			}
 			echo "</table>";
 		} else {
-			echo "0 results";
+			echo "No customers found, <a data-toggle='modal' data-target='#add_customer'>let's add one now.</a>";
 		}
 		$conn->close();
 		?>
