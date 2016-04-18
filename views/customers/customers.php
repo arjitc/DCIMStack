@@ -26,11 +26,7 @@
 		<?php include 'libraries/alerts.php'; ?>
 		<?php
 		include 'config/db.php';
-		if($_GET['archived']==1) {
-			$sql = "SELECT * FROM `shipments` WHERE `shipment_archived`='1'";
-		} else {
-			$sql = "SELECT * FROM `shipments` WHERE `shipment_archived`='0'";
-		}
+		$sql = "SELECT * FROM `shipments` WHERE `shipment_archived`='0'";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
@@ -38,7 +34,7 @@
 			echo "<table class='table' id='search_table'>";
 			echo "<thead>";
 			echo "<tr>";
-			echo "<th>Tracking ID</th>";
+			echo "<th>#</th>";
 			echo "<th>Notes</th>";
 			echo "<th>Courier</th>";
 			echo "<th>Delivery ETA</th>";
@@ -49,27 +45,15 @@
 			echo "</tr>";
 			echo "</thead>";
 			while ($row = $result->fetch_assoc()) {
-				$shipment_id = $row['id'];
-				if ($row["shipment_status"] == "Delivered") {
-					echo "<tr class='success'>";
-				} else {
-					echo "<tr>";
-				}
-				echo "<td>".print_tracking_url($row['shipment_tracking_id'], $row["shipment_courier"])."</td>";
+				$customer_id = $row['id'];
+				echo "<tr>";
+				echo "<td>".$row['id']."</td>";
 				echo "<td>".htmlspecialchars($row["shipment_notes"])."</td>";
 				echo "<td>".$row["shipment_courier"]."</td>";
 				echo "<td>".$row["shipment_delivery_eta"]."</td>";
 				echo "<td>".$row["shipment_status"]."</td>";
-				if($row["shipment_status"]=="Delivered") {
-					echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=undelivered'>Mark as undelivered</a></center></td>";
-				} else {
-					echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=delivered'>Mark as delivered</a></center></td>";
-				}
-				if($row["shipment_archived"]=="0") {
-					echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&archive=1'>Archive</a></center></td>";
-				} else {
-					echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&archive=0'>Un-Archive</a></center></td>";
-				}
+				echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=undelivered'>Mark as undelivered</a></center></td>";
+				echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&archive=1'>Archive</a></center></td>";
 				echo "<td><center><a href='shipment_manage.php?shipment_id=$shipment_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
 				echo "</tr>";
 			}
