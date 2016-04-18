@@ -26,7 +26,7 @@
 		<?php include 'libraries/alerts.php'; ?>
 		<?php
 		include 'config/db.php';
-		$sql = "SELECT * FROM `shipments` WHERE `shipment_archived`='0'";
+		$sql = "SELECT * FROM `customers`";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
@@ -35,8 +35,8 @@
 			echo "<thead>";
 			echo "<tr>";
 			echo "<th>#</th>";
-			echo "<th>Notes</th>";
-			echo "<th>Courier</th>";
+			echo "<th>Customer Name</th>";
+			echo "<th>Device Count</th>";
 			echo "<th>Delivery ETA</th>";
 			echo "<th>Status</th>";
 			echo "<th>Mark</th>";
@@ -48,8 +48,8 @@
 				$customer_id = $row['id'];
 				echo "<tr>";
 				echo "<td>".$row['id']."</td>";
-				echo "<td>".htmlspecialchars($row["shipment_notes"])."</td>";
-				echo "<td>".$row["shipment_courier"]."</td>";
+				echo "<td>".htmlspecialchars($row["customer_name"])."</td>";
+				echo "<td>".$customer_id."</td>";
 				echo "<td>".$row["shipment_delivery_eta"]."</td>";
 				echo "<td>".$row["shipment_status"]."</td>";
 				echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=undelivered'>Mark as undelivered</a></center></td>";
@@ -77,8 +77,8 @@
 				</div>
 				<div class="modal-body">
 					<form action="add_shipment_db.php" id="add_hdds" method="post">
-						<label>Shipment notes</label>
-						<textarea class="form-control" name="shipment_notes"></textarea>
+						<label>Customer name</label>
+						<input type="text" class="form-control" name="customer_name" placeholder="Customer Name" required>
 						<label>Tracking ID</label>
 						<input type="text" class="form-control" name="tracking_id" placeholder="Tracking ID" required>
 						<label>Shipping Courier</label>
