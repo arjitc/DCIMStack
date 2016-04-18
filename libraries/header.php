@@ -56,7 +56,7 @@
               <ul class="dropdown-menu">
                 <li class="dropdown-header">Add/Manage Customers</li>
                 <li><a href='shipments.php'><img src='assets/img/drive_user.png'> Customer Devices</a></li>
-                <li><a href='shipments.php'><img src='assets/img/user_suit.png'> Manage Customers</a></li>
+                <li><a href='customers.php'><img src='assets/img/user_suit.png'> Manage Customers</a></li>
               </ul>
             </li>
           </ul>
