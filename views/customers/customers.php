@@ -18,20 +18,9 @@
 	<div class="container">
 		<h1 class="page-header">Customers 
 			<div class='pull-right'>
-				<button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_shipment">
+				<button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_customer">
 					<img src='assets/img/add.png'> Add</a>
-				</button>
-				<?php 
-				if($_GET['archived']==1) {
-					echo "<a href='shipments.php' class='btn btn-primary'>";
-					echo "<img src='assets/img/box.png'> View non-archived";
-				} else {
-					$sql = "SELECT * FROM `shipments` WHERE `shipment_archived`='0'";
-					echo "<a href='shipments.php?archived=1' class='btn btn-primary'>";
-					echo "<img src='assets/img/box.png'> View archived";
-				}
-				?>					
-				</a>
+				</button>	
 			</div>
 		</h1>
 		<?php include 'libraries/alerts.php'; ?>
@@ -93,14 +82,14 @@
 	</div>
 
 	<!-- Add Shipment Modal -->
-	<div id="add_shipment" class="modal fade" role="dialog">
+	<div id="add_customer" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title"><img src='assets/img/lorry_add.png'> Add Shipment</h4>
+					<h4 class="modal-title"><img src='assets/img/user_suit.png'> Add Customer</h4>
 				</div>
 				<div class="modal-body">
 					<form action="add_shipment_db.php" id="add_hdds" method="post">
