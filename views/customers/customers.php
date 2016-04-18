@@ -76,30 +76,11 @@
 					<h4 class="modal-title"><img src='assets/img/user_suit.png'> Add Customer</h4>
 				</div>
 				<div class="modal-body">
-					<form action="add_shipment_db.php" id="add_hdds" method="post">
+					<form action="add_customer_db.php" id="add_hdds" method="post">
 						<label>Customer name</label>
 						<input type="text" class="form-control" name="customer_name" placeholder="Customer Name" required>
-						<label>Tracking ID</label>
-						<input type="text" class="form-control" name="tracking_id" placeholder="Tracking ID" required>
-						<label>Shipping Courier</label>
-						<select class="form-control" name="shipping_courier">
-							<option value="USPS">USPS</option>
-							<option value="FedEX">FedEX</option>
-							<option value="UPS">UPS</option>
-							<option value="DHL">DHL</option>
-						</select>
-						<label>Shipping Courier (Other)</label>
-						<input type="text" class="form-control" name="shipping_courier_custom" placeholder="Eg, Pickup?">
-						<label>Delivery ETA</label>
-						<input type="date" class="form-control" name="delivery_eta" placeholder="Eg: 02/10/2016" required>
-						<label>Delivery Status</label>
-						<select class="form-control" name="delivery_status">
-							<option value="Waiting For Dispatch">Waiting For Dispatch</option>
-							<option value="Dispatched">Dispatched</option>
-							<option value="In-Transit">In-Transit</option>
-							<option value="Out For Delivery">Out For Delivery</option>
-							<option value="Delivered">Delivered</option>
-						</select>
+						<label>Customer Notes</label>
+						<textarea class="form-control" name="tracking_id"></textarea>
 					</form>
 				</div>
 				<div class="modal-footer">
