@@ -80,7 +80,7 @@
 						<label>Customer name</label>
 						<input type="text" class="form-control" name="customer_name" placeholder="Customer Name" required>
 						<label>Customer Notes</label>
-						<textarea class="form-control" name="tracking_id"></textarea>
+						<textarea class="form-control" name="customer_notes"></textarea>
 					</form>
 				</div>
 				<div class="modal-footer">
