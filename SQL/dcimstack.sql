@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 04, 2016 at 04:44 PM
+-- Generation Time: May 04, 2016 at 05:20 PM
 -- Server version: 5.5.49-0+deb8u1
 -- PHP Version: 5.6.20-0+deb8u1
 
@@ -27,11 +27,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `customers` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `customer_name` varchar(255) NOT NULL,
+  `customer_notes` text NOT NULL,
   `customer_status` int(1) NOT NULL DEFAULT '1',
   `added_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -80,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `event_message` varchar(255) NOT NULL,
   `event_status` varchar(255) NOT NULL,
   `event_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -188,6 +189,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 --
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`), ADD KEY `id_2` (`id`);
+
+--
 -- Indexes for table `devices`
 --
 ALTER TABLE `devices`
@@ -246,6 +253,11 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `devices`
 --
 ALTER TABLE `devices`
@@ -254,7 +266,7 @@ MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=102;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=103;
 --
 -- AUTO_INCREMENT for table `hdd`
 --
