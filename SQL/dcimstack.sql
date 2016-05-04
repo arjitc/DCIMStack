@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 12, 2016 at 04:25 PM
--- Server version: 5.5.47-0+deb8u1
--- PHP Version: 5.6.19-0+deb8u1
+-- Generation Time: May 04, 2016 at 04:44 PM
+-- Server version: 5.5.49-0+deb8u1
+-- PHP Version: 5.6.20-0+deb8u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,6 +23,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customers`
+--
+
+CREATE TABLE IF NOT EXISTS `customers` (
+  `id` int(11) NOT NULL,
+  `customer_name` varchar(255) NOT NULL,
+  `customer_status` int(1) NOT NULL DEFAULT '1',
+  `added_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `devices`
 --
 
@@ -31,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `devices` (
   `rackid` int(11) NOT NULL,
   `device_type` varchar(255) NOT NULL,
   `device_label` varchar(255) NOT NULL,
+  `device_inuse` int(1) NOT NULL DEFAULT '0',
   `device_brand` varchar(255) NOT NULL,
   `device_model` varchar(255) NOT NULL,
   `device_serial` varchar(255) NOT NULL COMMENT 'Serial Number',
@@ -52,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `devices` (
   `device_mgmt_ip` varchar(255) NOT NULL,
   `device_mgmt_mac` varchar(255) NOT NULL,
   `device_notes` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -66,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `event_message` varchar(255) NOT NULL,
   `event_status` varchar(255) NOT NULL,
   `event_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -154,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `shipments` (
   `shipment_status` varchar(255) NOT NULL,
   `shipment_notes` text NOT NULL,
   `shipment_archived` int(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -235,12 +249,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `devices`
 --
 ALTER TABLE `devices`
-MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=68;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=102;
 --
 -- AUTO_INCREMENT for table `hdd`
 --
@@ -270,7 +284,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `shipments`
 --
 ALTER TABLE `shipments`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `users`
 --
