@@ -8,7 +8,7 @@ $sql = "INSERT INTO `customers` (`id`, `customer_name`, `customer_notes`, `custo
 
 if ($conn->query($sql) === TRUE) {
 	$event_type = "New Customer added";
-	$event_message = "A new $customer_name was added";
+	$event_message = "A new customer $customer_name was added";
 	$event_status = "Complete";
 	add_event($event_type, $event_message, $event_status);
 	$_SESSION['success'] = "Success, $customer_name added.";
