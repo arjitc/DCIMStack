@@ -30,12 +30,9 @@
 			echo "<th>Location</th>";
 			echo "<th>Vendor</th>";
 			echo "<th>Physical Label</th>";
+			echo "<th>Customer</th>";
 			echo "<th>MAC Address</th>";
-			echo "<th>MGMT IP</th>";
-			echo "<th>MGMT MAC</th>";
 			echo "<th>Serial #</th>";
-			echo "<th>Purchased on</th>";
-			echo "<th>Warranty till</th>";
 			echo "<th><center>Manage</center></th>";
 			echo "</tr>";
 			echo "</thead>";
@@ -45,12 +42,9 @@
 				echo "<td>".get_rack_name($row['rackid'])."</td>";
 				echo "<td>".$row["device_brand"]."</td>";
 				echo "<td>".$row["device_label"]."</td>";
+				echo "<td>".$row["device_customer"]."</td>";
 				echo "<td>".$row["device_mac"]."</td>";
-				echo "<td>".$row["device_mgmt_ip"]."</td>";
-				echo "<td>".$row["device_mgmt_mac"]."</td>";
 				echo "<td>".$row["device_serial"]."</td>";
-				echo "<td>"; if (empty($row["device_dop"])) { echo "0000-00-00"; } else { echo $row["device_dop"]; } echo "</td>";
-				echo "<td>"; if (empty($row["device_warranty"])) { echo "0000-00-00"; } else { echo $row["device_warranty"]; }  echo "</td>";
 				echo "<td><center><a href='manage_server.php?device_id=$device_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
 				echo "</tr>";
 			}
