@@ -36,11 +36,7 @@
 			echo "<tr>";
 			echo "<th>#</th>";
 			echo "<th>Customer Name</th>";
-			echo "<th>Device Count</th>";
-			echo "<th>Delivery ETA</th>";
-			echo "<th>Status</th>";
-			echo "<th>Mark</th>";
-			echo "<th>Archive</th>";
+			echo "<th>Customer Notes</th>";
 			echo "<th><center>Manage</center></th>";
 			echo "</tr>";
 			echo "</thead>";
@@ -49,11 +45,7 @@
 				echo "<tr>";
 				echo "<td>".$row['id']."</td>";
 				echo "<td>".htmlspecialchars($row["customer_name"])."</td>";
-				echo "<td>".$customer_id."</td>";
-				echo "<td>".$row["shipment_delivery_eta"]."</td>";
-				echo "<td>".$row["shipment_status"]."</td>";
-				echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&status=undelivered'>Mark as undelivered</a></center></td>";
-				echo "<td><center><a href='shipment_status.php?shipment_id=$shipment_id&archive=1'>Archive</a></center></td>";
+				echo "<td>".htmlspecialchars($row["customer_notes"])."</td>";
 				echo "<td><center><a href='shipment_manage.php?shipment_id=$shipment_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
 				echo "</tr>";
 			}
