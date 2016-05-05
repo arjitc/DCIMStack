@@ -48,7 +48,7 @@
             <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
                 <li class="active"><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> CPU / RAM</a></li>
                 <li><a href="#network" data-toggle="tab"><img src="assets/img/calculator.png"> Network</a></li>
-                <li><a href="#hdds" data-toggle="tab"><img src="assets/img/link.png"> HDDs</a></li>
+                <li><a href="#hdds" data-toggle="tab"><img src="assets/img/drive.png"> HDDs</a></li>
                 <li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
                 <li><a href="#mgmt_ipmi" data-toggle="tab"><img src="assets/img/link.png"> MGMT/IPMI</a></li>
                 <li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
