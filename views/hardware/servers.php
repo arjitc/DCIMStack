@@ -31,6 +31,7 @@
 			echo "<th>Vendor</th>";
 			echo "<th>Physical Label</th>";
 			echo "<th>Customer</th>";
+			echo "<th>IP Address</th>";
 			echo "<th>MAC Address</th>";
 			echo "<th>Serial #</th>";
 			echo "<th><center>Manage</center></th>";
@@ -43,6 +44,7 @@
 				echo "<td>".$row["device_brand"]."</td>";
 				echo "<td>".$row["device_label"]."</td>";
 				echo "<td>".$row["device_customer"]."</td>";
+				echo "<td>".$row["device_ipaddress"]."</td>";
 				echo "<td>".$row["device_mac"]."</td>";
 				echo "<td>".$row["device_serial"]."</td>";
 				echo "<td><center><a href='manage_server.php?device_id=$device_id'>Manage</a></center></td>";
