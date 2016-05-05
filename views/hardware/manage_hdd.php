@@ -14,6 +14,7 @@ if (!ctype_digit($_GET['device_id'])) {
             $device_type     = $row["device_type"];
             $device_serial   = $row["device_serial"];
             $device_capacity = $row["device_capacity"];
+            $device_inuse    = $row["device_inuse"];
         }
     }
 }
@@ -28,6 +29,14 @@ if (!ctype_digit($_GET['device_id'])) {
         </div>
         <div class="modal-footer">
             <div class="pull-left">
+            <?php 
+            if($device_inuse==0) {
+                echo "<a href='update_device_db.php?device_id=$device_id&device_inuse=1' class='btn btn-danger confirmation'>Mark In-Use</a>";
+            } else {
+                 echo "<a href='update_device_db.php?device_id=$device_id&device_inuse=0' class='btn btn-danger confirmation'>Mark Not In-Use</a>";
+            }
+            ?>
+            
             <a href="delete_device.php?device_id=<?php echo $device_id; ?>" class="btn btn-danger confirmation">Remove HDD</a>
             </div>
             <a href="#" class="btn btn-primary" data-dismiss="modal">Cancel</a>
