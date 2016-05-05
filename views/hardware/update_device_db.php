@@ -76,6 +76,11 @@ if(isset($_GET['device_inuse'])) {
 		$conn->query($sql);
 	}
 }
+if(isset($_POST['device_parent'])) {
+	$device_parent = mysqli_real_escape_string($conn, $_POST['device_parent']);
+	$sql = "UPDATE `devices` SET `device_parent`='$device_parent' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
 unset($_SESSION['referrer']); //clear session var
 header("Location: $referrer"); //redirect!
 ?>

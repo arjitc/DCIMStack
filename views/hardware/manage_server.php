@@ -48,6 +48,7 @@
             <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
                 <li class="active"><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> CPU / RAM</a></li>
                 <li><a href="#network" data-toggle="tab"><img src="assets/img/calculator.png"> Network</a></li>
+                <li><a href="#hdds" data-toggle="tab"><img src="assets/img/link.png"> HDDs</a></li>
                 <li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
                 <li><a href="#mgmt_ipmi" data-toggle="tab"><img src="assets/img/link.png"> MGMT/IPMI</a></li>
                 <li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
@@ -56,11 +57,14 @@
                 <div class="tab-pane active" id="cpu_ram">
                     <?php include 'manage_server/tab_cpu_ram.php'; ?>
                 </div>
-                <div class="tab-pane" id="server_information">
-                    <?php include 'manage_server/tab_server_information.php'; ?>
-                </div>
                 <div class="tab-pane" id="network">
                     <?php include 'manage_server/tab_network.php'; ?>
+                </div>
+                <div class="tab-pane" id="hdds">
+                    <?php include 'manage_server/tab_hdds.php'; ?>
+                </div>
+                <div class="tab-pane" id="server_information">
+                    <?php include 'manage_server/tab_server_information.php'; ?>
                 </div>
                 <div class="tab-pane" id="mgmt_ipmi">
                     <?php include 'manage_server/tab_mgmt_ipmi.php'; ?>
