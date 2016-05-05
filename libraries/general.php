@@ -119,11 +119,11 @@ function check_if_shipment_in_db($shipment_tracking_id) {
 function print_tracking_url($shipment_tracking_id, $shipment_courier) {
 	switch ($shipment_courier) {
 		case 'USPS':
-		return "<a href='https://tools.usps.com/go/TrackConfirmAction.action?tLabels=$shipment_tracking_id' target='_blank'>$shipment_tracking_id</a>";
+		return "<a href='http://track.aftership.com/usps/$shipment_tracking_id' target='_blank'>$shipment_tracking_id</a>";
 		break;
 		
 		case 'FedEX':
-		return "<a href='http://fedex.com/apps/fedextrack/?action=track&trackingnumber=$shipment_tracking_id' target='_blank'>$shipment_tracking_id</a>";
+		return "<a href='http://track.aftership.com/fedex/$shipment_tracking_id' target='_blank'>$shipment_tracking_id</a>";
 		break;
 
 		default:
