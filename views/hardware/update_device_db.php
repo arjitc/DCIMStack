@@ -64,6 +64,11 @@ if(isset($_POST['device_serial'])) {
 	$sql = "UPDATE `devices` SET `device_serial`='$device_serial' WHERE `device_id`='$device_id'";
 	$conn->query($sql);
 }
+if(isset($_POST['device_ipaddress'])) {
+	$device_ipaddress = mysqli_real_escape_string($conn, $_POST['device_ipaddress']);
+	$sql = "UPDATE `devices` SET `device_ipaddress`='$device_ipaddress' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
 if(isset($_GET['device_inuse'])) {
 	$device_inuse = mysqli_real_escape_string($conn, $_GET['device_inuse']);
 	if($device_inuse==1 OR $device_inuse==0) {
