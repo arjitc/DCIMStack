@@ -45,9 +45,17 @@
           $password = crypt($password);
           $sql = "INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `user_email`) VALUES (NULL, '$username', '$password', '$email');";
           if ($conn->query($sql) === TRUE) {
-            echo "New user created successfully";
+            ?>
+            <div class="alert alert-success" role="alert">
+              <center><b>New user created successfully</b></center>
+            </div>
+            <?php
           } else {
-            echo "Error: ".$sql."<br>".$conn->error;
+            ?>
+            <div class="alert alert-danger" role="alert">
+              <center><b><?php echo $conn->error; ?></b></center>
+            </div>
+            <?php
           }
         }
       ?>
@@ -55,7 +63,7 @@
       <form action="install.php" method="post">
         <input type="text" name="username" class="form-control" placeholder="Username" required><br>
         <input type="password" name="password" class="form-control" placeholder="Password" required><br>
-        <input type="email" name="email" class="form-control" placeholder="Email ID" required><br>
+        <input type="email" name="email" class="form-control" placeholder="Email Address" required><br>
         <center><input type="submit" value="Install" class="btn btn-primary btn-lg"></center>
       </form>
 
