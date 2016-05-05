@@ -45,7 +45,7 @@
 				echo "<td>".$row["device_customer"]."</td>";
 				echo "<td>".$row["device_mac"]."</td>";
 				echo "<td>".$row["device_serial"]."</td>";
-				echo "<td><center><a href='manage_server.php?device_id=$device_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
+				echo "<td><center><a href='manage_server.php?device_id=$device_id'>Manage</a></center></td>";
 				echo "</tr>";
 			}
 			echo "</table>";
