@@ -24,7 +24,7 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-                // output data of each row
+      // output data of each row
       echo "<table class='table' id='search_table'>";
       echo "<thead>";
       echo "<tr>";
@@ -78,6 +78,7 @@
         <select class="form-control" id="device_brand" name="device_brand">
          <option value="Samsung">Samsung</option>
          <option value="Transcend">Transcend</option>
+         <option value="Other">Other</option>
        </select>
        <label for="device_location">Device Location</label>
        <?php
