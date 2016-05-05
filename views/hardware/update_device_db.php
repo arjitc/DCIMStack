@@ -6,6 +6,7 @@ error_reporting(-1);
 ini_set('display_errors', 'On');
 $referrer = mysqli_real_escape_string($conn, $_POST['referrer']);
 $device_id = mysqli_real_escape_string($conn, $_POST['device_id']);
+if(empty($device_id)) { $device_id = mysqli_real_escape_string($conn, $_GET['device_id']); }
 if(empty($referrer)) { $referrer = $_SESSION['referrer']; }
 
 if(isset($_POST['device_brand'])) {
@@ -62,6 +63,13 @@ if(isset($_POST['device_serial'])) {
 	$device_serial = mysqli_real_escape_string($conn, $_POST['device_serial']);
 	$sql = "UPDATE `devices` SET `device_serial`='$device_serial' WHERE `device_id`='$device_id'";
 	$conn->query($sql);
+}
+if(isset($_GET['device_inuse'])) {
+	$device_inuse = mysqli_real_escape_string($conn, $_GET['device_inuse']);
+	if($device_inuse==1 OR $device_inuse==0) {
+		$sql = "UPDATE `devices` SET `device_inuse`='$device_inuse' WHERE `device_id`='$device_id'";
+		$conn->query($sql);
+	}
 }
 unset($_SESSION['referrer']); //clear session var
 header("Location: $referrer"); //redirect!
