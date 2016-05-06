@@ -40,6 +40,7 @@ if (!ctype_digit($_GET['device_id'])) {
                     echo "<select class='form-control' name='device_parent'>";
                     // output data of each row
                     echo "<option value='$device_parent'>".get_device_label_from_id($device_parent)."</option>";
+                    echo "<option value='0'>None</option>";
                     while ($row = $result->fetch_assoc()) {
                         $device_label = $row["device_label"];
                         $device_id = $row["device_id"];
