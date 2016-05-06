@@ -32,6 +32,7 @@
       echo "<th>Type</th>";
       echo "<th>Physical Label</th>";
       echo "<th>Capacity</th>";
+      echo "<th>Server</th>";
       echo "<th>Serial #</th>";
       echo "<th>Purchased on</th>";
       echo "<th>Warranty till</th>";
@@ -51,6 +52,7 @@
         echo "<td>".$row["device_type"]."</td>";
         echo "<td>".$row["device_label"]."</td>";
         echo "<td>".$row["device_capacity"]."</td>";
+        echo "<td>".get_device_label_from_id($row["device_parent"])."</td>";
         echo "<td>".$row["device_serial"]."</td>";
         echo "<td>"; if (empty($row["device_dop"])) { echo "0000-00-00"; } else { echo $row["device_dop"]; } echo "</td>";
         echo "<td>"; if (empty($row["device_warranty"])) { echo "0000-00-00"; } else { echo $row["device_warranty"]; }  echo "</td>";
