@@ -38,7 +38,7 @@
                 <li><a href='hdds.php'><img src='assets/img/drive_go.png'> HDDs</a></li>
                 <li><a href='ram.php'><img src='assets/img/tab_go.png'> RAM</a></li>
                 <li><a href='network.php'><img src='assets/img/chart_curve_go.png'> Network</a></li>
-                <li><a href='ram.php'><img src='assets/img/lightning_go.png'> PDUs</a></li>
+                <li><a href='#'><img src='assets/img/lightning_go.png'> PDUs</a></li>
                 <li><a href='cpus.php'><img src='assets/img/computer_go.png'> CPUs</a></li>
               </ul>
             </li>
