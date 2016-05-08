@@ -43,9 +43,8 @@ if (!ctype_digit($_GET['device_id'])) {
                     echo "<option value='0'>None</option>";
                     while ($row = $result->fetch_assoc()) {
                         $device_label = $row["device_label"];
-                        $device_id = $row["device_id"];
-                        if($device_id!=$device_parent) {
-                            echo "<option value='$device_id'>$device_label</option>";
+                        if($row["device_id"]!=$device_parent) {
+                            echo "<option value=".$row["device_id"].">$device_label</option>";
                         }
                     }
                     echo "</select>";
