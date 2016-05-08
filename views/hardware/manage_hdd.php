@@ -63,15 +63,15 @@ if (!ctype_digit($_GET['device_id'])) {
                 if($device_inuse==0) {
                     echo "<a href='update_device_db.php?device_id=$device_id&device_inuse=1' class='btn btn-info confirmation'>Mark In-Use</a>";
                 } else {
-                 echo "<a href='update_device_db.php?device_id=$device_id&device_inuse=0' class='btn btn-info confirmation'>Mark Not In-Use</a>";
-             }
-             ?>
+                   echo "<a href='update_device_db.php?device_id=$device_id&device_inuse=0' class='btn btn-info confirmation'>Mark Not In-Use</a>";
+                }
+               ?>
 
-             <a href="delete_device.php?device_id=<?php echo $device_id; ?>" class="btn btn-danger confirmation">Remove HDD</a>
-         </div>
-         <a href="#" class="btn btn-primary" data-dismiss="modal">Cancel</a>
-     </div>
- </div><!-- /.modal-content -->
+               <a href="delete_device.php?device_id=<?php echo $device_id; ?>" class="btn btn-danger confirmation">Remove HDD</a>
+           </div>
+           <a href="#" class="btn btn-primary" data-dismiss="modal">Cancel</a>
+       </div>
+   </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 
 <script type="text/javascript">
