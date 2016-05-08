@@ -81,8 +81,12 @@ if(isset($_POST['device_parent'])) {
 		$device_parent = mysqli_real_escape_string($conn, $_POST['device_parent']);
 		$sql = "UPDATE `devices` SET `device_parent`='$device_parent' WHERE `device_id`='$device_id'";
 		$conn->query($sql);
+		$sql = "UPDATE `devices` SET `device_inuse`='1' WHERE `device_id`='$device_id'";
+		$conn->query($sql);
 	} else {
 		$sql = "UPDATE `devices` SET `device_parent`='' WHERE `device_id`='$device_id'";
+		$conn->query($sql);
+		$sql = "UPDATE `devices` SET `device_inuse`='0' WHERE `device_id`='$device_id'";
 		$conn->query($sql);
 	}
 }
