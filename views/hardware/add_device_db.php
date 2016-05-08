@@ -28,9 +28,10 @@ $device_warranty = mysqli_real_escape_string($conn, $_POST['device_warranty']);
 $device_tracking_id = mysqli_real_escape_string($conn, $_POST['device_tracking_id']);
 $device_mgmt_mac = mysqli_real_escape_string($conn, $_POST['device_mgmt_mac']);
 $device_mgmt_ip = mysqli_real_escape_string($conn, $_POST['device_mgmt_ip']);
+$device_parent = mysqli_real_escape_string($conn, $_POST['device_parent']);
 if(empty($device_size)) { $device_size=0; }
 $sql = "INSERT INTO `devices`
-(`device_id`, `rackid`, `device_type`, `device_label`, `device_brand`, `device_serial`, `device_mac`, `device_ram_total`, `device_capacity`, `device_cpu_count`, `device_power_usage`, `device_power_feed1`, `device_power_feed2`, `device_cpu`, `device_rack_position`, `device_size`, `device_warranty`,`device_dop`, `device_tracking_id`, `device_mgmt_ip`, `device_mgmt_mac`,`device_notes`)
+(`device_id`, `rackid`, `device_type`, `device_label`, `device_brand`, `device_serial`, `device_mac`, `device_ram_total`, `device_capacity`, `device_cpu_count`, `device_power_usage`, `device_power_feed1`, `device_power_feed2`, `device_cpu`, `device_rack_position`, `device_parent`, `device_size`, `device_warranty`,`device_dop`, `device_tracking_id`, `device_mgmt_ip`, `device_mgmt_mac`,`device_notes`)
 VALUES
 (NULL,
 	'$device_location',
@@ -47,6 +48,7 @@ VALUES
 	'$device_power_feed2',
 	'$device_cpu',
 	'$device_rack_position',
+	'$device_parent',
 	'$device_size',
 	'$device_warranty',
 	'$device_dop',
