@@ -41,7 +41,7 @@
       echo "</thead>";
       while ($row = $result->fetch_assoc()) {
         $device_id = $row["device_id"];
-        if($row["device_inuse"]==1) { 
+        if($row["device_parent"]!=0) { 
           echo "<tr class='info'>"; 
         }
         else { 
