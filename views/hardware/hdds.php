@@ -23,7 +23,7 @@
     $sql = "SELECT * FROM `devices` WHERE `device_type` in ('SSD','HDD','SAS')";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-          // output data of each row
+      // output data of each row
       echo "<table class='table' id='search_table'>";
       echo "<thead>";
       echo "<tr>";
@@ -41,7 +41,7 @@
       echo "</thead>";
       while ($row = $result->fetch_assoc()) {
         $device_id = $row["device_id"];
-        if($row["device_parent"]!=0) { 
+        if($row["device_parent"]!=0 || $row["device_inuse"]==1) { 
           echo "<tr class='info'>"; 
         }
         else { 
