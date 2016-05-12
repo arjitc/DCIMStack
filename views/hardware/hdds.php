@@ -16,7 +16,12 @@
   <?php include 'libraries/header.php'; ?>
 
   <div class="container">
-    <h1 class="page-header">HDDs <div class='pull-right'><button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button></div></h1>
+    <h1 class="page-header">HDDs 
+    <div class='pull-right'>
+      <button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
+      <a class='btn btn-primary' href="hdd_stats.php"><img src='assets/img/add.png'> Stats</a>
+    </div>
+    </h1>
     <?php include 'libraries/alerts.php'; ?>
     <?php
     include 'config/db.php';
