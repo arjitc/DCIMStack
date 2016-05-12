@@ -6,7 +6,7 @@ Datacenter inventory management system
 Note:
 * Code is currently in initial stages of getting together, the SQL schema will change a lot in the coming weeks I suppose.
 
-Read: https://github.com/arjitc/dcimstack/blob/master/INSTALL.md for install instructions
+Read: http://dcimstack.com/doku.php?id=installing for install instructions
 
 ## Screenshots
 ![Logged in view](http://i.imgur.com/zEB9CUQ.png)
