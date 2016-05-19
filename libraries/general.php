@@ -17,6 +17,20 @@ function get_rack_name($id) {
 	}
 	return $rack_name;
 }
+function get_customer_name_from_id($id) {
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$id  = mysqli_real_escape_string($conn, $id);
+	$sql = "SELECT * FROM `customers` WHERE `id`='$id'";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$customer_name = $row["customer_name"];
+		}
+	} else {
+		$customer_name = "None";
+	}
+	return $customer_name;
+}
 function check_if_rack_exists($id) {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
 	$id  = mysqli_real_escape_string($conn, $id);
