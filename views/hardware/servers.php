@@ -43,7 +43,7 @@
 				echo "<td>".get_rack_name($row['rackid'])."</td>";
 				echo "<td>".$row["device_brand"]."</td>";
 				echo "<td>".$row["device_label"]."</td>";
-				echo "<td>".$row["device_customer"]."</td>";
+				echo "<td>".get_customer_name_from_id($row["device_customer"])."</td>";
 				echo "<td>".$row["device_ipaddress"]."</td>";
 				echo "<td>".$row["device_mac"]."</td>";
 				echo "<td>".$row["device_serial"]."</td>";
