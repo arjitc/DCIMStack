@@ -37,6 +37,7 @@
 			echo "<th>#</th>";
 			echo "<th>Customer Name</th>";
 			echo "<th>Customer Notes</th>";
+			echo "<th>Customer devices</th>";
 			echo "<th><center>Manage</center></th>";
 			echo "</tr>";
 			echo "</thead>";
@@ -46,6 +47,7 @@
 				echo "<td>".$row['id']."</td>";
 				echo "<td>".htmlspecialchars($row["customer_name"])."</td>";
 				echo "<td>".htmlspecialchars($row["customer_notes"])."</td>";
+				echo "<td><a href='customer_devices.php?id=$customer_id'>View</a></td>";
 				echo "<td><center><a href='shipment_manage.php?shipment_id=$shipment_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
 				echo "</tr>";
 			}
