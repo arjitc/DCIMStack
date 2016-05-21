@@ -145,4 +145,30 @@ function print_tracking_url($shipment_tracking_id, $shipment_courier) {
 		break;
 	}
 }
+
+function get_rack_name_from_device_id($device_id) {
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$rackid = $row["rackid"];
+		}
+	} else {
+		$rackid = "0";
+	}
+
+	$sql = "SELECT * FROM `rackspace` WHERE `rackid`='$rackid'";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$rack_name = $row["rack_name"];
+		}
+	} else {
+		$rack_name = "0";
+	}
+	return $rack_name;
+	$conn->close();
+}
+
 ?>
