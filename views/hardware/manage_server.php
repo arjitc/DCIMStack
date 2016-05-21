@@ -32,6 +32,8 @@
 	    		$device_mgmt_mac  = $row["device_mgmt_mac"];
 	    		$device_mac       = $row["device_mac"];
 	    		$device_ipaddress = $row["device_ipaddress"];
+	    		$device_customer  = $row["device_customer"];
+	    		$device_rack	  = $row["rackid"];
 	    	}
 	    }
 	}
@@ -40,9 +42,14 @@
 
 <body>
 	<?php include 'libraries/header.php'; ?>
-
+	
 	<div class="container">
-	<h1 class="page-header"><?php echo get_rack_name_from_device_id($device_id) ." / ". $device_label; ?></h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><?php echo get_rack_location($device_rack); ?></a></li>
+			<li><a href="rackspace.php?rackid=<?php echo $device_rack; ?>"><?php echo get_rack_name_from_device_id($device_id); ?></a></li>
+			<li class="active"><?php echo $device_label; ?></li>
+		</ol>
+		<h1 class="page-header"><?php echo $device_label; ?></h1>
 		<?php include 'libraries/alerts.php'; ?>
 		<div id="content">
 			<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
