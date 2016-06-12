@@ -13,4 +13,5 @@ define("DB_USER", "dcimstack");
 define("DB_PASS", "__PASSWORD_");
 
 // Create connection
-$conn = new mysqli(DB_HOST, DB_HOST, DB_HOST, DB_HOST);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
