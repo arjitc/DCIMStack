@@ -121,25 +121,25 @@
                   echo "0 results";
                 }
                 ?>
-              <label>Server</label>
-              <?php
-              include 'config/db.php';
-              $sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
-              $result = $conn->query($sql);
-              if ($result->num_rows > 0) {
-                echo "<select class='form-control' name='device_parent'>";
-                  // output data of each row
-                echo "<option value='0'>None</option>";
-                while ($row = $result->fetch_assoc()) {
-                  $device_label = $row["device_label"];
-                  $device_id = $row["device_id"];
-                  echo "<option value='$device_id'>$device_label</option>";
+                <label>Server</label>
+                <?php
+                include 'config/db.php';
+                $sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                  echo "<select class='form-control' name='device_parent'>";
+                // output data of each row
+                  echo "<option value='0'>None</option>";
+                  while ($row = $result->fetch_assoc()) {
+                    $device_label = $row["device_label"];
+                    $device_id = $row["device_id"];
+                    echo "<option value='$device_id'>$device_label</option>";
+                  }
+                  echo "</select>";
+                } else {
+                  echo "0 results";
                 }
-                echo "</select>";
-              } else {
-                echo "0 results";
-              }
-              ?>
+                ?>
               </div>
               <div class="col-md-6">
                 <label>Device Date Of Purchase</label>
@@ -163,9 +163,9 @@
       </div>
     </div>
   </div>
-            <!-- Bootstrap core JavaScript
-            ================================================== -->
-            <!-- Placed at the end of the document so the pages load faster -->
-            <?php include 'libraries/js.php'; ?>
-          </body>
-          </html>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <?php include 'libraries/js.php'; ?>
+</body>
+</html>
