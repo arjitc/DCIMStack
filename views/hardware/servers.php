@@ -101,8 +101,6 @@
 									<option value="Supermicro">Supermicro</option>
 									<option value="IBM">IBM</option>
 								</select>
-							</div>
-							<div class="col-md-6">
 								<label>Device Location</label>
 								<?php
 								include 'config/db.php';
@@ -120,6 +118,8 @@
 									echo "0 results";
 								}
 								?>
+							</div>
+							<div class="col-md-6">
 								<label>Management/IPMI IP</label>
 								<input type="text" class="form-control" name="device_mgmt_ip">
 								<label>Management/IPMI MAC Address</label>
