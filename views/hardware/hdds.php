@@ -17,10 +17,10 @@
 
   <div class="container">
     <h1 class="page-header">HDDs 
-    <div class='pull-right'>
-      <button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
-      <a class='btn btn-primary' href="hdd_stats.php"><img src='assets/img/add.png'> Stats</a>
-    </div>
+      <div class='pull-right'>
+        <button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
+        <a class='btn btn-primary' href="hdd_stats.php"><img src='assets/img/chart_bar.png'> Stats</a>
+      </div>
     </h1>
     <?php include 'libraries/alerts.php'; ?>
     <?php
@@ -76,7 +76,7 @@
   </div>
   <!-- Add HDD Modal -->
   <div id="add_hdd" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width: 1200px">
 
       <!-- Modal content-->
       <div class="modal-content">
@@ -86,68 +86,74 @@
         </div>
         <div class="modal-body">
           <form action="add_device_db.php" id="add_hdds" method="post">
-            <input type="hidden" name="page_referrer" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
-            <label>Device Type</label>
-            <select class="form-control" name="device_type">
-              <option value="SSD">SSD</option>
-              <option value="HDD">HDD</option>
-              <option value="SAS">SAS</option>
-            </select>
-            <label>Device Vendor</label>
-            <select class="form-control" name="device_brand">
-              <option value="Hitachi">Hitachi</option>
-              <option value="Seagate">Seagate</option>
-              <option value="WD">WD</option>
-              <option value="Samsung">Samsung</option>
-              <option value="Toshiba">Toshiba</option>
-              <option value="HP">HP</option>
-            </select>
-            <label>Device Location</label>
-            <?php
-            include 'config/db.php';
-            $sql = "SELECT * FROM `rackspace`";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-              echo "<select class='form-control' name='device_location'>";
-                        // output data of each row
-              while ($row = $result->fetch_assoc()) {
-                $rackid = $row["rackid"];
-                echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
+            <div class="row">
+              <div class="col-md-6">
+                <input type="hidden" name="page_referrer" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
+                <label>Device Type</label>
+                <select class="form-control" name="device_type">
+                  <option value="SSD">SSD</option>
+                  <option value="HDD">HDD</option>
+                  <option value="SAS">SAS</option>
+                </select>
+                <label>Device Vendor</label>
+                <select class="form-control" name="device_brand">
+                  <option value="Hitachi">Hitachi</option>
+                  <option value="Seagate">Seagate</option>
+                  <option value="WD">WD</option>
+                  <option value="Samsung">Samsung</option>
+                  <option value="Toshiba">Toshiba</option>
+                  <option value="HP">HP</option>
+                </select>
+                <label>Device Location</label>
+                <?php
+                include 'config/db.php';
+                $sql = "SELECT * FROM `rackspace`";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                  echo "<select class='form-control' name='device_location'>";
+                  // output data of each row
+                  while ($row = $result->fetch_assoc()) {
+                    $rackid = $row["rackid"];
+                    echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
+                  }
+                  echo "</select>";
+                } else {
+                  echo "0 results";
+                }
+                ?>
+              <label>Server</label>
+              <?php
+              include 'config/db.php';
+              $sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                echo "<select class='form-control' name='device_parent'>";
+                  // output data of each row
+                echo "<option value='0'>None</option>";
+                while ($row = $result->fetch_assoc()) {
+                  $device_label = $row["device_label"];
+                  $device_id = $row["device_id"];
+                  echo "<option value='$device_id'>$device_label</option>";
+                }
+                echo "</select>";
+              } else {
+                echo "0 results";
               }
-              echo "</select>";
-            } else {
-              echo "0 results";
-            }
-            ?>
-            <label>Server</label>
-            <?php
-            include 'config/db.php';
-            $sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-              echo "<select class='form-control' name='device_parent'>";
-              // output data of each row
-              echo "<option value='0'>None</option>";
-              while ($row = $result->fetch_assoc()) {
-                $device_label = $row["device_label"];
-                $device_id = $row["device_id"];
-                echo "<option value='$device_id'>$device_label</option>";
-              }
-              echo "</select>";
-            } else {
-              echo "0 results";
-            }
-            ?>
-            <label>Device Date Of Purchase</label>
-            <input type="date" class="form-control" name="device_dop" required>
-            <label>Warranty valid til</label>
-            <input type="date" class="form-control" name="device_warranty" required>
-            <label>Device Label</label>
-            <input type="text" class="form-control" name="device_label" required>
-            <label>Device Serial</label>
-            <input type="text" class="form-control" name="device_serial" required>
-            <label>Device Capacity</label>
-            <input type="text" class="form-control" name="device_capacity" required><br>
+              ?>
+              </div>
+              <div class="col-md-6">
+                <label>Device Date Of Purchase</label>
+                <input type="date" class="form-control" name="device_dop" required>
+                <label>Warranty valid til</label>
+                <input type="date" class="form-control" name="device_warranty" required>
+                <label>Device Label</label>
+                <input type="text" class="form-control" name="device_label" required>
+                <label>Device Serial</label>
+                <input type="text" class="form-control" name="device_serial" required>
+                <label>Device Capacity</label>
+                <input type="text" class="form-control" name="device_capacity" required><br>
+              </div>
+            </div>
           </form>
         </div>
         <div class="modal-footer">
