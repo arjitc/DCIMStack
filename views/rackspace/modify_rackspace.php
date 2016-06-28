@@ -60,8 +60,8 @@ if ($result->num_rows > 0) {
             </div>
         </div>
         <div class="modal-footer">
-            <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
             <button type="submit" form="modify_rack_form" class="btn btn-primary">Modify Rack</button>
+            <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
         </form>
         </div>
     </div><!-- /.modal-content -->
