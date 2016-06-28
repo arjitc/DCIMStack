@@ -53,7 +53,7 @@ if (!ctype_digit($_GET['device_id'])) {
                 }
                 ?>
                 <hr>
-                <center><input type="submit" form="device_network" class="btn btn-primary"></center>
+                <center><input type="submit" form="device_network" value="Update" class="btn btn-primary"></center>
             </form>
         </div>
         <div class="modal-footer">
@@ -66,7 +66,7 @@ if (!ctype_digit($_GET['device_id'])) {
                 }
                ?>
 
-               <a href="delete_device.php?device_id=<?php echo $device_id; ?>" class="btn btn-danger confirmation">Remove HDD</a>
+               <a href="delete_device.php?device_id=<?php echo $device_id; ?>" class="btn btn-danger confirmation">Remove HDD from DCIMStack</a>
            </div>
            <a href="#" class="btn btn-primary" data-dismiss="modal">Cancel</a>
        </div>
