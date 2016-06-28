@@ -3,7 +3,7 @@ include 'config/db.php';
 $sql = "SELECT * FROM `devices` WHERE `device_type`='server' AND `rackid`='$rackid'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-        // output data of each row
+  // output data of each row
   echo "<table class='table' id='search_table'>";
   echo "<thead>";
   echo "<tr>";
@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
     echo "<td>".get_rack_name($row['rackid'])."</td>";
     echo "<td>".$row["device_brand"]."</td>";
     echo "<td>".$row["device_label"]."</td>";
-    echo "<td>".$row["device_customer"]."</td>";
+    echo "<td>".get_customer_name_from_id($row["device_customer"])."</td>";
     echo "<td>".$row["device_ipaddress"]."</td>";
     echo "<td>".$row["device_mac"]."</td>";
     echo "<td>".$row["device_serial"]."</td>";
