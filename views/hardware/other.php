@@ -19,7 +19,6 @@
     <h1 class="page-header">Other 
       <div class='pull-right'>
         <button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
-        <a class='btn btn-primary' href="hdd_stats.php"><img src='assets/img/chart_bar.png'> Stats</a>
       </div>
     </h1>
     <?php include 'libraries/alerts.php'; ?>
