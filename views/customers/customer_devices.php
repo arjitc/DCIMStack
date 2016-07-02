@@ -17,13 +17,7 @@
 	<?php include 'libraries/header.php'; ?>
 
 	<div class="container">
-		<h1 class="page-header">Customer Devices
-			<div class='pull-right'>
-				<button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_customer">
-					<img src='assets/img/add.png'> Add</a>
-				</button>	
-			</div>
-		</h1>
+		<h1 class="page-header">Customer Devices</h1>
 		<?php include 'libraries/alerts.php'; ?>
 		<?php
 		include 'config/db.php';
@@ -53,7 +47,7 @@
 			}
 			echo "</table>";
 		} else {
-			echo "No customers found, <a data-toggle='modal' data-target='#add_customer'>let's add one now.</a>";
+			echo "No devices found.";
 		}
 		$conn->close();
 		?>
