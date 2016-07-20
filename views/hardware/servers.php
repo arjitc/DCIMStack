@@ -115,7 +115,7 @@
 									}
 									echo "</select>";
 								} else {
-									echo "0 results";
+									echo "No rackspace found. You'll need to <a href='add_rackspace.php'>add some first</a>.";
 								}
 								?>
 							</div>
