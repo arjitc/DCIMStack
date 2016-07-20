@@ -63,22 +63,22 @@
 			</ul>
 			<div id="my-tab-content" class="tab-content">
 				<div class="tab-pane active" id="cpu_ram">
-					<?php include 'manage_server/tab_cpu_ram.php'; ?>
+					<?php include 'tab_cpu_ram.php'; ?>
 				</div>
 				<div class="tab-pane" id="network">
-					<?php include 'manage_server/tab_network.php'; ?>
+					<?php include 'tab_network.php'; ?>
 				</div>
 				<div class="tab-pane" id="hdds">
-					<?php include 'manage_server/tab_hdds.php'; ?>
+					<?php include 'tab_hdds.php'; ?>
 				</div>
 				<div class="tab-pane" id="server_information">
-					<?php include 'manage_server/tab_server_information.php'; ?>
+					<?php include 'tab_server_information.php'; ?>
 				</div>
 				<div class="tab-pane" id="mgmt_ipmi">
-					<?php include 'manage_server/tab_mgmt_ipmi.php'; ?>
+					<?php include 'tab_mgmt_ipmi.php'; ?>
 				</div>
 				<div class="tab-pane" id="customer">
-					<?php include 'manage_server/tab_customer.php'; ?>
+					<?php include 'tab_customer.php'; ?>
 				</div>
 				<div class="tab-pane" id="delete_device">
 					<br>
