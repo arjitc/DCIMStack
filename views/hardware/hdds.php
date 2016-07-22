@@ -20,12 +20,28 @@
       <div class='pull-right'>
         <button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
         <a class='btn btn-primary' href="hdd_stats.php"><img src='assets/img/chart_bar.png'> Stats</a>
+        <a class='btn btn-primary' href="hdds.php?var=hdd&filter=inuse"><img src='assets/img/chart_bar.png'> List HDD in-use</a>
+        <a class='btn btn-primary' href="hdds.php?var=ssd&filter=inuse"><img src='assets/img/chart_bar.png'> List SSD in-use</a>
+        <a class='btn btn-primary' href="hdds.php?var=sas&filter=inuse"><img src='assets/img/chart_bar.png'> List SAS in-use</a>
+        <a class='btn btn-primary' href="hdds.php"><img src='assets/img/chart_bar.png'> Clear filter</a>
       </div>
     </h1>
     <?php include 'libraries/alerts.php'; ?>
     <?php
     include 'config/db.php';
-    $sql = "SELECT * FROM `devices` WHERE `device_type` in ('SSD','HDD','SAS')";
+    if(isset($_GET['filter']) && isset($_GET['var'])) {
+    	if($_GET['filter']=="inuse" && $_GET['var']=="hdd") {
+    		$sql = "SELECT * FROM `devices` WHERE `device_type`='HDD' AND `device_inuse`=1";
+    	}
+    	if($_GET['filter']=="inuse" && $_GET['var']=="SSD") {
+    		$sql = "SELECT * FROM `devices` WHERE `device_type`='SSD' AND `device_inuse`=1";
+    	}
+    	if($_GET['filter']=="inuse" && $_GET['var']=="SAS") {
+    		$sql = "SELECT * FROM `devices` WHERE `device_type`='SAS' AND `device_inuse`=1";
+    	}
+    } else {
+    	$sql = "SELECT * FROM `devices` WHERE `device_type` in ('SSD','HDD','SAS')";
+    }
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       // output data of each row
