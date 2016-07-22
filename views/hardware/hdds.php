@@ -122,6 +122,7 @@
                 }
                 ?>
                 <label>Server</label>
+                <div class="alert alert-info" role="alert">Select the server this drive is inserted into (if any).</div>
                 <?php
                 include 'config/db.php';
                 $sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
