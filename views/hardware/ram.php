@@ -71,49 +71,58 @@
      </div>
      <div class="modal-body">
        <form action="add_device_db.php" id="add_hdds" method="post">
-        <input type="hidden" name="page_referrer" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
-        <label>Device Type</label>
-        <input type="text" class="form-control" name="device_type" value="RAM" readonly>
-        <label for="device_brand">Device Vendor</label>
-        <select class="form-control" id="device_brand" name="device_brand">
-         <option value="Samsung">Samsung</option>
-         <option value="Transcend">Transcend</option>
-         <option value="Other">Other</option>
-       </select>
-       <label for="device_location">Device Location</label>
-       <?php
-       include 'config/db.php';
-       $sql = "SELECT * FROM `rackspace`";
-       $result = $conn->query($sql);
-       if ($result->num_rows > 0) {
-        echo "<select class='form-control' id='device_location' name='device_location'>";
+         <div class="row">
+           <div class="col-md-6">
+             <input type="hidden" name="page_referrer" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
+             <label>Device Type</label>
+             <input type="text" class="form-control" name="device_type" value="RAM" readonly>
+             <label for="device_brand">Device Vendor</label>
+             <select class="form-control" id="device_brand" name="device_brand">
+               <option value="Samsung">Samsung</option>
+               <option value="Transcend">Transcend</option>
+               <option value="Other">Other</option>
+             </select>
+             <label for="device_location">Device Location</label>
+             <?php
+             include 'config/db.php';
+             $sql = "SELECT * FROM `rackspace`";
+             $result = $conn->query($sql);
+             if ($result->num_rows > 0) {
+              echo "<select class='form-control' id='device_location' name='device_location'>";
               // output data of each row
-        while($row = $result->fetch_assoc()) {
-          $rackid = $row["rackid"];
-          echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
-        }
-        echo "</select>";
-      } else {
-        echo "0 results";
-      }
-      ?>
-      <label>Device Date Of Purchase</label>
-      <input type="date" class="form-control" name="device_dop" required>
-      <label>Warranty valid til</label>
-      <input type="date" class="form-control" name="device_warranty" required>
-      <label>Device Label</label>
-      <input type="text" class="form-control" name="device_label" required>
-      <label>Device Serial</label>
-      <input type="text" class="form-control" name="device_serial" required>
-      <label>Device Capacity</label>
-      <input type="text" class="form-control" name="device_capacity" required><br>
-    </form>
-  </div>
-  <div class="modal-footer">
-   <input type="submit" form="add_hdds" class="btn btn-primary">
-   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              while($row = $result->fetch_assoc()) {
+                $rackid = $row["rackid"];
+                echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
+              }
+              echo "</select>";
+            } else {
+              echo "0 results";
+            }
+            ?>
+            <label>Device Date Of Purchase</label>
+            <input type="date" class="form-control" name="device_dop" required>
+          </div>
+          
+          <div class="col-md-6">
+            <label>Warranty valid til</label>
+            <input type="date" class="form-control" name="device_warranty" required>
+            <label>Device Label</label>
+            <input type="text" class="form-control" name="device_label" required>
+            <label>Device Serial</label>
+            <input type="text" class="form-control" name="device_serial" required>
+            <label>Device Capacity</label>
+            <input type="text" class="form-control" name="device_capacity" required><br>
+          </div>
+        </div>
+        
+
+      </form>
+    </div>
+    <div class="modal-footer">
+     <input type="submit" form="add_hdds" class="btn btn-primary">
+     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+   </div>
  </div>
-</div>
 </div>
 </div>
     <!-- Bootstrap core JavaScript
