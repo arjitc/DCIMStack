@@ -10,9 +10,6 @@
 	include 'libraries/general.php'; 
 	include 'libraries/db.php';
 	$customer_id = mysqli_real_escape_string($conn, $_GET['customer_id']);
-	ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 	?>
 </head>
 
@@ -32,18 +29,32 @@ error_reporting(E_ALL);
 				$customer_notes = $row["customer_notes"];
 			}
 		} else {
-			echo "No customers found, <a data-toggle='modal' data-target='#add_customer'>let's add one now.</a>";
+			echo "Customer not found, <a data-toggle='modal' data-target='#add_customer'>add one now.</a>";
+			exit();
 		}
 		$conn->close();
 		?>
-		<form action="customer_update.php" id="add_hdds" method="post">
-			<label>Customer name</label>
-			<input type="text" class="form-control" name="customer_name" value="<?php echo htmlspecialchars($customer_name); ?>" placeholder="Customer Name" required>
-			<label>Customer Notes</label>
-			<textarea class="form-control" name="customer_notes"><?php echo htmlspecialchars($customer_notes); ?></textarea>
-		</form>
-		<hr>
-		<center><input type="submit" form="add_hdds" class="btn btn-primary"></center>
+		<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+			<li class="active"><a href="#information" data-toggle="tab">Information</a></li>
+			<li><a href="#delete" data-toggle="tab">Delete</a></li>
+		</ul>
+		<div id="my-tab-content" class="tab-content">
+			<div class="tab-pane active" id="information">
+				<br>
+				<form action="customer_update.php" id="add_hdds" method="post">
+					<label>Customer name</label>
+					<input type="text" class="form-control" name="customer_name" value="<?php echo htmlspecialchars($customer_name); ?>" placeholder="Customer Name" required>
+					<label>Customer Notes</label>
+					<textarea class="form-control" name="customer_notes"><?php echo htmlspecialchars($customer_notes); ?></textarea>
+				</form>
+				<hr>
+				<center><input type="submit" form="add_hdds" class="btn btn-primary"></center>
+			</div>
+			<div class="tab-pane" id="delete">
+				<h1>Orange</h1>
+				<p>orange orange orange orange orange</p>
+			</div>
+		</div>
 	</div>
 
     <!-- Bootstrap core JavaScript
