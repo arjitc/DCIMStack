@@ -17,6 +17,20 @@ function get_rack_name($id) {
 	}
 	return $rack_name;
 }
+function get_rack_location($id) {
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$id  = mysqli_real_escape_string($conn, $id);
+	$sql = "SELECT * FROM `rackspace` WHERE `rackid`='$id'";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$rack_city = $row["rack_city"] .", ". $row["rack_country"] ;
+		}
+	} else {
+		$rack_city = "None";
+	}
+	return $rack_city;
+}
 function get_customer_name_from_id($id) {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
 	$id  = mysqli_real_escape_string($conn, $id);
@@ -170,5 +184,11 @@ function get_rack_name_from_device_id($device_id) {
 	return $rack_name;
 	$conn->close();
 }
-
+function device_cpu_count($device_cpu, $device_cpu_count) {
+  if($device_cpu_count>1) {
+    return $device_cpu_count."x".$device_cpu;
+  } else {
+    return $device_cpu;
+  }
+}
 ?>
