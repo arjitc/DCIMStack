@@ -8,8 +8,8 @@ function device_power_feed_count($server_id) {
   if ($result->num_rows > 0) {
       // output data of each row
       while ($row = $result->fetch_assoc()) {
-          $device_power_feed1 = $row["device_power_feed1"];
-          $device_power_feed2 = $row["device_power_feed2"];
+        $device_power_feed1 = $row["device_power_feed1"];
+        $device_power_feed2 = $row["device_power_feed2"];
       }
       if (!empty($device_power_feed1)) {
         $feed_count = 1;
@@ -25,30 +25,30 @@ function device_power_feed_count($server_id) {
 function rack_power_feed_count($rackid) {
   include realpath(dirname(__FILE__)).'/../config/db.php';
   $feed_count = 0;
-  $rackid = mysqli_real_escape_string($conn, $rackid);
+  $rackid    = mysqli_real_escape_string($conn, $rackid);
   $sql = "SELECT * FROM `power_feeds` WHERE `rackid`='$rackid'";
   $result = $conn->query($sql);
   return $result->num_rows;
 }
 /**
-   * @param string $server_id
-   */
+ * @param string $server_id
+ */
 function device_power_feed_check_A($server_id) { //check if server has power feed A
   include realpath(dirname(__FILE__)).'/../config/db.php';
-  $server_id = mysqli_real_escape_string($conn, $server_id);
+  $server_id    = mysqli_real_escape_string($conn, $server_id);
   $has_A = 0;
   $sql = "SELECT * FROM `devices` WHERE `server_id`='$server_id'";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
       // output data of each row
-      while ($row = $result->fetch_assoc()) {
-          $device_power_feed1 = $row["device_power_feed1"];
-          $device_power_feed2 = $row["device_power_feed2"];
+      while($row = $result->fetch_assoc()) {
+        $device_power_feed1 = $row["device_power_feed1"];
+        $device_power_feed2 = $row["device_power_feed2"];
       }
-      if (!empty($device_power_feed1) && $device_power_feed1 == "A") {
+      if(!empty($device_power_feed1) && $device_power_feed1=="A") {
         $has_A = 1;
       }
-      if (!empty($device_power_feed2) && $device_power_feed2 == "A") {
+      if(!empty($device_power_feed2) && $device_power_feed2=="A") {
         $has_A = 1;
       }
       return $has_A;
@@ -57,8 +57,8 @@ function device_power_feed_check_A($server_id) { //check if server has power fee
   }     
 }
 /**
-   * @param string $server_id
-   */
+ * @param string $server_id
+ */
 function device_power_feed_check_B($server_id) { //check if server has power feed B
   include realpath(dirname(__FILE__)).'/../config/db.php';
   $server_id = mysqli_real_escape_string($conn, $server_id);
@@ -68,8 +68,8 @@ function device_power_feed_check_B($server_id) { //check if server has power fee
   if ($result->num_rows > 0) {
       // output data of each row
       while ($row = $result->fetch_assoc()) {
-          $device_power_feed1 = $row["device_power_feed1"];
-          $device_power_feed2 = $row["device_power_feed2"];
+        $device_power_feed1 = $row["device_power_feed1"];
+        $device_power_feed2 = $row["device_power_feed2"];
       }
       if (!empty($device_power_feed1) && $device_power_feed1 == "B") {
         $has_B = 1;
@@ -91,7 +91,7 @@ function device_power_usage($server_id) {
   if ($result->num_rows > 0) {
       // output data of each row
       while ($row = $result->fetch_assoc()) {
-              $device_power_usage = $row["device_power_usage"];
+        $device_power_usage = $row["device_power_usage"];
       }
       if (device_power_feed_check_B($server_id) && device_power_feed_check_A($server_id)) {
         $device_power_usage = $device_power_usage*2;
@@ -111,10 +111,8 @@ function power_usage_A() {
   if ($result->num_rows > 0) {
       // output data of each row
       while ($row = $result->fetch_assoc()) {
-              $device_power_usage_sum_A = $row["device_power_usage_sum_A"];
-              if (empty($row["device_power_usage_sum_A"])) {
-                $device_power_usage_sum_A = 0;
-              }
+        $device_power_usage_sum_A = $row["device_power_usage_sum_A"];
+        if (empty($row["device_power_usage_sum_A"])) $device_power_usage_sum_A = 0;
       }
       return $device_power_usage_sum_A;
   } else {
@@ -129,10 +127,8 @@ function power_usage_B() {
   if ($result->num_rows > 0) {
       // output data of each row
       while ($row = $result->fetch_assoc()) {
-              $device_power_usage_sum_B = $row["device_power_usage_sum_B"];
-              if (empty($row["device_power_usage_sum_B"])) {
-                $device_power_usage_sum_B = 0;
-              }
+        $device_power_usage_sum_B = $row["device_power_usage_sum_B"];
+        if (empty($row["device_power_usage_sum_B"])) $device_power_usage_sum_B = 0;
       }
       return $device_power_usage_sum_B;
   } else {
@@ -147,7 +143,7 @@ function rack_power_total($rackid) {
   if ($result->num_rows > 0) {
       // output data of each row
       while ($row = $result->fetch_assoc()) {
-              $feed_power_sum = $row["feed_power_sum"];
+        $feed_power_sum = $row["feed_power_sum"];
       }
       return $feed_power_sum;
   } else {
@@ -163,7 +159,7 @@ function rack_voltage($rackid) {
   if ($result->num_rows > 0) {
       // output data of each row
       while ($row = $result->fetch_assoc()) {
-              $feed_voltage = $row["feed_voltage"];
+        $feed_voltage = $row["feed_voltage"];
       }
       return $feed_voltage;
   } else {
@@ -187,7 +183,7 @@ function power_feed_name($feedid) { //gets power feed name ie, A or B when the $
   if ($result->num_rows > 0) {
       // output data of each row
       while ($row = $result->fetch_assoc()) {
-              $feed_type = $row["feed_type"];
+        $feed_type = $row["feed_type"];
       }
       return $feed_type;
   } else {
