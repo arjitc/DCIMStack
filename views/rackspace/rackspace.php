@@ -1,11 +1,11 @@
 <?php
 include 'libraries/general.php';
 include 'libraries/rackspace.php';
-include 'libraries/cpu_count.php';
 include 'libraries/power.php';
 include 'config/db.php';
 check_if_rack_exists($_GET['rackid']); //this checks if the rack exists, if the rack does not exist it redirects the user back to index.php
 $rackid  = mysqli_real_escape_string($conn, (int)$_GET['rackid']);
+$_SESSION['referrer'] = basename($_SERVER['PHP_SELF']); //referrer for redirects etc
 ?>
 <!DOCTYPE html>
 <html lang="en">
