@@ -78,7 +78,6 @@ if ($result->num_rows > 0) {
             <div class="pull-left">
                 <a href="remove_power_feed.php?feed_id=<?php echo $feedid; ?>" class="btn btn-danger confirmation">Remove Feed</a>
             </div>
-            <a href="#" class="btn btn-danger" data-dismiss="modal">Close</a>
             <?php 
             if(rack_feed_count($rackid)!=0) {
                 echo "<button type='submit' form='add_feed_form' class='btn btn-primary'>Update Feed</button>";
