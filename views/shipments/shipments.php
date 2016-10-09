@@ -114,9 +114,8 @@
 							<option value="FedEX">FedEX</option>
 							<option value="UPS">UPS</option>
 							<option value="DHL">DHL</option>
+							<option value="Other">Other</option>
 						</select>
-						<label>Shipping Courier (Other)</label>
-						<input type="text" class="form-control" name="shipping_courier_custom" placeholder="Eg, Pickup?">
 						<label>Delivery ETA</label>
 						<input type="date" class="form-control" name="delivery_eta" placeholder="Eg: 02/10/2016" required>
 						<label>Delivery Status</label>
