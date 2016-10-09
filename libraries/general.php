@@ -10,12 +10,11 @@ function get_rack_name($id) {
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-			$rack_name = $row["rack_name"];
+			return $row["rack_name"];
 		}
 	} else {
-		$rack_name = "None";
+		return 0;
 	}
-	return $rack_name;
 }
 function get_rack_location($id) {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
@@ -24,12 +23,11 @@ function get_rack_location($id) {
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-			$rack_city = $row["rack_city"] .", ". $row["rack_country"] ;
+			return $row["rack_city"] .", ". $row["rack_country"];
 		}
 	} else {
-		$rack_city = "None";
+		return 0;
 	}
-	return $rack_city;
 }
 function get_customer_name_from_id($id) {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
@@ -38,12 +36,11 @@ function get_customer_name_from_id($id) {
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-			$customer_name = $row["customer_name"];
+			return $row["customer_name"];
 		}
 	} else {
-		$customer_name = "None";
+		return 0;
 	}
-	return $customer_name;
 }
 function check_if_rack_exists($id) {
 	include realpath(dirname(__FILE__)).'/../config/db.php';
