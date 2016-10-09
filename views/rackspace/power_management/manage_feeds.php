@@ -58,8 +58,11 @@ if ($result->num_rows > 0) {
                 <div class="col-sm-10">
                     <select class="form-control" name="feed_power">     
                         <?php
+                        echo "<option value='".get_feed_incoming($feedid)."'>".get_feed_incoming($feedid)."A</option>";
                         for($i=1; $i<=40; $i++) {
-                            echo "<option value='$i'>".$i."A</option>";
+                        	if(get_feed_incoming($feedid)!=$i) {
+                        		echo "<option value='$i'>".$i."A</option>";
+                        	}
                         }                          
                         ?>
                     </select>
