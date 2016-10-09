@@ -18,7 +18,7 @@ check_if_rack_exists($_GET['rackid']); //this checks if the rack exists, if the 
 		// output data of each row
 		  	while($row = $result->fetch_assoc()) {
 		  		$feedid = $row["feed_id"];
-		  	    echo "<div class='panel panel-default'>";
+		  	    echo "<div class='panel panel-default' data-toggle='tooltip' data-placement='top' title='Click to Edit'>";
 		  	    	echo "<div class='panel-heading' href='manage_feeds.php?rackid=$rackid&feedid=$feedid' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>";
 		            	echo "<center><h4>".$row["feed_type"]."</center>";
 		            echo "</div>";
