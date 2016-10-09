@@ -53,9 +53,9 @@ function print_ports($physical_label, $port_count, $device_id) {
 		for($j=0; $j<$port_count; $j++) {
 			echo "<div class='col-md-2'>";
 			if(port_status($port_number,$device_id) == 0) {
-				echo "<div class='panel panel-warning'>";
+				echo "<div class='panel panel-warning' data-toggle='tooltip' data-placement='top' title='Click for Graph'>";
 			} else {
-				echo "<div class='panel panel-success'>";
+				echo "<div class='panel panel-success' data-toggle='tooltip' data-placement='top' title='Click for Graph'>";
 			}
 				$port_label = port_label($port_number, $device_id);
 				echo"<div class='panel-heading' href='view_port.php?port_number=$port_number&device_id=$device_id' data-remote='false' data-toggle='ajaxModal'>
