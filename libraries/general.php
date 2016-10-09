@@ -191,4 +191,17 @@ function device_cpu_count($device_cpu, $device_cpu_count) {
     return $device_cpu;
   }
 }
+function get_feed_incoming($feedid) {
+	include realpath(dirname(__FILE__)).'/../config/db.php';
+	$feedid = mysqli_real_escape_string($conn, $feedid);
+	$sql = "SELECT * FROM `power_feeds` WHERE `feed_id`='$feedid'";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			return $row["feed_power"];
+		}
+	} else {
+		return 0;
+	}
+}
 ?>
