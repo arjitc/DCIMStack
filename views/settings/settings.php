@@ -43,13 +43,13 @@ if ($result->num_rows > 0) {
     <?php include 'libraries/alerts.php'; ?>
     <div id="content">
       <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-        <li class="active"><a href="#red" data-toggle="tab">Users</a></li>
+        <li class="active"><a href="#users" data-toggle="tab">Users</a></li>
         <li><a href="#librenms" data-toggle="tab">LibreNMS</a></li>
       </ul>
       <div id="my-tab-content" class="tab-content">
-        <div class="tab-pane active" id="red">
-          <h1>Red</h1>
-          <p>red red red red red red</p>
+        <div class="tab-pane active" id="users">
+          <h1>Users</h1>
+          <hr>
         </div>
         <div class="tab-pane" id="librenms">
           <h1>LibreNMS</h1>
