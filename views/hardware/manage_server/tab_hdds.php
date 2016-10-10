@@ -29,6 +29,6 @@ if ($result->num_rows > 0) {
 	}
 	echo "</table>";
 } else {
-	echo "0 results";
+	echo "No HDDs assigned to this server.";
 }
 ?>
