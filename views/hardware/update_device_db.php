@@ -2,8 +2,6 @@
 include 'libraries/db.php';
 include 'libraries/events.php';
 include 'libraries/general.php';
-error_reporting(-1);
-ini_set('display_errors', 'On');
 $referrer = mysqli_real_escape_string($conn, $_POST['referrer']);
 $device_id = mysqli_real_escape_string($conn, $_POST['device_id']);
 if(empty($device_id)) { $device_id = mysqli_real_escape_string($conn, $_GET['device_id']); }
@@ -80,6 +78,11 @@ if(isset($_GET['device_inuse'])) {
 		$sql = "UPDATE `devices` SET `device_inuse`='$device_inuse' WHERE `device_id`='$device_id'";
 		$conn->query($sql);
 	}
+}
+if(isset($_POST['device_notes'])) {
+	$device_notes = mysqli_real_escape_string($conn, $_POST['device_notes']);
+	$sql = "UPDATE `devices` SET `device_notes`='$device_notes' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
 }
 if(isset($_POST['device_parent'])) {
 	if($_POST['device_parent']!=0) {

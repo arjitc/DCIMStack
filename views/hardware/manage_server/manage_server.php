@@ -34,6 +34,7 @@
 	    		$device_ipaddress = $row["device_ipaddress"];
 	    		$device_customer  = $row["device_customer"];
 	    		$device_rack	  = $row["rackid"];
+	    		$device_notes	  = $row["device_notes"];
 	    	}
 	    }
 	}
@@ -58,6 +59,7 @@
 				<li><a href="#hdds" data-toggle="tab"><img src="assets/img/drive.png"> HDDs</a></li>
 				<li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
 				<li><a href="#mgmt_ipmi" data-toggle="tab"><img src="assets/img/link.png"> MGMT/IPMI</a></li>
+				<li><a href="#notes" data-toggle="tab"><img src="assets/img/user_suit.png"> Notes</a></li>
 				<li><a href="#customer" data-toggle="tab"><img src="assets/img/user_suit.png"> Customer</a></li>
 				<li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
 			</ul>
@@ -76,6 +78,9 @@
 				</div>
 				<div class="tab-pane" id="mgmt_ipmi">
 					<?php include 'tab_mgmt_ipmi.php'; ?>
+				</div>
+				<div class="tab-pane" id="notes">
+					<?php include 'tab_notes.php'; ?>
 				</div>
 				<div class="tab-pane" id="customer">
 					<?php include 'tab_customer.php'; ?>
