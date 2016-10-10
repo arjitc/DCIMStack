@@ -48,7 +48,7 @@
 				echo "<td>".htmlspecialchars($row["customer_name"])."</td>";
 				echo "<td>".htmlspecialchars($row["customer_notes"])."</td>";
 				echo "<td><a href='customer_devices.php?id=$customer_id'>View</a></td>";
-				echo "<td><center><a href='shipment_manage.php?shipment_id=$shipment_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
+				echo "<td><center><a href='customer_manage.php?customer_id=$customer_id'>Manage</a></center></td>";
 				echo "</tr>";
 			}
 			echo "</table>";
@@ -79,7 +79,6 @@
 				</div>
 				<div class="modal-footer">
 					<input type="submit" form="add_hdds" class="btn btn-primary">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
