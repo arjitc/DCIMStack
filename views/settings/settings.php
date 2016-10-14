@@ -57,11 +57,6 @@ if ($result->num_rows > 0) {
           <hr>
           <?php include 'settings/librenms_tab.php'; ?>
         </div>
-        <div class="tab-pane" id="hipchat">
-          <h1>HipChat</h1>
-          <hr>
-          
-        </div>
       </div>
     </div>
   </div>
