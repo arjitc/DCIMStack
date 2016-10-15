@@ -6,15 +6,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DCIMStack</title>
 	<?php
-	include 'libraries/css.php';
-	include 'libraries/general.php';
-	include 'config/db.php';
 	if (!ctype_digit($_GET['device_id'])) {
 		header('Location: index.php');
+		exit();
 	} else {
-		$device_id = $_GET['device_id'];
-	    $_SESSION['referrer'] = "manage_server.php?device_id=$device_id"; //manually set it here.
+		include 'libraries/css.php';
+		include 'libraries/general.php';
+		include 'config/db.php';  
 	    $device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
+	    $_SESSION['referrer'] = "manage_server.php?device_id=$device_id"; //manually set it here.
 	    $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
 	    $result = $conn->query($sql);
 	    if ($result->num_rows > 0) {
@@ -97,7 +97,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- Bootstrap core JavaScript ================================================== -->
+	<!-- Bootstrap core JavaScript -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<?php include 'libraries/js.php'; ?>
 </body>
