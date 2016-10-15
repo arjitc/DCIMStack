@@ -13,7 +13,6 @@ if ($result->num_rows > 0) {
   echo "<th>Customer</th>";
   echo "<th>IP Address</th>";
   echo "<th>MAC Address</th>";
-  echo "<th>Serial #</th>";
   echo "<th><center>Manage</center></th>";
   echo "</tr>";
   echo "</thead>";
@@ -26,7 +25,6 @@ if ($result->num_rows > 0) {
     echo "<td>".get_customer_name_from_id($row["device_customer"])."</td>";
     echo "<td>".$row["device_ipaddress"]."</td>";
     echo "<td>".$row["device_mac"]."</td>";
-    echo "<td>".$row["device_serial"]."</td>";
     echo "<td><center><a href='manage_server.php?device_id=$device_id'>Manage</a></center></td>";
     echo "</tr>";
   }
