@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
 		echo "<td>".$row["device_type"]."</td>";
 		echo "<td>".$row["device_label"]."</td>";
 		echo "<td>".$row["device_capacity"]."</td>";
-		echo "<td><a href='manage_hdd.php?device_id=$hdd_device_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></td>";
+		echo "<td><a href='manage_hdd.php?device_id=$hdd_device_id'>Manage</a></td>";
 		echo "</tr>";	
 		$i++;
 	}
