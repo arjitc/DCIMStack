@@ -84,6 +84,11 @@ if(isset($_POST['device_notes'])) {
 	$sql = "UPDATE `devices` SET `device_notes`='$device_notes' WHERE `device_id`='$device_id'";
 	$conn->query($sql);
 }
+if(isset($_POST['device_capacity'])) {
+	$device_capacity = mysqli_real_escape_string($conn, $_POST['device_capacity']);
+	$sql = "UPDATE `devices` SET `device_capacity`='$device_capacity' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
 if(isset($_POST['device_parent'])) {
 	if($_POST['device_parent']!=0) {
 		$device_parent = mysqli_real_escape_string($conn, $_POST['device_parent']);

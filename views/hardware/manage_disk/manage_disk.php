@@ -48,6 +48,7 @@
             <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
                 <li class="active"><a href="#server" data-toggle="tab"><img src="assets/img/calculator.png"> Server</a></li>
                 <li><a href="#rack" data-toggle="tab"><img src="assets/img/drive.png"> Rack</a></li>
+                <li><a href="#capacity" data-toggle="tab"><img src="assets/img/drive.png"> Capacity</a></li>
                 <li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
             </ul>
             <div id="my-tab-content" class="tab-content">
@@ -56,6 +57,9 @@
                 </div>
                 <div class="tab-pane" id="rack">
                     <?php include 'tab_rack.php'; ?>
+                </div>
+                <div class="tab-pane" id="capacity">
+                    <?php include 'tab_capacity.php'; ?>
                 </div>
                 <div class="tab-pane" id="delete_device">
                     <br>
