@@ -16,13 +16,13 @@
   <?php include 'libraries/header.php'; ?>
 
   <div class="container">
-    <h1 class="page-header">HDDs 
+    <h1 class="page-header">Disks 
       <div class='pull-right'>
         <button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
         <a class='btn btn-primary' href="hdd_stats.php"><img src='assets/img/chart_bar.png'> Stats</a>
-        <a class='btn btn-primary' href="hdds.php?var=hdd&filter=inuse"><img src='assets/img/chart_bar.png'> List HDD in-use</a>
-        <a class='btn btn-primary' href="hdds.php?var=ssd&filter=inuse"><img src='assets/img/chart_bar.png'> List SSD in-use</a>
-        <a class='btn btn-primary' href="hdds.php?var=sas&filter=inuse"><img src='assets/img/chart_bar.png'> List SAS in-use</a>
+        <a class='btn btn-primary' href="hdds.php?var=HDD&filter=inuse"><img src='assets/img/chart_bar.png'> List HDD in-use</a>
+        <a class='btn btn-primary' href="hdds.php?var=SSD&filter=inuse"><img src='assets/img/chart_bar.png'> List SSD in-use</a>
+        <a class='btn btn-primary' href="hdds.php?var=SAS&filter=inuse"><img src='assets/img/chart_bar.png'> List SAS in-use</a>
         <a class='btn btn-primary' href="hdds.php"><img src='assets/img/chart_bar.png'> Clear filter</a>
       </div>
     </h1>
@@ -30,7 +30,7 @@
     <?php
     include 'config/db.php';
     if(isset($_GET['filter']) && isset($_GET['var'])) {
-    	if($_GET['filter']=="inuse" && $_GET['var']=="hdd") {
+    	if($_GET['filter']=="inuse" && $_GET['var']=="HDD") {
     		$sql = "SELECT * FROM `devices` WHERE `device_type`='HDD' AND `device_inuse`=1";
     	}
     	if($_GET['filter']=="inuse" && $_GET['var']=="SSD") {
@@ -87,7 +87,7 @@
     $conn->close();
     ?>
     <div class="pull-right">
-      <small><i>Blue indicates the device in use, Red indicates a failed device</i></small>
+      <small><i>Blue indicates the drive in use, Red indicates a failed drive</i></small>
     </div>
   </div>
   <!-- Add HDD Modal -->
@@ -98,7 +98,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"><img src="assets/img/drive_add.png"> Add HDD</h4>
+          <h4 class="modal-title"><img src="assets/img/drive_add.png"> Add Disk</h4>
         </div>
         <div class="modal-body">
           <form action="add_device_db.php" id="add_hdds" method="post">
