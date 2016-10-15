@@ -10,11 +10,11 @@
         header('Location: index.php');
         exit();
     } else {
-        $_SESSION['referrer'] = "hdds.php"; //manually set it here.
         include 'libraries/css.php';
         include 'libraries/general.php';
         include 'config/db.php';
         $device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
+        $_SESSION['referrer'] = "manage_disk.php?device_id=$device_id"; //manually set it here.       
         $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
@@ -26,7 +26,7 @@
                 $device_capacity = $row["device_capacity"];
                 $device_inuse    = $row["device_inuse"];
                 $device_parent   = $row["device_parent"];
-                $device_rack      = $row["rackid"];
+                $device_rack     = $row["rackid"];
             }
         }
     }
@@ -46,18 +46,16 @@
         <?php include 'libraries/alerts.php'; ?>
         <div id="content">
             <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-                <li class="active"><a href="#server" data-toggle="tab"><img src="assets/img/calculator.png"> CPU / RAM</a></li>
-                <li><a href="#network" data-toggle="tab"><img src="assets/img/calculator.png"> Network</a></li>
-                <li><a href="#hdds" data-toggle="tab"><img src="assets/img/drive.png"> HDDs</a></li>
-                <li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
-                <li><a href="#mgmt_ipmi" data-toggle="tab"><img src="assets/img/link.png"> MGMT/IPMI</a></li>
-                <li><a href="#notes" data-toggle="tab"><img src="assets/img/user_suit.png"> Notes</a></li>
-                <li><a href="#customer" data-toggle="tab"><img src="assets/img/user_suit.png"> Customer</a></li>
+                <li class="active"><a href="#server" data-toggle="tab"><img src="assets/img/calculator.png"> Server</a></li>
+                <li><a href="#rack" data-toggle="tab"><img src="assets/img/drive.png"> Rack</a></li>
                 <li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
             </ul>
             <div id="my-tab-content" class="tab-content">
                 <div class="tab-pane active" id="server">
                     <?php include 'tab_server.php'; ?>
+                </div>
+                <div class="tab-pane" id="rack">
+                    <?php include 'tab_rack.php'; ?>
                 </div>
                 <div class="tab-pane" id="delete_device">
                     <br>
