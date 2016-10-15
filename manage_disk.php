@@ -34,7 +34,7 @@ $login = new Login();
 if ($login->isUserLoggedIn() == true) {
     // the user is logged in. you can do whatever you want here.
     // for demonstration purposes, we simply show the "you are logged in" view.
-    include("views/hardware/manage_hdd/manage_hdd.php");
+    include("views/hardware/manage_disk.php");
 
 } else {
     // the user is not logged in. you can do whatever you want here.
