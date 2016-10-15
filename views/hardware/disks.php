@@ -55,8 +55,6 @@
       echo "<th>Capacity</th>";
       echo "<th>Server</th>";
       echo "<th>Serial #</th>";
-      echo "<th>Purchased on</th>";
-      echo "<th>Warranty till</th>";
       echo "<th><center>Manage</center></th>";
       echo "</tr>";
       echo "</thead>";
@@ -75,9 +73,7 @@
         echo "<td>".$row["device_capacity"]."</td>";
         echo "<td>".get_device_label_from_id($row["device_parent"])."</td>";
         echo "<td>".$row["device_serial"]."</td>";
-        echo "<td>"; if (empty($row["device_dop"])) { echo "0000-00-00"; } else { echo $row["device_dop"]; } echo "</td>";
-        echo "<td>"; if (empty($row["device_warranty"])) { echo "0000-00-00"; } else { echo $row["device_warranty"]; }  echo "</td>";
-        echo "<td><center><a href='manage_disk.php?device_id=$device_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
+        echo "<td><center><a href='manage_disk.php?device_id=$device_id'>Manage</a></center></td>";
         echo "</tr>";
       }
       echo "</table>";
