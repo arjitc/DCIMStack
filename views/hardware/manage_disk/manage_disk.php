@@ -47,7 +47,7 @@
         <div id="content">
             <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
                 <li class="active"><a href="#server" data-toggle="tab"><img src="assets/img/calculator.png"> Server</a></li>
-                <li><a href="#rack" data-toggle="tab"><img src="assets/img/drive.png"> Rack</a></li>
+                <li><a href="#rack" data-toggle="tab"><img src="assets/img/building.png"> Rack</a></li>
                 <li><a href="#capacity" data-toggle="tab"><img src="assets/img/drive.png"> Capacity</a></li>
                 <li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
             </ul>
