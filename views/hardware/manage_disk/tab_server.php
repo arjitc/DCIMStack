@@ -1,4 +1,5 @@
-<form action="update_device_db.php" id="device_network" method="post">
+<br>
+<form action="update_device_db.php" id="device_parent_form" method="post">
     <input type="hidden" class="form-control" name="device_id" value="<?php echo $device_id; ?>">
     <label>Server</label>
     <small><i>Select the server this disk is currently inserted into - if any</i></small>
@@ -23,5 +24,5 @@
     }
     ?>
     <hr>
-    <center><input type="submit" form="device_network" value="Update" class="btn btn-primary"></center>
+    <center><input type="submit" form="device_parent_form" value="Update" class="btn btn-primary"></center>
 </form>
