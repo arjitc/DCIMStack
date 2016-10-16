@@ -45,6 +45,7 @@ if ($result->num_rows > 0) {
       <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#users" data-toggle="tab">Users</a></li>
         <li><a href="#librenms" data-toggle="tab">LibreNMS</a></li>
+        <li><a href="#hipchat" data-toggle="tab">HipChat</a></li>
       </ul>
       <div id="my-tab-content" class="tab-content">
         <div class="tab-pane active" id="users">

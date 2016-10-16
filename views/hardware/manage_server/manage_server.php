@@ -6,15 +6,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DCIMStack</title>
 	<?php
-	include 'libraries/css.php';
-	include 'libraries/general.php';
-	include 'config/db.php';
 	if (!ctype_digit($_GET['device_id'])) {
 		header('Location: index.php');
+		exit();
 	} else {
-		$device_id = $_GET['device_id'];
-	    $_SESSION['referrer'] = "manage_server.php?device_id=$device_id"; //manually set it here.
+		include 'libraries/css.php';
+		include 'libraries/general.php';
+		include 'config/db.php';  
 	    $device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
+	    $_SESSION['referrer'] = "manage_server.php?device_id=$device_id"; //manually set it here.
 	    $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
 	    $result = $conn->query($sql);
 	    if ($result->num_rows > 0) {
@@ -34,6 +34,7 @@
 	    		$device_ipaddress = $row["device_ipaddress"];
 	    		$device_customer  = $row["device_customer"];
 	    		$device_rack	  = $row["rackid"];
+	    		$device_notes	  = $row["device_notes"];
 	    	}
 	    }
 	}
@@ -44,12 +45,12 @@
 	<?php include 'libraries/header.php'; ?>
 	
 	<div class="container">
+		<h1 class="page-header"><?php echo $device_label; ?></h1>
 		<ol class="breadcrumb">
-			<li><a href="#"><?php echo get_rack_location($device_rack); ?></a></li>
+			<li><a href="manage_rackspace.php"><?php echo get_rack_location($device_rack); ?></a></li>
 			<li><a href="rackspace.php?rackid=<?php echo $device_rack; ?>"><?php echo get_rack_name_from_device_id($device_id); ?></a></li>
 			<li class="active"><?php echo $device_label; ?></li>
 		</ol>
-		<h1 class="page-header"><?php echo $device_label; ?></h1>
 		<?php include 'libraries/alerts.php'; ?>
 		<div id="content">
 			<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
@@ -58,6 +59,7 @@
 				<li><a href="#hdds" data-toggle="tab"><img src="assets/img/drive.png"> HDDs</a></li>
 				<li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
 				<li><a href="#mgmt_ipmi" data-toggle="tab"><img src="assets/img/link.png"> MGMT/IPMI</a></li>
+				<li><a href="#notes" data-toggle="tab"><img src="assets/img/user_suit.png"> Notes</a></li>
 				<li><a href="#customer" data-toggle="tab"><img src="assets/img/user_suit.png"> Customer</a></li>
 				<li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
 			</ul>
@@ -77,6 +79,9 @@
 				<div class="tab-pane" id="mgmt_ipmi">
 					<?php include 'tab_mgmt_ipmi.php'; ?>
 				</div>
+				<div class="tab-pane" id="notes">
+					<?php include 'tab_notes.php'; ?>
+				</div>
 				<div class="tab-pane" id="customer">
 					<?php include 'tab_customer.php'; ?>
 				</div>
@@ -92,7 +97,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- Bootstrap core JavaScript ================================================== -->
+	<!-- Bootstrap core JavaScript -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<?php include 'libraries/js.php'; ?>
 </body>

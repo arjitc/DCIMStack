@@ -16,21 +16,21 @@
   <?php include 'libraries/header.php'; ?>
 
   <div class="container">
-    <h1 class="page-header">HDDs 
+    <h1 class="page-header">Disks 
       <div class='pull-right'>
         <button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
         <a class='btn btn-primary' href="hdd_stats.php"><img src='assets/img/chart_bar.png'> Stats</a>
-        <a class='btn btn-primary' href="hdds.php?var=hdd&filter=inuse"><img src='assets/img/chart_bar.png'> List HDD in-use</a>
-        <a class='btn btn-primary' href="hdds.php?var=ssd&filter=inuse"><img src='assets/img/chart_bar.png'> List SSD in-use</a>
-        <a class='btn btn-primary' href="hdds.php?var=sas&filter=inuse"><img src='assets/img/chart_bar.png'> List SAS in-use</a>
-        <a class='btn btn-primary' href="hdds.php"><img src='assets/img/chart_bar.png'> Clear filter</a>
+        <a class='btn btn-primary' href="disks.php?var=HDD&filter=inuse"><img src='assets/img/chart_bar.png'> List HDD in-use</a>
+        <a class='btn btn-primary' href="disks.php?var=SSD&filter=inuse"><img src='assets/img/chart_bar.png'> List SSD in-use</a>
+        <a class='btn btn-primary' href="disks.php?var=SAS&filter=inuse"><img src='assets/img/chart_bar.png'> List SAS in-use</a>
+        <a class='btn btn-primary' href="disks.php"><img src='assets/img/chart_bar.png'> Clear filter</a>
       </div>
     </h1>
     <?php include 'libraries/alerts.php'; ?>
     <?php
     include 'config/db.php';
     if(isset($_GET['filter']) && isset($_GET['var'])) {
-    	if($_GET['filter']=="inuse" && $_GET['var']=="hdd") {
+    	if($_GET['filter']=="inuse" && $_GET['var']=="HDD") {
     		$sql = "SELECT * FROM `devices` WHERE `device_type`='HDD' AND `device_inuse`=1";
     	}
     	if($_GET['filter']=="inuse" && $_GET['var']=="SSD") {
@@ -55,8 +55,6 @@
       echo "<th>Capacity</th>";
       echo "<th>Server</th>";
       echo "<th>Serial #</th>";
-      echo "<th>Purchased on</th>";
-      echo "<th>Warranty till</th>";
       echo "<th><center>Manage</center></th>";
       echo "</tr>";
       echo "</thead>";
@@ -75,9 +73,7 @@
         echo "<td>".$row["device_capacity"]."</td>";
         echo "<td>".get_device_label_from_id($row["device_parent"])."</td>";
         echo "<td>".$row["device_serial"]."</td>";
-        echo "<td>"; if (empty($row["device_dop"])) { echo "0000-00-00"; } else { echo $row["device_dop"]; } echo "</td>";
-        echo "<td>"; if (empty($row["device_warranty"])) { echo "0000-00-00"; } else { echo $row["device_warranty"]; }  echo "</td>";
-        echo "<td><center><a href='manage_hdd.php?device_id=$device_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'>Manage</a></center></td>";
+        echo "<td><center><a href='manage_disk.php?device_id=$device_id'>Manage</a></center></td>";
         echo "</tr>";
       }
       echo "</table>";
@@ -87,7 +83,7 @@
     $conn->close();
     ?>
     <div class="pull-right">
-      <small><i>Blue indicates the device in use, Red indicates a failed device</i></small>
+      <small><i>Blue indicates the drive in use, Red indicates a failed drive</i></small>
     </div>
   </div>
   <!-- Add HDD Modal -->
@@ -98,7 +94,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"><img src="assets/img/drive_add.png"> Add HDD</h4>
+          <h4 class="modal-title"><img src="assets/img/drive_add.png"> Add Disk</h4>
         </div>
         <div class="modal-body">
           <form action="add_device_db.php" id="add_hdds" method="post">
@@ -137,30 +133,11 @@
                   echo "0 results";
                 }
                 ?>
-                <label>Server</label>
-                <div class="alert alert-info" role="alert">Select the server this drive is inserted into (if any).</div>
-                <?php
-                include 'config/db.php';
-                $sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                  echo "<select class='form-control' name='device_parent'>";
-                // output data of each row
-                  echo "<option value='0'>None</option>";
-                  while ($row = $result->fetch_assoc()) {
-                    $device_label = $row["device_label"];
-                    $device_id = $row["device_id"];
-                    echo "<option value='$device_id'>$device_label</option>";
-                  }
-                  echo "</select>";
-                } else {
-                  echo "0 results";
-                }
-                ?>
-              </div>
-              <div class="col-md-6">
                 <label>Device Date Of Purchase</label>
                 <input type="date" class="form-control" name="device_dop" required>
+              </div>
+
+              <div class="col-md-6">
                 <label>Warranty valid til</label>
                 <input type="date" class="form-control" name="device_warranty" required>
                 <label>Device Label</label>

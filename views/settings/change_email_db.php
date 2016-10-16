@@ -8,10 +8,10 @@ if(isset($email1, $email2) && $email1 == $email2 && $_SESSION['token']==$_POST['
 	unset($_SESSION['token']);
 	if ($conn->query($sql) === TRUE) {
 		$_SESSION['user_email'] = $email1;
-    	$_SESSION['success'] = "Success, Password updated";
+    	$_SESSION['success'] = "Success, EMail Address updated";
     	header('Location: account.php');
 	} else {
-		$_SESSION['error'] = "Error, Password not updated. Perhaps the passwords entered did not match?";
+		$_SESSION['error'] = "Error, EMail Address not updated.";
 		header('Location: account.php');
 	}
 	$conn->close();

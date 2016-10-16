@@ -48,7 +48,7 @@ function list_events_table($limit) {
       </table>";
       if($limit == 0) {
       echo "<div class='pull-right'>
-        <a class='btn btn-primary' href='delete_event.php?id=all&token=$token'>Delete All</a>
+        <a class='btn btn-primary confirmation' href='delete_event.php?id=all&token=$token'>Delete All</a>
       </div>";
       }
     echo "</div>";
