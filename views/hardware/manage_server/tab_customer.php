@@ -17,7 +17,9 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 	echo "<select class='form-control' name='device_customer'>";
 	// output data of each row
-	echo "<option value='$device_customer'>".get_customer_name_from_id($device_customer)."</option>";
+	if(!empty(get_customer_name_from_id($device_customer))) {
+		echo "<option value='$device_customer'>".get_customer_name_from_id($device_customer)."</option>";
+	}
 	while ($row = $result->fetch_assoc()) {
 		$customer_id = $row["id"];
 		if($customer_id!=$device_customer) {
