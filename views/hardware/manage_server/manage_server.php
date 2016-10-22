@@ -35,6 +35,7 @@
 	    		$device_customer  = $row["device_customer"];
 	    		$device_rack	  = $row["rackid"];
 	    		$device_notes	  = $row["device_notes"];
+	    		$device_size	  = $row["device_size"];
 	    	}
 	    }
 	}
@@ -54,7 +55,8 @@
 		<?php include 'libraries/alerts.php'; ?>
 		<div id="content">
 			<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-				<li class="active"><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> CPU / RAM</a></li>
+				<li class="active"><a href="#overview" data-toggle="tab"><img src="assets/img/calculator.png"> Overview</a></li>
+				<li><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> CPU / RAM</a></li>
 				<li><a href="#network" data-toggle="tab"><img src="assets/img/calculator.png"> Network</a></li>
 				<li><a href="#hdds" data-toggle="tab"><img src="assets/img/drive.png"> HDDs</a></li>
 				<li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
@@ -64,7 +66,10 @@
 				<li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
 			</ul>
 			<div id="my-tab-content" class="tab-content">
-				<div class="tab-pane active" id="cpu_ram">
+				<div class="tab-pane active" id="overview">
+					<?php include 'tab_overview.php'; ?>
+				</div>
+				<div class="tab-pane" id="cpu_ram">
 					<?php include 'tab_cpu_ram.php'; ?>
 				</div>
 				<div class="tab-pane" id="network">
