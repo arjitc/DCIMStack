@@ -1,7 +1,7 @@
 <?php
 include 'config/db.php';
 if ($_SESSION['token'] == $_GET['token'] && isset($_GET['id'])) {
-	if(is_numeric($id)) {
+	if(is_numeric($_GET['id'])) {
 		$id = mysqli_real_escape_string($conn, $_GET['id']);
 		$sql = "DELETE FROM `events` WHERE `id`='$id'";
 		if ($conn->query($sql) === TRUE) {
