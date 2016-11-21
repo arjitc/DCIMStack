@@ -12,6 +12,7 @@ if ($result->num_rows > 0) {
 	echo "<th>Device Vendor</th>";
 	echo "<th>Device Type</th>";
 	echo "<th>Device Label</th>";
+	echo "<th>Device Serial</th>";
 	echo "<th>Device Storage</th>";
 	echo "<th>Manage</th>";
 	echo "</tr>";
@@ -22,8 +23,9 @@ if ($result->num_rows > 0) {
 		echo "<td>".$row["device_brand"]."</td>";
 		echo "<td>".$row["device_type"]."</td>";
 		echo "<td>".$row["device_label"]."</td>";
+		echo "<td>".$row["device_serial"]."</td>";
 		echo "<td>".$row["device_capacity"]."</td>";
-		echo "<td><a href='manage_hdd.php?device_id=$hdd_device_id'>Manage</a></td>";
+		echo "<td><a href='manage_disk.php?device_id=$hdd_device_id'>Manage</a></td>";
 		echo "</tr>";	
 		$i++;
 	}
