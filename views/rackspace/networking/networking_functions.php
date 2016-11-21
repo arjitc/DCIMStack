@@ -59,7 +59,7 @@ function print_ports($physical_label, $port_count, $device_id) {
 			}
 				$port_label = port_label($port_number, $device_id);
 				echo"<div class='panel-heading' href='view_port.php?port_number=$port_number&device_id=$device_id' data-remote='false' data-toggle='ajaxModal'>
-				    <h3 class='panel-title' ><center><small>$port_label</small><br> $port_number</center></h3>
+				    <h3 class='panel-title' ><center>$port_label<br> $port_number</center></h3>
 				  </div>
 				  <div class='panel-body'>";
 				  echo "<center>";
