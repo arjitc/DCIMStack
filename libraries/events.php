@@ -29,7 +29,7 @@ function list_events_table($limit) {
           <th>Message</th>
           <th>Status</th>
           <th>Timestamp</th>
-          <th></th>
+          <th>Remove</th>
         </tr>
       </thead>
       <tbody>";
