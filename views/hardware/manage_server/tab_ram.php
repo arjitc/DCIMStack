@@ -31,6 +31,6 @@ if ($result->num_rows > 0) {
 	}
 	echo "</table>";
 } else {
-	echo "No HDDs assigned to this server.";
+	echo "No RAM Sticks assigned to this server.";
 }
 ?>
