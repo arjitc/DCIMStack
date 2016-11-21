@@ -57,10 +57,10 @@
 			<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
 				<li class="active"><a href="#overview" data-toggle="tab"><img src="assets/img/calculator.png"> Overview</a></li>
 				<li><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> CPU / RAM</a></li>
+				<li><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> RAM Sticks</a></li>
 				<li><a href="#network" data-toggle="tab"><img src="assets/img/calculator.png"> Network</a></li>
 				<li><a href="#disks" data-toggle="tab"><img src="assets/img/drive.png"> Disks</a></li>
 				<li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
-				<li><a href="#mgmt_ipmi" data-toggle="tab"><img src="assets/img/link.png"> MGMT/IPMI</a></li>
 				<li><a href="#notes" data-toggle="tab"><img src="assets/img/user_suit.png"> Notes</a></li>
 				<li><a href="#customer" data-toggle="tab"><img src="assets/img/user_suit.png"> Customer</a></li>
 				<li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
@@ -72,6 +72,9 @@
 				<div class="tab-pane" id="cpu_ram">
 					<?php include 'tab_cpu_ram.php'; ?>
 				</div>
+				<div class="tab-pane" id="ram_sticks">
+					<?php include 'tab_ram.php'; ?>
+				</div>
 				<div class="tab-pane" id="network">
 					<?php include 'tab_network.php'; ?>
 				</div>
@@ -80,9 +83,6 @@
 				</div>
 				<div class="tab-pane" id="server_information">
 					<?php include 'tab_server_information.php'; ?>
-				</div>
-				<div class="tab-pane" id="mgmt_ipmi">
-					<?php include 'tab_mgmt_ipmi.php'; ?>
 				</div>
 				<div class="tab-pane" id="notes">
 					<?php include 'tab_notes.php'; ?>
