@@ -58,7 +58,7 @@
 				<li class="active"><a href="#overview" data-toggle="tab"><img src="assets/img/calculator.png"> Overview</a></li>
 				<li><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> CPU / RAM</a></li>
 				<li><a href="#network" data-toggle="tab"><img src="assets/img/calculator.png"> Network</a></li>
-				<li><a href="#hdds" data-toggle="tab"><img src="assets/img/drive.png"> HDDs</a></li>
+				<li><a href="#disks" data-toggle="tab"><img src="assets/img/drive.png"> Disks</a></li>
 				<li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
 				<li><a href="#mgmt_ipmi" data-toggle="tab"><img src="assets/img/link.png"> MGMT/IPMI</a></li>
 				<li><a href="#notes" data-toggle="tab"><img src="assets/img/user_suit.png"> Notes</a></li>
@@ -75,8 +75,8 @@
 				<div class="tab-pane" id="network">
 					<?php include 'tab_network.php'; ?>
 				</div>
-				<div class="tab-pane" id="hdds">
-					<?php include 'tab_hdds.php'; ?>
+				<div class="tab-pane" id="disks">
+					<?php include 'tab_disks.php'; ?>
 				</div>
 				<div class="tab-pane" id="server_information">
 					<?php include 'tab_server_information.php'; ?>
