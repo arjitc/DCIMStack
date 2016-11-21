@@ -55,7 +55,7 @@
 		<?php include 'libraries/alerts.php'; ?>
 		<div id="content">
 			<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-				<li class="active"><a href="#overview" data-toggle="tab"><img src="assets/img/calculator.png"> Overview</a></li>
+				<li class="active"><a href="#overview" data-toggle="tab"><img src="assets/img/application_side_list.png"> Overview</a></li>
 				<li><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> CPU / RAM</a></li>
 				<li><a href="#ram_sticks" data-toggle="tab"><img src="assets/img/calculator.png"> RAM Sticks</a></li>
 				<li><a href="#network" data-toggle="tab"><img src="assets/img/calculator.png"> Network</a></li>
