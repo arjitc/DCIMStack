@@ -1,7 +1,7 @@
 <br>
 <?php
 include 'config/db.php';
-$sql = "SELECT * FROM `devices` WHERE `device_parent`='$device_id'";
+$sql = "SELECT * FROM `devices` WHERE `device_parent`='$device_id' AND `device_type` in ('SSD','HDD','SAS')";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 	$i=0;
