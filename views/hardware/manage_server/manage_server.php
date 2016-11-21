@@ -57,7 +57,7 @@
 			<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
 				<li class="active"><a href="#overview" data-toggle="tab"><img src="assets/img/calculator.png"> Overview</a></li>
 				<li><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> CPU / RAM</a></li>
-				<li><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> RAM Sticks</a></li>
+				<li><a href="#ram_sticks" data-toggle="tab"><img src="assets/img/calculator.png"> RAM Sticks</a></li>
 				<li><a href="#network" data-toggle="tab"><img src="assets/img/calculator.png"> Network</a></li>
 				<li><a href="#disks" data-toggle="tab"><img src="assets/img/drive.png"> Disks</a></li>
 				<li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
