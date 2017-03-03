@@ -1,5 +1,5 @@
 <?php
-include 'libraries/db.php';
+//include 'libraries/db.php';
 include 'libraries/events.php';
 include 'libraries/general.php';
 $referrer = mysqli_real_escape_string($conn, $_POST['referrer']);
@@ -89,6 +89,22 @@ if(isset($_POST['device_capacity'])) {
 	$sql = "UPDATE `devices` SET `device_capacity`='$device_capacity' WHERE `device_id`='$device_id'";
 	$conn->query($sql);
 }
+if(isset($_POST['device_rma'])) {
+	$device_rma = mysqli_real_escape_string($conn, $_POST['device_rma']);
+	$sql = "UPDATE `devices` SET `device_rma`='$device_rma' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
+if(isset($_POST['device_rma_date'])) {
+	//$device_rma_date = mysqli_real_escape_string($conn, $_POST['device_rma_date']);
+	$sql = "UPDATE `devices` SET `device_rma_date`=NOW() WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
+if(isset($_POST['device_rma_notes'])) {
+	$device_rma_notes = mysqli_real_escape_string($conn, $_POST['device_rma_notes']);
+	$sql = "UPDATE `devices` SET `device_rma_notes`='$device_rma_notes' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
+//UPDATE users SET last_logged = NOW() WHERE id = 1
 if(isset($_POST['device_parent'])) {
 	if($_POST['device_parent']!=0) {
 		$device_parent = mysqli_real_escape_string($conn, $_POST['device_parent']);
