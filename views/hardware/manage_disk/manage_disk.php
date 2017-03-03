@@ -12,7 +12,7 @@
     } else {
         include 'libraries/css.php';
         include 'libraries/general.php';
-        include 'config/db.php';
+        include_once 'config/db.php';
         $device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
         $_SESSION['referrer'] = "manage_disk.php?device_id=$device_id"; //manually set it here.       
         $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
@@ -24,6 +24,9 @@
                 $device_type     = $row["device_type"];
                 $device_serial   = $row["device_serial"];
                 $device_capacity = $row["device_capacity"];
+                $device_rma = $row["device_rma"];
+                $device_rma_notes = $row["device_rma_notes"];
+                $device_rma_date = $row["device_rma_date"];
                 $device_inuse    = $row["device_inuse"];
                 $device_parent   = $row["device_parent"];
                 $device_rack     = $row["rackid"];
@@ -49,6 +52,7 @@
                 <li class="active"><a href="#server" data-toggle="tab"><img src="assets/img/calculator.png"> Server</a></li>
                 <li><a href="#rack" data-toggle="tab"><img src="assets/img/building.png"> Rack</a></li>
                 <li><a href="#capacity" data-toggle="tab"><img src="assets/img/drive.png"> Capacity</a></li>
+                <li><a href="#rma" data-toggle="tab"><img src="assets/img/drive.png"> RMA</a></li>
                 <li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
             </ul>
             <div id="my-tab-content" class="tab-content">
@@ -60,6 +64,9 @@
                 </div>
                 <div class="tab-pane" id="capacity">
                     <?php include 'tab_capacity.php'; ?>
+                </div>
+                <div class="tab-pane" id="rma">
+                    <?php include 'tab_rma.php'; ?>
                 </div>
                 <div class="tab-pane" id="delete_device">
                     <br>
