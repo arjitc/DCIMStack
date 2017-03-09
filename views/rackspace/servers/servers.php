@@ -7,7 +7,6 @@ if ($result->num_rows > 0) {
   echo "<table class='table' id='search_table'>";
   echo "<thead>";
   echo "<tr>";
-  echo "<th>Location</th>";
   echo "<th>Vendor</th>";
   echo "<th>Physical Label</th>";
   echo "<th>Customer</th>";
@@ -19,7 +18,6 @@ if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
     $device_id = $row["device_id"];
     echo "<tr>";
-    echo "<td>".get_rack_name($row['rackid'])."</td>";
     echo "<td>".$row["device_brand"]."</td>";
     echo "<td>".$row["device_label"]."</td>";
     if(empty(get_customer_name_from_id($row["device_customer"]))) {
