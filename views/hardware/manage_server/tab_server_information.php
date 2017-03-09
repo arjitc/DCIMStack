@@ -5,10 +5,14 @@
     <input type="text" class="form-control" value="<?php echo $device_label; ?>" name="device_label">
 	<label>Server Size</label>
 	<select class="form-control" name="device_size">
-		<option value="1U">1U</option>
-		<option value="2U">2U</option>
-		<option value="3U">3U</option>
-		<option value="4U">4U</option>
+		<?php
+		echo "<option value='$device_size'>".$device_size."U</option>";
+		for($i=1; $i<=4; $i++) {
+			if($i != $device_size) {
+				echo "<option value='$i'>".$i."U</option>";
+			}
+		}
+		?>
 	</select>
 	<label>Server Vendor</label>
 	<select class="form-control" name="device_brand">
