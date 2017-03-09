@@ -9,7 +9,7 @@
 	    <p><b>Server Label:</b> <?php echo $device_label; ?></p>
 	    <p><b>Server Brand:</b> <?php echo $device_brand; ?></p>
 	    <p><b>Server Rack: </b> <?php echo get_rack_name_from_device_id($device_id); ?></p>
-	    <p><b>Server Size: </b> <?php echo $device_size; ?> </p>
+	    <p><b>Server Size: </b> <?php echo $device_size; ?>U </p>
 	    <p><b>Server CPU/RAM:</b> <?php echo $device_cpu; ?> / <?php echo $device_ram_total; ?></p>
 	  </div>
 	</div>
