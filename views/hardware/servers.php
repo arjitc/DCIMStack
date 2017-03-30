@@ -130,13 +130,13 @@
 								<label>Management/IPMI MAC Address</label>
 								<input type="text" class="form-control" name="device_mgmt_mac">
 								<label>Date Of Purchase</label>
-								<input type="date" class="form-control" name="device_dop" required>
+								<input type="date" class="form-control" name="device_dop">
 								<label>Warranty valid til</label>
-								<input type="date" class="form-control" name="device_warranty" required>
+								<input type="date" class="form-control" name="device_warranty">
 								<label>Physical Label</label>
 								<input type="text" class="form-control" name="device_label" required>
 								<label>Serial #</label>
-								<input type="text" class="form-control" name="device_serial" required>
+								<input type="text" class="form-control" name="device_serial">
 							</div>
 						</div>
 					</form>
