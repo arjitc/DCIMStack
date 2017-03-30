@@ -9,6 +9,8 @@
 	include 'libraries/css.php';
 	include 'libraries/general.php'; 
 	$user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
+	$token = md5(uniqid(rand(), TRUE));
+	$_SESSION['token'] = $token;
 	?>
 </head>
 
@@ -49,6 +51,18 @@
 				<hr>
 				<center><input type="submit" form="add_user" class="btn btn-primary"></center>
 			</div>
+            <div class="panel-body">
+              <form action="change_user_password_db.php" id="change_password" method="post">
+                <input type="hidden" name="token" value="<?php echo $token; ?>">
+                <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                <input type="password" name="password1" placeholder="New password" class="form-control" required>
+                <div style="padding-bottom: 5px;"></div>
+                <input type="password" name="password2" placeholder="New password once again"  class="form-control" required>
+            </div>
+            <div class="panel-footer">
+              <center><input type="submit" form="change_password" value="Update" class="btn btn-primary"></center>
+            </div>
+            </form>
 			<div class="tab-pane" id="delete_user">
 			<br>
 			<div class="alert alert-danger" role="alert">
