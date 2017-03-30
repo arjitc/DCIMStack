@@ -48,7 +48,7 @@
 <body>
 	<?php include 'libraries/header.php'; ?>
 	
-	<div class="container">
+	<div class="container-fluid">
 		<h1 class="page-header"><?php echo $device_label; ?></h1>
 		<ol class="breadcrumb">
 			<li><a href="manage_rackspace.php"><?php echo get_rack_location($device_rack); ?></a></li>
