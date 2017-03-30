@@ -21,7 +21,7 @@ $_SESSION['referrer'] = basename($_SERVER['PHP_SELF']); //referrer for redirects
 
     <?php include 'libraries/header.php'; ?>
 
-    <div class="container">
+    <div class="container-fluid">
           <h1 class="page-header">Manage Rackspace (<?php echo get_rack_name($_GET['rackid']); ?>)</h1>
           <?php include 'libraries/alerts.php'; ?>
           <div class="row">
