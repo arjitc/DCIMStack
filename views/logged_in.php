@@ -69,10 +69,10 @@
           $id = $row["id"];
           echo "<tr>";
           echo "<td>".$row["id"]."</td>";
-          echo "<td>".$row["event_type"]."</td>";
-          echo "<td>".$row["event_message"]."</td>";
-          echo "<td>".$row["event_status"]."</td>";
-          echo "<td>".$row["event_timestamp"]."</td>";
+          echo "<td>".display($row["event_type"])."</td>";
+          echo "<td>".display($row["event_message"])."</td>";
+          echo "<td>".display($row["event_status"])."</td>";
+          echo "<td>".display($row["event_timestamp"])."</td>";
           echo "</tr>";
         }
         echo "</tbody>
