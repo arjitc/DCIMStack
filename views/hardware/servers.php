@@ -46,7 +46,8 @@
 				if(empty(get_customer_name_from_id($row["device_customer"]))) {
 					echo "<td></td>";
 				} else {
-					echo "<td>".get_customer_name_from_id($row["device_customer"])."</td>";
+					$device_customer = $row["device_customer"];
+					echo "<td><a href='customer_manage.php?customer_id=$device_customer'>".get_customer_name_from_id($row["device_customer"])."</a></td>";
 				}
 				echo "<td>".$row["device_ipaddress"]."</td>";
 				echo "<td>".$row["device_mac"]."</td>";
