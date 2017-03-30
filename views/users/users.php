@@ -30,7 +30,7 @@
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
-                // output data of each row
+            // output data of each row
 			echo "<table class='table' id='search_table'>";
 			echo "<thead>";
 			echo "<tr>";
@@ -44,8 +44,8 @@
 				$user_id = $row['user_id'];
 				echo "<tr>";
 				echo "<td>".$user_id."</td>";
-				echo "<td>".htmlspecialchars($row["user_name"])."</td>";
-				echo "<td>".htmlspecialchars($row["user_email"])."</td>";
+				echo "<td>".display($row["user_name"])."</td>";
+				echo "<td>".display($row["user_email"])."</td>";
 				echo "<td><center><a href='userdetails.php?user_id=$user_id'>Manage</a></center></td>";
 				echo "</tr>";
 			}
