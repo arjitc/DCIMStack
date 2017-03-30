@@ -1,4 +1,7 @@
 <?php
+function display($value) {
+    return htmlentities(stripslashes(strip_tags($value)));
+}
 function get_filename_from_url() {
 	$filename = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
 	return $filename;
@@ -49,6 +52,7 @@ function check_if_rack_exists($id) {
 	$result = $conn->query($sql);
 	if ($result->num_rows == 0) {
 		header('Location: index.php');
+		exit();
 	}
 }
 function check_if_feed_exists($feedid) {
