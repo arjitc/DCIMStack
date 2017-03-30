@@ -36,6 +36,9 @@
 	    		$device_rack	  = $row["rackid"];
 	    		$device_notes	  = $row["device_notes"];
 	    		$device_size	  = $row["device_size"];
+                	$device_rma = $row["device_rma"];
+        	        $device_rma_notes = $row["device_rma_notes"];
+	                $device_rma_date = $row["device_rma_date"];
 	    	}
 	    }
 	}
@@ -63,6 +66,7 @@
 				<li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
 				<li><a href="#notes" data-toggle="tab"><img src="assets/img/user_suit.png"> Notes</a></li>
 				<li><a href="#customer" data-toggle="tab"><img src="assets/img/user_suit.png"> Customer</a></li>
+		                <li><a href="#rma" data-toggle="tab"><img src="assets/img/drive.png"> RMA</a></li>
 				<li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
 			</ul>
 			<div id="my-tab-content" class="tab-content">
@@ -89,6 +93,9 @@
 				</div>
 				<div class="tab-pane" id="customer">
 					<?php include 'tab_customer.php'; ?>
+				</div>
+        		        <div class="tab-pane" id="rma">
+                    			<?php include 'tab_rma.php'; ?>
 				</div>
 				<div class="tab-pane" id="delete_device">
 					<br>

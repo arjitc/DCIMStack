@@ -10,9 +10,7 @@
         header('Location: index.php');
         exit();
     } else {
-        include 'libraries/css.php';
-        include 'libraries/general.php';
-        include_once 'config/db.php';
+        require_once 'libraries/required.php';
         $device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
         $_SESSION['referrer'] = "manage_disk.php?device_id=$device_id"; //manually set it here.       
         $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
@@ -30,6 +28,9 @@
                 $device_inuse    = $row["device_inuse"];
                 $device_parent   = $row["device_parent"];
                 $device_rack     = $row["rackid"];
+                $device_failed = $row["device_failed"];
+                $device_failed_date = $row["device_failed_date"];
+		$device_notes = $row["device_notes"];
             }
         }
     }
@@ -53,20 +54,24 @@
                 <li><a href="#rack" data-toggle="tab"><img src="assets/img/building.png"> Rack</a></li>
                 <li><a href="#capacity" data-toggle="tab"><img src="assets/img/drive.png"> Capacity</a></li>
                 <li><a href="#rma" data-toggle="tab"><img src="assets/img/drive.png"> RMA</a></li>
+                <li><a href="#other" data-toggle="tab"><img src="assets/img/other.png"> Other</a></li>
                 <li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
             </ul>
             <div id="my-tab-content" class="tab-content">
                 <div class="tab-pane active" id="server">
-                    <?php include 'tab_server.php'; ?>
+                    <?php include_once 'tab_server.php'; ?>
                 </div>
                 <div class="tab-pane" id="rack">
-                    <?php include 'tab_rack.php'; ?>
+                    <?php include_once 'tab_rack.php'; ?>
                 </div>
                 <div class="tab-pane" id="capacity">
-                    <?php include 'tab_capacity.php'; ?>
+                    <?php include_once 'tab_capacity.php'; ?>
                 </div>
                 <div class="tab-pane" id="rma">
-                    <?php include 'tab_rma.php'; ?>
+                    <?php include_once 'tab_rma.php'; ?>
+                </div>
+                <div class="tab-pane" id="other">
+                    <?php include_once 'tab_other.php'; ?>
                 </div>
                 <div class="tab-pane" id="delete_device">
                     <br>
