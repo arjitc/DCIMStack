@@ -1,7 +1,7 @@
 <?php
 //include 'libraries/db.php';
-include 'libraries/events.php';
-include 'libraries/general.php';
+include_once 'libraries/events.php';
+include_once 'libraries/general.php';
 $referrer = mysqli_real_escape_string($conn, $_POST['referrer']);
 $device_id = mysqli_real_escape_string($conn, $_POST['device_id']);
 if(empty($device_id)) { $device_id = mysqli_real_escape_string($conn, $_GET['device_id']); }
@@ -102,6 +102,16 @@ if(isset($_POST['device_rma_date'])) {
 if(isset($_POST['device_rma_notes'])) {
 	$device_rma_notes = mysqli_real_escape_string($conn, $_POST['device_rma_notes']);
 	$sql = "UPDATE `devices` SET `device_rma_notes`='$device_rma_notes' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
+if(isset($_POST['device_failed'])) {
+	$device_failed = mysqli_real_escape_string($conn, $_POST['device_failed']);
+	$sql = "UPDATE `devices` SET `device_failed`='$device_failed' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
+if(isset($_POST['device_failed_date'])) {
+	//$device_rma_date = mysqli_real_escape_string($conn, $_POST['device_rma_date']);
+	$sql = "UPDATE `devices` SET `device_failed_date`=NOW() WHERE `device_id`='$device_id'";
 	$conn->query($sql);
 }
 //UPDATE users SET last_logged = NOW() WHERE id = 1

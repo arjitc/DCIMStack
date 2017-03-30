@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DCIMStack</title>
   <?php
-  include 'libraries/css.php';
-  include 'libraries/general.php';
+  include_once 'libraries/css.php';
+  include_once 'libraries/general.php';
   ?>
 </head>
 
 <body>
 
-  <?php include 'libraries/header.php'; ?>
+  <?php include_once 'libraries/header.php'; ?>
 
   <div class="container">
     <h1 class="page-header">Disks 
@@ -28,7 +28,7 @@
     </h1>
     <?php include 'libraries/alerts.php'; ?>
     <?php
-    include 'config/db.php';
+    include_once 'config/db.php';
     if(isset($_GET['filter']) && isset($_GET['var'])) {
     	if($_GET['filter']=="inuse" && $_GET['var']=="HDD") {
     		$sql = "SELECT * FROM `devices` WHERE `device_type`='HDD' AND `device_inuse`=1";
@@ -60,12 +60,20 @@
       echo "</thead>";
       while ($row = $result->fetch_assoc()) {
         $device_id = $row["device_id"];
+	$first_echo = '';
         if($row["device_parent"]!=0 || $row["device_inuse"]==1) { 
-          echo "<tr class='info'>"; 
+         	$first_echo = "<tr class='info'>"; 
         }
-        else { 
-          echo "<tr>"; 
-        }
+
+	if($row["device_failed"]=='YES') {
+	        $first_echo = "<tr class='bg-danger'>"; 
+	}
+
+	if ($first_echo == 'NULL' && $row["device_inuse"]!=1) {
+        	$first_echo = "<tr>";
+	}
+
+	echo $first_echo;
         echo "<td>".get_rack_name($row['rackid'])."</td>";
         echo "<td>".$row["device_brand"]."</td>";
         echo "<td>".$row["device_type"]."</td>";
