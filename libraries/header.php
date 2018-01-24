@@ -41,16 +41,11 @@
                 <li><a href='ram.php'><img src='assets/img/lightning_go.png'> PDUs</a></li>
                 <li><a href='cpus.php'><img src='assets/img/computer_go.png'> CPUs</a></li>
                 <li><a href='other.php'><img src='assets/img/box.png'> Other</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Add/Manage Shipments</li>
+                <li><a href='shipments.php'><img src='assets/img/lorry.png'> Shipments</a></li>
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <img src='assets/img/lorry.png'> Shipments <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-header">Add/Manage Shipments</li>
-                  <li><a href='shipments.php'><img src='assets/img/lorry.png'> Shipments</a></li>
-                </ul>
-              </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <img src='assets/img/ip.png'> BIPM <span class="caret"></span></a>
