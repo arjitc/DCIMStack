@@ -78,15 +78,13 @@
                 </li>
                 <li><a></a></li>
               </ul>
-<?PHP
-echo"<form class='navbar-form navbar-right' action='search.php' method='post'>";
-echo"Search: <input type='text' name='searchwhat' class='form-control' placeholder='Search...'>";
-echo"<select class='form-control' name='search'>
-<option value='device_ipaddress'>IP</option>
-<option value='device_mac'>Mac</option>
-</select>";
-echo"<input class='form-control' type='submit'>";
-?>
+              <form class='navbar-form navbar-right' action='search.php' method='post'>
+                <input type='text' name='searchwhat' class='form-control' placeholder='Search...'>
+                <select class='form-control' name='search'>
+                  <option value='device_ipaddress'>IP</option>
+                  <option value='device_mac'>MAC</option>
+                </select>
+                <input class='form-control' type='submit'>
               </form>
             </div>
           </div>
