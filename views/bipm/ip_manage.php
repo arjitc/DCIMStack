@@ -32,7 +32,6 @@ if ($result->num_rows > 0) {
         <textarea class="form-control" name="ip_notes"><?php echo $ip_notes; ?></textarea>
         <hr>
         <center><input type="submit" form="edit_ip_node" value="Update" class="btn btn-primary"></center>
-        <hr>
     </form>
 </div>
 <div class="modal-footer">
