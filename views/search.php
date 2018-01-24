@@ -26,7 +26,7 @@
 		$searchwhat = mysqli_real_escape_string($conn, $_POST["searchwhat"]);
 		$search = str_replace(' ', '', $search);
 
-		$sql = "SELECT * FROM `devices` WHERE '$search' LIKE '$searchwhat'";
+		$sql = "SELECT * FROM `devices` WHERE $search LIKE '$searchwhat'";
 
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
