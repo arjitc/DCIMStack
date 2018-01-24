@@ -29,6 +29,10 @@
 
 		//$sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
 		$result = $conn->query($sql);
+<<<<<<< HEAD
+=======
+echo"$sql";
+>>>>>>> b03532a95ffad21319d9899ceac87695542c184c
 		if ($result->num_rows > 0) {
         // output data of each row
 			echo "<table class='table' id='search_table'>";
