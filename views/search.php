@@ -16,18 +16,18 @@
 	<?php include 'libraries/header.php'; ?>
 
 	<div class="container">
-		<h1 class="page-header">Servers <div class='pull-right'><button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button></div></h1>
-		<?php include 'libraries/alerts.php'; ?>
+		<h1 class="page-header">Search Results </h1>
+
 		<?php
+		include 'libraries/alerts.php'; 
 		include 'config/db.php';
 
-		$search=$_POST["search"];
-		$searchwhat=$_POST["searchwhat"];
+		$search = mysqli_real_escape_string($conn, $_POST["search"]);
+		$searchwhat = mysqli_real_escape_string($conn, $_POST["searchwhat"]);
 		$search = str_replace(' ', '', $search);
 
-		$sql = "SELECT * FROM `devices` WHERE $search LIKE '$searchwhat'" or die(mysql_error());
+		$sql = "SELECT * FROM `devices` WHERE '$search' LIKE '$searchwhat'";
 
-		//$sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
         // output data of each row
