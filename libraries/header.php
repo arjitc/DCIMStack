@@ -51,6 +51,14 @@
                   <li><a href='shipments.php'><img src='assets/img/lorry.png'> Shipments</a></li>
                 </ul>
               </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <img src='assets/img/ip.png'> BIPM <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Basic IP Manager</li>
+                  <li><a href='bipm.php'><img src='assets/img/ip.png'> Basic IP Manager</a></li>
+                </ul>
+              </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <img src='assets/img/user_suit.png'> Customers <span class="caret"></span></a>
@@ -75,8 +83,15 @@
                 </li>
                 <li><a></a></li>
               </ul>
-              <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
+<?PHP
+echo"<form class='navbar-form navbar-right' action='search.php' method='post'>";
+echo"Search: <input type='text' name='searchwhat' class='form-control' placeholder='Search...'>";
+echo"<select class='form-control' name='search'>
+<option value='device_ipaddress'>IP</option>
+<option value='device_mac'>Mac</option>
+</select>";
+echo"<input class='form-control' type='submit'>";
+?>
               </form>
             </div>
           </div>

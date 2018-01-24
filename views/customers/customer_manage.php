@@ -27,6 +27,7 @@
 			while ($row = $result->fetch_assoc()) {
 				$customer_name = $row["customer_name"];
 				$customer_notes = $row["customer_notes"];
+				$customer_link = $row["customer_link"];
 			}
 		} else {
 			echo "Customer not found, <a data-toggle='modal' data-target='#add_customer'>add one now.</a>";
@@ -41,14 +42,16 @@
 		<div id="my-tab-content" class="tab-content">
 			<div class="tab-pane active" id="information">
 				<br>
-				<form action="customer_update.php" id="add_hdds" method="post">
+				<form action="customer_update.php" method="post">
 					<label>Customer name</label>
 					<input type="text" class="form-control" name="customer_name" value="<?php echo htmlspecialchars($customer_name); ?>" placeholder="Customer Name" required>
 					<label>Customer Notes</label>
 					<textarea class="form-control" name="customer_notes"><?php echo htmlspecialchars($customer_notes); ?></textarea>
-				</form>
+					<label>Customer Notes</label>
+					<textarea class="form-control" name="customer_link"><?php echo htmlspecialchars($customer_link); ?></textarea>
+					<input type="hidden" value="<?php echo htmlspecialchars($customer_id); ?>" name="customer_id" />
 				<hr>
-				<center><input type="submit" form="add_hdds" class="btn btn-primary"></center>
+				<center><input type="submit" class="btn btn-primary"></center></form>
 			</div>
 			<div class="tab-pane" id="delete">
 				<h1>Orange</h1>

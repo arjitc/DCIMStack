@@ -38,16 +38,19 @@
 			echo "<th>Customer Name</th>";
 			echo "<th>Customer Notes</th>";
 			echo "<th>Customer devices</th>";
+			echo "<th>Link to Billing</th>";
 			echo "<th><center>Manage</center></th>";
 			echo "</tr>";
 			echo "</thead>";
 			while ($row = $result->fetch_assoc()) {
+				$link = $row['customer_link'];
 				$customer_id = $row['id'];
 				echo "<tr>";
 				echo "<td>".$row['id']."</td>";
 				echo "<td>".htmlspecialchars($row["customer_name"])."</td>";
 				echo "<td>".htmlspecialchars($row["customer_notes"])."</td>";
 				echo "<td><a href='customer_devices.php?id=$customer_id'>View</a></td>";
+				echo "<td><a href='$link' target='_blank'>Goto Link</a></td>";
 				echo "<td><center><a href='customer_manage.php?customer_id=$customer_id'>Manage</a></center></td>";
 				echo "</tr>";
 			}
