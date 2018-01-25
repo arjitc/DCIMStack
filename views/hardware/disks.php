@@ -127,6 +127,7 @@
 									<option value="Mediamax">Mediamax</option>
 									<option value="Corsair">Corsair</option>
 									<option value="Whitelabel">Whitelabel</option>
+									<option value="ADATA">ADATA</option>
 								</select>
 								<label>Device Location</label>
 								<?php
