@@ -110,11 +110,9 @@ if(isset($_POST['device_failed'])) {
 	$conn->query($sql);
 }
 if(isset($_POST['device_failed_date'])) {
-	//$device_rma_date = mysqli_real_escape_string($conn, $_POST['device_rma_date']);
 	$sql = "UPDATE `devices` SET `device_failed_date`=NOW() WHERE `device_id`='$device_id'";
 	$conn->query($sql);
 }
-//UPDATE users SET last_logged = NOW() WHERE id = 1
 if(isset($_POST['device_parent'])) {
 	if($_POST['device_parent']!=0) {
 		$device_parent = mysqli_real_escape_string($conn, $_POST['device_parent']);
