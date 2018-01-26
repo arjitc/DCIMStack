@@ -53,7 +53,6 @@
 			echo "<th>Type</th>";
 			echo "<th>Physical Label</th>";
 			echo "<th>Capacity</th>";
-			echo "<th>Server</th>";
 			echo "<th>Serial #</th>";
 			echo "<th><center>Manage</center></th>";
 			echo "</tr>";
@@ -74,12 +73,16 @@
 				}
 
 				echo $first_echo;
-				echo "<td>".get_rack_name($row['rackid'])."</td>";
+				if(get_device_label_from_id($row["device_parent"]) == "None") {
+					$device_location = get_rack_name($row['rackid']);
+				} else {
+					$device_location = get_device_label_from_id($row["device_parent"]);
+				}
+				echo "<td>$device_location</td>";
 				echo "<td>".$row["device_brand"]."</td>";
 				echo "<td>".$row["device_type"]."</td>";
 				echo "<td>".$row["device_label"]."</td>";
 				echo "<td>".$row["device_capacity"]."</td>";
-				echo "<td>".get_device_label_from_id($row["device_parent"])."</td>";
 				echo "<td>".$row["device_serial"]."</td>";
 				echo "<td><center><a href='manage_disk.php?device_id=$device_id'>Manage</a></center></td>";
 				echo "</tr>";
