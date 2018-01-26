@@ -127,6 +127,7 @@ if(isset($_POST['device_parent'])) {
 		$conn->query($sql);
 	}
 }
+$_SESSION['success'] = "Success, Device Updated.";
 unset($_SESSION['referrer']); //clear session var
 header("Location: $referrer"); //redirect!
 ?>
