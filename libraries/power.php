@@ -15,7 +15,7 @@ function device_power_feed_count($server_id) {
         $feed_count = 1;
       }
       if (!empty($device_power_feed2)) {
-        $feed_count = $feed_count + 1;
+        $feed_count = 2;
       }
       return $feed_count;
   } else {
@@ -30,9 +30,7 @@ function rack_power_feed_count($rackid) {
   $result = $conn->query($sql);
   return $result->num_rows;
 }
-/**
- * @param string $server_id
- */
+
 function device_power_feed_check_A($server_id) { //check if server has power feed A
   include realpath(dirname(__FILE__)).'/../config/db.php';
   $server_id    = mysqli_real_escape_string($conn, $server_id);
@@ -56,9 +54,7 @@ function device_power_feed_check_A($server_id) { //check if server has power fee
       return $has_A;
   }     
 }
-/**
- * @param string $server_id
- */
+
 function device_power_feed_check_B($server_id) { //check if server has power feed B
   include realpath(dirname(__FILE__)).'/../config/db.php';
   $server_id = mysqli_real_escape_string($conn, $server_id);
