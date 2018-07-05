@@ -69,7 +69,7 @@
 
 
       <footer class="footer">
-        <p>2016 DCIMStack</p>
+        <p><?php echo date('Y'); ?> DCIMStack</p>
       </footer>
 
     </div> <!-- /container -->
