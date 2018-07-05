@@ -1,15 +1,33 @@
 # dcimstack
+
 Datacenter inventory management system
+
+## Screenshots
+
+![Logged in view](http://i.imgur.com/zEB9CUQ.png)
+
 
 ## Installing
 
 Note:
 * Code is currently in initial stages of getting together, the SQL schema will change a lot in the coming weeks I suppose.
 
-Import the database, rename config/db.php.example to config/db.php and update the database vaules in it.
+Instructions:
+* Import the database,
+* Rename config/db.php.example to config/db.php
+* and update the database vaules in it.
 
-## Screenshots
-![Logged in view](http://i.imgur.com/zEB9CUQ.png)
+
+## Dev with Docker-compose
+
+* Start the stack
+
+```
+$ docker-compose up
+```
+
+Go to your browser : http://localhost:8080/install.php
+
 
 
 ## License

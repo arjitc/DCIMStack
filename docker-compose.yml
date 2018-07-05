@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+    nginx:
+        image: nginx:latest
+        volumes:
+            - ./docker-compose/conf/nginx/conf.d:/etc/nginx/conf.d
+            - ./src/dcimstack:/www
+        environment:
+            NGINX_HOST: localhost
+            NGINX_ROOT: /www
+            PHP_FPM_HOST: dcimstack
+            PHP_FPM_PORT: 9000
+        # Nginx Official doc
+        # https://docs.docker.com/samples/library/nginx/#using-environment-variables-in-nginx-configuration
+        command: >
+            /bin/bash -c "envsubst \"`env | awk -F = '{printf \" $$%s\", $$1}'`\"
+            < /etc/nginx/conf.d/dcimstack.template
+            > /etc/nginx/conf.d/default.conf
+            && nginx -g 'daemon off;'"
+        ports:
+            - "8080:80"
+        depends_on:
+            - dcimstack
+
+    dcimstack:
+        build:
+            context: ./src
+        working_dir: /www
+        volumes:
+            - ./src/dcimstack:/www
+            # DB Config till implementing ENV variables support
+            - ./docker-compose/conf/dcimstack/config:/www/config
+        expose:
+            - "9000"
+        ports:
+            - "9000:9000"
+        links:
+            - mariadb:db
+
+    mariadb:
+        image: mariadb
+        environment:
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_DATABASE: "dcimstack"
+            MYSQL_USER: "dcimstack"
+            MYSQL_PASSWORD: "dcimstack"
+        volumes:
+            - db-data:/var/lib/mysql
+            # Init the DB
+            # https://docs.docker.com/samples/library/mariadb/#docker-secrets
+            - ./src/SQL/dcimstack.sql:/docker-entrypoint-initdb.d/dcimstack.sql
+        expose:
+            - "3306"
+
+volumes:
+    db-data:
+        driver: local
