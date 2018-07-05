@@ -42,7 +42,7 @@
         $password = mysqli_real_escape_string($conn, $_POST['password']);
         $email    = mysqli_real_escape_string($conn, $_POST['email']);
         if (ctype_alnum($username) && isset($password, $username) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          $password = crypt($password);
+          $password = password_hash($password, PASSWORD_DEFAULT);
           $sql = "INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `user_email`) VALUES (NULL, '$username', '$password', '$email');";
           if ($conn->query($sql) === TRUE) {
             ?>
