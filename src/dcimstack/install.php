@@ -7,8 +7,8 @@
 
     <title>DCIMStack Installer</title>
     <?php
-    include 'config/db.php';
-    include 'libraries/css.php';
+    include realpath(dirname(__FILE__)).'/config/db.php';
+    include realpath(dirname(__FILE__)).'/libraries/css.php';
     ?>
 
   </head>
