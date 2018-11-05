@@ -1,17 +1,12 @@
 <?php
 
 /*
- * DB_HOST: database host, usually it's "127.0.0.1" or "localhost", some servers also need port info
- * DB_NAME: name of the database. please note: database and database table are not the same thing
- * DB_USER: user for your database. the user needs to have rights for SELECT, UPDATE, DELETE and INSERT.
- * DB_PASS: the password of the above user
+ * database_host: database host, usually it's "127.0.0.1" or "localhost", some servers also need port info
+ * database_name: name of the database. please note: database and database table are not the same thing
+ * database_user: user for your database. the user needs to have rights for SELECT, UPDATE, DELETE and INSERT.
+ * database_password: the password of the above user
  */
 
-define("DB_HOST", "localhost");
-define("DB_NAME", "dcimstack");
-define("DB_USER", "dcimstack");
-define("DB_PASS", "__PASSWORD_");
-
 // Create connection
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$conn = new mysqli("database_host", "database_user", "database_password", "database_name");
 
