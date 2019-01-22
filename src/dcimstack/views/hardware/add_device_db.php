@@ -59,7 +59,9 @@ VALUES
 
 if ($conn->query($sql) === TRUE) {
 	$rack_name = get_rack_name($device_location);
-		//echo "New record created successfully";
+	if(empty(get_rack_name($device_location))) {
+		$rack_name = $device_location;
+	}
 	$event_type = "New $device_type added";
 	$event_message = "A new $device_type was added to $rack_name";
 	$event_status = "Complete";
