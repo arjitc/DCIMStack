@@ -35,7 +35,7 @@
 				echo "<option value='" . $row['rackid'] . "'>" . $row['rack_name'] . "</option>";
 			}
 			echo "</select>";
-			echo "<input class='btn btn-primary' role='button' type='submit'>";
+			echo "<input class='btn btn-primary btn-block' role='button' type='submit'>";
 		}
 		?>
 		</form>
