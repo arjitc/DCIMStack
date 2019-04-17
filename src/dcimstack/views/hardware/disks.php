@@ -48,7 +48,7 @@
 			echo "<table class='table' id='search_table'>";
 			echo "<thead>";
 			echo "<tr>";
-			echo "<th>Location</th>";
+			echo "<th>Server</th>";
 			echo "<th>Vendor</th>";
 			echo "<th>Type</th>";
 			echo "<th>Physical Label</th>";
@@ -121,6 +121,7 @@
 								<label>Device Vendor</label>
 								<select class="form-control" name="device_brand">
 									<option value="Hitachi">Hitachi</option>
+									<option value="HGST">HGST</option>
 									<option value="Seagate">Seagate</option>
 									<option value="WD">WD</option>
 									<option value="Samsung">Samsung</option>
@@ -131,18 +132,20 @@
 									<option value="Corsair">Corsair</option>
 									<option value="Whitelabel">Whitelabel</option>
 									<option value="ADATA">ADATA</option>
+									<option value="Micron">Micron</option>
 								</select>
-								<label>Device Location</label>
+								<label>Device Installed To</label>
 								<?php
 								include 'config/db.php';
-								$sql = "SELECT * FROM `rackspace`";
+								$sql = "SELECT * FROM `devices` WHERE device_type='server'";
 								$result = $conn->query($sql);
 								if ($result->num_rows > 0) {
 									echo "<select class='form-control' name='device_location'>";
                   					// output data of each row
 									while ($row = $result->fetch_assoc()) {
-										$rackid = $row["rackid"];
-										echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
+										$serverid = $row["device_id"];
+										$server_label = $row["device_label"];
+										echo "<option value='$serverid'>$server_label</option>";
 									}
 									echo "</select>";
 								} else {
@@ -161,7 +164,12 @@
 								<label>Device Serial</label>
 								<input type="text" class="form-control" name="device_serial" required>
 								<label>Device Capacity</label>
-								<input type="text" class="form-control" name="device_capacity" required><br>
+								<input type="number" class="form-control" name="device_capacity" required>
+								<select class="form-control" name="device_capacity_size">
+									<option value="TB">TB</option>
+									<option value="GB">GB</option>
+									<option value="MB">MB</option>
+								</select>
 							</div>
 						</div>
 					</form>
