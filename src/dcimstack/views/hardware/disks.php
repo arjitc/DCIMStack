@@ -15,14 +15,15 @@
 
 	<?php include_once 'libraries/header.php'; ?>
 
-	<div class="container">
+	<div class="container-fluid">
 		<h1 class="page-header">Disks 
 			<div class='pull-right'>
 				<button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
 				<a class='btn btn-primary' href="hdd_stats.php"><img src='assets/img/chart_bar.png'> Stats</a>
-				<a class='btn btn-primary' href="disks.php?var=HDD&filter=inuse"><img src='assets/img/chart_bar.png'> List HDD in-use</a>
-				<a class='btn btn-primary' href="disks.php?var=SSD&filter=inuse"><img src='assets/img/chart_bar.png'> List SSD in-use</a>
-				<a class='btn btn-primary' href="disks.php?var=SAS&filter=inuse"><img src='assets/img/chart_bar.png'> List SAS in-use</a>
+				<a class='btn btn-primary' href="disks.php?filter=inuse&var=HDD"><img src='assets/img/chart_bar.png'> List HDD in-use</a>
+				<a class='btn btn-primary' href="disks.php?filter=inuse&var=SSD"><img src='assets/img/chart_bar.png'> List SSD in-use</a>
+				<a class='btn btn-primary' href="disks.php?filter=inuse&var=SAS"><img src='assets/img/chart_bar.png'> List SAS in-use</a>
+				<a class='btn btn-primary' href="disks.php?filter=all&var=failed"><img src='assets/img/drive_error.png'> List Failed drives</a>
 				<a class='btn btn-primary' href="disks.php"><img src='assets/img/chart_bar.png'> Clear filter</a>
 			</div>
 		</h1>
@@ -39,8 +40,11 @@
 			if($_GET['filter']=="inuse" && $_GET['var']=="SAS") {
 				$sql = "SELECT * FROM `devices` WHERE `device_type`='SAS' AND `device_inuse`=1";
 			}
+			if($_GET['filter']=="all" && $_GET['var']=="failed") {
+				$sql = "SELECT * FROM `devices` WHERE `device_type` in ('SSD','HDD','SAS') AND `device_failed`='YES'";
+			}
 		} else {
-			$sql = "SELECT * FROM `devices` WHERE `device_type` in ('SSD','HDD','SAS')";
+			$sql = "SELECT * FROM `devices` WHERE `device_type` in ('SSD','HDD','SAS') AND `device_failed`!='YES'";
 		}
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
