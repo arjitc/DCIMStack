@@ -22,6 +22,11 @@ if(isset($_POST['device_label'])) {
 	$sql = "UPDATE `devices` SET `device_label`='$device_label' WHERE `device_id`='$device_id'";
 	$conn->query($sql);
 }
+if(isset($_POST['device_hostingname'])) {
+	$device_hostingname = mysqli_real_escape_string($conn, $_POST['device_hostingname']);
+	$sql = "UPDATE `devices` SET `device_hostingname`='$device_hostingname' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
 if(isset($_POST['device_ram_total'])) {
 	$device_ram_total = mysqli_real_escape_string($conn, $_POST['device_ram_total'])." GB";
 	$sql = "UPDATE `devices` SET `device_ram_total`='$device_ram_total' WHERE `device_id`='$device_id'";
@@ -113,6 +118,12 @@ if(isset($_POST['device_failed_date'])) {
 	$sql = "UPDATE `devices` SET `device_failed_date`=NOW() WHERE `device_id`='$device_id'";
 	$conn->query($sql);
 }
+if(isset($_POST['server_announce'])) {
+	$server_announce = mysqli_real_escape_string($conn, $_POST['server_announce']);
+	$sql = "UPDATE `devices` SET `server_announce`='$server_announce' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
+}
+
 if(isset($_POST['device_parent'])) {
 	if($_POST['device_parent']!=0) {
 		$device_parent = mysqli_real_escape_string($conn, $_POST['device_parent']);
