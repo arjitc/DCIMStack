@@ -16,11 +16,40 @@
 	<?php include 'libraries/header.php'; ?>
 
 	<div class="container">
-		<h1 class="page-header">Servers <div class='pull-right'><button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button></div></h1>
+		<h1 class="page-header">
+			Servers 
+			<div class='pull-right'>
+				<button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button>
+			</div>
+		</h1>
 		<?php include 'libraries/alerts.php'; ?>
+		<form action='servers.php' method='GET'>
 		<?php
 		include 'config/db.php';
-		$sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
+		$sql = "SELECT rackid, rack_name FROM rackspace";
+		$result = $conn->query($sql);
+		if ($result->num_rows > 0) {
+			echo"Select rack to view<br>";
+			echo "<select name='rackid' class='form-control'>";
+			while ($row = $result->fetch_assoc()) {
+				echo "<option value='" . $row['rackid'] . "'>" . $row['rack_name'] . "</option>";
+			}
+			echo "</select>";
+			echo "<input class='btn btn-primary' role='button' type='submit'>";
+		}
+		?>
+		</form>
+		<br>
+		<?php
+		if(isset($_GET['rackid'])) {
+			$var = 'server';
+			$rackid = $_GET['rackid'];
+			$sql = "SELECT * FROM `devices` WHERE `device_type`= '$var' AND `rackid`= '$rackid'";
+		} else {
+			$sql = "SELECT * FROM `devices` WHERE `device_type` = 'server'";
+		}
+
+
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
         // output data of each row
@@ -28,12 +57,10 @@
 			echo "<thead>";
 			echo "<tr>";
 			echo "<th>Location</th>";
-			echo "<th>Vendor</th>";
-			echo "<th>Physical Label</th>";
+			echo "<th>Device Name</th>";
+			echo "<th>Hosting Pyshical Name</th>";
 			echo "<th>Customer</th>";
 			echo "<th>IP Address</th>";
-			echo "<th>MAC Address</th>";
-			echo "<th>Serial #</th>";
 			echo "<th><center>Manage</center></th>";
 			echo "</tr>";
 			echo "</thead>";
@@ -41,8 +68,9 @@
 				$device_id = $row["device_id"];
 				echo "<tr>";
 				echo "<td>".get_rack_name($row['rackid'])."</td>";
-				echo "<td>".$row["device_brand"]."</td>";
 				echo "<td>".$row["device_label"]."</td>";
+				echo "<td>".$row["device_hostingname"]."</td>";
+
 				if(empty(get_customer_name_from_id($row["device_customer"]))) {
 					echo "<td></td>";
 				} else {
@@ -50,9 +78,25 @@
 					echo "<td><a href='customer_manage.php?customer_id=$device_customer'>".get_customer_name_from_id($row["device_customer"])."</a></td>";
 				}
 				echo "<td>".$row["device_ipaddress"]."</td>";
-				echo "<td>".$row["device_mac"]."</td>";
-				echo "<td>".$row["device_serial"]."</td>";
-				echo "<td><center><a href='manage_server.php?device_id=$device_id'>Manage</a></center></td>";
+				#echo "<td><center><a href='manage_server.php?device_id=$device_id'>Manage</a></center></td>";
+
+
+				echo"<td><center>";
+				echo"<div class='btn-group'>";
+				echo"<a href='manage_server.php?device_id=$device_id' class='btn btn-primary' role='button'>Manage</a>";
+				echo"<button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+				echo"<span class='caret'></span>";
+				echo"<span class='sr-only'>Toggle Dropdown</span>";
+				echo"</button>";
+				echo"<ul class='dropdown-menu'>";
+				echo"<li><a href='manage_server.php?device_id=$device_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><img src='assets/img/layout_edit.png'> Modify</a></li>";
+				echo"<li role='separator' class='divider'></li>";
+				echo"<li><a href='delete_device.php?device_id=$device_id' class='confirmation'><img src='assets/img/bin_closed.png'> Delete</a></li>";
+				echo"</ul>";
+				echo"</div>";
+				echo"</center>";
+
+
 				echo "</tr>";
 			}
 			echo "</table>";
@@ -127,14 +171,16 @@
 							<div class="col-md-6">
 								<label>Management/IPMI IP</label>
 								<input type="text" class="form-control" name="device_mgmt_ip">
-								<label>Management/IPMI MAC Address</label>
-								<input type="text" class="form-control" name="device_mgmt_mac">
+								<label>IP Address</label>
+								<input type="text" class="form-control" name="device_ipaddress">
 								<label>Date Of Purchase</label>
 								<input type="date" class="form-control" name="device_dop">
 								<label>Warranty valid til</label>
 								<input type="date" class="form-control" name="device_warranty">
-								<label>Physical Label</label>
+								<label>Node Name</label>
 								<input type="text" class="form-control" name="device_label" required>
+								<label>Hosting Pyshical Name</label>
+								<input type="text" class="form-control" name="device_hostingname" required>
 								<label>Serial #</label>
 								<input type="text" class="form-control" name="device_serial">
 							</div>
@@ -149,8 +195,8 @@
 		</div>
 	</div>
             <!-- Bootstrap core JavaScript
-            ================================================== -->
-            <!-- Placed at the end of the document so the pages load faster -->
-            <?php include 'libraries/js.php'; ?>
-        </body>
-        </html>
+            	================================================== -->
+            	<!-- Placed at the end of the document so the pages load faster -->
+            	<?php include 'libraries/js.php'; ?>
+            </body>
+            </html>
