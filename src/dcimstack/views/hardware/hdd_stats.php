@@ -20,7 +20,6 @@
 		<div class="row">
 			<div class="col-md-6">
 				<h2>Usage by brand</h2>
-				<hr>
 				<?php
 				include 'config/db.php';
 				$sql = "SELECT `device_brand`, count(*) as `count` from `devices` WHERE `device_type` in ('SSD','HDD','SAS') group by `device_brand`";
@@ -46,7 +45,6 @@
 			</div>
 			<div class="col-md-6">
 				<h2>Usage by capacity</h2>
-				<hr>
 				<?php
 				include 'config/db.php';
 				$sql = "SELECT `device_capacity`, count(*) as `count` from `devices` WHERE `device_type` in ('SSD','HDD','SAS') GROUP BY `device_capacity`";
