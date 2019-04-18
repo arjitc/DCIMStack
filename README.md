@@ -4,7 +4,7 @@ Datacenter inventory management system
 
 ## Screenshots
 
-![Logged in view](http://i.imgur.com/zEB9CUQ.png)
+![Logged in view](https://i.imgur.com/PFYOhxJ.png)
 
 
 ## Installing
