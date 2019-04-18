@@ -59,7 +59,7 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input type='text' name='searchwhat' class='form-control' placeholder='Search...'><div style="padding-right: 5px;"></div>
+      <input type='text' name='searchwhat' class='form-control' placeholder='Search...' required><div style="padding-right: 5px;"></div>
       <select class='form-control' name='search'>
         <option value='device_ipaddress'>IP</option>
         <option value='device_mac'>MAC</option>
