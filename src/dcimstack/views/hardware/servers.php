@@ -6,16 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DCIMStack</title>
 	<?php
-	include 'libraries/css.php';
+	include 'libraries/css2.php';
 	include 'libraries/general.php';
 	?>
 </head>
 
 <body>
 
-	<?php include 'libraries/header.php'; ?>
+	<?php include 'libraries/header2.php'; ?>
 
-	<div class="container">
+	<div class="container-fluid">
 		<h1 class="page-header">
 			Servers 
 			<div class='pull-right'>
@@ -24,20 +24,20 @@
 		</h1>
 		<?php include 'libraries/alerts.php'; ?>
 		<form action='servers.php' method='GET'>
-		<?php
-		include 'config/db.php';
-		$sql = "SELECT rackid, rack_name FROM rackspace";
-		$result = $conn->query($sql);
-		if ($result->num_rows > 0) {
-			echo"Select rack to view<br>";
-			echo "<select name='rackid' class='form-control'>";
-			while ($row = $result->fetch_assoc()) {
-				echo "<option value='" . $row['rackid'] . "'>" . $row['rack_name'] . "</option>";
+			<?php
+			include 'config/db.php';
+			$sql = "SELECT rackid, rack_name FROM rackspace";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				echo"Select rack to view<br>";
+				echo "<select name='rackid' class='form-control'>";
+				while ($row = $result->fetch_assoc()) {
+					echo "<option value='" . $row['rackid'] . "'>" . $row['rack_name'] . "</option>";
+				}
+				echo "</select>";
+				echo "<input class='btn btn-primary btn-block' role='button' type='submit'>";
 			}
-			echo "</select>";
-			echo "<input class='btn btn-primary btn-block' role='button' type='submit'>";
-		}
-		?>
+			?>
 		</form>
 		<br>
 		<?php
@@ -49,10 +49,8 @@
 			$sql = "SELECT * FROM `devices` WHERE `device_type` = 'server'";
 		}
 
-
 		$result = $conn->query($sql);
-		if ($result->num_rows > 0) {
-        // output data of each row
+		if ($result->num_rows > 0) { // output data of each row
 			echo "<table class='table' id='search_table'>";
 			echo "<thead>";
 			echo "<tr>";
@@ -79,8 +77,6 @@
 				}
 				echo "<td>".$row["device_ipaddress"]."</td>";
 				#echo "<td><center><a href='manage_server.php?device_id=$device_id'>Manage</a></center></td>";
-
-
 				echo"<td><center>";
 				echo"<div class='btn-group'>";
 				echo"<a href='manage_server.php?device_id=$device_id' class='btn btn-primary' role='button'>Manage</a>";
@@ -197,6 +193,6 @@
             <!-- Bootstrap core JavaScript
             	================================================== -->
             	<!-- Placed at the end of the document so the pages load faster -->
-            	<?php include 'libraries/js.php'; ?>
+            	<?php include 'libraries/js2.php'; ?>
             </body>
             </html>
