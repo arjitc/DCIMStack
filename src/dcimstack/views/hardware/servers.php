@@ -85,7 +85,6 @@
 				echo"<span class='sr-only'>Toggle Dropdown</span>";
 				echo"</button>";
 				echo"<ul class='dropdown-menu'>";
-				echo"<li><a href='manage_server.php?device_id=$device_id' data-remote='false' data-toggle='ajaxModal' data-target='#myModal'><img src='assets/img/layout_edit.png'> Modify</a></li>";
 				echo"<li role='separator' class='divider'></li>";
 				echo"<li><a href='delete_device.php?device_id=$device_id' class='confirmation'><img src='assets/img/bin_closed.png'> Delete</a></li>";
 				echo"</ul>";
