@@ -15,30 +15,37 @@
 
 	<?php include 'libraries/header2.php'; ?>
 
-	<div class="container-fluid">
+	<div class="container">
 		<h1 class="page-header">
 			Servers 
-			<div class='pull-right'>
+			<div class='float-right'>
 				<button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button>
 			</div>
 		</h1>
+		<hr>
 		<?php include 'libraries/alerts.php'; ?>
-		<form action='servers.php' method='GET'>
-			<?php
-			include 'config/db.php';
-			$sql = "SELECT rackid, rack_name FROM rackspace";
-			$result = $conn->query($sql);
-			if ($result->num_rows > 0) {
-				echo"Select rack to view<br>";
-				echo "<select name='rackid' class='form-control'>";
-				while ($row = $result->fetch_assoc()) {
-					echo "<option value='" . $row['rackid'] . "'>" . $row['rack_name'] . "</option>";
-				}
-				echo "</select>";
-				echo "<input class='btn btn-primary btn-block' role='button' type='submit'>";
-			}
-			?>
-		</form>
+		<div class="row">
+			<div class="col-9">
+				<form action='servers.php' method='GET'>
+					<?php
+					include 'config/db.php';
+					$sql = "SELECT rackid, rack_name FROM rackspace";
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) {
+						echo "<select name='rackid' class='form-control'>";
+						while ($row = $result->fetch_assoc()) {
+							echo "<option value='" . $row['rackid'] . "'>" . $row['rack_name'] . "</option>";
+						}
+						echo "</select>";
+					}
+					?>
+				</div>
+				<div class="col-3">
+					<input class='btn btn-primary btn-block' role='button' type='submit' name="Filter">
+				</form>
+			</div>
+		</div>
+		
 		<br>
 		<?php
 		if(isset($_GET['rackid'])) {
@@ -76,7 +83,6 @@
 					echo "<td><a href='customer_manage.php?customer_id=$device_customer'>".get_customer_name_from_id($row["device_customer"])."</a></td>";
 				}
 				echo "<td>".$row["device_ipaddress"]."</td>";
-				#echo "<td><center><a href='manage_server.php?device_id=$device_id'>Manage</a></center></td>";
 				echo"<td><center>";
 				echo"<div class='btn-group'>";
 				echo"<a href='manage_server.php?device_id=$device_id' class='btn btn-primary' role='button'>Manage</a>";
@@ -84,24 +90,23 @@
 				echo"<span class='caret'></span>";
 				echo"<span class='sr-only'>Toggle Dropdown</span>";
 				echo"</button>";
-				echo"<ul class='dropdown-menu'>";
-				echo"<li role='separator' class='divider'></li>";
-				echo"<li><a href='delete_device.php?device_id=$device_id' class='confirmation'><img src='assets/img/bin_closed.png'> Delete</a></li>";
-				echo"</ul>";
+				echo "<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
+				echo "<a class='dropdown-item confirmation' href='delete_device.php?device_id=$device_id'><img src='assets/img/bin_closed.png'> Delete</a>";
+				echo "</div>";
 				echo"</div>";
 				echo"</center>";
-
-
 				echo "</tr>";
 			}
 			echo "</table>";
 		} else {
-			echo "0 results";
+			echo "No Rackspace Found.";
 		}
 		$conn->close();
 		?>
 	</div>
-	<!-- Add HDD Modal -->
+
+
+	<!-- Add Server Modal -->
 	<div id="add_hdd" class="modal fade" role="dialog">
 		<div class="modal-dialog" style="width: 1200px">
 
@@ -150,9 +155,8 @@
 								include 'config/db.php';
 								$sql = "SELECT * FROM `rackspace`";
 								$result = $conn->query($sql);
-								if ($result->num_rows > 0) {
+								if ($result->num_rows > 0) { // output data of each row
 									echo "<select class='form-control' name='device_location'>";
-                        			// output data of each row
 									while ($row = $result->fetch_assoc()) {
 										$rackid = $row["rackid"];
 										echo "<option value='$rackid'>".get_rack_name($rackid)."</option>";
@@ -189,9 +193,8 @@
 			</div>
 		</div>
 	</div>
-            <!-- Bootstrap core JavaScript
-            	================================================== -->
-            	<!-- Placed at the end of the document so the pages load faster -->
-            	<?php include 'libraries/js2.php'; ?>
-            </body>
-            </html>
+	<!-- Bootstrap core JavaScript -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<?php include 'libraries/js2.php'; ?>
+</body>
+</html>
