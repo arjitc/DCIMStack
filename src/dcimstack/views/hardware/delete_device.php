@@ -16,7 +16,7 @@ if (ctype_digit($device_id) && !empty($device_id)) {
     $_SESSION['error'] = "Error, device not removed.";
   }
   //redirect back to where we came from
-  $referrer = $_SESSION['referrer'];
+  $referrer = basename($_SESSION['referrer']);
   unset($_SESSION['referrer']); //clear session var
   header("Location: $referrer"); //redirect!
 } 
