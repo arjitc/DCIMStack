@@ -51,15 +51,19 @@
         <?php include 'libraries/alerts.php'; ?>
         <div id="content">
             <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-                <li class="active"><a href="#server" data-toggle="tab"><img src="assets/img/calculator.png"> Server</a></li>
+                <li class="active"><a href="#disk_information" data-toggle="tab"><img src="assets/img/drive.png"> Disk Information</a></li>
+                <li><a href="#server" data-toggle="tab"><img src="assets/img/calculator.png"> Server</a></li>
                 <li><a href="#rack" data-toggle="tab"><img src="assets/img/building.png"> Rack</a></li>
                 <li><a href="#capacity" data-toggle="tab"><img src="assets/img/drive.png"> Capacity</a></li>
-                <li><a href="#rma" data-toggle="tab"><img src="assets/img/drive.png"> RMA</a></li>
+                <li><a href="#rma" data-toggle="tab"><img src="assets/img/drive_go.png"> RMA</a></li>
                 <li><a href="#other" data-toggle="tab"><img src="assets/img/drive_error.png"> Other</a></li>
                 <li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
             </ul>
             <div id="my-tab-content" class="tab-content">
-                <div class="tab-pane active" id="server">
+                <div class="tab-pane active" id="disk_information">
+                    <?php include_once 'tab_disk_information.php'; ?>
+                </div>
+                <div class="tab-pane" id="server">
                     <?php include_once 'tab_server.php'; ?>
                 </div>
                 <div class="tab-pane" id="rack">
