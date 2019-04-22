@@ -20,9 +20,9 @@
 			<div class='pull-right'>
 				<button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
 				<a class='btn btn-primary' href="hdd_stats.php"><img src='assets/img/chart_bar.png'> Stats</a>
-				<a class='btn btn-primary' href="disks.php?filter=inuse&var=HDD"><img src='assets/img/chart_bar.png'> List HDD in-use</a>
-				<a class='btn btn-primary' href="disks.php?filter=inuse&var=SSD"><img src='assets/img/chart_bar.png'> List SSD in-use</a>
-				<a class='btn btn-primary' href="disks.php?filter=inuse&var=SAS"><img src='assets/img/chart_bar.png'> List SAS in-use</a>
+				<a class='btn btn-primary' href="disks.php?filter=inuse&var=HDD"><img src='assets/img/drive_go.png'> List HDD in-use</a>
+				<a class='btn btn-primary' href="disks.php?filter=inuse&var=SSD"><img src='assets/img/drive_go.png'> List SSD in-use</a>
+				<a class='btn btn-primary' href="disks.php?filter=inuse&var=SAS"><img src='assets/img/drive_go.png'> List SAS in-use</a>
 				<a class='btn btn-primary' href="disks.php?filter=all&var=failed"><img src='assets/img/drive_error.png'> List Failed drives</a>
 				<a class='btn btn-primary' href="disks.php"><img src='assets/img/chart_bar.png'> Clear filter</a>
 			</div>
@@ -117,14 +117,15 @@
 						<div class="row">
 							<div class="col-md-6">
 								<input type="hidden" name="page_referrer" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
-								<label>Device Type</label>
-								<select class="form-control" name="device_type">
+								<label>Device Type</label><br>
+								<select data-live-search="true" class="selectpicker" data-width="100%" name="device_type">
 									<option value="SSD">SSD</option>
 									<option value="HDD">HDD</option>
 									<option value="SAS">SAS</option>
 								</select>
-								<label>Device Vendor</label>
-								<select class="form-control" name="device_brand">
+								<br>
+								<label>Device Vendor</label><br>
+								<select data-live-search="true" class="selectpicker" data-width="100%" name="device_brand">
 									<option value="Hitachi">Hitachi</option>
 									<option value="HGST">HGST</option>
 									<option value="Seagate">Seagate</option>
@@ -139,13 +140,14 @@
 									<option value="ADATA">ADATA</option>
 									<option value="Micron">Micron</option>
 								</select>
-								<label>Device Installed To</label>
+								<br>
+								<label>Device Installed To</label><br>
 								<?php
 								include 'config/db.php';
 								$sql = "SELECT * FROM `devices` WHERE device_type='server'";
 								$result = $conn->query($sql);
 								if ($result->num_rows > 0) { // output data of each row
-									echo "<select class='form-control' name='device_location'>";
+									echo "<select data-live-search='true' class='selectpicker' data-width='100%' name='device_location'>";
 									while ($row = $result->fetch_assoc()) {
 										$serverid = $row["device_id"];
 										$server_label = $row["device_label"];
