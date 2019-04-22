@@ -23,6 +23,11 @@
     );
 </script>
 <script type="text/javascript">
+  $(document).ready( function () {
+    $('#search_table').DataTable();
+} );
+</script>
+<script type="text/javascript">
   new Clipboard('.copy2clipboard');
 </script>
 <script>
