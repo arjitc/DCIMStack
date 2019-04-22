@@ -92,7 +92,7 @@ $_SESSION['referrer'] = basename($_SERVER['PHP_SELF']); //referrer for redirects
               </div>
               <div class="tab-pane" id="inventory">
                   <ul id="tabs" class="nav nav-pills nav-justified" data-tabs="tabs">
-                    <li><a href="#hdd" data-toggle="tab"><i class="fa fa-hdd-o"></i> HDDs</a></li>
+                    <li><a href="#disks" data-toggle="tab"><i class="fa fa-hdd-o"></i> Disks</a></li>
                     <li><a href="#cables" data-toggle="tab"><i class="fa fa-random"></i> Cables</a></li>
                     <li><a href="#networking_gear" data-toggle="tab"><i class="fa fa-arrows"></i> Networking Gear</a></li>
                     <li><a href="#pdu" data-toggle="tab"><i class="fa fa-plug"></i> PDUs</a></li>
@@ -100,10 +100,10 @@ $_SESSION['referrer'] = basename($_SERVER['PHP_SELF']); //referrer for redirects
                   </ul>
                   <hr>
                   <div id="my-tab-content" class="tab-content">
-                      <div class="tab-pane" id="hdd">
-                          <h3>HDDs</h3>
+                      <div class="tab-pane" id="disks">
+                          <h3>Disks</h3>
                           <hr>
-                          <?php include 'inventory/hdds.php'; ?>
+                          <?php include 'inventory/disks.php'; ?>
 
                       </div>
                       <div class="tab-pane" id="cables">
