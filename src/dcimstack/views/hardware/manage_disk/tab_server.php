@@ -2,7 +2,7 @@
 <form action="update_device_db.php" id="device_parent_form" method="post">
     <input type="hidden" class="form-control" name="device_id" value="<?php echo $device_id; ?>">
     <label>Server</label>
-    <small><i>Select the server this disk is currently inserted into - if any</i></small>
+    <small><i>Select the server this raidcard is currently inserted into - if any</i></small>
     <?php
     include 'config/db.php';
     $sql = "SELECT * FROM `devices` WHERE `device_type`='server'";
