@@ -79,17 +79,13 @@ if(isset($_POST['device_customer'])) {
 }
 if(isset($_GET['device_inuse'])) {
 	$device_inuse = mysqli_real_escape_string($conn, $_GET['device_inuse']);
-	if($device_inuse==1 OR $device_inuse==0) {
-		$sql = "UPDATE `devices` SET `device_inuse`='$device_inuse' WHERE `device_id`='$device_id'";
-		$conn->query($sql);
-	}
+	$sql = "UPDATE `devices` SET `device_inuse`='$device_inuse' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
 }
 if(isset($_POST['device_inuse'])) {
 	$device_inuse = mysqli_real_escape_string($conn, $_POST['device_inuse']);
-	if($device_inuse==1 OR $device_inuse==0) {
-		$sql = "UPDATE `devices` SET `device_inuse`='$device_inuse' WHERE `device_id`='$device_id'";
-		$conn->query($sql);
-	}
+	$sql = "UPDATE `devices` SET `device_inuse`='$device_inuse' WHERE `device_id`='$device_id'";
+	$conn->query($sql);
 }
 if(isset($_POST['device_notes'])) {
 	$device_notes = mysqli_real_escape_string($conn, $_POST['device_notes']);
