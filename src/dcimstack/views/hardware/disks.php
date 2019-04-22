@@ -6,14 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DCIMStack</title>
 	<?php
-	include_once 'libraries/css.php';
+	include_once 'libraries/css2.php';
 	include_once 'libraries/general.php';
 	?>
 </head>
 
 <body>
 
-	<?php include_once 'libraries/header.php'; ?>
+	<?php include_once 'libraries/header2.php'; ?>
 
 	<div class="container-fluid">
 		<h1 class="page-header">Disks 
@@ -27,6 +27,7 @@
 				<a class='btn btn-primary' href="disks.php"><img src='assets/img/chart_bar.png'> Clear filter</a>
 			</div>
 		</h1>
+		<hr>
 		<?php include 'libraries/alerts.php'; ?>
 		<?php
 		include_once 'config/db.php';
@@ -102,14 +103,14 @@
 		</div>
 	</div>
 	<!-- Add HDD Modal -->
-	<div id="add_hdd" class="modal fade" role="dialog">
-		<div class="modal-dialog" style="width: 1200px">
-
-			<!-- Modal content-->
+	<div class="modal fade" id="add_hdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title"><img src="assets/img/drive_add.png"> Add Disk</h4>
+					<h5 class="modal-title" id="exampleModalLabel"><img src="assets/img/drive_add.png"> Add Disk</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
 				<div class="modal-body">
 					<form action="add_device_db.php" id="add_hdds" method="post">
@@ -143,9 +144,8 @@
 								include 'config/db.php';
 								$sql = "SELECT * FROM `devices` WHERE device_type='server'";
 								$result = $conn->query($sql);
-								if ($result->num_rows > 0) {
+								if ($result->num_rows > 0) { // output data of each row
 									echo "<select class='form-control' name='device_location'>";
-                  					// output data of each row
 									while ($row = $result->fetch_assoc()) {
 										$serverid = $row["device_id"];
 										$server_label = $row["device_label"];
@@ -157,16 +157,16 @@
 								}
 								?>
 								<label>Device Date Of Purchase</label>
-								<input type="date" class="form-control" name="device_dop" required>
+								<input type="date" class="form-control" name="device_dop">
 							</div>
 
 							<div class="col-md-6">
 								<label>Warranty valid til</label>
-								<input type="date" class="form-control" name="device_warranty" required>
+								<input type="date" class="form-control" name="device_warranty">
 								<label>Device Label</label>
 								<input type="text" class="form-control" name="device_label" required>
 								<label>Device Serial</label>
-								<input type="text" class="form-control" name="device_serial" required>
+								<input type="text" class="form-control" name="device_serial">
 								<label>Device Capacity</label>
 								<input type="number" class="form-control" name="device_capacity" required>
 								<select class="form-control" name="device_capacity_size">
@@ -177,15 +177,17 @@
 							</div>
 						</div>
 					</form>
+
+
 				</div>
 				<div class="modal-footer">
 					<input type="submit" form="add_hdds" class="btn btn-primary">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<?php include 'libraries/js.php'; ?>
+	<?php include 'libraries/js2.php'; ?>
 </body>
 </html>
