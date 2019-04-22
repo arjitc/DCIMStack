@@ -4,6 +4,9 @@
     <label>Capacity</label>
     <small><i>Disk Capacity can be updated below</i></small>
     <input type="text" class="form-control" name="device_capacity" value="<?php echo $device_capacity; ?>">
+    <label>Serial</label>
+    <small><i>Disk Serial can be updated below</i></small>
+    <input type="text" class="form-control" name="device_serial" value="<?php echo $device_serial; ?>">
     <hr>
     <center><input type="submit" form="device_capacity_form" value="Update" class="btn btn-primary"></center>
 </form>
