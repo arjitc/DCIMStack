@@ -17,6 +17,12 @@
 		<option value="NO">No</option>
 	</select> 
 
+	<label>Is the device in use?</label>
+	<select name="device_inuse" class="form-control">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</select> 
+
 	<label>Add notes to device.</label>
 	<input type="text" class="form-control" name="device_notes" value="<?php echo $device_notes; ?>">
 	<?
