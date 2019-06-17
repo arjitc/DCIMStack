@@ -19,8 +19,15 @@
 
 	<label>Is the device in use?</label>
 	<select name="device_inuse" class="form-control">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
+		<?php
+		if($device_inuse == "0") {
+			echo "<option value='0'>No</option>";
+			echo "<option value='1'>Yes</option>";
+		} else {
+			echo "<option value='1'>Yes</option>";
+			echo "<option value='0'>No</option>";
+		}
+		?>
 	</select> 
 
 	<label>Add notes to device.</label>
