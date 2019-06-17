@@ -3,8 +3,9 @@ include 'libraries/db.php';
 include 'libraries/events.php';
 include 'libraries/general.php';
 $customer_name = mysqli_real_escape_string($conn, $_POST['customer_name']);
+$customer_link = mysqli_real_escape_string($conn, $_POST['customer_link']);
 $customer_notes = mysqli_real_escape_string($conn, $_POST['customer_notes']);
-$sql = "INSERT INTO `customers` (`id`, `customer_name`, `customer_notes`, `customer_status`, `added_on`) VALUES (NULL, '$customer_name', '$customer_notes', '1', CURRENT_TIMESTAMP);";
+$sql = "INSERT INTO `customers` (`id`, `customer_name`, `customer_link`, `customer_notes`, `customer_status`, `added_on`) VALUES (NULL, '$customer_name', '$customer_link', '$customer_notes', '1', CURRENT_TIMESTAMP);";
 
 if ($conn->query($sql) === TRUE) {
 	$event_type = "New Customer added";

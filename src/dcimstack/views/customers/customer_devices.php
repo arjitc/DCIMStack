@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DCIMStack</title>
 	<?php 
-	include 'libraries/css.php';
+	include 'libraries/css2.php';
 	include 'libraries/general.php'; 
 	$id = (int)$_GET['id'];
 	?>
@@ -14,9 +14,9 @@
 
 <body>
 
-	<?php include 'libraries/header.php'; ?>
+	<?php include 'libraries/header2.php'; ?>
 
-	<div class="container">
+	<div class="container-fluid">
 		<h1 class="page-header">Customer Devices</h1>
 		<?php include 'libraries/alerts.php'; ?>
 		<?php
@@ -81,6 +81,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <?php include 'libraries/js.php'; ?>
+    <?php include 'libraries/js2.php'; ?>
 </body>
 </html>
