@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +11,10 @@
 		header('Location: index.php');
 		exit();
 	} else {
-		include 'libraries/css.php';
+		include 'libraries/css2.php';
 		include 'libraries/general.php';
-		include 'config/db.php';  
-	    $device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
+		include 'config/db.php';
+		$device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
 	    $_SESSION['referrer'] = "manage_server.php?device_id=$device_id"; //manually set it here.
 	    $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
 	    $result = $conn->query($sql);
@@ -21,6 +22,7 @@
 	    	while ($row = $result->fetch_assoc()) {
 	    		$device_id        = $row["device_id"];
 	    		$device_label     = $row["device_label"];
+	    		$device_hostingname     = $row["device_hostingname"];
 	    		$device_brand     = $row["device_brand"];
 	    		$device_type      = $row["device_type"];
 	    		$device_serial    = $row["device_serial"];
@@ -36,9 +38,10 @@
 	    		$device_rack	  = $row["rackid"];
 	    		$device_notes	  = $row["device_notes"];
 	    		$device_size	  = $row["device_size"];
-                	$device_rma = $row["device_rma"];
-        	        $device_rma_notes = $row["device_rma_notes"];
-	                $device_rma_date = $row["device_rma_date"];
+	    		$device_rma = $row["device_rma"];
+	    		$device_rma_notes = $row["device_rma_notes"];
+	    		$device_rma_date = $row["device_rma_date"];
+	    		$server_announce  = $row["server_announce"];
 	    	}
 	    }
 	}
@@ -46,58 +49,80 @@
 </head>
 
 <body>
-	<?php include 'libraries/header.php'; ?>
-	
+	<?php include 'libraries/header2.php'; ?>
+
 	<div class="container-fluid">
 		<h1 class="page-header"><?php echo $device_label; ?></h1>
-		<ol class="breadcrumb">
-			<li><a href="manage_rackspace.php"><?php echo get_rack_location($device_rack); ?></a></li>
-			<li><a href="rackspace.php?rackid=<?php echo $device_rack; ?>"><?php echo get_rack_name_from_device_id($device_id); ?></a></li>
-			<li class="active"><?php echo $device_label; ?></li>
-		</ol>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="manage_rackspace.php"><?php echo get_rack_location($device_rack); ?></a></li>
+				<li class="breadcrumb-item"><a href="rackspace.php?rackid=<?php echo $device_rack; ?>"><?php echo get_rack_name_from_device_id($device_id); ?></a></li>
+				<li class="breadcrumb-item active" aria-current="page"><?php echo $device_label; ?></li>
+			</ol>
+		</nav>
 		<?php include 'libraries/alerts.php'; ?>
 		<div id="content">
-			<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-				<li class="active"><a href="#overview" data-toggle="tab"><img src="assets/img/application_side_list.png"> Overview</a></li>
-				<li><a href="#cpu_ram" data-toggle="tab"><img src="assets/img/calculator.png"> CPU / RAM</a></li>
-				<li><a href="#ram_sticks" data-toggle="tab"><img src="assets/img/calculator.png"> RAM Sticks</a></li>
-				<li><a href="#network" data-toggle="tab"><img src="assets/img/calculator.png"> Network</a></li>
-				<li><a href="#disks" data-toggle="tab"><img src="assets/img/drive.png"> Disks</a></li>
-				<li><a href="#server_information" data-toggle="tab"><img src="assets/img/layout_content.png"> Server information</a></li>
-				<li><a href="#notes" data-toggle="tab"><img src="assets/img/user_suit.png"> Notes</a></li>
-				<li><a href="#customer" data-toggle="tab"><img src="assets/img/user_suit.png"> Customer</a></li>
-		                <li><a href="#rma" data-toggle="tab"><img src="assets/img/drive.png"> RMA</a></li>
-				<li><a href="#delete_device" data-toggle="tab"><img src="assets/img/delete.png"> Delete Device</a></li>
+			<ul id="mytabs" class="nav nav-tabs" data-tabs="tabs"  role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" id="overview-tab" href="#overview" data-toggle="tab" role="tab" aria-controls="overview" aria-selected="true"><img src="assets/img/application_side_list.png"> Overview</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="cpu_ram-tab" href="#cpu_ram" data-toggle="tab" role="tab" aria-controls="cpu_ram" aria-selected="false"><img src="assets/img/calculator.png"> CPU / RAM</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="ram_sticks-tab" href="#ram_sticks" data-toggle="tab" role="tab" aria-controls="ram_sticks" aria-selected="false"><img src="assets/img/calculator.png"> RAM Sticks</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="network-tab" href="#network" data-toggle="tab" aria-controls="network" aria-selected="false"><img src="assets/img/calculator.png"> Network</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="disks-tab" href="#disks" data-toggle="tab" aria-controls="disks" aria-selected="false"><img src="assets/img/drive.png"> Disks</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="server_information-tab" href="#server_information" data-toggle="tab" aria-controls="server_information" aria-selected="false"><img src="assets/img/layout_content.png"> Server information</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="notes-tab" href="#notes" data-toggle="tab" aria-controls="notes" aria-selected="false"><img src="assets/img/note.png"> Notes</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="customer-tab" href="#customer" data-toggle="tab" aria-controls="customer" aria-selected="false"><img src="assets/img/user_suit.png"> Customer</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="rma-tab" href="#rma" data-toggle="tab" aria-controls="rma" aria-selected="false"><img src="assets/img/drive.png"> RMA</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="delete_device-tab" href="#delete_device" data-toggle="tab" aria-controls="delete_device" aria-selected="false"><img src="assets/img/delete.png"> Delete Device</a>
+				</li>
 			</ul>
 			<div id="my-tab-content" class="tab-content">
-				<div class="tab-pane active" id="overview">
-					<?php include 'tab_overview.php'; ?>
+				<div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+					<?php include 'tab_overview.php'; ?>	
 				</div>
-				<div class="tab-pane" id="cpu_ram">
+				<div class="tab-pane fade" id="cpu_ram" role="tabpanel" aria-labelledby="cpu_ram-tab">
 					<?php include 'tab_cpu_ram.php'; ?>
 				</div>
-				<div class="tab-pane" id="ram_sticks">
+				<div class="tab-pane fade" id="ram_sticks" role="tabpanel" aria-labelledby="ram_sticks-tab">
 					<?php include 'tab_ram.php'; ?>
 				</div>
-				<div class="tab-pane" id="network">
+				<div class="tab-pane fade" id="network" role="tabpanel" aria-labelledby="network-tab">
 					<?php include 'tab_network.php'; ?>
 				</div>
-				<div class="tab-pane" id="disks">
+				<div class="tab-pane fade" id="disks" role="tabpanel" aria-labelledby="disk-tab">
 					<?php include 'tab_disks.php'; ?>
 				</div>
-				<div class="tab-pane" id="server_information">
+				<div class="tab-pane fade" id="server_information" role="tabpanel" aria-labelledby="server_information-tab">
 					<?php include 'tab_server_information.php'; ?>
 				</div>
-				<div class="tab-pane" id="notes">
+				<div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="notes-tab">
 					<?php include 'tab_notes.php'; ?>
 				</div>
-				<div class="tab-pane" id="customer">
+				<div class="tab-pane fade" id="customer" role="tabpanel" aria-labelledby="customer-tab">
 					<?php include 'tab_customer.php'; ?>
 				</div>
-        		        <div class="tab-pane" id="rma">
-                    			<?php include 'tab_rma.php'; ?>
+				<div class="tab-pane fade" id="rma" role="tabpanel" aria-labelledby="rma-tab">
+					<?php include 'tab_rma.php'; ?>
 				</div>
-				<div class="tab-pane" id="delete_device">
+				<div class="tab-pane fade" id="delete_device" role="tabpanel" aria-labelledby="delete_device-tab">
 					<br>
 					<div class="alert alert-danger" role="alert">
 						<b>Warning</b>
@@ -111,6 +136,6 @@
 	</div>
 	<!-- Bootstrap core JavaScript -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<?php include 'libraries/js.php'; ?>
+	<?php include 'libraries/js2.php'; ?>
 </body>
 </html>

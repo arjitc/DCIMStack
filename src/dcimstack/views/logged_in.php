@@ -15,7 +15,7 @@
 
 <body>
 	<?php include 'libraries/header2.php'; ?>
-	<div class="container">
+	<div class="container-fluid">
 		<h1 class="display-4">Dashboard</h1>
 		<?php include 'libraries/alerts.php'; ?>
 		<div class="row">
@@ -40,6 +40,14 @@
 				<span class="text-muted">Individual shipments in-transit</span>
 			</div>
 		</div>
+		<hr>
+		<div class="row">
+			<div class="col-3">
+				<h3><?php echo available_disk(); ?></h3>
+				<h4>Disk available</h4>
+				<span class="text-muted">Total disk available</span>
+			</div>
+		</div>
 		<?php
 		if (file_exists("install.php")) {
 			echo "<div class='alert alert-danger' role='alert'>";
@@ -50,7 +58,7 @@
 		?>
 		<hr>
 		<h2 class="font-weight-normal">Events</h2>
-		<?php 
+		<?php
 		$sql = "SELECT * FROM `events` ORDER BY `id` DESC LIMIT 10";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) { // output data of each row
@@ -81,7 +89,7 @@
 			echo "</div>";
 		} else {
 			echo "<center>No events found</center>";
-		}  
+		}
 		?>
 		<?php include 'libraries/footer.php'; ?>
 	</div>

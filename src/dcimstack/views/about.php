@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DCIMStack</title>
   <?php 
-  include 'libraries/css.php'; 
+  include 'libraries/css2.php'; 
   ?>
 </head>
 <body>
-  <?php include 'libraries/header.php'; ?>
-  <div class="container">
+  <?php include 'libraries/header2.php'; ?>
+  <div class="container-fluid">
     <h1 class="page-header">About</h1>
     <p>DCIMStack is a open source "Data Center Inventory Management" web-based application/tool</p>
     <h3>Technologies used</h3>
@@ -24,6 +24,6 @@
       <li> <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">Silk Iconset</a> by Mark James </li>
     </ul>
   </div>
-  <?php include 'libraries/js.php'; ?>
+  <?php include 'libraries/js2.php'; ?>
 </body>
 </html>

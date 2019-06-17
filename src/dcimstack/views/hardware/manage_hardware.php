@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DCIMStack</title>
-    <?php include 'libraries/css.php'; ?>
+    <?php include 'libraries/css2.php'; ?>
   </head>
 
   <body>
 
-    <?php include 'libraries/header.php'; ?>
+    <?php include 'libraries/header2.php'; ?>
 
     <div class="container-fluid">
       <div class="row">
@@ -24,6 +24,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <?php include 'libraries/js.php'; ?>
+    <?php include 'libraries/js2.php'; ?>
   </body>
 </html>

@@ -6,20 +6,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DCIMStack</title>
 	<?php
-	include 'libraries/css.php';
+	include 'libraries/css2.php';
 	include 'libraries/general.php';
 	?>
 </head>
 
 <body>
 
-	<?php include 'libraries/header.php'; ?>
+	<?php include 'libraries/header2.php'; ?>
 
 	<div class="container-fluid">
 		<h1 class="page-header">HDD Stats</h1>
 		<div class="row">
 			<div class="col-md-6">
-				<h2>Usage by brand</h2>
+			<div class="card">
+				<div class="card-header">
+				Usage by brand
+			</div>
 				<?php
 				include 'config/db.php';
 				$sql = "SELECT `device_brand`, count(*) as `count` from `devices` WHERE `device_type` in ('SSD','HDD','SAS') group by `device_brand`";
@@ -43,8 +46,12 @@
 				$conn->close();
 				?>
 			</div>
+			</div>
 			<div class="col-md-6">
-				<h2>Usage by capacity</h2>
+				<div class="card">
+					<div class="card-header">
+				Usage by capacity
+				</div>
 				<?php
 				include 'config/db.php';
 				$sql = "SELECT `device_capacity`, count(*) as `count` from `devices` WHERE `device_type` in ('SSD','HDD','SAS') GROUP BY `device_capacity`";
@@ -68,14 +75,15 @@
 				$conn->close();
 				?>
 			</div>
+			</div>
 		</div>
 
 
-		
+
 	</div>
     <!-- Bootstrap core JavaScript
     	================================================== -->
     	<!-- Placed at the end of the document so the pages load faster -->
-    	<?php include 'libraries/js.php'; ?>
+    	<?php include 'libraries/js2.php'; ?>
     </body>
     </html>

@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DCIMStack</title>
   <?php
-  include 'libraries/css.php';
+  include 'libraries/css2.php';
   include 'libraries/general.php';
   ?>
 </head>
 
 <body>
 
-  <?php include 'libraries/header.php'; ?>
+  <?php include 'libraries/header2.php'; ?>
 
-  <div class="container">
-    <h1 class="page-header">Other 
+  <div class="container-fluid">
+    <h1 class="page-header">Other
       <div class='pull-right'>
         <button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
       </div>
@@ -44,11 +44,11 @@
       echo "</thead>";
       while ($row = $result->fetch_assoc()) {
         $device_id = $row["device_id"];
-        if($row["device_parent"]!=0 || $row["device_inuse"]==1) { 
-          echo "<tr class='info'>"; 
+        if($row["device_parent"]!=0 || $row["device_inuse"]==1) {
+          echo "<tr class='info'>";
         }
-        else { 
-          echo "<tr>"; 
+        else {
+          echo "<tr>";
         }
         echo "<td>".get_rack_name($row['rackid'])."</td>";
         echo "<td>".$row["device_brand"]."</td>";
@@ -78,8 +78,10 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"><img src="assets/img/drive_add.png"> Add HDD</h4>
+          <h4 class="modal-title"><img src="assets/img/computer_add.png"> Add HDD </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
         </div>
         <div class="modal-body">
           <form action="add_device_db.php" id="add_hdds" method="post">
@@ -163,6 +165,6 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <?php include 'libraries/js.php'; ?>
+  <?php include 'libraries/js2.php'; ?>
 </body>
 </html>

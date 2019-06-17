@@ -15,37 +15,51 @@
 
 	<?php include 'libraries/header2.php'; ?>
 
-	<div class="container">
+	<div class="container-fluid">
 		<h1 class="page-header">
-			Servers 
+			Servers
 			<div class='float-right'>
 				<button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</a></button>
 			</div>
 		</h1>
 		<hr>
 		<?php include 'libraries/alerts.php'; ?>
-		<div class="row">
-			<div class="col-9">
-				<form action='servers.php' method='GET'>
-					<?php
-					include 'config/db.php';
-					$sql = "SELECT rackid, rack_name FROM rackspace";
-					$result = $conn->query($sql);
-					if ($result->num_rows > 0) {
-						echo "<select name='rackid' class='form-control'>";
-						while ($row = $result->fetch_assoc()) {
-							echo "<option value='" . $row['rackid'] . "'>" . $row['rack_name'] . "</option>";
+
+		<!--one click dropdown location select -->
+
+		<div>
+			<?php
+			if(isset($_GET['rackid']) && !empty($_GET['rackid'])) {
+				$curr_rackid = $_GET['rackid'];
+
+				$query1 = "SELECT rackid, rack_name FROM rackspace WHERE rackid = $curr_rackid";
+				$q1res = $conn->query($query1);
+				$res1 = $q1res->fetch_assoc();
+			}
+			?>
+			<div class="form-group">
+				<form>
+					<label>Select Location</label>
+
+					<select class="form-control select2" style="width: 100%;" id="get_location">
+						<option value="servers.php?rackid=<?php echo $res1['rackid'] ?>"> <?php if(isset($_GET['rackid'])){ echo $res1['rack_name']; } else{ echo "Showing ALL location"; } ?> </option>
+
+						<?php
+						$sql = "SELECT rackid, rack_name FROM rackspace";
+						$result = $conn->query($sql);
+						if ($result->num_rows > 0) {
+							while ($row = $result->fetch_assoc()) {
+								echo "<option value='servers.php?rackid=" . $row['rackid'] . "&Filter=Submit+Query'>" . $row['rack_name'] . "</option>";
+							}
+						} else {
+							echo "<option>0 results</option>";
 						}
-						echo "</select>";
-					}
-					?>
-				</div>
-				<div class="col-3">
-					<input class='btn btn-primary btn-block' role='button' type='submit' name="Filter">
+						?>
+					</select>
 				</form>
 			</div>
 		</div>
-		
+
 		<br>
 		<?php
 		if(isset($_GET['rackid'])) {
@@ -108,22 +122,29 @@
 
 	<!-- Add Server Modal -->
 	<div id="add_hdd" class="modal fade" role="dialog">
-		<div class="modal-dialog" style="width: 1200px">
+		<div class="modal-dialog modal-lg">
 
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title"><img src="assets/img/computer_add.png"> Add Server</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 				</div>
 				<div class="modal-body">
+					<div class="container-fluid">
 					<form action="add_device_db.php" id="add_hdds" method="post">
 						<div class="row">
+
 							<div class="col-md-6">
+								<div class="form-group">
 								<input type="hidden" name="page_referrer" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
 								<input type="hidden" class="form-control" name="device_type" value="server">
 								<label>Server CPU</label>
 								<input type="text" class="form-control" name="device_cpu">
+							</div>
+							<div class="form-group">
 								<label>CPU Count</label>
 								<select class="form-control" name="device_cpu_count">
 									<option value="1">1</option>
@@ -131,18 +152,25 @@
 									<option value="3">3</option>
 									<option value="4">4</option>
 								</select>
+							</div>
+						<div class="form-group">
 								<label>RAM</label>
 								<div class="input-group">
 									<input type="text" class="form-control" name="device_ram_total">
 									<div class="input-group-addon">GB</div>
 								</div>
-								<label>Server Size</label>
-								<select class="form-control" name="device_size">
+							</div>
+						<div class="form-group">
+								<label>Server Size</label><br>
+								<select data-live-search="true" class="selectpicker" name="device_size">
 									<option value="1U">1U</option>
 									<option value="2U">2U</option>
 									<option value="3U">3U</option>
 									<option value="4U">4U</option>
 								</select>
+							</div>
+
+						<div class="form-group">
 								<label>Server Vendor</label>
 								<select class="form-control" name="device_brand">
 									<option value="HP">HP</option>
@@ -150,6 +178,9 @@
 									<option value="Supermicro">Supermicro</option>
 									<option value="IBM">IBM</option>
 								</select>
+							</div>
+
+						<div class="form-group">
 								<label>Device Location</label>
 								<?php
 								include 'config/db.php';
@@ -167,34 +198,65 @@
 								}
 								?>
 							</div>
-							<div class="col-md-6">
+						</div>
+
+						<div class="col-md-6">
+						<div class="form-group">
 								<label>Management/IPMI IP</label>
 								<input type="text" class="form-control" name="device_mgmt_ip">
+							</div>
+						<div class="form-group">
 								<label>IP Address</label>
 								<input type="text" class="form-control" name="device_ipaddress">
+							</div>
+
+						<div class="form-group">
 								<label>Date Of Purchase</label>
 								<input type="date" class="form-control" name="device_dop">
+							</div>
+						<div class="form-group">
 								<label>Warranty valid til</label>
 								<input type="date" class="form-control" name="device_warranty">
+							</div>
+						<div class="form-group">
 								<label>Node Name</label>
 								<input type="text" class="form-control" name="device_label" required>
+							</div>
+						<div class="form-group">
 								<label>Hosting Pyshical Name</label>
 								<input type="text" class="form-control" name="device_hostingname" required>
+							</div>
+						<div class="form-group">
 								<label>Serial #</label>
 								<input type="text" class="form-control" name="device_serial">
+							</div>
 							</div>
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<input type="submit" form="add_hdds" class="btn btn-primary">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<input type="submit" form="add_hdds" class="btn btn-primary">
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
 	<!-- Bootstrap core JavaScript -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<?php include 'libraries/js2.php'; ?>
+
+	<!--Script for location dropdown -->
+	<script>
+		document.getElementById("get_location").onchange = function() {
+			var externalLinkCheck = this.options[this.selectedIndex].value;
+			if (this.selectedIndex!==0 && externalLinkCheck.substring(0,4) == "http") {
+				window.open(this.value, '_blank');
+			} else {
+				window.location.href = this.value;
+			}
+		};
+	</script>
+
 </body>
 </html>

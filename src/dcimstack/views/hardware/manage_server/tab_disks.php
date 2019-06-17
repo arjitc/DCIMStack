@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
 		echo "<td>".$row["device_serial"]."</td>";
 		echo "<td>".$row["device_capacity"]."</td>";
 		echo "<td><a href='manage_disk.php?device_id=$hdd_device_id'>Manage</a></td>";
-		echo "</tr>";	
+		echo "</tr>";
 		$i++;
 	}
 	echo "</table>";

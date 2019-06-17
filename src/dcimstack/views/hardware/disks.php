@@ -16,18 +16,33 @@
 	<?php include_once 'libraries/header2.php'; ?>
 
 	<div class="container-fluid">
-		<h1 class="page-header">Disks 
+		<h1 class="page-header">Disks
 			<div class='pull-right'>
 				<button type="button" class='btn btn-primary' data-toggle="modal" data-target="#add_hdd"><img src='assets/img/add.png'> Add</button>
 				<a class='btn btn-primary' href="hdd_stats.php"><img src='assets/img/chart_bar.png'> Stats</a>
-				<a class='btn btn-primary' href="disks.php?filter=inuse&var=HDD"><img src='assets/img/drive_go.png'> List HDD in-use</a>
-				<a class='btn btn-primary' href="disks.php?filter=inuse&var=SSD"><img src='assets/img/drive_go.png'> List SSD in-use</a>
-				<a class='btn btn-primary' href="disks.php?filter=inuse&var=SAS"><img src='assets/img/drive_go.png'> List SAS in-use</a>
-				<a class='btn btn-primary' href="disks.php?filter=all&var=failed"><img src='assets/img/drive_error.png'> List Failed drives</a>
+
+
+					<div class="btn-group">
+						<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src='assets/img/find.png'>
+     		Disk Filter
+   </button>
+  		<div class="dropdown-menu">
+    	<a class="dropdown-item" href="disks.php?filter=inuse&var=HDD"> <img src='assets/img/drive_go.png'>  List HDD in-use</a>
+    	<a class="dropdown-item" href="disks.php?filter=inuse&var=SSD"> <img src='assets/img/drive_go.png'>  List SSD in-use</a>
+    	<a class="dropdown-item" href="disks.php?filter=inuse&var=SAS"> <img src='assets/img/drive_go.png'>  List SAS in-use</a>
+    	<a class="dropdown-item" href="disks.php?filter=all&var=notuse"> <img src='assets/img/drive_go.png'>  List free disks</a>
+			<a class="dropdown-item" href="disks.php?filter=all&var=failed"> <img src='assets/img/drive_error.png'>  List Failed drives</a>
+		</div>
+	</div>
 				<a class='btn btn-primary' href="disks.php"><img src='assets/img/chart_bar.png'> Clear filter</a>
 			</div>
 		</h1>
 		<hr>
+
+
+
+
+
 		<?php include 'libraries/alerts.php'; ?>
 		<?php
 		include_once 'config/db.php';
@@ -44,6 +59,9 @@
 			if($_GET['filter']=="all" && $_GET['var']=="failed") {
 				$sql = "SELECT * FROM `devices` WHERE `device_type` in ('SSD','HDD','SAS') AND `device_failed`='YES'";
 			}
+			if ($_GET['filter']=="all" && $_GET['var']=="notuse") {
+				$sql = "SELECT * FROM `devices` WHERE `device_type` in ('SSD','HDD','SAS') AND `device_failed`!='YES' AND `device_inuse`='0'";
+			}
 		} else {
 			$sql = "SELECT * FROM `devices` WHERE `device_type` in ('SSD','HDD','SAS') AND `device_failed`!='YES'";
 		}
@@ -53,7 +71,7 @@
 			echo "<table class='table' id='search_table'>";
 			echo "<thead>";
 			echo "<tr>";
-			echo "<th>Server</th>";
+			echo "<th>Location</th>";
 			echo "<th>Vendor</th>";
 			echo "<th>Type</th>";
 			echo "<th>Physical Label</th>";
@@ -65,12 +83,12 @@
 			while ($row = $result->fetch_assoc()) {
 				$device_id = $row["device_id"];
 				$first_echo = '';
-				if($row["device_parent"]!=0 || $row["device_inuse"]==1) { 
-					$first_echo = "<tr class='info'>"; 
+				if($row["device_parent"]!=0 || $row["device_inuse"]==1) {
+					$first_echo = "<tr class='info'>";
 				}
 
 				if($row["device_failed"]=='YES') {
-					$first_echo = "<tr class='bg-danger'>"; 
+					$first_echo = "<tr class='bg-danger'>";
 				}
 
 				if ($first_echo == 'NULL' && $row["device_inuse"]!=1) {
@@ -89,8 +107,27 @@
 				echo "<td>".$row["device_label"]."</td>";
 				echo "<td>".$row["device_capacity"]."</td>";
 				echo "<td>".$row["device_serial"]."</td>";
-				echo "<td><center><a href='manage_disk.php?device_id=$device_id'>Manage</a></center></td>";
+				echo"<td><center>";
+				echo"<div class='btn-group'>";
+				echo"<a href='manage_disk.php?device_id=$device_id' class='btn btn-primary' role='button'>Manage</a>";
+				echo "<form action='manage_disk_use_status.php' id='form-status' method='post'>";
+				echo "<div class='form-group'>";
+				echo "<input type='text' name='device_id' value='$device_id' hidden>";
+				echo "</div>";
+				echo "</form>";
+				echo"<button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+				echo"<span class='caret'></span>";
+				echo"<span class='sr-only'>Toggle Dropdown</span>";
+				echo"</button>";
+				echo "<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
+				echo "<button type='submit' name='disk_status' value='status_disk' class='dropdown-item' form='form-status'>Mark Device Not In use</button>";
+			//	echo "</form>";
+				echo "</div>";
+				echo "</div>";
+				echo"</center>";
+				echo "</td>";
 				echo "</tr>";
+
 			}
 			echo "</table>";
 		} else {
@@ -98,6 +135,7 @@
 		}
 		$conn->close();
 		?>
+
 		<div class="pull-right">
 			<small><i>Blue indicates the drive in use, Red indicates a failed drive</i></small>
 		</div>
@@ -132,13 +170,16 @@
 									<option value="WD">WD</option>
 									<option value="Samsung">Samsung</option>
 									<option value="Toshiba">Toshiba</option>
+									<option value="Intel">Intel</option>
 									<option value="HP">HP</option>
+									<option value="Dell">Dell</option>
 									<option value="Sandisk">Sandisk</option>
 									<option value="Mediamax">Mediamax</option>
 									<option value="Corsair">Corsair</option>
 									<option value="Whitelabel">Whitelabel</option>
 									<option value="ADATA">ADATA</option>
 									<option value="Micron">Micron</option>
+									<option value="Crucial">Crucial</option>
 								</select>
 								<br>
 								<label>Device Installed To</label><br>

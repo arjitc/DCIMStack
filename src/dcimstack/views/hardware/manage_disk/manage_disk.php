@@ -13,7 +13,7 @@
     } else {
         require_once 'libraries/general.php';
         $device_id = mysqli_real_escape_string($conn, $_GET['device_id']);
-        $_SESSION['referrer'] = "manage_disk.php?device_id=$device_id"; //manually set it here.       
+        $_SESSION['referrer'] = "manage_disk.php?device_id=$device_id"; //manually set it here.
         $sql = "SELECT * FROM `devices` WHERE `device_id`='$device_id'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
@@ -40,8 +40,8 @@
 
 <body>
     <?php include 'libraries/header2.php'; ?>
-    
-    <div class="container">
+
+    <div class="container-fluid">
         <h1 class="page-header"><?php echo $device_label; ?></h1>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
@@ -76,8 +76,9 @@
         </li>
     </ul>
     <div id="my-tab-content" class="tab-content">
+
         <div class="tab-pane active" id="disk_information">
-            <?php include_once 'tab_disk_information.php'; ?>
+          <?php include_once 'tab_disk_information.php'; ?>
         </div>
         <div class="tab-pane" id="server">
             <?php include_once 'tab_server.php'; ?>
