@@ -20,8 +20,10 @@
           <img src='assets/img/building.png'> Rackspace
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="manage_datacenters.php"><img src='assets/img/building_go.png'> Manage DataCenter</a></a>
           <a class="dropdown-item" href="manage_rackspace.php"><img src='assets/img/building_go.png'> Manage Rackspace</a></a>
           <a class="dropdown-item" href="add_rackspace.php"><img src='assets/img/building_add.png'> Add Rackspace</a>
+          <a class="dropdown-item" href="manage_drawer.php"><img src='assets/img/building_add.png'> Manage Drawers</a>
         </div>
       </li>
       <li class="nav-item active dropdown">
