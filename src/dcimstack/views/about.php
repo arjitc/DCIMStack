@@ -13,6 +13,7 @@
   <?php include 'libraries/header2.php'; ?>
   <div class="container-fluid">
     <h1 class="page-header">About</h1>
+    <hr>
     <p>DCIMStack is a open source "Data Center Inventory Management" web-based application/tool</p>
     <h3>Technologies used</h3>
     <p>DCIMStack is made possible with the help of the following opensource projects, </p>
