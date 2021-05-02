@@ -9,7 +9,7 @@
 	include 'libraries/css2.php';
 	include 'libraries/general.php';
 	include 'config/db.php';
-	$customer_id = mysqli_real_escape_string($conn, $_GET['customer_id']);
+	$customer_id = mysqli_real_escape_string($conn, (int)$_GET['customer_id']);
 	?>
 </head>
 
@@ -25,12 +25,12 @@
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {
-				$customer_name = $row["customer_name"];
+				$customer_name  = $row["customer_name"];
 				$customer_notes = $row["customer_notes"];
-				$customer_link = $row["customer_link"];
+				$customer_link  = $row["customer_link"];
 			}
 		} else {
-			echo "Customer not found, <a data-toggle='modal' data-target='#add_customer'>add one now.</a>";
+			echo "Customer not found, <a data-toggle='modal' data-target='#add_customer'>add one now?</a>";
 			exit();
 		}
 		$conn->close();
