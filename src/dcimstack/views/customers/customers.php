@@ -28,7 +28,6 @@
 		include 'config/db.php';
 		$sql = "SELECT * FROM `customers`";
 		$result = $conn->query($sql);
-
 		if ($result->num_rows > 0) { // output data of each row
 			echo "<table class='table' id='search_table'>";
 			echo "<thead>";
@@ -42,7 +41,7 @@
 			echo "</tr>";
 			echo "</thead>";
 			while ($row = $result->fetch_assoc()) {
-				$link = $row['customer_link'];
+				$link        = $row['customer_link'];
 				$customer_id = $row['id'];
 				echo "<tr>";
 				echo "<td>".$row['id']."</td>";
