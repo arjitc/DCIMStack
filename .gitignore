@@ -1,1 +1,3 @@
 **/config/db.php
+config/db.php
+vendor/sergeytsalkov/meekrodb/db.class.php
