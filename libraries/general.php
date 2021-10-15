@@ -23,4 +23,3 @@ function getDatacenterCountryFromDatacenterID($datacenterID) {
     $row = DB::queryFirstRow("SELECT datacenterCountry FROM datacenters WHERE id=%s", $datacenterID);
     return $row['datacenterCountry'];
 }
-?>

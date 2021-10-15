@@ -4,8 +4,7 @@
  * Class login
  * handles the user's login and logout process
  */
-class Login
-{
+class Login {
     /**
      * @var object The database connection
      */
@@ -23,8 +22,7 @@ class Login
      * the function "__construct()" automatically starts whenever an object of this class is created,
      * you know, when you do "$login = new Login();"
      */
-    public function __construct()
-    {
+    public function __construct() {
         // create/read session, absolutely necessary
         session_start();
 
@@ -42,8 +40,7 @@ class Login
     /**
      * log in with post data
      */
-    private function dologinWithPostData()
-    {
+    private function dologinWithPostData() {
         // check login form contents
         if (empty($_POST['user_name'])) {
             $this->errors[] = "Username field was empty.";
@@ -83,11 +80,10 @@ class Login
                     if (password_verify($_POST['user_password'], $result_row->user_password_hash)) {
 
                         // write user data into PHP SESSION (a file on your server)
-                        $_SESSION['user_id']   = $result_row->user_id;
-                        $_SESSION['user_name'] = $result_row->user_name;
-                        $_SESSION['user_email'] = $result_row->user_email;
+                        $_SESSION['user_id']           = $result_row->user_id;
+                        $_SESSION['user_name']         = $result_row->user_name;
+                        $_SESSION['user_email']        = $result_row->user_email;
                         $_SESSION['user_login_status'] = 1;
-
                     } else {
                         $this->errors[] = "Incorrect Username or password. Try again.";
                     }
@@ -103,23 +99,20 @@ class Login
     /**
      * perform the logout
      */
-    public function doLogout()
-    {
+    public function doLogout() {
         // delete the session of the user
         $_SESSION = array();
         session_destroy();
         // return a little feeedback message
         $this->messages[] = "You have been logged out.";
-
     }
 
     /**
      * simply return the current state of the user's login
      * @return boolean user's login status
      */
-    public function isUserLoggedIn()
-    {
-        if (isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] == 1) {
+    public function isUserLoggedIn() {
+        if (isset($_SESSION['user_login_status']) and $_SESSION['user_login_status'] == 1) {
             return true;
         }
         // default return

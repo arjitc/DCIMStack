@@ -1,4 +1,5 @@
 <?php
+
 function displayAlerts() {
     if (isset($_SESSION['success'])) {
         $message = $_SESSION['success'];
@@ -15,5 +16,5 @@ function displayAlerts() {
         echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
         echo "</div>";
         unset($_SESSION['error']);
-    }    
+    }
 }

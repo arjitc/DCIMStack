@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php
-        if($pageTitle) {
+        if ($pageTitle) {
             echo "<title>dcimstack - $pageTitle</title>";
         } else {
             echo "<title>dcimstack</title>";
@@ -12,7 +12,7 @@
         ?>
         
         <!-- Bootstrap core CSS -->
-        <?php 
+        <?php
         include realpath(dirname(__FILE__)).'/../css.php';
         ?>
 
